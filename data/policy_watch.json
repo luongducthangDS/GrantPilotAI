@@ -2,22 +2,22 @@
   {
     "date": "2026-07-17",
     "title": "Theo dõi cập nhật Đề án 844",
-    "impact": "Có thể phát sinh đợt tuyển chọn nhiệm vụ mới; startup nên chuẩn bị sẵn thuyết minh và dự toán.",
-    "status": "Theo dõi",
-    "source": "https://dean844.most.gov.vn/"
+    "impact": "Quyết định 844 phê duyệt đề án đến năm 2025; với demo 2026 cần kiểm tra đợt tuyển chọn hoặc chương trình kế tiếp trước khi nộp thật.",
+    "status": "Cần xác minh",
+    "source": "https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160"
   },
   {
     "date": "2026-07-16",
     "title": "SMEDF: kiểm tra chương trình vay đang mở",
     "impact": "Doanh nghiệp sản xuất hoặc startup có doanh thu nên rà soát báo cáo tài chính và phương án kinh doanh.",
     "status": "Cần xác minh",
-    "source": "https://www.smedf.gov.vn/"
+    "source": "https://smedf.gov.vn/chuong-trinh-vay-von/"
   },
   {
     "date": "2026-07-15",
     "title": "Văn bản địa phương Hà Nội",
     "impact": "Các hỗ trợ địa phương cần kiểm tra thông báo/đợt nhận hồ sơ trước khi đưa vào hồ sơ nộp thật.",
     "status": "Seed demo",
-    "source": "https://startupcity.vn/"
+    "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html"
   }
 ]

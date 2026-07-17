@@ -5,7 +5,7 @@
     "program": "Nghị định 80/2021/NĐ-CP",
     "scope": "Toàn quốc",
     "status": "Còn hiệu lực",
-    "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=149305",
+    "source": "https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160",
     "summary": "Hỗ trợ tư vấn, sở hữu trí tuệ, tiêu chuẩn chất lượng, thử nghiệm, hoàn thiện sản phẩm mới và sử dụng cơ sở ươm tạo/kỹ thuật.",
     "benefits": ["Tư vấn chuyên sâu", "Hỗ trợ cơ sở kỹ thuật và ươm tạo", "Hỗ trợ hoàn thiện sản phẩm mới"],
     "eligibility": {
@@ -19,13 +19,13 @@
         "document": "Nghị định 80/2021/NĐ-CP",
         "clause": "Điều 22",
         "status": "Còn hiệu lực",
-        "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=149305"
+        "source": "https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160"
       },
       {
         "document": "Luật Hỗ trợ DNNVV 2017",
         "clause": "Điều 17",
-        "status": "Còn hiệu lực",
-        "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=129904"
+        "status": "Hết hiệu lực một phần",
+        "source": "https://vbpl.moj.gov.vn/bokehoachvadautu/Pages/vbpq-van-ban-goc.aspx?ItemID=128706"
       }
     ],
     "checklist": ["Giấy chứng nhận đăng ký doanh nghiệp", "Bản mô tả sản phẩm/dịch vụ đổi mới sáng tạo", "Tài liệu chứng minh quy mô DNNVV", "Đề xuất nội dung hỗ trợ"]
@@ -35,8 +35,8 @@
     "title": "Đề án 844 - Hỗ trợ hệ sinh thái khởi nghiệp đổi mới sáng tạo",
     "program": "Quyết định 844/QĐ-TTg",
     "scope": "Toàn quốc",
-    "status": "Còn hiệu lực",
-    "source": "https://dean844.most.gov.vn/",
+    "status": "Đề án đến năm 2025 - cần xác minh đợt mới",
+    "source": "https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160",
     "summary": "Hỗ trợ nhiệm vụ phát triển hệ sinh thái khởi nghiệp đổi mới sáng tạo, kết nối cố vấn, đào tạo, truyền thông, sự kiện và hoàn thiện năng lực tổ chức.",
     "benefits": ["Checklist hồ sơ nhiệm vụ", "Kết nối hệ sinh thái", "Hỗ trợ đào tạo/cố vấn/sự kiện"],
     "eligibility": {
@@ -49,14 +49,14 @@
       {
         "document": "Quyết định 844/QĐ-TTg",
         "clause": "Mục I",
-        "status": "Còn hiệu lực",
-        "source": "https://dean844.most.gov.vn/"
+        "status": "Đề án đến năm 2025 - cần xác minh đợt mới",
+        "source": "https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160"
       },
       {
         "document": "Thông tư 45/2019/TT-BTC",
         "clause": "Điều 6",
         "status": "Còn hiệu lực",
-        "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=136676"
+        "source": "https://chinhphu.vn/default.aspx?docid=197478&pageid=27160"
       }
     ],
     "checklist": ["Thuyết minh nhiệm vụ", "Dự toán kinh phí", "Hồ sơ năng lực đơn vị", "Cam kết đối ứng hoặc phối hợp", "Tài liệu mô tả sản phẩm, thị trường, đội ngũ"]
@@ -67,7 +67,7 @@
     "program": "SMEDF",
     "scope": "Toàn quốc",
     "status": "Còn hiệu lực",
-    "source": "https://www.smedf.gov.vn/",
+    "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
     "summary": "Nguồn vốn vay ưu tiên cho DNNVV có phương án sản xuất kinh doanh khả thi, minh bạch tài chính và thuộc nhóm khởi nghiệp sáng tạo, cụm liên kết ngành hoặc chuỗi giá trị.",
     "benefits": ["Nguồn vay ưu tiên", "Checklist năng lực tài chính", "Phù hợp doanh nghiệp sản xuất mở rộng"],
     "eligibility": {
@@ -81,7 +81,7 @@
         "document": "Quỹ Phát triển DNNVV",
         "clause": "Điều kiện vay vốn",
         "status": "Còn hiệu lực",
-        "source": "https://www.smedf.gov.vn/"
+        "source": "https://smedf.gov.vn/chuong-trinh-vay-von/"
       }
     ],
     "checklist": ["Báo cáo tài chính gần nhất", "Phương án sản xuất kinh doanh", "Tài liệu chứng minh tiêu chí DNNVV", "Hồ sơ tài sản bảo đảm hoặc bảo lãnh nếu có"]
@@ -91,9 +91,9 @@
     "title": "Ưu đãi đầu tư cho sản phẩm phần mềm, công nghệ thông tin",
     "program": "Luật Đầu tư 2020 và Nghị định 31/2021/NĐ-CP",
     "scope": "Toàn quốc",
-    "status": "Còn hiệu lực",
-    "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=143559",
-    "summary": "Ngành sản xuất phần mềm, sản phẩm công nghệ thông tin và hoạt động R&D thuộc nhóm có thể xem xét ưu đãi đầu tư theo danh mục ngành nghề ưu đãi.",
+    "status": "Cần cập nhật theo Luật Đầu tư 2025/2026",
+    "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160",
+    "summary": "Luồng demo dùng căn cứ lịch sử về ưu đãi đầu tư cho phần mềm/CNTT; khi nộp thật cần rà soát Luật Đầu tư 2025 và nghị định hướng dẫn mới vì Luật Đầu tư 2020 đã hết hiệu lực từ 01/03/2026.",
     "benefits": ["Cơ sở rà soát ưu đãi thuế/đất đai", "Luận cứ ngành nghề ưu đãi", "Phù hợp startup phần mềm"],
     "eligibility": {
       "requires_sme": false,
@@ -105,14 +105,14 @@
       {
         "document": "Luật Đầu tư 2020",
         "clause": "Điều 15",
-        "status": "Còn hiệu lực",
-        "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=143559"
+        "status": "Cần cập nhật theo Luật Đầu tư 2025/2026",
+        "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160"
       },
       {
         "document": "Nghị định 31/2021/NĐ-CP",
         "clause": "Phụ lục II",
-        "status": "Còn hiệu lực",
-        "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=148707"
+        "status": "Đã được sửa đổi/bổ sung - cần rà soát theo Luật Đầu tư 2025",
+        "source": "https://vanban.chinhphu.vn/?docid=202988&pageid=27160"
       }
     ],
     "checklist": ["Giấy chứng nhận đăng ký doanh nghiệp", "Mã ngành/hoạt động phần mềm", "Mô tả sản phẩm CNTT/phần mềm", "Hồ sơ dự án đầu tư nếu có"]
@@ -123,7 +123,7 @@
     "program": "Chương trình địa phương",
     "scope": "Hà Nội",
     "status": "Seed demo - cần xác minh khi nộp thật",
-    "source": "https://startupcity.vn/",
+    "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
     "summary": "Các hoạt động địa phương về đào tạo, cố vấn, kết nối đầu tư, truyền thông và không gian thử nghiệm cho startup đổi mới sáng tạo tại Hà Nội.",
     "benefits": ["Cố vấn và đào tạo", "Kết nối đầu tư", "Sự kiện hệ sinh thái tại Hà Nội"],
     "eligibility": {
@@ -137,7 +137,7 @@
         "document": "Nguồn chương trình khởi nghiệp Hà Nội",
         "clause": "Nhóm nhiệm vụ hỗ trợ hệ sinh thái",
         "status": "Seed demo - cần xác minh",
-        "source": "https://startupcity.vn/"
+        "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html"
       }
     ],
     "checklist": ["Hồ sơ doanh nghiệp tại Hà Nội", "Pitch deck", "Mô tả sản phẩm/dịch vụ", "Nhu cầu hỗ trợ cụ thể"]
@@ -148,7 +148,7 @@
     "program": "Nghị định 80/2021/NĐ-CP",
     "scope": "Toàn quốc",
     "status": "Còn hiệu lực",
-    "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=149305",
+    "source": "https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160",
     "summary": "Hỗ trợ đào tạo, tư vấn, tiêu chuẩn, đo lường chất lượng và kết nối cho DNNVV tham gia cụm liên kết ngành hoặc chuỗi giá trị.",
     "benefits": ["Tư vấn tiêu chuẩn chất lượng", "Đào tạo quản trị sản xuất", "Kết nối chuỗi cung ứng"],
     "eligibility": {
@@ -162,7 +162,7 @@
         "document": "Nghị định 80/2021/NĐ-CP",
         "clause": "Chương IV",
         "status": "Còn hiệu lực",
-        "source": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=149305"
+        "source": "https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160"
       }
     ],
     "checklist": ["Tài liệu chứng minh DNNVV", "Mô tả chuỗi giá trị/cụm liên kết", "Nhu cầu đào tạo hoặc tư vấn", "Báo cáo năng lực sản xuất"]

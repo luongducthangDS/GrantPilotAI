@@ -43,6 +43,7 @@ Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này. Sau khi 
 - `data/policies.json`: rule matching, citation, checklist.
 - `data/corpus.json`: corpus Q&A theo điều/khoản.
 - `data/policy_watch.json`: policy watch mock.
+- `data/source_verification.md`: nhật ký kiểm chứng URL/source dùng trong demo.
 
 MVP này không gọi API LLM để tránh rủi ro quota trong demo. Kiến trúc dữ liệu giữ citation, trạng thái hiệu lực và nguồn để thay bằng RAG/LLM thật ở vòng tiếp theo.
 
