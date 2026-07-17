@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-07-17T15:48:02.165100+00:00",
+  "database": "data/grantpilot.db",
+  "counts": {
+    "sources": 9,
+    "source_checks_ok": 9,
+    "corpus_chunks": 10,
+    "policies": 6,
+    "policy_citations": 9,
+    "sample_profiles": 2,
+    "policy_watch": 3
+  },
+  "unchecked_citation_sources": [],
+  "coverage_notes": [
+    {
+      "area": "FDI / doanh nghiệp công nghệ cao",
+      "status": "roadmap",
+      "note": "Có schema mở rộng nhưng chưa có corpus thật trong MVP."
+    },
+    {
+      "area": "Thuế TNDN cho startup",
+      "status": "missing",
+      "note": "Chưa đưa vào matching vì chưa xác minh văn bản chuyên ngành còn hiệu lực rõ ràng."
+    },
+    {
+      "area": "Biểu mẫu nộp Đề án 844 năm 2026",
+      "status": "needs_verification",
+      "note": "QĐ 844 phê duyệt đến năm 2025; cần kiểm tra chương trình/đợt tuyển chọn kế tiếp."
+    },
+    {
+      "area": "Chương trình Hà Nội",
+      "status": "seed_only",
+      "note": "Nguồn hiện là bối cảnh hệ sinh thái, chưa phải thông báo nhận hồ sơ."
+    },
+    {
+      "area": "Luật Đầu tư",
+      "status": "needs_update",
+      "note": "Policy ưu đãi đầu tư được giữ để demo/roadmap, cần cập nhật theo Luật Đầu tư 2025/2026."
+    }
+  ]
+}

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "data:crawl": "python scripts/crawl_verified_sources.py",
+    "data:build": "python scripts/build_database.py",
+    "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py"
   },
   "dependencies": {
     "docx": "^9.5.1",

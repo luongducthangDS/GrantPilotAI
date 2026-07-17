@@ -44,8 +44,19 @@ Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này. Sau khi 
 - `data/corpus.json`: corpus Q&A theo điều/khoản.
 - `data/policy_watch.json`: policy watch mock.
 - `data/source_verification.md`: nhật ký kiểm chứng URL/source dùng trong demo.
+- `data/verified_sources.json`: danh sách nguồn đã xác thực để crawl.
+- `data/crawled_sources.json`: snapshot crawl đã làm sạch từ nguồn xác thực.
+- `data/grantpilot.db`: SQLite database build từ seed + crawl.
+- `data/database_manifest.json`: số lượng bản ghi và trạng thái coverage.
+- `data/coverage_report.md`: các mảng dữ liệu còn thiếu/cần xác minh.
 
 MVP này không gọi API LLM để tránh rủi ro quota trong demo. Kiến trúc dữ liệu giữ citation, trạng thái hiệu lực và nguồn để thay bằng RAG/LLM thật ở vòng tiếp theo.
+
+Refresh database:
+
+```powershell
+npm run data:refresh
+```
 
 ## Bản Streamlit dự phòng
 

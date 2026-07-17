@@ -7,7 +7,7 @@ This file records the sources used by the demo seed data. The goal is to avoid s
 | Item | Source | Verification result | Demo status |
 |---|---|---|---|
 | Nghị định 80/2021/NĐ-CP | https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160 | HTTP 200; page contains `80/2021` and `doanh nghiệp nhỏ và vừa`. | Còn hiệu lực |
-| Luật Hỗ trợ DNNVV 2017 | https://vbpl.moj.gov.vn/bokehoachvadautu/Pages/vbpq-van-ban-goc.aspx?ItemID=128706 | HTTP 200; CSDL VBPL page identifies `Luật 04/2017/QH14` and shows `Hết hiệu lực một phần`. | Hết hiệu lực một phần |
+| Luật Hỗ trợ DNNVV 2017 | https://vanban.chinhphu.vn/default.aspx?docid=190283&pageid=27160 | HTTP 200; page contains `04/2017` and `doanh nghiệp nhỏ và vừa`. CSDL VBPL was used separately to check `Hết hiệu lực một phần`. | Hết hiệu lực một phần |
 | Thông tư 06/2022/TT-BKHĐT | https://vanban.chinhphu.vn/?docid=205807&pageid=27160 | HTTP 200; page contains `06/2022` and `doanh nghiệp nhỏ và vừa`. | Còn hiệu lực |
 | Quyết định 844/QĐ-TTg | https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160 | HTTP 200; page contains `844/QĐ-TTg` and title states the scheme is to 2025. | Đề án đến năm 2025 - cần xác minh đợt mới |
 | Thông tư 45/2019/TT-BTC | https://chinhphu.vn/default.aspx?docid=197478&pageid=27160 | HTTP 200; page contains `45/2019` and `khởi nghiệp đổi mới sáng tạo`. | Còn hiệu lực |
@@ -21,3 +21,5 @@ Notes:
 - Old `vbpl.vn/TW/Pages/vbpq-toanvan.aspx?...` URLs returned 404 and were removed.
 - `dean844.most.gov.vn` and `startupcity.vn` were not reliable enough for live demo links, so the data now uses Cổng Thông tin điện tử Chính phủ and a Hanoi public-sector article instead.
 - The investment-incentive policy is retained only as a roadmap/demo branch. It is explicitly marked as needing update before real submission in 2026.
+- `data_v2.zip` was removed because its `vbpl.vn/pages/portal.aspx?q=...` links are not stable deep links, and `dean844.most.gov.vn` / `startupcity.vn` failed live checks.
+- The current SQLite database can be refreshed with `npm run data:refresh`.
