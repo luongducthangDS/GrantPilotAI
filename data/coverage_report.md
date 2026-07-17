@@ -1,16 +1,16 @@
 # Data Coverage Report
 
-Generated at: 2026-07-17T15:48:02.165100+00:00
+Generated at: 2026-07-17T16:39:15.906360+00:00
 
 ## Counts
 
 - sources: 9
 - source_checks_ok: 9
-- corpus_chunks: 10
+- corpus_chunks: 14
 - policies: 6
-- policy_citations: 9
+- policy_citations: 13
 - sample_profiles: 2
-- policy_watch: 3
+- policy_watch: 5
 
 ## Remaining Gaps
 
@@ -22,4 +22,7 @@ Generated at: 2026-07-17T15:48:02.165100+00:00
 
 ## Citation Sources Not In Successful Crawl
 
-- None
+- https://thuvienphapluat.vn/van-ban/Dau-tu/Luat-Dau-tu-2025-so-143-2025-QH15-681550.aspx
+- https://vanban.chinhphu.vn/?docid=210143&pageid=27160
+- https://vanban.chinhphu.vn/default.aspx?docid=196965&pageid=27160
+- https://vanban.chinhphu.vn/default.aspx?docid=202651&pageid=27160

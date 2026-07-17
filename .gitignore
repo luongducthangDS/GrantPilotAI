@@ -7,3 +7,7 @@ yarn-error.log*
 .env*
 __pycache__
 *.pyc
+tmp/
+*.zip
+data_2/
+check_api_gemini.ipynb

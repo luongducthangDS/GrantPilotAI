@@ -53,6 +53,12 @@
         "source": "https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160"
       },
       {
+        "document": "Quyết định 188/QĐ-TTg (sửa đổi, bổ sung QĐ 844/QĐ-TTg)",
+        "clause": "Điều 1",
+        "status": "Còn hiệu lực",
+        "source": "https://vanban.chinhphu.vn/default.aspx?docid=202651&pageid=27160"
+      },
+      {
         "document": "Thông tư 45/2019/TT-BTC",
         "clause": "Điều 6",
         "status": "Còn hiệu lực",
@@ -82,6 +88,18 @@
         "clause": "Điều kiện vay vốn",
         "status": "Còn hiệu lực",
         "source": "https://smedf.gov.vn/chuong-trinh-vay-von/"
+      },
+      {
+        "document": "Nghị định 39/2019/NĐ-CP",
+        "clause": "Điều kiện cho vay (Chương II)",
+        "status": "Còn hiệu lực - đã được sửa đổi, bổ sung bởi Nghị định 45/2024/NĐ-CP",
+        "source": "https://vanban.chinhphu.vn/default.aspx?docid=196965&pageid=27160"
+      },
+      {
+        "document": "Nghị định 45/2024/NĐ-CP (sửa đổi, bổ sung NĐ 39/2019/NĐ-CP)",
+        "clause": "Điều 1",
+        "status": "Còn hiệu lực (từ 10/06/2024)",
+        "source": "https://vanban.chinhphu.vn/?docid=210143&pageid=27160"
       }
     ],
     "checklist": ["Báo cáo tài chính gần nhất", "Phương án sản xuất kinh doanh", "Tài liệu chứng minh tiêu chí DNNVV", "Hồ sơ tài sản bảo đảm hoặc bảo lãnh nếu có"]
@@ -91,7 +109,7 @@
     "title": "Ưu đãi đầu tư cho sản phẩm phần mềm, công nghệ thông tin",
     "program": "Luật Đầu tư 2020 và Nghị định 31/2021/NĐ-CP",
     "scope": "Toàn quốc",
-    "status": "Cần cập nhật theo Luật Đầu tư 2025/2026",
+    "status": "Luật Đầu tư 2020 hết hiệu lực từ 01/03/2026 - áp dụng Luật Đầu tư 143/2025/QH15, chờ nghị định hướng dẫn mới thay NĐ 31/2021",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160",
     "summary": "Luồng demo dùng căn cứ lịch sử về ưu đãi đầu tư cho phần mềm/CNTT; khi nộp thật cần rà soát Luật Đầu tư 2025 và nghị định hướng dẫn mới vì Luật Đầu tư 2020 đã hết hiệu lực từ 01/03/2026.",
     "benefits": ["Cơ sở rà soát ưu đãi thuế/đất đai", "Luận cứ ngành nghề ưu đãi", "Phù hợp startup phần mềm"],
@@ -105,8 +123,14 @@
       {
         "document": "Luật Đầu tư 2020",
         "clause": "Điều 15",
-        "status": "Cần cập nhật theo Luật Đầu tư 2025/2026",
+        "status": "Hết hiệu lực từ 01/03/2026 - thay thế bởi Luật Đầu tư 143/2025/QH15",
         "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160"
+      },
+      {
+        "document": "Luật Đầu tư 2025 (143/2025/QH15)",
+        "clause": "Hiệu lực và chuyển tiếp",
+        "status": "Còn hiệu lực (từ 01/03/2026)",
+        "source": "https://thuvienphapluat.vn/van-ban/Dau-tu/Luat-Dau-tu-2025-so-143-2025-QH15-681550.aspx"
       },
       {
         "document": "Nghị định 31/2021/NĐ-CP",

@@ -21,7 +21,7 @@
     "id": "law2017-dieu17",
     "title": "Luật Hỗ trợ doanh nghiệp nhỏ và vừa 2017",
     "clause": "Điều 17",
-    "status": "Hết hiệu lực một phần",
+    "status": "Hết hiệu lực một phần - đã được sửa đổi, bổ sung bởi Luật Đầu tư 61/2020/QH14 và Luật Đấu thầu 22/2023/QH15",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=190283&pageid=27160",
     "tags": ["startup", "doi_moi_sang_tao", "co_so_uom_tao"],
     "text": "Nội dung hỗ trợ doanh nghiệp nhỏ và vừa khởi nghiệp sáng tạo gồm hỗ trợ ứng dụng, chuyển giao công nghệ; sử dụng trang thiết bị tại cơ sở kỹ thuật; tham gia cơ sở ươm tạo, khu làm việc chung; hướng dẫn thử nghiệm, hoàn thiện sản phẩm, dịch vụ và mô hình kinh doanh mới."
@@ -39,7 +39,7 @@
     "id": "qd844-muc1",
     "title": "Quyết định 844/QĐ-TTg",
     "clause": "Mục I",
-    "status": "Đề án đến năm 2025 - cần xác minh đợt mới",
+    "status": "Đề án đến năm 2025 (đã sửa đổi bởi QĐ 188/QĐ-TTg 2021) - cần xác minh đợt mới",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160",
     "tags": ["de_an_844", "startup", "he_sinh_thai"],
     "text": "Đề án 844 hướng tới hỗ trợ hệ sinh thái khởi nghiệp đổi mới sáng tạo quốc gia, phát triển cá nhân, nhóm cá nhân khởi nghiệp, doanh nghiệp khởi nghiệp đổi mới sáng tạo và tổ chức hỗ trợ khởi nghiệp."
@@ -66,7 +66,7 @@
     "id": "law-investment-2020-dieu15",
     "title": "Luật Đầu tư 2020",
     "clause": "Điều 15",
-    "status": "Cần cập nhật theo Luật Đầu tư 2025/2026",
+    "status": "Hết hiệu lực từ 01/03/2026 - thay thế bởi Luật Đầu tư 143/2025/QH15 (GCN đầu tư đã cấp theo luật cũ vẫn có hiệu lực theo quy định chuyển tiếp)",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160",
     "tags": ["uu_dai_dau_tu", "thue", "dat_dai"],
     "text": "Hình thức ưu đãi đầu tư gồm ưu đãi thuế thu nhập doanh nghiệp, miễn giảm thuế nhập khẩu, miễn giảm tiền sử dụng đất, tiền thuê đất và khấu hao nhanh, tăng mức chi phí được trừ khi tính thu nhập chịu thuế."
@@ -88,5 +88,41 @@
     "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
     "tags": ["ha_noi", "startup", "dia_phuong"],
     "text": "Hà Nội có các hoạt động hỗ trợ hệ sinh thái khởi nghiệp như truyền thông, đào tạo, cố vấn, kết nối đầu tư, không gian thử nghiệm và kết nối với mạng lưới hỗ trợ đổi mới sáng tạo địa phương."
+  },
+  {
+    "id": "qd188-2021",
+    "title": "Quyết định 188/QĐ-TTg",
+    "clause": "Điều 1",
+    "status": "Còn hiệu lực",
+    "source": "https://vanban.chinhphu.vn/default.aspx?docid=202651&pageid=27160",
+    "tags": ["de_an_844", "sua_doi", "startup", "he_sinh_thai"],
+    "text": "Quyết định 188/QĐ-TTg ngày 09/02/2021 sửa đổi, bổ sung một số điều của Quyết định 844/QĐ-TTg, bổ sung mục tiêu xây dựng hệ thống trung tâm đổi mới sáng tạo hỗ trợ nghiên cứu phát triển, khởi nghiệp sáng tạo, phát triển mạng lưới khởi nghiệp đổi mới sáng tạo quốc gia và mở rộng đối tượng, nhiệm vụ của Đề án 844."
+  },
+  {
+    "id": "nd39-2019",
+    "title": "Nghị định 39/2019/NĐ-CP",
+    "clause": "Điều kiện cho vay (Chương II)",
+    "status": "Còn hiệu lực - đã được sửa đổi, bổ sung bởi Nghị định 45/2024/NĐ-CP",
+    "source": "https://vanban.chinhphu.vn/default.aspx?docid=196965&pageid=27160",
+    "tags": ["smedf", "vay_von", "dnnvv", "to_chuc_quy"],
+    "text": "Nghị định 39/2019/NĐ-CP quy định tổ chức và hoạt động của Quỹ Phát triển doanh nghiệp nhỏ và vừa (SMEDF): Quỹ cho vay DNNVV khởi nghiệp sáng tạo, DNNVV tham gia cụm liên kết ngành, chuỗi giá trị; mức vay tối đa 80% tổng mức đầu tư dự án, thời hạn vay tối đa 7 năm; doanh nghiệp phải có vốn chủ sở hữu tham gia tối thiểu 20% và đáp ứng quy định bảo đảm tiền vay."
+  },
+  {
+    "id": "nd45-2024",
+    "title": "Nghị định 45/2024/NĐ-CP",
+    "clause": "Điều 1",
+    "status": "Còn hiệu lực (hiệu lực từ 10/06/2024)",
+    "source": "https://vanban.chinhphu.vn/?docid=210143&pageid=27160",
+    "tags": ["smedf", "sua_doi", "vay_von", "dnnvv"],
+    "text": "Nghị định 45/2024/NĐ-CP sửa đổi, bổ sung Nghị định 39/2019/NĐ-CP về Quỹ Phát triển DNNVV: mỗi DNNVV được Quỹ xem xét, quyết định tài trợ vốn không quá 01 lần; doanh nghiệp đã vay vốn của Quỹ được xem xét cho vay dự án mới nếu đã hoàn trả hết nợ gốc và lãi tiền vay đầy đủ, đúng thời hạn; kiện toàn quy định về Hội đồng thành viên, Ban kiểm soát và trách nhiệm các bên."
+  },
+  {
+    "id": "law-investment-2025",
+    "title": "Luật Đầu tư 2025 (143/2025/QH15)",
+    "clause": "Hiệu lực và chuyển tiếp",
+    "status": "Còn hiệu lực (từ 01/03/2026; danh mục ngành nghề kinh doanh có điều kiện từ 01/07/2026)",
+    "source": "https://thuvienphapluat.vn/van-ban/Dau-tu/Luat-Dau-tu-2025-so-143-2025-QH15-681550.aspx",
+    "tags": ["uu_dai_dau_tu", "sua_doi", "thay_the", "dau_tu"],
+    "text": "Luật Đầu tư số 143/2025/QH15 được Quốc hội thông qua ngày 11/12/2025, thay thế Luật Đầu tư số 61/2020/QH14, có hiệu lực từ 01/03/2026. Giấy chứng nhận đăng ký đầu tư, chấp thuận chủ trương đầu tư đã cấp theo Luật Đầu tư 2020 tiếp tục có hiệu lực theo quy định chuyển tiếp. Danh mục ngành, nghề đầu tư kinh doanh có điều kiện áp dụng từ 01/07/2026."
   }
 ]
