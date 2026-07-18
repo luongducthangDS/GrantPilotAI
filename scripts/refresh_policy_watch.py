@@ -50,7 +50,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from crawl_verified_sources import OUTPUT_PATH as CRAWLED_SOURCES_PATH  # noqa: E402
+# RAW_OUTPUT_PATH (not PROCESSED_OUTPUT_PATH) — the processed/deduplicated
+# file crawl() returns strips the `text` field entirely (see
+# crawl_verified_sources.py's processed_rows comprehension), and this script
+# needs full text to diff against the previous run. The raw file keeps it.
+from crawl_verified_sources import RAW_OUTPUT_PATH as CRAWLED_SOURCES_PATH  # noqa: E402
 from crawl_verified_sources import crawl as crawl_verified_sources  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -80,7 +84,8 @@ def check_source_changes() -> list[dict]:
     previous_rows = json.loads(CRAWLED_SOURCES_PATH.read_text(encoding="utf-8")) if CRAWLED_SOURCES_PATH.exists() else []
     previous_by_id = {row["id"]: row for row in previous_rows}
 
-    new_rows = crawl_verified_sources()
+    crawl_verified_sources()  # writes RAW_OUTPUT_PATH + PROCESSED_OUTPUT_PATH; its return value has no `text` field
+    new_rows = json.loads(CRAWLED_SOURCES_PATH.read_text(encoding="utf-8"))
 
     changes: list[dict] = []
     for row in new_rows:

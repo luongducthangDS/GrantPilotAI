@@ -30,7 +30,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install crawler dependencies
-        run: pip install requests beautifulsoup4 playwright
+        run: pip install -r requirements.txt
 
       - name: Install Chromium for Playwright
         run: playwright install --with-deps chromium
@@ -59,7 +59,8 @@ jobs:
           add-paths: |
             data/policy_watch.json
             data/policy_watch_refresh_report.md
-            data/crawled_sources.json
-            data/grantpilot.db
-            data/database_manifest.json
-            data/coverage_report.md
+            data/raw/verified_source_pages.json
+            data/processed/crawled_sources.json
+            data/processed/grantpilot.db
+            data/processed/database_manifest.json
+            data/processed/coverage_report.md
