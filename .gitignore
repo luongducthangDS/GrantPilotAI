@@ -11,3 +11,5 @@ tmp/
 *.zip
 data_2/
 check_api_gemini.ipynb
+data/raw/vbpl_filter_progress.json
+data/processed/vbpl_grantpilot_slice.jsonl

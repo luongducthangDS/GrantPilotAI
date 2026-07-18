@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "data:crawl": "python scripts/crawl_verified_sources.py",
+    "data:crawl-policy": "python scripts/crawl_chinhphu_policy.py",
+    "data:filter-vbpl": "python scripts/filter_vbpl_dataset.py",
     "data:build": "python scripts/build_database.py",
     "data:embed": "node scripts/build-embeddings.mjs",
     "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py && node scripts/build-embeddings.mjs",
+    "data:test": "python -m unittest discover -s tests -p test_data_pipeline.py",
     "data:watch": "python scripts/refresh_policy_watch.py"
   },
   "dependencies": {

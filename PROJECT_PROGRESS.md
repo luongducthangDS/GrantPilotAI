@@ -91,10 +91,11 @@ Nguồn đã thay/chuẩn hóa:
 
 - `data/source_verification.md`: nhật ký kiểm chứng source.
 - `data/verified_sources.json`: danh sách source có cấu trúc để crawler sử dụng.
-- `data/crawled_sources.json`: snapshot crawl từ các nguồn đã xác thực.
-- `data/grantpilot.db`: SQLite database cho MVP.
-- `data/database_manifest.json`: manifest số lượng bản ghi và coverage.
-- `data/coverage_report.md`: báo cáo các mảng còn thiếu.
+- `data/raw/verified_source_pages.json`: snapshot thô từ các nguồn đã xác thực.
+- `data/processed/crawled_sources.json`: snapshot đã chuẩn hóa, hash và loại trùng.
+- `data/processed/grantpilot.db`: SQLite database cho MVP.
+- `data/processed/database_manifest.json`: manifest số lượng bản ghi và coverage.
+- `data/processed/coverage_report.md`: báo cáo các mảng còn thiếu.
 
 Database hiện có:
 
