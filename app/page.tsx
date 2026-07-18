@@ -14,8 +14,21 @@ import {
   policyWatch,
   sampleProfiles
 } from "@/lib/grantpilot";
+import { OCR_FIELD_NAMES, ocrProfilePatch, type OcrExtraction, type OcrFieldName } from "@/lib/ocr";
 
 type View = "overview" | "search" | "qa" | "updates";
+
+const OCR_FIELD_LABELS: Record<OcrFieldName, string> = {
+  name: "Tên doanh nghiệp",
+  tax_code: "Mã số thuế",
+  province: "Địa phương",
+  industry: "Lĩnh vực",
+  business_line: "Ngành nghề",
+  representative: "Người đại diện",
+  capital_bil: "Vốn điều lệ",
+  email: "Email",
+  phone: "Điện thoại"
+};
 
 const provinces = ["Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", "Khác"];
 const industries = ["Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại", "Khác"];
@@ -64,6 +77,9 @@ export default function Home() {
   const [selectedPolicy, setSelectedPolicy] = useState<MatchResult | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [dragActive, setDragActive] = useState(false);
+  const [ocrLoading, setOcrLoading] = useState(false);
+  const [ocrResult, setOcrResult] = useState<OcrExtraction | null>(null);
+  const [ocrConfirmed, setOcrConfirmed] = useState(true);
   const [docxLoading, setDocxLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -73,6 +89,16 @@ export default function Home() {
   const [answerLoading, setAnswerLoading] = useState(false);
 
   const sme = useMemo(() => classifySme(profile), [profile]);
+  const ocrLowConfidenceFields = useMemo(
+    () =>
+      ocrResult
+        ? OCR_FIELD_NAMES.filter((field) => {
+            const confidence = ocrResult.confidence[field];
+            return ocrResult.profile[field] !== null && confidence > 0 && confidence < 0.75;
+          }).map((field) => OCR_FIELD_LABELS[field])
+        : [],
+    [ocrResult]
+  );
   const verifiedPolicyCount = useMemo(() => policies.filter((policy) => policy.status.includes("Còn hiệu lực")).length, []);
 
   useEffect(() => {
@@ -92,14 +118,56 @@ export default function Home() {
   function chooseProfile(candidate: Profile) {
     setProfile(candidate);
     setResults([]);
+    setOcrResult(null);
+    setOcrConfirmed(true);
     setMessage(`Đã chọn hồ sơ mẫu ${candidate.name}.`);
     setError("");
+  }
+
+  async function handleOcrImage(file: File) {
+    if (file.size > 10 * 1024 * 1024) {
+      setError("Ảnh vượt quá giới hạn 10 MB.");
+      return;
+    }
+
+    setOcrLoading(true);
+    setOcrResult(null);
+    setOcrConfirmed(false);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const response = await fetch("/api/ocr", { method: "POST", body: formData });
+      const payload = (await response.json()) as OcrExtraction | { error?: string };
+      if (!response.ok) {
+        throw new Error("error" in payload && payload.error ? payload.error : "Không thể đọc ảnh.");
+      }
+
+      const extraction = payload as OcrExtraction;
+      setProfile((current) => ({ ...current, ...ocrProfilePatch(extraction) }));
+      setResults([]);
+      setOcrResult(extraction);
+      setMessage("Đã trích xuất thông tin từ ảnh. Vui lòng rà soát và xác nhận trước khi phân tích.");
+    } catch (reason) {
+      setOcrConfirmed(true);
+      setError(reason instanceof Error ? reason.message : "Không thể đọc ảnh.");
+    } finally {
+      setOcrLoading(false);
+    }
   }
 
   async function handleFile(file?: File) {
     if (!file) return;
     setError("");
     setMessage("");
+    const lowerName = file.name.toLowerCase();
+    if (["image/jpeg", "image/png"].includes(file.type) || /\.(jpe?g|png)$/.test(lowerName)) {
+      await handleOcrImage(file);
+      return;
+    }
+    if (file.size > 1024 * 1024) {
+      setError("Tệp TXT vượt quá giới hạn 1 MB.");
+      return;
+    }
     if (!file.name.toLowerCase().endsWith(".txt")) {
       setError("Vui lòng chọn tệp TXT.");
       return;
@@ -109,6 +177,8 @@ export default function Home() {
       const parsed = parseUploadedText(text);
       setProfile((current) => ({ ...current, ...parsed }));
       setResults([]);
+      setOcrResult(null);
+      setOcrConfirmed(true);
       setMessage("Đã đọc hồ sơ (OCR mock). Bạn có thể kiểm tra và bổ sung thông tin.");
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Không thể đọc tệp.");
@@ -116,6 +186,10 @@ export default function Home() {
   }
 
   async function analyze() {
+    if (ocrResult && !ocrConfirmed) {
+      setError("Vui lòng rà soát và xác nhận thông tin OCR trước khi phân tích chính sách.");
+      return;
+    }
     if (!profile.name || !profile.tax_code) {
       setError("Vui lòng hoàn thiện tên doanh nghiệp và mã số thuế.");
       return;
@@ -356,11 +430,11 @@ export default function Home() {
                     <span className="eyebrow">BƯỚC 01</span>
                     <h3>Nhập hồ sơ doanh nghiệp</h3>
                   </div>
-                  <span className="privacy-badge">Xử lý cục bộ</span>
+                  <span className="privacy-badge">Không lưu tệp</span>
                 </div>
 
                 <label
-                  className={dragActive ? "dropzone active" : "dropzone"}
+                  className={`${dragActive ? "dropzone active" : "dropzone"}${ocrLoading ? " loading" : ""}`}
                   onDragEnter={(event: DragEvent) => {
                     event.preventDefault();
                     setDragActive(true);
@@ -370,14 +444,51 @@ export default function Home() {
                   onDrop={(event: DragEvent) => {
                     event.preventDefault();
                     setDragActive(false);
+                    if (ocrLoading) return;
                     handleFile(event.dataTransfer.files[0]);
                   }}
                 >
-                  <input type="file" accept=".txt,text/plain" onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])} />
+                  <input
+                    type="file"
+                    accept=".txt,text/plain,.jpg,.jpeg,.png,image/jpeg,image/png"
+                    disabled={ocrLoading}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      handleFile(event.target.files?.[0]);
+                      event.currentTarget.value = "";
+                    }}
+                  />
                   <span className="upload-icon">⇧</span>
-                  <strong>Thả hồ sơ TXT vào đây (OCR mock)</strong>
-                  <p>hoặc bấm để chọn tệp · tối đa 1 MB</p>
+                  <strong>{ocrLoading ? "Đang đọc hồ sơ bằng AI…" : "Thả hồ sơ TXT hoặc ảnh scan vào đây"}</strong>
+                  <p>JPG/PNG tối đa 10 MB · TXT tối đa 1 MB · ảnh được gửi tới Gemini để trích xuất</p>
                 </label>
+
+                {ocrResult && (
+                  <div className={ocrConfirmed ? "ocr-review confirmed" : "ocr-review"} role="status">
+                    <div>
+                      <strong>{ocrConfirmed ? "Thông tin OCR đã được xác nhận" : "Cần rà soát thông tin OCR"}</strong>
+                      <p>
+                        AI chỉ điền những trường nhìn thấy trong ảnh. Doanh thu, lao động và trạng thái startup vẫn cần nhập thủ công.
+                      </p>
+                    </div>
+                    {ocrLowConfidenceFields.length > 0 && (
+                      <p className="ocr-warning">Độ tin cậy thấp: {ocrLowConfidenceFields.join(", ")}.</p>
+                    )}
+                    {ocrResult.warnings.length > 0 && (
+                      <ul>
+                        {ocrResult.warnings.map((warning) => <li key={warning}>{warning}</li>)}
+                      </ul>
+                    )}
+                    {!ocrConfirmed && (
+                      <button type="button" onClick={() => {
+                        setOcrConfirmed(true);
+                        setMessage("Đã xác nhận thông tin OCR. Bạn có thể tiếp tục phân tích chính sách.");
+                        setError("");
+                      }}>
+                        Xác nhận thông tin đã kiểm tra
+                      </button>
+                    )}
+                  </div>
+                )}
 
                 <div className="sample-divider"><span>hoặc dùng hồ sơ mẫu</span></div>
                 <div className="sample-buttons">
@@ -434,6 +545,18 @@ export default function Home() {
                   <label className="wide-field">
                     Ngành nghề / mô tả
                     <textarea value={profile.business_line ?? ""} onChange={(e) => updateProfile("business_line", e.target.value)} rows={3} />
+                  </label>
+                  <label className="wide-field">
+                    Người đại diện
+                    <input value={profile.representative ?? ""} onChange={(e) => updateProfile("representative", e.target.value)} />
+                  </label>
+                  <label>
+                    Email
+                    <input type="email" value={profile.email ?? ""} onChange={(e) => updateProfile("email", e.target.value)} />
+                  </label>
+                  <label>
+                    Điện thoại
+                    <input type="tel" value={profile.phone ?? ""} onChange={(e) => updateProfile("phone", e.target.value)} />
                   </label>
                   <label>
                     Lao động
