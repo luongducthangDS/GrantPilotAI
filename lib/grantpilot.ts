@@ -312,6 +312,60 @@ export function answerQuestion(question: string, profile?: Profile): Answer {
   return { text, citations, confidence: "Có căn cứ trong corpus" };
 }
 
+// The UI's province/industry <select> fields only recognize these exact label
+// strings (see `provinces`/`industries` in app/page.tsx) — any other value
+// (a different capitalization, a full-name variant, free text from a regex
+// capture or an LLM that didn't follow the enum instruction) leaves the
+// <select> silently unmatched, which browsers render as if nothing was
+// selected. normalizeProvince/normalizeIndustry map known aliases onto the
+// exact accepted label; callers should drop the field entirely (not keep the
+// raw value) when there's no match.
+const PROVINCE_ALIASES: Record<string, string> = {
+  "ha noi": "Hà Nội",
+  "tp ho chi minh": "TP. Hồ Chí Minh",
+  "thanh pho ho chi minh": "TP. Hồ Chí Minh",
+  "ho chi minh": "TP. Hồ Chí Minh",
+  "tphcm": "TP. Hồ Chí Minh",
+  "tp hcm": "TP. Hồ Chí Minh",
+  hcm: "TP. Hồ Chí Minh",
+  "da nang": "Đà Nẵng",
+  "binh duong": "Bình Dương",
+  "bac ninh": "Bắc Ninh",
+  khac: "Khác"
+};
+
+const INDUSTRY_ALIASES: Record<string, string> = {
+  "phan mem / ai": "Phần mềm / AI",
+  "phan mem": "Phần mềm / AI",
+  ai: "Phần mềm / AI",
+  "san xuat": "Sản xuất",
+  "cong nghe cao": "Công nghệ cao",
+  "dich vu doi moi sang tao": "Dịch vụ đổi mới sáng tạo",
+  "thuong mai": "Thương mại",
+  "khac": "Khác"
+};
+
+// normalizeText() (used broadly for search/tokenization elsewhere) doesn't map
+// "đ"/"Đ" to "d" — NFD decomposition only strips *combining* diacritics, and
+// "đ" is a distinct base letter, not a base+combining-mark pair, so it falls
+// through to normalizeText's final [^a-z0-9\s/.-] strip and disappears
+// entirely (e.g. "Đà Nẵng" -> "a nang", not "da nang"). It also keeps "."
+// verbatim ("TP. Hồ Chí Minh" -> "tp. ho chi minh"). Both would make the
+// alias lookup below miss real matches, so pre-clean just for this lookup
+// rather than changing the shared normalizeText (used by retrieval/BM25
+// elsewhere and not worth re-validating for an unrelated fix).
+function normalizeForAliasLookup(raw: string): string {
+  return normalizeText(raw.replace(/[đĐ]/g, "d").replace(/\./g, ""));
+}
+
+export function normalizeProvince(raw: string): string | undefined {
+  return PROVINCE_ALIASES[normalizeForAliasLookup(raw)];
+}
+
+export function normalizeIndustry(raw: string): string | undefined {
+  return INDUSTRY_ALIASES[normalizeForAliasLookup(raw)];
+}
+
 export function parseUploadedText(text: string): Partial<Profile> {
   const profile: Partial<Profile> = {};
   const patterns: Record<keyof Pick<Profile, "name" | "tax_code" | "province" | "industry" | "employees" | "revenue_bil" | "capital_bil">, RegExp> = {
@@ -334,25 +388,20 @@ export function parseUploadedText(text: string): Partial<Profile> {
     else (profile as Record<string, string>)[key] = raw;
   });
 
-  const provinceMap: Record<string, string> = {
-    "ha noi": "Hà Nội",
-    "tp ho chi minh": "TP. Hồ Chí Minh",
-    "da nang": "Đà Nẵng",
-    "binh duong": "Bình Dương",
-    "bac ninh": "Bắc Ninh"
-  };
-  const industryMap: Record<string, string> = {
-    "phan mem / ai": "Phần mềm / AI",
-    "phan mem": "Phần mềm / AI",
-    ai: "Phần mềm / AI",
-    "san xuat": "Sản xuất",
-    "cong nghe cao": "Công nghệ cao",
-    "dich vu doi moi sang tao": "Dịch vụ đổi mới sáng tạo",
-    "thuong mai": "Thương mại"
-  };
-
-  if (profile.province) profile.province = provinceMap[normalizeText(profile.province)] ?? profile.province;
-  if (profile.industry) profile.industry = industryMap[normalizeText(profile.industry)] ?? profile.industry;
+  // Only keep province/industry if they resolve to a known value — the source regex
+  // has no line boundary, so a false-positive match (e.g. "lĩnh vực" appearing mid-sentence
+  // in unrelated prose) can capture arbitrary free text. Assigning that text straight into
+  // a <select>-bound field silently corrupts the profile instead of just skipping the field.
+  if (profile.province) {
+    const mapped = normalizeProvince(profile.province);
+    if (mapped) profile.province = mapped;
+    else delete profile.province;
+  }
+  if (profile.industry) {
+    const mapped = normalizeIndustry(profile.industry);
+    if (mapped) profile.industry = mapped;
+    else delete profile.industry;
+  }
 
   const startupMatch = text.match(/(?:startup|doi moi sang tao|đổi mới sáng tạo)[:\s]+(.+)/i);
   if (startupMatch) {

@@ -223,7 +223,39 @@ export default function Home() {
         const parsed = parseUploadedText(text);
         setProfile((current) => ({ ...current, ...parsed }));
         setResults([]);
-        setMessage("Đã đọc hồ sơ từ file .txt. Bạn có thể kiểm tra và bổ sung thông tin.");
+
+        // parseUploadedText() only understands the demo's own "key: value" format.
+        // Real documents (annual reports, company profiles, free-form text) rarely
+        // match it and silently leave most fields unchanged — fall back to AI
+        // extraction on the raw text instead of pretending the upload worked.
+        const fieldsFound = Object.values(parsed).filter((value) => value !== undefined && value !== "").length;
+        if (parsed.name && fieldsFound >= 3) {
+          setMessage("Đã đọc hồ sơ từ file .txt theo định dạng chuẩn.");
+          return;
+        }
+
+        setMessage("File không khớp định dạng chuẩn (key: value) — đang thử đọc bằng AI...");
+        setOcrLoading(true);
+        try {
+          const response = await fetch("/api/ocr", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text, llm: llmSettings ?? undefined })
+          });
+          const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
+          if (!response.ok || !data.profile) throw new Error(data.error || "AI không đọc được nội dung.");
+
+          setProfile((current) => ({ ...current, ...data.profile }));
+          setMessage("Đã đọc hồ sơ từ file .txt bằng AI (định dạng tự do). Vui lòng kiểm tra lại các trường trước khi dùng.");
+        } catch (aiReason) {
+          setMessage(
+            `Chỉ đọc được một phần từ file (định dạng không khớp mẫu chuẩn${
+              aiReason instanceof Error ? `, AI cũng không đọc được: ${aiReason.message}` : ""
+            }). Vui lòng kiểm tra và bổ sung thủ công.`
+          );
+        } finally {
+          setOcrLoading(false);
+        }
       } catch (reason) {
         setError(reason instanceof Error ? reason.message : "Không thể đọc tệp.");
       }
@@ -553,7 +585,7 @@ export default function Home() {
                   />
                   <span className="upload-icon">{ocrLoading ? <span className="button-spinner" /> : "⇧"}</span>
                   <strong>{ocrLoading ? "Đang đọc ảnh bằng AI..." : "Thả hồ sơ TXT hoặc ảnh ĐKKD/KQKD vào đây"}</strong>
-                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp · Ảnh (JPG/PNG): OCR thật qua AI · tối đa 1 MB"}</p>
+                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Ảnh (JPG/PNG): OCR thật qua AI · tối đa 1 MB"}</p>
                 </label>
 
                 <div className="sample-divider"><span>hoặc dùng hồ sơ mẫu</span></div>
