@@ -92,6 +92,18 @@ const PROFILE_STORAGE_KEY = "grantpilot:profile-draft";
 // Session-only (not localStorage) — survives an accidental reload/crash
 // within the same tab, but doesn't linger indefinitely across visits the
 // way a saved LLM API key would need to be scoped to avoid ever doing.
+// Loose text match for pairing an AI checklist-match response item back to
+// the checklist item it refers to (case/diacritics/whitespace-insensitive,
+// so minor rephrasing by the model doesn't break the match).
+function normalizeChecklistText(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
 function loadStoredProfile(): Profile | null {
   if (typeof window === "undefined") return null;
   try {
@@ -132,6 +144,14 @@ export default function Home() {
   const [checklistMatch, setChecklistMatch] = useState<{ item: string; status: string; note: string }[] | null>(null);
   const [checklistMatchLoading, setChecklistMatchLoading] = useState(false);
   const [checklistMatchError, setChecklistMatchError] = useState("");
+  const checklistMatchByText = useMemo(() => {
+    if (!checklistMatch) return null;
+    const map = new Map<string, { item: string; status: string; note: string }>();
+    for (const m of checklistMatch) {
+      if (m?.item) map.set(normalizeChecklistText(m.item), m);
+    }
+    return map;
+  }, [checklistMatch]);
 
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -180,9 +200,14 @@ export default function Home() {
 
   async function matchChecklistDocuments(fileList: FileList | null) {
     if (!fileList || fileList.length === 0 || !selectedPolicy) return;
-    const files = Array.from(fileList).filter((file) => file.type.startsWith("image/"));
+    const isSupported = (file: File) =>
+      file.type.startsWith("image/") ||
+      file.type === "application/pdf" ||
+      file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
+      file.name.toLowerCase().endsWith(".docx");
+    const files = Array.from(fileList).filter(isSupported);
     if (files.length === 0) {
-      setChecklistMatchError("Chỉ hỗ trợ ảnh (JPG/PNG/WebP) cho bước đối chiếu này.");
+      setChecklistMatchError("Chỉ hỗ trợ ảnh (JPG/PNG/WebP), PDF hoặc Word (.docx) cho bước đối chiếu này.");
       return;
     }
 
@@ -193,8 +218,16 @@ export default function Home() {
         files.map(
           (file) =>
             new Promise<{ name: string; mimeType: string; data: string }>((resolve, reject) => {
+              // file.type is unreliable for .docx on some browser/OS combos
+              // (can come through empty) — check the extension too, same as
+              // the main upload path in handleFile().
+              const mimeType =
+                file.type ||
+                (file.name.toLowerCase().endsWith(".docx")
+                  ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  : file.type);
               const reader = new FileReader();
-              reader.onload = () => resolve({ name: file.name, mimeType: file.type, data: (reader.result as string).split(",")[1] ?? "" });
+              reader.onload = () => resolve({ name: file.name, mimeType, data: (reader.result as string).split(",")[1] ?? "" });
               reader.onerror = () => reject(new Error(`Không đọc được tệp ${file.name}.`));
               reader.readAsDataURL(file);
             })
@@ -1099,7 +1132,7 @@ export default function Home() {
                   {checklistMatchLoading ? "Đang đối chiếu..." : "⇪ Tải tài liệu để AI đối chiếu"}
                   <input
                     type="file"
-                    accept="image/png,image/jpeg,image/webp"
+                    accept="image/png,image/jpeg,image/webp,application/pdf,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     multiple
                     disabled={checklistMatchLoading}
                     onChange={(e) => {
@@ -1116,8 +1149,13 @@ export default function Home() {
                 </p>
               )}
               <ol className="document-list">
-                {selectedPolicy.checklist.map((item, index) => {
-                  const match = checklistMatch?.[index];
+                {selectedPolicy.checklist.map((item) => {
+                  // Match by item text, not array position — the model can
+                  // reorder, drop, or split checklist items in its JSON
+                  // response, so trusting positional alignment (old
+                  // behavior: checklistMatch?.[index]) risked silently
+                  // showing the wrong result against the wrong item.
+                  const match = checklistMatchByText?.get(normalizeChecklistText(item));
                   const icon = !match ? "□" : match.status === "co" ? "✓" : match.status === "thieu" ? "✗" : "?";
                   const toneClass = !match ? "" : match.status === "co" ? "have" : match.status === "thieu" ? "missing" : "unsure";
                   return (

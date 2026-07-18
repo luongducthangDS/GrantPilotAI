@@ -1,57 +1,16 @@
-import ExcelJS from "exceljs";
-import mammoth from "mammoth";
 import { NextResponse } from "next/server";
-import { PDFParse } from "pdf-parse";
 
+import {
+  DOCX_MIME,
+  MIN_PDF_TEXT_CHARS,
+  PDF_MIME,
+  XLSX_MIME,
+  extractDocxText,
+  extractPdfText,
+  extractXlsxText
+} from "@/lib/documentText";
 import { normalizeIndustry, normalizeProvince } from "@/lib/grantpilot";
 import { DEFAULT_LIGHT_MODELS, DEFAULT_VISION_MODELS, generateJsonAnswer, type LlmConfig } from "@/lib/llmProviders";
-
-const DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-const XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-
-// Below this, a PDF's text layer is treated as "not really there" — a
-// genuinely scanned/image-only PDF still yields a handful of stray
-// characters from stray embedded fonts/artifacts, not real content. The
-// vision model here can't read PDFs directly (see the mimeType check below),
-// so a PDF that fails this bar has no reading path at all — reported
-// honestly as an error rather than silently sent through with near-empty text.
-const MIN_PDF_TEXT_CHARS = 40;
-
-async function extractDocxText(buffer: Buffer): Promise<string> {
-  const result = await mammoth.extractRawText({ buffer });
-  return result.value.trim();
-}
-
-async function extractXlsxText(buffer: Buffer): Promise<string> {
-  const workbook = new ExcelJS.Workbook();
-  await workbook.xlsx.load(buffer as unknown as ArrayBuffer);
-  const lines: string[] = [];
-  workbook.eachSheet((sheet) => {
-    lines.push(`# ${sheet.name}`);
-    sheet.eachRow((row) => {
-      const cells = (row.values as unknown[])
-        .slice(1)
-        .map((value) => (value === null || value === undefined ? "" : String(value)));
-      if (cells.some((cell) => cell.trim() !== "")) lines.push(cells.join(" | "));
-    });
-  });
-  return lines.join("\n").trim();
-}
-
-// Most Vietnamese business forms (ĐKKD, KQKD) distributed as PDF are
-// digitally generated with a real embedded text layer, not scans — pulling
-// that text directly avoids needing a vision model (which can't read PDF
-// bytes anyway on this API, only raster images) and reads the WHOLE
-// document at once, not just what a rasterized page happens to show.
-async function extractPdfText(buffer: Buffer): Promise<string> {
-  const parser = new PDFParse({ data: buffer });
-  try {
-    const result = await parser.getText();
-    return result.text.trim();
-  } finally {
-    await parser.destroy();
-  }
-}
 
 const SYSTEM_INSTRUCTION = `Bạn là công cụ trích xuất dữ liệu hồ sơ doanh nghiệp cho GrantPilot. Bạn nhận MỘT trong hai dạng đầu vào: (a) ảnh chụp/scan giấy tờ doanh nghiệp Việt Nam — thường là Giấy chứng nhận đăng ký doanh nghiệp (ĐKKD) hoặc trang báo cáo kết quả kinh doanh (KQKD); hoặc (b) văn bản dạng tự do (hồ sơ năng lực, giới thiệu công ty, báo cáo thường niên, v.v. — không nhất thiết theo mẫu key:value).
 
@@ -125,7 +84,7 @@ export async function POST(request: Request) {
   // generated (not scanned) though, so pull its embedded text layer instead —
   // same text-extraction path as Word/Excel, reads the whole document, no
   // vision model or image conversion needed for the common case.
-  if (image && mimeType === "application/pdf") {
+  if (image && mimeType === PDF_MIME) {
     try {
       const buffer = Buffer.from(image, "base64");
       rawText = await extractPdfText(buffer);
