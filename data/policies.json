@@ -107,11 +107,11 @@
   {
     "id": "p_investment_software",
     "title": "Ưu đãi đầu tư cho sản phẩm phần mềm, công nghệ thông tin",
-    "program": "Luật Đầu tư 2020 và Nghị định 31/2021/NĐ-CP",
+    "program": "Luật Đầu tư 2025 (143/2025/QH15) và Nghị định 31/2021/NĐ-CP (sửa đổi bởi NĐ 239/2025/NĐ-CP)",
     "scope": "Toàn quốc",
-    "status": "Luật Đầu tư 2020 hết hiệu lực từ 01/03/2026 - áp dụng Luật Đầu tư 143/2025/QH15, chờ nghị định hướng dẫn mới thay NĐ 31/2021",
+    "status": "Còn hiệu lực",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160",
-    "summary": "Căn cứ dưới đây dựa trên Luật Đầu tư 2020, hiện đã hết hiệu lực từ 01/03/2026 — cần rà soát lại theo Luật Đầu tư 2025 (143/2025/QH15) và nghị định hướng dẫn mới thay thế NĐ 31/2021 trước khi dùng để nộp hồ sơ thật.",
+    "summary": "Luật Đầu tư 2020 đã hết hiệu lực từ 01/03/2026, thay thế bởi Luật Đầu tư 2025 (143/2025/QH15) cùng ngày. Nghị định 31/2021/NĐ-CP (danh mục ngành nghề ưu đãi đầu tư, bao gồm phần mềm/CNTT/công nghệ cao) — đã được sửa đổi, bổ sung bởi Nghị định 239/2025/NĐ-CP (ban hành 03/09/2025) — tiếp tục có hiệu lực trong giai đoạn chuyển tiếp theo Nghị quyết 10/2026/NQ-CP (hiệu lực từ 10/03/2026) của Chính phủ, cho đến khi có nghị định thay thế chính thức. Vẫn nên đối chiếu lại nội dung Phụ lục II (danh mục ngành nghề ưu đãi) trước khi nộp hồ sơ thật, vì đây là quy định đang trong giai đoạn chuyển tiếp.",
     "benefits": ["Cơ sở rà soát ưu đãi thuế/đất đai", "Luận cứ ngành nghề ưu đãi", "Phù hợp startup phần mềm"],
     "eligibility": {
       "requires_sme": false,
@@ -134,9 +134,21 @@
       },
       {
         "document": "Nghị định 31/2021/NĐ-CP",
-        "clause": "Phụ lục II",
-        "status": "Đã được sửa đổi/bổ sung - cần rà soát theo Luật Đầu tư 2025",
+        "clause": "Phụ lục II - Danh mục ngành, nghề ưu đãi đầu tư",
+        "status": "Còn hiệu lực - đã sửa đổi bởi NĐ 239/2025/NĐ-CP, tiếp tục áp dụng trong giai đoạn chuyển tiếp theo Nghị quyết 10/2026/NQ-CP",
         "source": "https://vanban.chinhphu.vn/?docid=202988&pageid=27160"
+      },
+      {
+        "document": "Nghị định 239/2025/NĐ-CP (sửa đổi, bổ sung NĐ 31/2021/NĐ-CP)",
+        "clause": "Toàn văn",
+        "status": "Còn hiệu lực (ban hành và có hiệu lực từ 03/09/2025)",
+        "source": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-239-2025-nd-cp-46128.htm"
+      },
+      {
+        "document": "Nghị quyết 10/2026/NQ-CP (tiếp tục áp dụng văn bản hướng dẫn thi hành luật đã sửa đổi/thay thế)",
+        "clause": "Quy định về NĐ 31/2021/NĐ-CP",
+        "status": "Còn hiệu lực (từ 10/03/2026)",
+        "source": "https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/chinh-sach-moi/107168/da-co-nghi-quyet-huong-dan-luat-dau-tu-2025-so-143-2025-qh15"
       }
     ],
     "checklist": ["Giấy chứng nhận đăng ký doanh nghiệp", "Mã ngành/hoạt động phần mềm", "Mô tả sản phẩm CNTT/phần mềm", "Hồ sơ dự án đầu tư nếu có"]
