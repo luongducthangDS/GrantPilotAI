@@ -12,18 +12,15 @@ import {
 } from "docx";
 import { NextResponse } from "next/server";
 
+import { classifySme } from "@/lib/grantpilot";
 import type { MatchResult, Profile } from "@/lib/grantpilot";
 
 // Real official application forms this route can fill directly, mirroring
-// the exact structure/wording of the government template (extracted from
-// the real .docx at data/raw/vbpl/files/183411/PL IV - Cong nhan
-// DMST,KNST_đã gộp.docx — the same file linked in policies.json's `forms`
-// field for this policy). Only p_nd268_recognition has a verified real
-// template right now; every other policy still falls through to the
-// generic summary below. Add a new branch here (not the generic summary)
-// once another policy's real form has been located and its field layout
-// worked out the same way.
-const REAL_FORM_POLICY_IDS = new Set(["p_nd268_recognition"]);
+// the exact structure/wording of the government template. Every id here
+// needs its own build function below with the field layout worked out
+// against the actual gazetted document — never a generic guess. Anything
+// not in this set falls through to buildGenericSummary().
+const REAL_FORM_POLICY_IDS = new Set(["p_nd268_recognition", "p_nd80_startup", "p_manufacturing_value_chain"]);
 
 function checkbox(checked: boolean) {
   return checked ? "☑" : "☐";
@@ -149,6 +146,131 @@ function buildNd268RecognitionForm(profile: Profile): Document {
   });
 }
 
+// "Tờ khai xác định doanh nghiệp siêu nhỏ, doanh nghiệp nhỏ, doanh nghiệp
+// vừa và đề xuất nhu cầu hỗ trợ" — Phụ lục kèm theo Nghị định 80/2021/NĐ-CP
+// (pages 28-29 of https://datafiles.chinhphu.vn/cpp/files/vbpq/2021/08/80.signed_01.pdf,
+// verified against the signed original; vbpl.vn's crawled copy of this
+// decree has no attachment uploaded yet, so this is the only working source).
+// Shared by p_nd80_startup and p_manufacturing_value_chain — same decree,
+// same form, only the ticked line in mục 5 differs by which support the
+// company is asking for. Section 2 (nữ làm chủ) and the street-address /
+// quận-huyện lines have no equivalent in Profile and are left blank exactly
+// as the original form leaves them, never guessed.
+function buildNd80SupportForm(profile: Profile, policy: MatchResult): Document {
+  const blank = "……………………………………………………";
+  const field = (label: string, value?: string) => new Paragraph(`${label} ${value?.trim() || blank}`);
+  const sme = classifySme(profile);
+
+  const supportOptions: { label: string; match: boolean }[] = [
+    { label: "Hỗ trợ công nghệ", match: false },
+    { label: "Hỗ trợ tư vấn", match: false },
+    { label: "Hỗ trợ phát triển nguồn nhân lực", match: false },
+    { label: "Hỗ trợ doanh nghiệp nhỏ và vừa chuyển đổi từ hộ kinh doanh", match: false },
+    { label: "Hỗ trợ doanh nghiệp nhỏ và vừa khởi nghiệp sáng tạo", match: policy.id === "p_nd80_startup" },
+    { label: "Hỗ trợ doanh nghiệp nhỏ và vừa tham gia cụm liên kết ngành, chuỗi giá trị", match: policy.id === "p_manufacturing_value_chain" }
+  ];
+
+  return new Document({
+    sections: [
+      {
+        children: [
+          new Paragraph({ text: "Phụ lục", alignment: AlignmentType.CENTER }),
+          new Paragraph({
+            alignment: AlignmentType.CENTER,
+            children: [
+              new TextRun({
+                text: "TỜ KHAI XÁC ĐỊNH DOANH NGHIỆP SIÊU NHỎ, DOANH NGHIỆP NHỎ, DOANH NGHIỆP VỪA VÀ ĐỀ XUẤT NHU CẦU HỖ TRỢ",
+                bold: true
+              })
+            ]
+          }),
+          new Paragraph({
+            text: "(Kèm theo Nghị định số 80/2021/NĐ-CP ngày 26 tháng 8 năm 2021 của Chính phủ)",
+            alignment: AlignmentType.CENTER
+          }),
+          new Paragraph({ text: "" }),
+
+          new Paragraph({ children: [new TextRun({ text: "1. Thông tin chung về doanh nghiệp:", bold: true })] }),
+          field("- Tên doanh nghiệp:", profile.name),
+          field("- Mã số doanh nghiệp/Mã số thuế:", profile.tax_code),
+          field("- Loại hình doanh nghiệp:"),
+          field("- Địa chỉ trụ sở chính:"),
+          field("- Quận/huyện:"),
+          field("- Tỉnh/thành phố:", profile.province !== "Khác" ? profile.province : undefined),
+          field("- Điện thoại:", profile.phone),
+          field("- Fax:"),
+          field("- Email:", profile.email),
+          new Paragraph({ text: "" }),
+
+          new Paragraph({ children: [new TextRun({ text: "2. Thông tin xác định doanh nghiệp do phụ nữ làm chủ:", bold: true })] }),
+          new Paragraph("- Có vốn điều lệ do một hoặc nhiều phụ nữ sở hữu từ 51% trở lên:"),
+          new Paragraph(`  ${checkbox(false)} Có   ${checkbox(false)} Không`),
+          field("- Tên người quản lý điều hành doanh nghiệp:"),
+          new Paragraph({ text: "" }),
+
+          new Paragraph({ children: [new TextRun({ text: "3. Thông tin về tiêu chí xác định quy mô doanh nghiệp:", bold: true })] }),
+          field("- Lĩnh vực sản xuất, kinh doanh chính:", profile.business_line || profile.industry),
+          field("- Số lao động tham gia bảo hiểm xã hội bình quân năm:", profile.employees != null ? String(profile.employees) : undefined),
+          field("- Trong đó, số lao động nữ:"),
+          field("- Tổng nguồn vốn:", profile.capital_bil != null ? `${profile.capital_bil} tỷ đồng` : undefined),
+          field("- Tổng doanh thu năm trước liền kề:", profile.revenue_bil != null ? `${profile.revenue_bil} tỷ đồng` : undefined),
+          new Paragraph({ text: "" }),
+
+          new Paragraph({
+            children: [new TextRun({ text: "4. Doanh nghiệp tự xác định thuộc quy mô (tích X vào ô tương ứng):", bold: true })]
+          }),
+          new Paragraph(
+            `  ${checkbox(sme.size === "Siêu nhỏ")} Doanh nghiệp siêu nhỏ   ${checkbox(sme.size === "Nhỏ")} Doanh nghiệp nhỏ   ${checkbox(sme.size === "Vừa")} Doanh nghiệp vừa`
+          ),
+          new Paragraph({ text: "" }),
+
+          new Paragraph({
+            children: [
+              new TextRun({ text: "5. Các nội dung đề xuất hỗ trợ (Doanh nghiệp lựa chọn một hoặc nhiều nội dung hỗ trợ):", bold: true })
+            ]
+          }),
+          ...supportOptions.map(
+            (option) =>
+              new Paragraph({
+                children: [new TextRun({ text: `${checkbox(option.match)} ${option.label}: ${blank}`, bold: option.match })]
+              })
+          ),
+          new Paragraph({ text: "" }),
+
+          new Paragraph({ children: [new TextRun({ text: "DOANH NGHIỆP CAM KẾT", bold: true })], alignment: AlignmentType.CENTER }),
+          new Paragraph("1. Về tính chính xác liên quan tới thông tin của doanh nghiệp."),
+          new Paragraph("2. Chấp hành nghiêm chỉnh các quy định của pháp luật Việt Nam."),
+          new Paragraph({ text: "" }),
+          new Paragraph({
+            text: `${profile.province && profile.province !== "Khác" ? profile.province : blank}, ngày … tháng … năm …`,
+            alignment: AlignmentType.CENTER
+          }),
+          new Paragraph({
+            alignment: AlignmentType.CENTER,
+            children: [new TextRun({ text: "ĐẠI DIỆN HỢP PHÁP DOANH NGHIỆP", bold: true })]
+          }),
+          new Paragraph({ text: "(Ký, ghi rõ họ tên; chức vụ và đóng dấu)", alignment: AlignmentType.CENTER }),
+          new Paragraph({ text: "" }),
+          new Paragraph({ text: "" }),
+          new Paragraph({ text: profile.representative || blank, alignment: AlignmentType.CENTER }),
+          new Paragraph({ text: "" }),
+          field("Hồ sơ kèm theo:"),
+          new Paragraph({ text: "" }),
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: "Nguồn: Phụ lục kèm theo Nghị định 80/2021/NĐ-CP (bản gốc: datafiles.chinhphu.vn/cpp/files/vbpq/2021/08/80.signed_01.pdf, trang 28-29) — các trường không có trong hồ sơ (loại hình doanh nghiệp, địa chỉ trụ sở, quận/huyện, thông tin phụ nữ làm chủ...) để nguyên chỗ trống của mẫu gốc, không tự suy đoán. Mục 4 tích theo phân loại DNNVV tự động của hệ thống dựa trên Điều 5 NĐ 80/2021/NĐ-CP — vui lòng đối chiếu lại trước khi nộp hồ sơ thật.",
+                italics: true,
+                size: 18
+              })
+            ]
+          })
+        ]
+      }
+    ]
+  });
+}
+
 // Fallback for every policy without a verified real form template yet — an
 // app-generated summary of the profile + rule-based match, explicitly
 // labeled as such so it's never mistaken for an official government form.
@@ -227,9 +349,14 @@ export async function POST(request: Request) {
   }
 
   try {
-    const document = REAL_FORM_POLICY_IDS.has(policy.id)
-      ? buildNd268RecognitionForm(profile)
-      : buildGenericSummary(profile, policy);
+    let document: Document;
+    if (policy.id === "p_nd268_recognition") {
+      document = buildNd268RecognitionForm(profile);
+    } else if (policy.id === "p_nd80_startup" || policy.id === "p_manufacturing_value_chain") {
+      document = buildNd80SupportForm(profile, policy);
+    } else {
+      document = buildGenericSummary(profile, policy);
+    }
 
     const buffer = await Packer.toBuffer(document);
     return new NextResponse(new Uint8Array(buffer), {

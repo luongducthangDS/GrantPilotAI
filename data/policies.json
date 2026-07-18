@@ -28,7 +28,14 @@
         "source": "https://vanban.chinhphu.vn/default.aspx?docid=190283&pageid=27160"
       }
     ],
-    "checklist": ["Giấy chứng nhận đăng ký doanh nghiệp", "Bản mô tả sản phẩm/dịch vụ đổi mới sáng tạo", "Tài liệu chứng minh quy mô DNNVV", "Đề xuất nội dung hỗ trợ"]
+    "checklist": ["Giấy chứng nhận đăng ký doanh nghiệp", "Bản mô tả sản phẩm/dịch vụ đổi mới sáng tạo", "Tài liệu chứng minh quy mô DNNVV", "Đề xuất nội dung hỗ trợ"],
+    "forms": [
+      {
+        "name": "Tờ khai xác định DNNVV và đề xuất nhu cầu hỗ trợ",
+        "description": "Phụ lục gốc kèm theo Nghị định 80/2021/NĐ-CP (trang 28-29 của văn bản) — dùng chung để tự kê khai quy mô DNNVV và đề xuất nội dung hỗ trợ, gồm cả mục \"Hỗ trợ doanh nghiệp nhỏ và vừa khởi nghiệp sáng tạo\".",
+        "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2021/08/80.signed_01.pdf"
+      }
+    ]
   },
   {
     "id": "p_dean844",
@@ -201,7 +208,14 @@
         "source": "https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160"
       }
     ],
-    "checklist": ["Tài liệu chứng minh DNNVV", "Mô tả chuỗi giá trị/cụm liên kết", "Nhu cầu đào tạo hoặc tư vấn", "Báo cáo năng lực sản xuất"]
+    "checklist": ["Tài liệu chứng minh DNNVV", "Mô tả chuỗi giá trị/cụm liên kết", "Nhu cầu đào tạo hoặc tư vấn", "Báo cáo năng lực sản xuất"],
+    "forms": [
+      {
+        "name": "Tờ khai xác định DNNVV và đề xuất nhu cầu hỗ trợ",
+        "description": "Phụ lục gốc kèm theo Nghị định 80/2021/NĐ-CP (trang 28-29 của văn bản) — dùng chung để tự kê khai quy mô DNNVV và đề xuất nội dung hỗ trợ, gồm cả mục \"Hỗ trợ doanh nghiệp nhỏ và vừa tham gia cụm liên kết ngành, chuỗi giá trị\".",
+        "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2021/08/80.signed_01.pdf"
+      }
+    ]
   },
   {
     "id": "p_nd268_recognition",

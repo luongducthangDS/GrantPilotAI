@@ -1124,7 +1124,7 @@ export default function Home() {
                   : // Keep this id list in sync with REAL_FORM_POLICY_IDS in
                     // app/api/grant-docx/route.ts — just a label hint here,
                     // the actual real-form-vs-summary branching happens server-side.
-                    selectedPolicy.id === "p_nd268_recognition"
+                    ["p_nd268_recognition", "p_nd80_startup", "p_manufacturing_value_chain"].includes(selectedPolicy.id)
                     ? "⇩ Xuất đơn theo mẫu gốc (.docx)"
                     : "⇩ Xuất tóm tắt hồ sơ (.docx)"}
               </button>
