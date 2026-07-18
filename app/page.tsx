@@ -67,9 +67,33 @@ function ScoreRing({ score }: { score: number }) {
   );
 }
 
+const PROFILE_STORAGE_KEY = "grantpilot:profile-draft";
+
+// Session-only (not localStorage) — survives an accidental reload/crash
+// within the same tab, but doesn't linger indefinitely across visits the
+// way a saved LLM API key would need to be scoped to avoid ever doing.
+function loadStoredProfile(): Profile | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.sessionStorage.getItem(PROFILE_STORAGE_KEY);
+    return raw ? (JSON.parse(raw) as Profile) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveStoredProfile(profile: Profile) {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
+  } catch {
+    // Storage full/unavailable (private browsing, etc.) — not worth surfacing to the user.
+  }
+}
+
 export default function Home() {
   const [view, setView] = useState<View>("overview");
-  const [profile, setProfile] = useState<Profile>(sampleProfiles[0]);
+  const [profile, setProfile] = useState<Profile>(() => loadStoredProfile() ?? sampleProfiles[0]);
   const [results, setResults] = useState<MatchResult[]>([]);
   const [selectedPolicy, setSelectedPolicy] = useState<MatchResult | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
@@ -111,6 +135,10 @@ export default function Home() {
   useEffect(() => {
     setLlmSettings(loadLlmSettings());
   }, []);
+
+  useEffect(() => {
+    saveStoredProfile(profile);
+  }, [profile]);
 
   useEffect(() => {
     if (view !== "updates" || watchStatus) return;
@@ -466,11 +494,11 @@ export default function Home() {
         <div className="sidebar-card">
           <span className="status-dot" />
           <div>
-            <strong>Dữ liệu demo an toàn</strong>
+            <strong>Bảo mật dữ liệu</strong>
             <p>Hồ sơ được xử lý ngay trên thiết bị.</p>
           </div>
         </div>
-        <div className="sidebar-footer">Vietnam AI Innovation Challenge 2026</div>
+        <div className="sidebar-footer">GrantPilot AI · 2026</div>
       </aside>
 
       <main className="main-panel">
@@ -539,7 +567,7 @@ export default function Home() {
               <article className="metric-card">
                 <span className="metric-index">01</span>
                 <strong>{policies.length}</strong>
-                <p>Chính sách mẫu</p>
+                <p>Chương trình hỗ trợ</p>
                 <small>Từ {new Set(policies.map((item) => item.source)).size} nguồn</small>
               </article>
               <article className="metric-card">
@@ -551,8 +579,8 @@ export default function Home() {
               <article className="metric-card accent-metric">
                 <span className="metric-index">03</span>
                 <strong>{sampleProfiles.length}</strong>
-                <p>Hồ sơ doanh nghiệp mẫu</p>
-                <small>Sẵn sàng cho luồng demo</small>
+                <p>Hồ sơ khởi đầu có sẵn</p>
+                <small>Bắt đầu nhanh, không cần nhập tay</small>
               </article>
             </div>
 
@@ -680,7 +708,7 @@ export default function Home() {
                     <span className="eyebrow">BƯỚC 02</span>
                     <h3>Kiểm tra thông tin</h3>
                   </div>
-                  <span className="demo-badge">{sme.size}</span>
+                  <span className="size-badge">{sme.size}</span>
                 </div>
 
                 <div className="form-grid">
@@ -762,7 +790,7 @@ export default function Home() {
                 <div className="empty-results">
                   <div className="compass-shape"><span>✦</span></div>
                   <h3>Sẵn sàng tìm lộ trình phù hợp</h3>
-                  <p>Hoàn thiện hồ sơ bên trái và bắt đầu phân tích. Kết quả sẽ được xếp hạng theo mức độ phù hợp.</p>
+                  <p>Hoàn thiện hồ sơ doanh nghiệp và bắt đầu phân tích. Kết quả sẽ được xếp hạng theo mức độ phù hợp.</p>
                   <div className="empty-steps">
                     <span>01 · Đối chiếu lĩnh vực</span>
                     <span>02 · Kiểm tra phạm vi</span>
@@ -805,7 +833,7 @@ export default function Home() {
             <div className="panel-card">
               <div className="section-heading compact">
                 <div>
-                  <span className="eyebrow">RAG DEMO</span>
+                  <span className="eyebrow">CÂU HỎI GỢI Ý</span>
                   <h3>Câu hỏi vàng</h3>
                 </div>
                 <span className="privacy-badge">{goldenQuestions.length}/10</span>
@@ -848,10 +876,12 @@ export default function Home() {
               </div>
 
               {answerLoading ? (
-                <div className="empty-hint">Đang truy hồi corpus và gọi Gemini để sinh câu trả lời...</div>
+                <div className="empty-hint">
+                  Đang truy hồi dữ liệu và gọi {llmSettings ? PROVIDER_LABELS[llmSettings.provider] : "AI"} để sinh câu trả lời...
+                </div>
               ) : answer ? (
                 <div className="answer-box">
-                  <span className={`badge ${answer.confidence === "Có căn cứ trong corpus" ? "success" : "warning"}`}>
+                  <span className={`badge ${answer.confidence === "Có căn cứ" ? "success" : "warning"}`}>
                     {answer.confidence}
                   </span>
                   <p>{answer.text}</p>
@@ -867,15 +897,15 @@ export default function Home() {
                       ))}
                     </div>
                   ) : (
-                    <div className="empty-hint">Không có citation vì câu hỏi ngoài phạm vi corpus demo.</div>
+                    <div className="empty-hint">Không có citation vì câu hỏi ngoài phạm vi dữ liệu hiện có.</div>
                   )}
                   <div className="legal-note">
-                    <strong>Lưu ý:</strong> Thông tin MVP chỉ phục vụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ
+                    <strong>Lưu ý:</strong> Thông tin ở đây chỉ phục vụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ
                     quan có thẩm quyền.
                   </div>
                 </div>
               ) : (
-                <div className="empty-hint">Chọn một câu hỏi vàng bên trái hoặc tự nhập câu hỏi rồi bấm &quot;Hỏi&quot;.</div>
+                <div className="empty-hint">Chọn một câu hỏi gợi ý hoặc tự nhập câu hỏi rồi bấm &quot;Hỏi&quot;.</div>
               )}
             </section>
           </section>
@@ -977,7 +1007,7 @@ export default function Home() {
               <div>
                 <h3>Lý do phù hợp</h3>
                 <ul className="check-list positive">
-                  {(selectedPolicy.reasons.length ? selectedPolicy.reasons : ["Chưa có lý do nổi bật trong dữ liệu demo."]).map((item) => (
+                  {(selectedPolicy.reasons.length ? selectedPolicy.reasons : ["Chưa có lý do nổi bật được ghi nhận."]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -985,7 +1015,7 @@ export default function Home() {
               <div>
                 <h3>Điểm cần xác minh</h3>
                 <ul className="check-list caution">
-                  {(selectedPolicy.gaps.length ? selectedPolicy.gaps : ["Không có cảnh báo bổ sung trong dữ liệu demo."]).map((item) => (
+                  {(selectedPolicy.gaps.length ? selectedPolicy.gaps : ["Không có cảnh báo bổ sung."]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -1071,8 +1101,8 @@ export default function Home() {
             </div>
 
             <div className="legal-note">
-              <strong>Lưu ý:</strong> Kết quả được tạo từ tập dữ liệu demo, không thay thế tư vấn pháp lý. Vui lòng kiểm tra văn bản gốc
-              trước khi chuẩn bị hồ sơ thật.
+              <strong>Lưu ý:</strong> Kết quả dựa trên bộ dữ liệu chính sách đã xác minh (phạm vi hiện tại còn giới hạn, chưa bao phủ mọi
+              chương trình), không thay thế tư vấn pháp lý. Vui lòng kiểm tra văn bản gốc trước khi chuẩn bị hồ sơ thật.
             </div>
           </section>
         </div>

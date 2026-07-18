@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { classifySme, matchPolicies, type MatchResult, type Profile } from "@/lib/grantpilot";
-import { generateAnswer } from "@/lib/llmProviders";
+import { DEFAULT_MODELS, generateAnswer, type LlmProvider } from "@/lib/llmProviders";
 
 const SYSTEM_INSTRUCTION = `Bạn là trợ lý phân tích chính sách của GrantPilot. Bạn nhận được: hồ sơ doanh nghiệp, và kết quả một công cụ chấm điểm rule-based (score/lý do/điểm cần rà soát) cho từng chính sách.
 
@@ -42,14 +42,15 @@ export async function POST(request: Request) {
 
   const matches = matchPolicies(profile);
 
+  const VALID_PROVIDERS: LlmProvider[] = ["google", "openai", "anthropic", "xai"];
   const config = (() => {
-    const VALID = ["google", "openai", "anthropic", "xai"];
-    if (llm?.apiKey && llm.provider && VALID.includes(llm.provider)) {
-      return { provider: llm.provider as "google" | "openai" | "anthropic" | "xai", apiKey: llm.apiKey, model: llm.model || "gemini-2.5-flash" };
+    if (llm?.apiKey && llm.provider && VALID_PROVIDERS.includes(llm.provider as LlmProvider)) {
+      const provider = llm.provider as LlmProvider;
+      return { provider, apiKey: llm.apiKey, model: llm.model?.trim() || DEFAULT_MODELS[provider] };
     }
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) return null;
-    return { provider: "google" as const, apiKey, model: process.env.GEMINI_MODEL || "gemini-2.5-flash" };
+    return { provider: "google" as LlmProvider, apiKey, model: process.env.GEMINI_MODEL || DEFAULT_MODELS.google };
   })();
 
   if (!config) {

@@ -680,7 +680,7 @@ button {
 }
 
 .privacy-badge,
-.demo-badge {
+.size-badge {
   padding: 6px 9px;
   border-radius: 99px;
   font-size: 9px;
@@ -690,7 +690,7 @@ button {
 }
 
 .privacy-badge { background: #e7f7f3; color: var(--teal-700); }
-.demo-badge { background: #f3efe2; color: #8b681c; }
+.size-badge { background: #f3efe2; color: #8b681c; }
 
 .dropzone {
   display: grid;

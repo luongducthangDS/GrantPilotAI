@@ -7,8 +7,8 @@ import { hybridRetrieve } from "@/lib/retrieval";
 const SYSTEM_INSTRUCTION = `Bạn là trợ lý pháp lý AI của GrantPilot, giúp doanh nghiệp nhỏ và vừa/startup Việt Nam tra cứu chính sách hỗ trợ.
 
 Quy tắc bắt buộc:
-- CHỈ trả lời dựa trên các đoạn trích dẫn corpus được cung cấp bên dưới. Không được bịa, không dùng kiến thức ngoài corpus.
-- Nếu các đoạn trích không đủ căn cứ để trả lời chắc chắn câu hỏi, phải nói rõ "Không đủ thông tin trong corpus demo để trả lời chắc chắn" thay vì suy đoán hoặc phỏng đoán.
+- CHỈ trả lời dựa trên các đoạn trích dẫn được cung cấp bên dưới. Không được bịa, không dùng kiến thức ngoài phạm vi các đoạn trích này.
+- Nếu các đoạn trích không đủ căn cứ để trả lời chắc chắn câu hỏi, phải nói rõ "Không đủ thông tin trong dữ liệu hiện có để trả lời chắc chắn" thay vì suy đoán hoặc phỏng đoán.
 - Trả lời ngắn gọn (3-6 câu), rõ ràng, bằng tiếng Việt, có thể nhắc số hiệu văn bản/điều khoản khi phù hợp.
 - Đây là công cụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ quan có thẩm quyền — nếu câu hỏi mang tính kết luận cuối cùng (ví dụ miễn thuế hoàn toàn), nhắc người dùng cần đối chiếu văn bản gốc.
 - Chỉ trả về văn bản câu trả lời thuần, không thêm tiêu đề, không lặp lại đoạn trích, không markdown.`;
@@ -30,7 +30,7 @@ function buildPrompt(question: string, profile: Profile | undefined, chunks: Cor
       })()
     : "";
 
-  return `${profileContext}Các đoạn trích từ corpus pháp lý:\n\n${context}\n\nCâu hỏi: ${question}`;
+  return `${profileContext}Các đoạn trích từ dữ liệu pháp lý:\n\n${context}\n\nCâu hỏi: ${question}`;
 }
 
 // Resolves which provider/key/model to use for this request: a client-
@@ -67,9 +67,9 @@ export async function POST(request: Request) {
 
   if (chunks.length === 0) {
     const fallback: Answer = {
-      text: "Không đủ thông tin trong corpus demo để trả lời chắc chắn. Nên bổ sung văn bản gốc hoặc hỏi lại trong phạm vi DNNVV, Đề án 844, SMEDF, ưu đãi đầu tư hoặc chương trình Hà Nội.",
+      text: "Không đủ thông tin trong dữ liệu hiện có để trả lời chắc chắn. Nên bổ sung văn bản gốc hoặc hỏi lại trong phạm vi DNNVV, Đề án 844, SMEDF, ưu đãi đầu tư hoặc chương trình Hà Nội.",
       citations: [],
-      confidence: "Ngoài corpus"
+      confidence: "Ngoài phạm vi dữ liệu"
     };
     return NextResponse.json(fallback);
   }
@@ -94,7 +94,7 @@ export async function POST(request: Request) {
     const result: Answer = {
       text,
       citations: insufficient ? [] : citations,
-      confidence: insufficient ? "Ngoài corpus" : "Có căn cứ trong corpus"
+      confidence: insufficient ? "Ngoài phạm vi dữ liệu" : "Có căn cứ"
     };
     return NextResponse.json(result);
   } catch (error) {

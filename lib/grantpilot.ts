@@ -75,7 +75,7 @@ export type SmeResult = {
 export type Answer = {
   text: string;
   citations: Citation[];
-  confidence: "Có căn cứ trong corpus" | "Ngoài corpus";
+  confidence: "Có căn cứ" | "Ngoài phạm vi dữ liệu";
 };
 
 export const sampleProfiles = sampleProfilesData as Profile[];
@@ -159,7 +159,7 @@ export function classifySme(profile: Profile): SmeResult {
   return {
     size,
     is_sme: size !== "Không thuộc DNNVV",
-    basis: "Phân loại demo theo Điều 5 Nghị định 80/2021/NĐ-CP từ lao động, doanh thu và vốn."
+    basis: "Phân loại theo Điều 5 Nghị định 80/2021/NĐ-CP từ lao động, doanh thu và vốn."
   };
 }
 
@@ -215,7 +215,7 @@ export function matchPolicies(profile: Profile): MatchResult[] {
 
       if (policy.id === "p_dean844" && profile.startup_innovation) {
         score += 8;
-        reasons.push("Phù hợp để demo luồng checklist và đơn Đề án 844.");
+        reasons.push("Có yếu tố khởi nghiệp đổi mới sáng tạo, khớp trọng tâm của Đề án 844.");
       }
 
       score = Math.max(0, Math.min(100, score));
@@ -261,18 +261,18 @@ export function answerQuestion(question: string, profile?: Profile): Answer {
 
   if (q.includes("mien toan bo thue") || q.includes("ngoai corpus")) {
     return {
-      text: "Không đủ thông tin trong corpus demo để kết luận doanh nghiệp được miễn toàn bộ thuế. Corpus hiện chỉ có căn cứ chung về hình thức ưu đãi đầu tư và danh mục ngành nghề; quyết định thuế cần thêm văn bản thuế chuyên ngành, mã ngành, dự án đầu tư và thời điểm áp dụng.",
+      text: "Không đủ thông tin trong dữ liệu hiện có để kết luận doanh nghiệp được miễn toàn bộ thuế. Dữ liệu hiện chỉ có căn cứ chung về hình thức ưu đãi đầu tư và danh mục ngành nghề; quyết định thuế cần thêm văn bản thuế chuyên ngành, mã ngành, dự án đầu tư và thời điểm áp dụng.",
       citations: [],
-      confidence: "Ngoài corpus"
+      confidence: "Ngoài phạm vi dữ liệu"
     };
   }
 
   const chunks = topCorpus(question);
   if (chunks.length === 0) {
     return {
-      text: "Không đủ thông tin trong corpus demo để trả lời chắc chắn. Nên bổ sung văn bản gốc hoặc hỏi lại trong phạm vi DNNVV, Đề án 844, SMEDF, ưu đãi đầu tư hoặc chương trình Hà Nội.",
+      text: "Không đủ thông tin trong dữ liệu hiện có để trả lời chắc chắn. Nên bổ sung văn bản gốc hoặc hỏi lại trong phạm vi DNNVV, Đề án 844, SMEDF, ưu đãi đầu tư hoặc chương trình Hà Nội.",
       citations: [],
-      confidence: "Ngoài corpus"
+      confidence: "Ngoài phạm vi dữ liệu"
     };
   }
 
@@ -286,25 +286,25 @@ export function answerQuestion(question: string, profile?: Profile): Answer {
   let text: string;
   if (q.includes("startup") && q.includes("ho tro")) {
     text =
-      "Startup phần mềm tại Hà Nội nên ưu tiên ba hướng trong MVP: hỗ trợ DNNVV khởi nghiệp sáng tạo theo Nghị định 80, Đề án 844 cho hoạt động hệ sinh thái/hoàn thiện năng lực, và chương trình địa phương Hà Nội để kết nối cố vấn, đào tạo, sự kiện. Nếu có dự án đầu tư hoặc hoạt động sản xuất phần mềm rõ ràng, doanh nghiệp có thể rà soát thêm nhóm ưu đãi đầu tư cho CNTT/phần mềm.";
+      "Startup phần mềm tại Hà Nội nên ưu tiên ba hướng: hỗ trợ DNNVV khởi nghiệp sáng tạo theo Nghị định 80, Đề án 844 cho hoạt động hệ sinh thái/hoàn thiện năng lực, và chương trình địa phương Hà Nội để kết nối cố vấn, đào tạo, sự kiện. Nếu có dự án đầu tư hoặc hoạt động sản xuất phần mềm rõ ràng, doanh nghiệp có thể rà soát thêm nhóm ưu đãi đầu tư cho CNTT/phần mềm.";
   } else if (q.includes("tu van") || q.includes("so huu tri tue") || q.includes("thu nghiem")) {
     text =
       "DNNVV khởi nghiệp sáng tạo có thể xem xét hỗ trợ tư vấn, sở hữu trí tuệ, tiêu chuẩn đo lường chất lượng, thử nghiệm và hoàn thiện sản phẩm mới. Hồ sơ nên mô tả rõ sản phẩm, nhu cầu hỗ trợ và căn cứ chứng minh tính đổi mới.";
   } else if (q.includes("nghi dinh 80") || q.includes("nd 80")) {
     text =
-      "Trong corpus demo, Nghị định 80/2021/NĐ-CP đang được dùng làm căn cứ trung tâm cho phân loại DNNVV và hỗ trợ DNNVV khởi nghiệp sáng tạo. Khi hiển thị cho người dùng, MVP gắn badge hiệu lực và link nguồn cho từng điều khoản.";
+      "Nghị định 80/2021/NĐ-CP là căn cứ trung tâm cho phân loại DNNVV và hỗ trợ DNNVV khởi nghiệp sáng tạo. Mỗi điều khoản trích dẫn đều gắn badge hiệu lực và link nguồn gốc để bạn tự đối chiếu.";
   } else if (q.includes("dnnvv") || q.includes("nho va vua") || q.includes("nho/vua")) {
     if (profile) {
       const sme = classifySme(profile);
       const verdict = sme.is_sme ? "thuộc DNNVV" : "chưa thuộc DNNVV";
-      text = `Theo dữ liệu hồ sơ hiện tại, ${profile.name || "doanh nghiệp"} ${verdict}, nhóm ${sme.size}. Căn cứ demo dùng lao động ${profile.employees} người, doanh thu ${profile.revenue_bil} tỷ và vốn ${profile.capital_bil} tỷ. Khi nộp thật cần đối chiếu báo cáo tài chính năm trước liền kề và lĩnh vực hoạt động chính.`;
+      text = `Theo dữ liệu hồ sơ hiện tại, ${profile.name || "doanh nghiệp"} ${verdict}, nhóm ${sme.size}. Căn cứ tính theo lao động ${profile.employees} người, doanh thu ${profile.revenue_bil} tỷ và vốn ${profile.capital_bil} tỷ. Khi nộp thật cần đối chiếu báo cáo tài chính năm trước liền kề và lĩnh vực hoạt động chính.`;
     } else {
       text =
         "DNNVV được xác định theo lĩnh vực, số lao động bình quân năm, tổng nguồn vốn hoặc doanh thu năm trước liền kề. Bạn cần nhập lao động, doanh thu, vốn và lĩnh vực để hệ thống kết luận cụ thể.";
     }
   } else if (q.includes("844") || q.includes("de an")) {
     text =
-      "Đề án 844 phù hợp với startup đổi mới sáng tạo hoặc tổ chức hỗ trợ hệ sinh thái. Hồ sơ demo nên chuẩn bị thuyết minh nhiệm vụ, mục tiêu, nội dung, sản phẩm, dự toán kinh phí và năng lực thực hiện.";
+      "Đề án 844 phù hợp với startup đổi mới sáng tạo hoặc tổ chức hỗ trợ hệ sinh thái. Hồ sơ nên chuẩn bị thuyết minh nhiệm vụ, mục tiêu, nội dung, sản phẩm, dự toán kinh phí và năng lực thực hiện.";
   } else if (q.includes("smedf") || q.includes("vay") || q.includes("von")) {
     text =
       "SMEDF là hướng phù hợp khi doanh nghiệp là DNNVV và có phương án sản xuất kinh doanh khả thi, minh bạch tài chính. Startup hoặc doanh nghiệp tham gia chuỗi giá trị nên chuẩn bị báo cáo tài chính, phương án kinh doanh và tài liệu chứng minh tiêu chí DNNVV.";
@@ -315,13 +315,13 @@ export function answerQuestion(question: string, profile?: Profile): Answer {
     text =
       "Hà Nội có Nghị quyết HĐND quy định ưu đãi, hỗ trợ đầu tư theo Điều 26 Luật Thủ đô 2026 (hiệu lực từ 01/07/2026), áp dụng trực tiếp cho doanh nghiệp khởi nghiệp sáng tạo lĩnh vực khoa học công nghệ, gồm ưu đãi đất đai, thuế và hỗ trợ ngân sách sau đầu tư. Ngoài ra còn các chương trình địa phương về đào tạo, cố vấn, kết nối đầu tư và sự kiện hệ sinh thái. Nên đối chiếu nguồn gốc trước khi nộp hồ sơ thật.";
   } else {
-    text = `Tóm tắt từ corpus demo: ${chunks
+    text = `Tóm tắt từ dữ liệu hiện có: ${chunks
       .slice(0, 2)
       .map((chunk) => chunk.text)
       .join(" ")}`;
   }
 
-  return { text, citations, confidence: "Có căn cứ trong corpus" };
+  return { text, citations, confidence: "Có căn cứ" };
 }
 
 // The UI's province/industry <select> fields only recognize these exact label
@@ -446,8 +446,8 @@ export const goldenQuestions = [
   "SMEDF có phù hợp với doanh nghiệp sản xuất không?",
   "Sản xuất phần mềm có thuộc ngành nghề ưu đãi đầu tư không?",
   "DNNVV khởi nghiệp sáng tạo được hỗ trợ tư vấn sở hữu trí tuệ không?",
-  "Tôi cần citation hiệu lực cho Nghị định 80",
+  "Tôi cần căn cứ pháp lý còn hiệu lực cho Nghị định 80",
   "Chương trình Hà Nội có dùng để nộp thật ngay không?",
   "Hồ sơ vay vốn cần báo cáo tài chính không?",
-  "Công ty ngoài corpus có được miễn toàn bộ thuế không?"
+  "Công ty tôi có được miễn toàn bộ thuế thu nhập doanh nghiệp không?"
 ];

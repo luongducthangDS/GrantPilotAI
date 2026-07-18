@@ -111,7 +111,7 @@
     "scope": "Toàn quốc",
     "status": "Luật Đầu tư 2020 hết hiệu lực từ 01/03/2026 - áp dụng Luật Đầu tư 143/2025/QH15, chờ nghị định hướng dẫn mới thay NĐ 31/2021",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160",
-    "summary": "Luồng demo dùng căn cứ lịch sử về ưu đãi đầu tư cho phần mềm/CNTT; khi nộp thật cần rà soát Luật Đầu tư 2025 và nghị định hướng dẫn mới vì Luật Đầu tư 2020 đã hết hiệu lực từ 01/03/2026.",
+    "summary": "Căn cứ dưới đây dựa trên Luật Đầu tư 2020, hiện đã hết hiệu lực từ 01/03/2026 — cần rà soát lại theo Luật Đầu tư 2025 (143/2025/QH15) và nghị định hướng dẫn mới thay thế NĐ 31/2021 trước khi dùng để nộp hồ sơ thật.",
     "benefits": ["Cơ sở rà soát ưu đãi thuế/đất đai", "Luận cứ ngành nghề ưu đãi", "Phù hợp startup phần mềm"],
     "eligibility": {
       "requires_sme": false,
@@ -146,7 +146,7 @@
     "title": "Hỗ trợ hệ sinh thái khởi nghiệp đổi mới sáng tạo Hà Nội",
     "program": "Chương trình địa phương",
     "scope": "Hà Nội",
-    "status": "Seed demo - cần xác minh khi nộp thật",
+    "status": "Nguồn địa phương - cần xác minh khi nộp thật",
     "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
     "summary": "Các hoạt động địa phương về đào tạo, cố vấn, kết nối đầu tư, truyền thông và không gian thử nghiệm cho startup đổi mới sáng tạo tại Hà Nội.",
     "benefits": ["Cố vấn và đào tạo", "Kết nối đầu tư", "Sự kiện hệ sinh thái tại Hà Nội"],
@@ -160,7 +160,7 @@
       {
         "document": "Nguồn chương trình khởi nghiệp Hà Nội",
         "clause": "Nhóm nhiệm vụ hỗ trợ hệ sinh thái",
-        "status": "Seed demo - cần xác minh",
+        "status": "Nguồn địa phương - cần xác minh",
         "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html"
       }
     ],
