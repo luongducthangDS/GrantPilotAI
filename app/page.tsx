@@ -6,7 +6,6 @@ import {
   Answer,
   MatchResult,
   Profile,
-  answerQuestion,
   classifySme,
   goldenQuestions,
   matchPolicies,
@@ -71,6 +70,7 @@ export default function Home() {
 
   const [question, setQuestion] = useState(goldenQuestions[0]);
   const [answer, setAnswer] = useState<Answer | null>(null);
+  const [answerLoading, setAnswerLoading] = useState(false);
 
   const sme = useMemo(() => classifySme(profile), [profile]);
   const verifiedPolicyCount = useMemo(() => policies.filter((policy) => policy.status.includes("Còn hiệu lực")).length, []);
@@ -130,9 +130,24 @@ export default function Home() {
     setAnalyzing(false);
   }
 
-  function ask(nextQuestion: string) {
+  async function ask(nextQuestion: string) {
     setQuestion(nextQuestion);
-    setAnswer(answerQuestion(nextQuestion, profile));
+    setAnswerLoading(true);
+    setError("");
+    try {
+      const response = await fetch("/api/qa", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: nextQuestion, profile })
+      });
+      if (!response.ok) throw new Error("Không thể lấy câu trả lời.");
+      const result = (await response.json()) as Answer;
+      setAnswer(result);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Hỏi đáp thất bại.");
+    } finally {
+      setAnswerLoading(false);
+    }
   }
 
   async function downloadDocx(policy: MatchResult) {
@@ -510,7 +525,7 @@ export default function Home() {
               </div>
               <div className="question-bank">
                 {goldenQuestions.map((item) => (
-                  <button key={item} className={question === item ? "selected" : ""} onClick={() => ask(item)}>
+                  <button key={item} className={question === item ? "selected" : ""} onClick={() => ask(item)} disabled={answerLoading}>
                     {item}
                   </button>
                 ))}
@@ -520,7 +535,7 @@ export default function Home() {
             <section className="panel-card">
               <div className="section-heading compact">
                 <div>
-                  <span className="eyebrow">BƯỚC 01</span>
+                  <span className="eyebrow">BƯỚC 01 · RAG + GEMINI</span>
                   <h3>Đặt câu hỏi</h3>
                 </div>
               </div>
@@ -528,13 +543,18 @@ export default function Home() {
                 <input
                   value={question}
                   onChange={(event) => setQuestion(event.target.value)}
-                  onKeyDown={(event) => event.key === "Enter" && ask(question)}
+                  onKeyDown={(event) => event.key === "Enter" && !answerLoading && ask(question)}
                   placeholder="Hỏi về DNNVV, Đề án 844, SMEDF, ưu đãi đầu tư..."
+                  disabled={answerLoading}
                 />
-                <button onClick={() => ask(question)}>Hỏi →</button>
+                <button onClick={() => ask(question)} disabled={answerLoading}>
+                  {answerLoading ? <><span className="button-spinner" /> Đang truy hồi...</> : <>Hỏi →</>}
+                </button>
               </div>
 
-              {answer ? (
+              {answerLoading ? (
+                <div className="empty-hint">Đang truy hồi corpus và gọi Gemini để sinh câu trả lời...</div>
+              ) : answer ? (
                 <div className="answer-box">
                   <span className={`badge ${answer.confidence === "Có căn cứ trong corpus" ? "success" : "warning"}`}>
                     {answer.confidence}

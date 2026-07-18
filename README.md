@@ -18,6 +18,17 @@ npm run build
 npm run start -- -p 3000
 ```
 
+### Biến môi trường (RAG Q&A)
+
+`Hỏi đáp pháp lý` gọi Gemini thật qua route `/api/qa`. Tạo file `.env.local` (đã gitignore, không commit) ở gốc repo:
+
+```
+GEMINI_API_KEY=<api-key-cua-ban>
+GEMINI_MODEL=gemini-2.5-flash
+```
+
+Lấy API key tại [Google AI Studio](https://aistudio.google.com/apikey). Nếu thiếu `GEMINI_API_KEY` hoặc lỗi gọi API (quota/network), route tự động rơi về câu trả lời soạn sẵn (rule-based) thay vì lỗi trắng trang — nhưng khi đó Q&A không còn là RAG thật, chỉ là fallback demo.
+
 ## Deploy Render
 
 Repo đã có `render.yaml` cho Render Web Service:
@@ -27,7 +38,9 @@ Repo đã có `render.yaml` cho Render Web Service:
 - Start command: `npm run start`
 - Node version: `22`
 
-Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này. Sau khi build xong, Render sẽ cấp URL dạng `https://<service-name>.onrender.com`.
+Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này, rồi vào **Environment** thêm biến `GEMINI_API_KEY` (và tuỳ chọn `GEMINI_MODEL`) — nếu bỏ qua bước này, Q&A trên bản deploy sẽ luôn dùng fallback rule-based thay vì gọi LLM thật. Sau khi build xong, Render sẽ cấp URL dạng `https://<service-name>.onrender.com`.
+
+Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã ghi trong `grantpilot-ai-spec.md` mục 10.2/10.3, chưa phù hợp để demo trước giám khảo nếu chưa xử lý.
 
 ## Luồng demo nhanh
 
@@ -51,7 +64,7 @@ Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này. Sau khi 
 - `data/database_manifest.json`: số lượng bản ghi và trạng thái coverage.
 - `data/coverage_report.md`: các mảng dữ liệu còn thiếu/cần xác minh.
 
-MVP này không gọi API LLM để tránh rủi ro quota trong demo. Kiến trúc dữ liệu giữ citation, trạng thái hiệu lực và nguồn để thay bằng RAG/LLM thật ở vòng tiếp theo.
+`Hỏi đáp pháp lý` gọi Gemini thật (xem "Biến môi trường" ở trên); matching và các phần còn lại vẫn chạy rule-based phía client. Xem `grantpilot-ai-spec.md` mục 10 để biết chi tiết phần nào đã thật, phần nào còn giả lập/thiếu.
 
 Refresh database:
 

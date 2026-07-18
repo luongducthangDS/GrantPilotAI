@@ -76,7 +76,7 @@ export const policyWatch = policyWatchData as Array<{
   source: string;
 }>;
 
-type CorpusChunk = {
+export type CorpusChunk = {
   id: string;
   title: string;
   clause: string;
@@ -218,6 +218,10 @@ export function matchPolicies(profile: Profile): MatchResult[] {
       } satisfies MatchResult;
     })
     .sort((a, b) => b.score - a.score);
+}
+
+export function retrieveCorpusChunks(question: string, limit = 5): CorpusChunk[] {
+  return topCorpus(question, limit);
 }
 
 function topCorpus(question: string, limit = 3): CorpusChunk[] {
