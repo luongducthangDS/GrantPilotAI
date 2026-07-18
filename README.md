@@ -56,9 +56,14 @@ Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung c
 
 Ô "Nhập mã số thuế" ở Bước 01 của "Tìm chính sách" gọi `app/api/tax-lookup/route.ts`, tra cứu tên + địa chỉ + tình trạng hoạt động thật qua API công khai VietQR (nguồn: Cục Thuế, không cần API key riêng). Điền tên và tỉnh/thành từ dữ liệu đăng ký thuế thật (không phải AI đoán) — các trường còn lại (lĩnh vực, lao động, doanh thu, vốn) vẫn cần nhập tay vì VietQR không cung cấp. Cùng một `profile` này cũng được dùng để cá nhân hoá câu trả lời ở "Hỏi đáp pháp lý" (xem dòng gợi ý trên ô hỏi).
 
-### OCR ảnh/PDF ĐKKD/KQKD (thật, không mock)
+### Đọc hồ sơ từ TXT / Word / Excel / ảnh / PDF (thật, không mock)
 
-Ô upload hồ sơ nhận file `.txt` (parse trực tiếp), ảnh JPG/PNG/WebP, hoặc PDF (chụp/scan Giấy chứng nhận đăng ký doanh nghiệp hoặc báo cáo KQKD). Với ảnh/PDF, `app/api/ocr/route.ts` gọi vision LLM để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được. Với nhà cung cấp Google Gemini, route dùng structured output (`responseSchema`) thay vì tự dò JSON trong text tự do, đáng tin cậy hơn. **PDF chỉ đọc trực tiếp được qua Gemini** (OpenAI/Anthropic không nhận PDF qua content block ảnh) — nếu bạn chọn nhà cung cấp khác mà tải PDF lên, server tự chuyển sang `GEMINI_API_KEY` của máy chủ nếu có, không thì báo lỗi rõ ràng để bạn đổi sang ảnh hoặc đổi nhà cung cấp. Luôn kiểm tra lại kết quả trước khi dùng, vì đây là OCR thật (có thể đọc sai với ảnh mờ/nghiêng), không phải rule cố định.
+Ô upload hồ sơ nhận: `.txt` (parse trực tiếp theo mẫu `key: value`, tự chuyển sang AI nếu không khớp mẫu), `.docx`/`.xlsx`, ảnh JPG/PNG/WebP, hoặc PDF.
+
+- **Word/Excel**: server trích xuất văn bản trước bằng `mammoth` (.docx) hoặc `exceljs` (.xlsx) — không dùng gói `xlsx`/SheetJS vì bản trên npm có lỗ hổng bảo mật mức cao (prototype pollution + ReDoS) chưa có bản vá, không phù hợp để parse file người dùng tải lên. Sau khi trích xuất, văn bản đi qua đúng luồng AI như đường `.txt` fallback (không cần model có khả năng đọc ảnh). **Chỉ hỗ trợ `.docx`/`.xlsx`** — định dạng cũ `.doc`/`.xls` (Word/Excel 2003 trở về trước) chưa hỗ trợ được, cần lưu lại thành định dạng mới trước khi tải lên.
+- **Ảnh/PDF**: `app/api/ocr/route.ts` gọi vision LLM để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được. Với nhà cung cấp Google Gemini, route dùng structured output (`responseSchema`) thay vì tự dò JSON trong text tự do, đáng tin cậy hơn. **PDF chỉ đọc trực tiếp được qua Gemini** (OpenAI/Anthropic không nhận PDF qua content block ảnh) — nếu bạn chọn nhà cung cấp khác mà tải PDF lên, server tự chuyển sang `GEMINI_API_KEY` của máy chủ nếu có, không thì báo lỗi rõ ràng để bạn đổi sang ảnh hoặc đổi nhà cung cấp.
+
+Luôn kiểm tra lại kết quả trước khi dùng, vì đây là đọc thật bằng AI (có thể sai/thiếu), không phải rule cố định.
 
 ### Document Checklist — đối chiếu hồ sơ đã có/thiếu
 

@@ -212,12 +212,23 @@ export default function Home() {
     setError("");
     setMessage("");
 
+    const name = file.name.toLowerCase();
     const isImage = file.type.startsWith("image/");
     const isPdf = file.type === "application/pdf";
-    const isText = file.name.toLowerCase().endsWith(".txt");
+    const isText = name.endsWith(".txt");
+    // file.type is set from the OS's registered MIME association, which is
+    // inconsistent for Office formats on some browser/OS combos (can come
+    // through empty) — check the extension too rather than trust file.type alone.
+    const isDocx = file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || name.endsWith(".docx");
+    const isXlsx = file.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" || name.endsWith(".xlsx");
+    const isLegacyOffice = name.endsWith(".doc") || name.endsWith(".xls");
 
-    if (!isImage && !isPdf && !isText) {
-      setError("Vui lòng chọn tệp TXT, ảnh (JPG/PNG) hoặc PDF chụp/scan ĐKKD/KQKD.");
+    if (!isImage && !isPdf && !isText && !isDocx && !isXlsx) {
+      setError(
+        isLegacyOffice
+          ? "Định dạng .doc/.xls cũ chưa hỗ trợ được — vui lòng lưu lại thành .docx/.xlsx rồi thử lại."
+          : "Vui lòng chọn tệp TXT, Word (.docx), Excel (.xlsx), ảnh (JPG/PNG) hoặc PDF."
+      );
       return;
     }
 
@@ -271,21 +282,31 @@ export default function Home() {
       const base64 = await new Promise<string>((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => resolve((reader.result as string).split(",")[1] ?? "");
-        reader.onerror = () => reject(new Error("Không thể đọc ảnh."));
+        reader.onerror = () => reject(new Error("Không thể đọc tệp."));
         reader.readAsDataURL(file);
       });
+
+      // Don't rely on file.type for Office formats — normalize from the
+      // extension check above so the server's mimeType switch works even
+      // when the browser reports an empty/generic type.
+      const mimeType = isDocx
+        ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        : isXlsx
+          ? "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          : file.type;
 
       const response = await fetch("/api/ocr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: base64, mimeType: file.type, llm: llmSettings ?? undefined })
+        body: JSON.stringify({ image: base64, mimeType, llm: llmSettings ?? undefined })
       });
       const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
       if (!response.ok || !data.profile) throw new Error(data.error || "Không đọc được tài liệu.");
 
       setProfile((current) => ({ ...current, ...data.profile }));
       setResults([]);
-      setMessage(`Đã đọc hồ sơ từ ${isPdf ? "PDF" : "ảnh"} bằng AI (OCR thật). Vui lòng kiểm tra lại các trường trước khi dùng.`);
+      const sourceLabel = isPdf ? "PDF" : isDocx ? "Word" : isXlsx ? "Excel" : "ảnh";
+      setMessage(`Đã đọc hồ sơ từ ${sourceLabel} bằng AI. Vui lòng kiểm tra lại các trường trước khi dùng.`);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Đọc tài liệu thất bại.");
     } finally {
@@ -613,13 +634,13 @@ export default function Home() {
                 >
                   <input
                     type="file"
-                    accept=".txt,text/plain,image/png,image/jpeg,image/webp,application/pdf"
+                    accept=".txt,text/plain,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,image/png,image/jpeg,image/webp,application/pdf"
                     disabled={ocrLoading}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])}
                   />
                   <span className="upload-icon">{ocrLoading ? <span className="button-spinner" /> : "⇧"}</span>
-                  <strong>{ocrLoading ? "Đang đọc tài liệu bằng AI..." : "Thả hồ sơ TXT, ảnh hoặc PDF ĐKKD/KQKD vào đây"}</strong>
-                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Ảnh/PDF: OCR thật qua AI (PDF chỉ đọc trực tiếp qua Gemini) · tối đa 1 MB"}</p>
+                  <strong>{ocrLoading ? "Đang đọc tài liệu bằng AI..." : "Thả hồ sơ TXT, Word, Excel, ảnh hoặc PDF vào đây"}</strong>
+                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Word/Excel/Ảnh/PDF: đọc bằng AI (PDF chỉ đọc trực tiếp qua Gemini)"}</p>
                 </label>
 
                 <div className="tax-lookup-row">

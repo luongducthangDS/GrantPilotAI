@@ -1,3 +1,5 @@
+import ExcelJS from "exceljs";
+import mammoth from "mammoth";
 import { NextResponse } from "next/server";
 
 import { normalizeIndustry, normalizeProvince } from "@/lib/grantpilot";
@@ -9,6 +11,30 @@ import {
   generateVisionAnswer,
   type LlmProvider
 } from "@/lib/llmProviders";
+
+const DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+const XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+async function extractDocxText(buffer: Buffer): Promise<string> {
+  const result = await mammoth.extractRawText({ buffer });
+  return result.value.trim();
+}
+
+async function extractXlsxText(buffer: Buffer): Promise<string> {
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.load(buffer as unknown as ArrayBuffer);
+  const lines: string[] = [];
+  workbook.eachSheet((sheet) => {
+    lines.push(`# ${sheet.name}`);
+    sheet.eachRow((row) => {
+      const cells = (row.values as unknown[])
+        .slice(1)
+        .map((value) => (value === null || value === undefined ? "" : String(value)));
+      if (cells.some((cell) => cell.trim() !== "")) lines.push(cells.join(" | "));
+    });
+  });
+  return lines.join("\n").trim();
+}
 
 // Gemini-only: schema-constrained JSON output, so parsing never has to hunt
 // for a `{...}` blob inside freeform text. Deliberately has no `required`
@@ -61,15 +87,39 @@ Chỉ đưa các trường đọc được vào JSON — bỏ hẳn key nếu kh
 const VALID_PROVIDERS: LlmProvider[] = ["google", "openai", "anthropic", "xai"];
 
 export async function POST(request: Request) {
-  const { image, mimeType, text: rawText, llm } = (await request.json()) as {
+  const body = (await request.json()) as {
     image?: string;
     mimeType?: string;
     text?: string;
     llm?: { provider?: string; apiKey?: string; model?: string };
   };
+  const { llm } = body;
+  let image = body.image;
+  let mimeType = body.mimeType;
+  let rawText = body.text;
 
   if ((!image || !mimeType) && !rawText?.trim()) {
     return NextResponse.json({ error: "Thiếu dữ liệu ảnh hoặc văn bản." }, { status: 400 });
+  }
+
+  // Word/Excel aren't image formats a vision model can read, and they aren't
+  // plain text either — extract the text server-side first, then fall
+  // through to the exact same text path used for .txt/AI-fallback (any
+  // provider works, no vision model needed for these two formats).
+  if (image && (mimeType === DOCX_MIME || mimeType === XLSX_MIME)) {
+    try {
+      const buffer = Buffer.from(image, "base64");
+      rawText = mimeType === DOCX_MIME ? await extractDocxText(buffer) : await extractXlsxText(buffer);
+      if (!rawText) throw new Error("Tài liệu không có nội dung văn bản đọc được.");
+      image = undefined;
+      mimeType = undefined;
+    } catch (error) {
+      console.error("Trích xuất văn bản Word/Excel thất bại:", error);
+      return NextResponse.json(
+        { error: "Không đọc được nội dung file Word/Excel này. File có thể bị hỏng hoặc ở định dạng cũ (.doc/.xls) chưa được hỗ trợ — chỉ hỗ trợ .docx/.xlsx." },
+        { status: 400 }
+      );
+    }
   }
 
   const isPdf = mimeType === "application/pdf";

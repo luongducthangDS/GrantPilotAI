@@ -221,6 +221,16 @@ Sau đó rà lại 127 tệp đính kèm vừa tải: **đa số không dùng đ
 - **Không làm:** chưa dựng policy card riêng cho Giấy chứng nhận DN KH&CN (dù có Mẫu V.1 thật) vì chưa có đủ văn bản gốc quy định tiêu chí cấp chứng nhận (mẫu chỉ tham chiếu "khoản 2 Điều 50" — điều khoản này chưa có trong corpus) — dựng eligibility mà thiếu căn cứ đầy đủ sẽ vi phạm nguyên tắc "không bịa". 46/47 văn bản còn lại trong đợt tải này không dùng vì không liên quan (thông tư cũ 2000s) hoặc không có file thật (placeholder).
 - 127 tệp tải về (~57MB, thư mục `data/raw/vbpl/files/`) đã có sẵn trong `.gitignore`, không commit vào repo.
 
+**Cập nhật 2026-07-18 (lần 9):** Chẩn đoán 2 việc người dùng báo:
+1. **"Tại sao không tải file lên được"** — không phải bug, dropzone trước đó chỉ chấp nhận `.txt`/ảnh/PDF, chưa hỗ trợ `.docx`/`.xlsx` (định dạng phổ biến nhất cho "hồ sơ công ty" thật ngoài đời). Đã bổ sung.
+2. **"Thêm txt vào nhưng chưa auto-fill"** — chẩn đoán bằng cách gọi thẳng vào server người dùng đang chạy (cổng 3000): **mọi route `/api/*` đều 404**, kể cả `/api/qa` đã ổn định từ đầu phiên. Tra tiến trình (PID, `StartTime`) cho thấy server khởi động **17/7 21:30** — tức là trước gần như toàn bộ code build hôm nay (OCR, tax-lookup, checklist-match, fix txt-fallback). Không phải bug code — server đang chạy build cũ, cần khởi động lại (`npm run dev`/`npm run start`) để nhận code mới. Đã báo người dùng, không tự ý tắt tiến trình của họ.
+
+Sau đó bổ sung hỗ trợ Word/Excel như yêu cầu "hoàn thiện đi":
+- `app/api/ocr/route.ts` thêm `extractDocxText()` (dùng `mammoth`) và `extractXlsxText()` (dùng `exceljs`) — trích xuất văn bản thô trước, rồi cho đi qua đúng luồng AI dạng text đã có sẵn (không cần model có khả năng đọc ảnh, mọi nhà cung cấp đều dùng được, khác với ảnh/PDF).
+- **Quyết định bảo mật quan trọng:** thử cài `xlsx` (SheetJS) trước — `npm audit` báo lỗ hổng mức **HIGH** chưa có bản vá (prototype pollution + ReDoS), rủi ro thật vì đây là thư viện parse file người dùng tải lên (input không tin cậy). Đã gỡ, chuyển sang `exceljs` (chỉ còn lỗ hổng mức moderate qua dependency `uuid`, chấp nhận được).
+- Client (`app/page.tsx`): nhận diện `.docx`/`.xlsx` theo cả mimeType lẫn đuôi file (mimeType từ trình duyệt không đáng tin cho định dạng Office trên một số hệ điều hành), tự chuẩn hoá mimeType gửi lên server thay vì tin `file.type`. Từ chối rõ ràng `.doc`/`.xls` cũ (chưa hỗ trợ, khác định dạng XML-based mới). Xoá dòng "tối đa 1 MB" khỏi UI vì không có kiểm tra `file.size` nào thực sự tồn tại trong code — chữ đó gây hiểu lầm.
+- **Verify được:** `mammoth`/`exceljs` test độc lập (không qua mạng) — trích xuất đúng 100% nội dung tiếng Việt từ file `.docx`/`.xlsx` thật tự tạo, tức thời (<100ms). **Chưa verify được đầu-cuối qua AI thật:** cùng vướng quota Gemini free-tier (20 request/ngày) của server đã cạn nhiều lần trong phiên — 1 request còn trả về "Gemini trả về phản hồi rỗng" trước khi quota báo 429 hẳn, có thể là hệ quả của việc gần chạm giới hạn quota chứ không phải lỗi logic (đường dẫn structured-JSON-từ-text-thuần đã test thành công y hệt ở lần 7 khi quota còn đủ).
+
 ### 10.1 Theo tính năng (đối chiếu mục 3)
 
 | # | Tính năng | Trạng thái | Thực tế đang chạy trong code |
