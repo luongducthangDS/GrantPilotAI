@@ -1,0 +1,436 @@
+# Thông tư 64/2021/TT-BTC (OCR draft — mất dấu một phần, cần người review trước khi dùng làm căn cứ pháp lý)
+
+Nguồn: data/raw/vbpl/files/151048/VanBanGoc_64.signed.pdf
+OCR engine: rapidocr-onnxruntime, 5 trang
+
+## Page 1
+
+VGP
+
+Nguoi ky: Cong Thong tin dien tur Chinh phu
+
+Email:thongtinchinhphu@chinhphu.vn
+
+Coquan:Van phong Chinh phu
+
+BQ TAI CHINH
+
+CONG HOA XA HOI CHU NGHIA VIET NAM
+
+Doc lap - Ty do - Hanh phuc
+
+S6: 64/2021/TT-BTC
+
+Ha Noi, ngay 29 thang 7 nam 2021
+
+CONGTHONGTIN DIENTU CHINH PHU
+
+DEN Gic...
+
+<!-- low_confidence=0.66 --> S
+
+<!-- low_confidence=0.62 --> Ngy.AG.18 1. 1d
+
+THONG TU
+
+<!-- low_confidence=0.61 --> oes uesu yyd quy ugon nainb ga sunp ns fi uenb sugon ap dei dgp sora
+
+CONG VAN DEN
+
+<!-- low_confidence=0.66 --> Gl.... Ngay...al.
+
+Kinh cthuyen. f.
+
+Can cir Luat Ngan sach nha nuoc ngay 25 thang 6 nam 2015;
+
+<!-- low_confidence=0.63 --> ..............
+
+Can cir Luat Ho tro doanh nghiep nho va vira ngay 12 thang 6 nam 2017;
+
+Can cur Nghi dinh so 163/2016/ND-CP ngay 21 thang 12 nam 2016 cua
+
+Chinh phu huong dan mot so Dieu cua Luat Ngan sach nha nuoc;
+
+pno LI07 upu L Bupy 97 Xp8u dD-GN/L107/L8 gs yuip iy8N no upD
+
+Chinh phi quy dinh chirc nang, nhiem vu, quyen han va co cau to chirc cia Bo
+
+Tai chinh;
+
+yuyD pno 6I07 upu 9 Supy1 t7 Ap8u d0-N6I07/ss 9s yuip iy8N no up5
+
+phi ve ho tro phap ly cho doanh nghiep nho va vira;
+
+Theo de nghi cia Vu truong Vu Tai chinh hanh chinh su nghiep;
+
+Bo truong Bo Tai chinh ban hanh Thong tu huong dan lap du toan, quan
+
+ly,si dung va quyet toan kinh phi ngan sach nha nuic phuc vu hoat dong ho tro
+
+phaply cho doanh nghiep nhovavia.
+
+Dieu 1. Pham vi dieu chinh va doi tuong ap dung
+
+1. Pham vi dieu chinh
+
+Thong tu nay huong dan viec lap dy toan, quan ly, su dung va quyét toan
+
+kinh phi ngan sach nha nuoc phuc vu hoat dong ho tro. phap ly cho doanh nghiep
+
+<!-- low_confidence=0.59 --> deo guonqd eip uanb quyo oq suau uenb oo oq ono eno ena ea oqu
+
+2. Doi tuong ap dung
+
+jen yuip Anb oay Buont lop ogo wqa oeq n BuouL eno Sunp de Suoni 19G
+
+Dieu 2 Nghi dinh s6 55/2019/ND-CP ngay 24 thang 6 nam 2019 cua Chinh phu
+
+ve ho trg phap ly cho doanh nghiep nho va vua (sau day goi tat la Nghi dinh so
+
+<!-- low_confidence=0.53 --> (nyd q 1o 610 u 9  t7 Au d-aNa17/99
+
+Dieu 2. Nguon kinh phi bao dam hoat dong ho tro phap ly cho doanh
+
+nghiep nho va vira
+
+1. Nguon ngan sach nha nuoc bao dam theo phan cap ngan sach nha nuoc.
+
+## Page 2
+
+2. Nguon kinh phi tai tro, h6 tro, dong gop cua cac doanh nghiep, to chuc, ca
+
+nhan trong va ngoai nuoc phuc vu hoat dong ho tro phap ly cho doanh nghiép nho
+
+va vira theo quy dinh cua phap luat.
+
+3. Nguon kinh phi hop phap khac theo quy dinh cua phap luat.
+
+Dieu 3. Noi dung va mirc chi chung phuc vu hoat dong ho tro phap ly
+
+cho doanh nghiep nho va vira
+
+Doi voi cac noi dung chi da co che do, tieu chuan, dinh murc chi thyc hien
+
+<!-- low_confidence=0.54 --> u y o  g grd   r uy p nb o
+
+nghi so két va tong két; hoi nghi tap huan; cong tac phi trong nuoc; di cong tac
+
+nuoc ngoai; chi dich tai liéu tir tieng Viet sang tiéng nuoc ngoai va ngugc lai;
+
+chi lam dem, them gio phuc vu hoat dong h6 tro phap ly cho doanh nghiep nho
+
+va vua; chi hoat dong kiém tra, giam sat. Ngoai cac noi dung chi neu tren,
+
+Thong tu nay quy dinh mot so noi dung va murc chi cu the nhu sau:
+
+1. Chi xay dung, quan ly, duy tri, cap nhat, khai thac va sur dung cac du
+
+liéu, co so du liéu phuc vu ho tro phap ly cho doanh nghiep nho va vira theo quy
+
+dinh tai Dieu 5, Dieu 6, Dieu 7, Dieu 8 va Dieu 9 Nghi dinh s6 55/2019/ND-CP
+
+ngay 24 thang 6 nam 2019 cua Chinh phu:
+
+Thuc hien theo quy dinh tai Nghi dinh s6 73/2019/ND-CP ngay 05 thang
+
+9 nam 2019 cua Chinh phu quy dinh quan ly dau tu ing dung cong nghe thong
+
+tin s'r dung nguon von ngan 'sach nha nuoc (sau day goi tat la Nghi dinh so
+
+73/2019/ND-CP ngay 05 thang 9 nam 2019 cua Chinh phu), cac van ban hien
+
+hanh ve chi ing dung cong nghe thong tin va cac dinh muc kinh té - ky thuat
+
+trong linh vyc thong tin va truyen thong.
+
+2. Chi hoat dong cung cap thong tin phap luat trong nuoc, thong tin phap
+
+luat nuoc ngoai, phap luat quoc te, canh bao rui ro phap ly va chinh sach cua
+
+nganh, linh vuc, dia phuong lien quan den linh yyc hoat dong cua doanh nghiep
+
+nh6 va vira theo quy dinh tai diém a khoan 2 Diéu 10 Nghi dinh s6 55/2019/ND-
+
+CP duoi cac hinh thuc: Tai lieu viét; du lieu dien t'r (ban tin phap luat, phong su,
+
+chuyén de, chuyen muc nang cao kien thuc phap luat) dé dang tai tren cac
+
+phuong tien truyen thong; muc chi cu the nhu sau:
+
+- Chi bien soan sach, tai lieu: Thurc hien theo quy dinh ve chi xay dung
+
+chuong trinh dao tao, bien soan giao trinh mon hoc theo quy dinh tai Thong tu
+
+s6 76/2018/TT-BTC ngay 17 thang 8 nam 2018 cua B0 Tai chinh huong dan noi
+
+dung, murc chi xay durng churong trinh dao tao, bien soan giao trinh mon hoc doi
+
+voi giao duc dai hoc, giao duc nghe nghiep.
+
+- Chi san xuat, phat hanh, phat song cac chuong. trinh thu hinh, thu thanh;
+
+<!-- low_confidence=0.52 --> ho wu g u t1 Aeu -antho7/1 9s qup ion 1en qup Anb o ut
+
+cua Chinh phu ve ché do nhuan but trong linh vyc bao chi, xuat ban, Nghi dinh
+
+s6 21/2015/ND-CP ngay 14 thang 02 nam 2015 cua Chinh phu quy dinh ve
+
+nhuan but, thu lao doi voi tac pham dien anh, my thuat, nhiép anh, san khau va
+
+## Page 3
+
+cac loai hinh nghe thuat bieu dien khac, quy dinh ve dinh muc kinh té - ky thuat
+
+hien hanh va cac hoa don, chung ti hop phap theo quy dinh cua phap luat.
+
+3. Chi to churc cac hoat dong boi duong kién thuc phap luat quy dinh tai
+
+diem b khoan 2 Dieu 10 Dieu 10 Nghi dinh s6 55/2019/ND-CP:
+
+a) Chi tap huan, boi duong kien thuc phap luat cho doanh nghiep nho va
+
+vira, tur van vien phap luat:
+
+- Cac khoan chi do doanh nghiep nho va vura, tu van vien phap luat ty chi
+
+tra bao gom: Chi phi di lai, tien an, tien thue phong nghi va cac khoan chi khac
+
+do doanh nghiep quyet dinh ho tro cho nguoi lao dong khi tham dy tap huan
+
+hach toan cac khoan chi ho trg cho nguoi lao dong cua doanh nghiep tham du
+
+tap huan vao chi phi hoat dong cua doanh nghiep theo quy dinh. Muc chi phi di
+
+lai, tien an, tien thue phong nghi de tinh vao chi phi hoat dong cua doanh nghiep
+
+thyc hien theo quy dinh vé ché do cong tac phi quy dinh tai Thong tu so
+
+<!-- low_confidence=0.54 --> Xb qo 1 9 n 9a 8o  u   87 5u -io
+
+dinh che do cong tac phi, ché do chi hoi nghi (sau day goi tat la Thong tu s6
+
+<!-- low_confidence=0.64 --> 1    1 4
+
+- Ngan sach nha nuoc ho trg cac khoan chi con lai (trir chi phi di lai, tien
+
+an, tien thue phong nghi tai diem a khoan 3 Dieu 3 Thong tu nay) dé to chuc hoi
+
+nghi tap huan, boi duong kién thirc phap luat: Thuc hien theo quy dinh ve che do
+
+chi t6 chuc hoi nghi tai Thong tu s6 40/2017/TT-BTC ngay 28 thang 4 nam
+
+2017 cua Bo truong Bo Tai chinh.
+
+b) Doi voi chi tap huan, boi duong kién thuc phap luat cho cac doi tuong
+
+cua cac Bo, co quan trung uong, dia phuong lam cong tac ho trg phap ly cho
+
+<!-- low_confidence=0.58 --> -/g loae gs n uou 1en qup Xnb oan uty nu :ena ea oqu datyu quop
+
+BTC ngay 30 thang 3 nam 2018 cua Bo Tai chinh huong dan viéc lap du toan,
+
+quan ly, su dung va quyét toan kinh phi danh cho cong tac dao tao, boi duong
+
+can bo, cong chuc, vién chirc.
+
+4. Chi to chuc d6i thoai, dien dan tur van phap luat cho doanh nghiep nho
+
+va vua: Thuc hien theo quy dinh tai Thong tu s6 40/2017/TT-BTC ngay 28
+
+thang 4 nam 2017 cua Bo truong Bo Tai chinh.
+
+<!-- low_confidence=0.61 --> Q huop roy na onqd unn uaan ne en yons ugyd ug ono enu t '9
+
+trg phap ly cho doanh nghiep nho va via: Thyc hien theo quy dinh cua phap luat
+
+ve mua sam, hoa don, chung tu hop phap theo quy dinh cua phap luat hien hanh.
+
+<!-- low_confidence=0.65 --> quop oyo fi deqd on qu qun Suonuo uny ony ea gunp Aex ju ‘9
+
+nghiép nho va vira:
+
+a) Chi khao sat nhu cau h6 trg phap ly cho doanh nghiep nho va via:
+
+Thuc hien theo quy dinh tai Thong tur s6 109/2016/TT-BTC ngay 30 thang 6
+
+pA gunp ns fi uenb ueon np dei yuip Xnb quyo 1e1 9a guonn og eno 9io7 weu
+
+quyet toan kinh phi thyc hien cac cuoc dieu tra thong ke, Tong dieu tra thong ke
+
+quoc gia;
+
+## Page 4
+
+b) Chi cac cuoc hop gop y de cuong chuong trinh, xet duyet, tham dinh,
+
+xay dung noi dung chuong .trinh: Thuc hien theo che do hoi nghi quy dinh tai
+
+<!-- low_confidence=0.51 --> 9  9 1 417  t  87 5 51-170 9s
+
+chinh;
+
+c) Chi thyc hién chuong trinh: Cac co quan dugc giao thyc hien chuong
+
+<!-- low_confidence=0.51 --> do sonp qu suono no uo ena ea oqu dtylu quop oo i dud on yu y
+
+c6 tham quyen phe duyet va cac ché do, dinh muc chi da duoc quy dinh de .thuc
+
+hién.
+
+Dieu 4. Lap, phan bo dy toan va quyet toan kinh phi
+
+Viec lap; chap hanh du toan va quyét toan kinh phi bao dam cho cong tac
+
+h6 trg phap ly cho doanh nghiep nho va vua thuc hien theo quy dinh cua phap
+
+luat ve ngan sach nha nuoc, phap luat ve ke toan. Thong tu nay huong dan cu
+
+the mot so noi dung nhu sau:
+
+1. Lap dy toan
+
+<!-- low_confidence=0.56 --> o o d  o  dd     s n (
+
+quang ngang bo, chinh quyen dia phuong cap tinh:
+
+Can cu chuong trinh ho tro phap ly cho doanh nghiep nho va viua dugc
+
+phe duyet theo quy dinh tai Nghi dinh s6 55/2019/ND-CP ngay 24 thang 6 nam
+
+2019 cua Chinh phu; can cur ké hoach trién khai hoat dong h6 tro phap ly cho
+
+doanh nghiep nho va vira cua bo, co quan ngang bo, uy ban nhan dan cap tinh
+
+6 nam 2019 cua Chinh phu; can cu noi dung chi, muc chi quy dinh tai Thong tur
+
+nay; cac co quan, don vi lap du toan kinh phi ti ngan sach nha nuoc thuc hien
+
+hoat dong ho tro doanh nghiep nho va vira va tong hop chung trong ké hoach ho
+
+tro doanh nghiep nho va vira hang nam theo quy dinh; guri co quan chu quan cap
+
+tong hop, guri don yi du toan cap I' dé guri co quan tai chinh cung
+
+tren truc tiép
+
+<!-- low_confidence=0.55 --> a nn dud en  n o un  go  oo  dy  d
+
+sach nha nuoc;
+
+<!-- low_confidence=0.52 --> op o i dd on gu qu n uty s p  qu a ia (qy
+
+nghiep nho va vira cua cac Bo, co quang ngang bo, chinh quyen dia phuong cap
+
+tinh nam 2021 do cac Bo, co quan ngang bo va chinh quyén dia phuong c
+
+cap tinh
+
+b6 tri, sap xep trong pham vi dyr toan da dugc co quan co tham quyen giao de
+
+thuc hien.
+
+2. Viec chap hanh du toan, quyet toan kinh phi bao dam cho cong tac ho
+
+tro phap ly. cho doanh nghiep nho va vua cua cac co quan, don vi thyc hién theo
+
+quy dinh hien hanh.
+
+Dieu 5. T? churc thuc hien
+
+1. Thong tur nay c6 hieu lyc ké tui ngay 01 thang 10 nam 2021.
+
+2. Thong tu lien tich s6 157/2010/TTLT-BTC-BTP ngay 12.thang 10 nam
+
+2010.cua Bo truong Bo Tai chinh, Bo truong Bo Tu phap huong dan viec lap du
+
+toan, quan ly, sur dung va quyét toan kinh phi ngan sach nha nuoc bao dam cho
+
+## Page 5
+
+cong tac ho trg phap ly cho doanh nghiep hét hieu luc thi hanh ke tu ngay Thong
+
+tu nay co hieu lyc thi hanh.
+
+3. Khi cac van ban quy dinh ve ché do, dinh murc chi dan chiéu de ap
+
+dung tai Thong tu nay duoc sura doi, bo sung hoac thay the bang van ban moi thi
+
+ap dung theo cac van ban sua doi, bo sung hoac thay thé.
+
+4. Cac muc chi quy dinh tai Thong tu nay la muc chi lam can cu de cac
+
+Bo, co quan ngang bo lap du toan chi phuc vu hoat dong ho tro phap ly cho
+
+doanh nghiep nho va vura. Bo truong, thu truong co quan ngang bo quyét dinh
+
+<!-- low_confidence=0.51 --> y un s p oonu eu yns uu uonu  g no to n quy uq oit
+
+dong h6 tro phap ly cho doanh nghiep nho va via trong pham vi dy toan ngan
+
+sach nha nuoc da dugc cap co tham quyén giao.
+
+5. Can cu tinh hinh thuc te tai dia phuong va kha nang can doi ngan sach
+
+dia phuong, Uy ban dan tinh, thanh pho truc thuoc trung uong trinh Hoi dong
+
+nhan dan cung cap quyet dinh viec ban hanh murc chi cu the cho phu hop de thuc
+
+hién & dia phuong.
+
+6. Truong hop cac Bo, co quan ngang bo, dia phuong khong ban hanh
+
+yuip Xnb o onu no ueo ia uop ‘uenb oo suonn nu lu ‘gu no jyo onu
+
+Thong tu nay dé thyc hien nhumg toi da khong vuot qua muc chi quy dinh tai
+
+Thong tu nay, dam bao tiét kiem, tranh lang phi, trong pham vi du toan nguon
+
+kinh phi duoc cap co tham quyen giao.
+
+7. Trong qua trinh thyc hién neu co vuong mac, de nghi phan anh kip thoi
+
+vé Bo Tai chinh de nghien ciru giai quyét./.
+
+Noi nhan:
+
+KT. BO TRUONG
+
+- Ban Bi thu trung uong Dang;
+
+FHU TRUONG
+
+- Thu tuong, cac Ph6 Thu turong Chinh phu;
+
+- Van phong Tong Bi thu; Van phong Quoc hoi;
+
+- Van phong Chu tich nuoc;
+
+- Van phong Chinh phu;
+
+- Van phong Trung rong va cac Ban cua Dang;
+
+- Vien Kiem sat nhan dan toi cao;
+
+- Toa an nhan dan toi cao, Kiem toan Nha nuoc;
+
+- Cac Bo, co quan ngang Bo, co quan thuoc Chinh phu;
+
+- UBND cac tinh, thanh pho tryc thuoc Trung uong;
+
+Do Hoang Anh Tuan
+
+- Co quan Trung uong cac Hoi, Doan the;
+
+- So Tai chinh, KBNN cac tinh, thanh pho tryc thuoc
+
+Trung uong;
+
+- Cuc Kiem tra van ban quy pham phap luat- Bo Tu phap;
+
+- Cong bao, Cong Thong tin dien tu Chinh phu;
+
+- Cong Thong tin dien tu Bo Tai chinh;
+
+- Cac don vi thuoc B6 Tai chinh;
+
+- Luu: VT, Vu HCSN (180 ban).

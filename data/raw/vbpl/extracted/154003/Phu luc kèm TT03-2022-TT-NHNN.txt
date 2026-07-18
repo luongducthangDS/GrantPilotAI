@@ -1,0 +1,735 @@
+PHỤ LỤC 01
+
+(Ban hành kèm theo Thông tư số 03/2022/TT-NHNN ngày 20/5/2022 của
+
+Thống đốc Ngân hàng Nhà nước Việt Nam)
+
+
+
+XÁC ĐỊNH HẠN MỨC HỖ TRỢ LÃI SUẤT
+
+ĐỐI VỚI NGÂN HÀNG THƯƠNG MẠI
+
+
+
+Bước 1: Xác định hạn mức hỗ trợ lãi suất đối với từng ngân hàng thương mại trong 02 năm 2022 và 2023 theo tỷ trọng dư nợ cho vay:
+
+Ii= 40.000 x Ci/∑Ci (tỷ đồng)
+
+Trong đó:
+
+- Ii là hạn mức hỗ trợ lãi suất đối với ngân hàng thương mại i trong 02 năm 2022 và 2023 xác định theo tỷ trọng dư nợ cho vay; 
+
+- Ci là dư nợ cho vay của ngân hàng thương mại i đến 31/12/2021;
+
+- ∑Ci là tổng dư nợ cho vay đến 31/12/2021 của các ngân hàng thương mại có đăng ký kế hoạch hỗ trợ lãi suất;
+
+Bước 2: Trường hợp số tiền hỗ trợ lãi suất theo đăng ký kế hoạch của ngân hàng thương mại nhỏ hơn hoặc bằng hạn mức tại bước 1 thì xác định hạn mức hỗ trợ lãi suất đối với ngân hàng thương mại đó theo kế hoạch đăng ký;
+
+Bước 3: Trường hợp số tiền hỗ trợ lãi suất theo đăng ký kế hoạch của ngân hàng thương mại lớn hơn hạn mức tại bước 1 thì xác định hạn mức hỗ trợ lãi suất đối với ngân hàng thương mại này như sau:
+
+Iii = (40.000 - ∑Ii )x Cii/∑Cii
+
+Trong đó:
+
+- Iii là hạn mức hỗ trợ lãi suất đối với ngân hàng thương mại tại bước 3 (ngân hàng thương mại ii) trong 02 năm 2022 và 2023 xác định theo tỷ trọng dư nợ cho vay;
+
+- ∑Ii là tổng hạn mức hỗ trợ lãi suất của các ngân hàng thương mại tại bước 2;	
+
+- Cii là dư nợ cho vay của ngân hàng thương mại ii đến 31/12/2021;
+
+- ∑Cii là tổng dư nợ cho vay của các ngân hàng thương mại ii đến 31/12/2021;
+
+Bước 4: Trường hợp số tiền hỗ trợ lãi suất theo đăng ký của ngân hàng thương mại nhỏ hơn hoặc bằng hạn mức tại bước 3 thì xác định hạn mức hỗ trợ lãi suất theo kế hoạch đăng ký;
+
+Bước 5: Trường hợp số tiền hỗ trợ lãi suất theo đăng ký kế hoạch của ngân hàng thương mại lớn hơn hạn mức tại bước 3 thì tiếp tục xác định theo cách thức nêu tại bước 3 và bước 4 cho tới khi hết 40.000 tỷ đồng.
+
+
+
+PHỤ LỤC 02
+
+(Ban hành kèm theo Thông tư số 03/2022/TT-NHNN ngày 20/5/2022 của
+
+Thống đốc Ngân hàng Nhà nước Việt Nam)
+
+
+
+TÊN NGÂN HÀNG THƯƠNG MẠI																			
+
+BÁO CÁO KẾT QUẢ CHO VAY HỖ TRỢ LÃI SUẤT
+
+THEO NGHỊ ĐỊNH 31/2022/NĐ-CP VÀ THÔNG TƯ 03/2022/TT-NHNN
+
+Kỳ số liệu báo cáo: Tháng ………/………
+
+
+
+Đơn vị tính: đồng, khách hàng
+
+TT
+
+Ngành, lĩnh vực
+
+Dư nợ cho vay được HTLS tại ngày cuối tháng báo cáo
+
+Phát sinh trong tháng báo cáo
+
+Lũy kế từ đầu chương trình đến cuối tháng báo cáo
+
+Doanh số cho vay được HTLS 
+
+Số lượng khách hàng vay được HTLS 
+
+Số tiền đã HTLS
+
+Doanh số cho vay được HTLS 
+
+Số lượng khách hàng vay được HTLS 
+
+Số tiền đã HTLS
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+(6)
+
+(7)
+
+(8)
+
+(9)
+
+I
+
+Hỗ trợ lãi suất theo ngành, lĩnh vực kinh tế
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1
+
+Theo ngành kinh tế
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.1
+
+Hàng không, vận tải kho bãi (H)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.1.1
+
+Trong đó: Hàng không
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.2
+
+Du lịch (N79)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.3
+
+Dịch vụ lưu trú, ăn uống (I)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.4
+
+Giáo dục và đào tạo (P)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.5
+
+Nông nghiệp, lâm nghiệp và thuỷ sản (A)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.6
+
+Công nghiệp chế biến, chế tạo (C)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.7
+
+Xuất bản phần mềm (J582)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.8
+
+Lập trình máy vi tính và hoạt động liên quan (J62)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1.9
+
+Hoạt động dịch vụ thông tin (J63)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2
+
+Thực hiện dự án xây dựng nhà ở xã hội, nhà ở cho công nhân, cải tạo chung cư cũ
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2.1
+
+Nhà ở xã hội
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.2
+
+Nhà ở cho công nhân
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2.3
+
+Cải tạo chung cư cũ
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+II
+
+Hỗ trợ lãi suất theo đối tượng khách hàng 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1
+
+Doanh nghiệp
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2
+
+Hợp tác xã  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3
+
+Hộ kinh doanh
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+III
+
+Tổng cộng (=I=II)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+Hướng dẫn lập báo cáo:
+
+1. Đối tượng áp dụng: Các ngân hàng thương mại được thông báo hạn mức hỗ trợ lãi suất.
+
+2. Thời gian gửi báo cáo: Chậm nhất ngày 20 hằng tháng.
+
+3. Yêu cầu số liệu báo cáo: 
+
+- Trụ sở chính ngân hàng thương mại gửi báo cáo cho Ngân hàng Nhà nước thông qua hệ thống báo cáo thống kê tập trung của Ngân hàng Nhà nước Việt Nam, bao gồm:
+
++ Số liệu toàn hệ thống.
+
++ Số liệu từng chi nhánh ngân hàng thương mại trong hệ thống.
+
+- Kiểu dữ liệu: dạng số nguyên, tối đa 20 chữ số.
+
+4. Đơn vị nhận và duyệt báo cáo: Vụ Tín dụng các ngành kinh tế, Ngân hàng Nhà nước chi nhánh tỉnh, thành phố.
+
+5. Hướng dẫn cụ thể: 
+
+- Số liệu báo cáo không bao gồm các khoản vay phải thu hồi số tiền đã hỗ trợ lãi suất  theo quy định tại Điều 9 Nghị định số 31/2022/NĐ-CP.
+
+- Cột (3): Dư nợ cho vay được hỗ trợ lãi suất tại ngày cuối tháng báo cáo.
+
+- Cột (4): Doanh số cho vay được hỗ trợ lãi suất phát sinh trong tháng báo cáo.
+
+- Cột (5): Số lượng khách hàng vay được hỗ trợ lãi suất phát sinh trong tháng báo cáo (tương ứng với cột 4).
+
+- Cột (6): Số tiền ngân hàng thương mại đã hỗ trợ lãi suất trong tháng báo cáo. 
+
+- Cột (7): Lũy kế doanh số cho vay được hỗ trợ lãi suất từ đầu chương trình đến cuối tháng báo cáo.
+
+- Cột (8): Lũy kế số lượng khách hàng vay được hỗ trợ lãi suất từ đầu chương trình đến cuối tháng báo cáo (tương ứng với cột 7).
+
+- Cột (9): Lũy kế số tiền ngân hàng thương mại đã hỗ trợ lãi suất từ đầu chương trình đến cuối tháng báo cáo.
+
+
+
+PHỤ LỤC 03
+
+(Ban hành kèm theo Thông tư số 03/2022/TT-NHNN ngày 20/5/2022 của
+
+Thống đốc Ngân hàng Nhà nước Việt Nam)
+
+
+
+TÊN NGÂN HÀNG THƯƠNG MẠI
+
+
+
+
+
+BÁO CÁO DỰ KIẾN CHUYỂN NGUỒN HẠN MỨC HỖ TRỢ LÃI SUẤT NĂM 2022 SANG NĂM 2023 THEO NGHỊ ĐỊNH 31/2022/NĐ-CP VÀ THÔNG TƯ 03/2022/TT-NHNN
+
+(đính kèm Công văn số … của ngân hàng thương mại)
+
+Kỳ số liệu báo cáo: Tháng ………/………
+
+
+
+Đơn vị tính: đồng
+
+Số tiền đã HTLS lũy kế từ đầu chương trình đến cuối tháng báo cáo (tháng T)
+
+Dự kiến số tiền HTLS phát sinh từ đầu tháng T+1 đến 31/12/2022
+
+Dự kiến số tiền HTLS lũy kế từ đầu chương trình đến 31/12/2022
+
+Hạn mức HTLS năm 2022
+
+Dự kiến hạn mức HTLS năm 2022 chưa sử dụng hết đề nghị chuyển nguồn sang năm 2023
+
+(1)
+
+(2)
+
+(3) = (1)+(2)
+
+(4)
+
+(5)=(4)-(3)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+…., ngày... tháng... năm...
+
+Người lập biểu(Ký, ghi rõ họ tên)
+
+Kiểm soát(Ký, ghi rõ họ tên)
+
+Tổng Giám đốc
+
+(Ký tên, đóng dấu)
+
+
+
+
+
+Hướng dẫn lập báo cáo:
+
+1. Đối tượng áp dụng: Các ngân hàng thương mại được thông báo hạn mức hỗ trợ lãi suất.
+
+2. Thời gian gửi báo cáo: Chậm nhất ngày 20 các tháng 10, 11, 12 năm 2022 (báo cáo các kỳ số liệu tháng 9, 10, 11 năm 2022).
+
+3. Các ngân hàng thương mại gửi báo cáo bằng văn bản cho Ngân hàng Nhà nước Việt Nam (thông qua Vụ Tín dụng các ngành kinh tế).
+
+4. Hướng dẫn cụ thể:
+
+Số liệu báo cáo không bao gồm các khoản vay phải thu hồi số tiền hỗ trợ lãi suất theo quy định tại Điều 9 Nghị định số 31/2022/NĐ-CP.
+
+
+
+PHỤ LỤC 04
+
+(Ban hành kèm theo Thông tư 03/2022/TT-NHNN ngày 20/5/2022 của
+
+Thống đốc Ngân hàng Nhà nước Việt Nam)
+
+	
+
+TÊN NGÂN HÀNG THƯƠNG MẠI			 																
+
+
+
+BÁO CÁO DỰ KIẾN HỖ TRỢ LÃI SUẤT TỪ NGÂN SÁCH NHÀ NƯỚC
+
+THEO NGHỊ ĐỊNH 31/2022/NĐ-CP
+
+(đính kèm Công văn số … của ngân hàng thương mại)
+
+
+
+Đơn vị tính: đồng, khách hàng
+
+Kết quả lũy kế từ ngày 01/01/2023 đến 30/6/2023
+
+Dự kiến phát sinh từ ngày 01/7/2023 đến 31/12/2023
+
+Dự kiến lũy kế từ ngày 01/01/2023 đến 31/12/2023
+
+Hạn mức HTLS năm 2023
+
+Doanh số cho vay được HTLS 
+
+Số lượng khách hàng vay được HTLS 
+
+Số tiền NHTM đã HTLS
+
+Doanh số cho vay được HTLS 
+
+Số lượng khách hàng vay được HTLS 
+
+Số tiền NHTM HTLS
+
+Doanh số cho vay được HTLS 
+
+Số lượng khách hàng vay được HTLS 
+
+Số tiền NHTM HTLS
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+(6)
+
+(7)=(1)+(4)
+
+(8)=(2)+(5)
+
+(9)=(3)+(6)
+
+(10)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Hạn mức HTLS có nhu cầu bổ sung: …..(đồng)
+
+Hạn mức HTLS không có nhu cầu sử dụng hết: …..(đồng)
+
+
+
+
+
+…., ngày... tháng... năm...
+
+Người lập biểu(Ký, ghi rõ họ tên)
+
+Kiểm soát(Ký, ghi rõ họ tên)
+
+Tổng Giám đốc
+
+(Ký tên, đóng dấu)
+
+
+
+Hướng dẫn lập báo cáo:
+
+1. Đối tượng áp dụng: Các ngân hàng thương mại được thông báo hạn mức hỗ trợ lãi suất.
+
+2. Thời gian gửi báo cáo: Chậm nhất ngày 20/07/2023 (báo cáo 01 lần).
+
+3. Các ngân hàng thương mại gửi báo cáo bằng văn bản cho Ngân hàng Nhà nước Việt Nam (thông qua Vụ Tín dụng các ngành kinh tế).
+
+4. Hướng dẫn cụ thể: 
+
+- Các cột (1), (2), (3), (4), (5), (6) không bao gồm các khoản vay phải thu hồi số tiền HTLS theo quy định tại Điều 9 Nghị định số 31/2022/NĐ-CP;
+
+- Cột (10): bao gồm hạn mức hỗ trợ lãi suất năm 2023 theo thông báo của Ngân hàng Nhà nước Việt Nam theo quy định tại khoản 5 Điều 4 Thông tư này và hạn mức năm 2022 không sử dụng hết được chuyển nguồn sang năm 2023 theo quy định tại khoản 6 Điều 4 Thông tư này.

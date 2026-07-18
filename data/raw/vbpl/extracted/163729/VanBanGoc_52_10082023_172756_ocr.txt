@@ -1,0 +1,1540 @@
+# Thông tư 52/2023/TT-BTC (OCR draft — mất dấu một phần, cần người review trước khi dùng làm căn cứ pháp lý)
+
+Nguồn: data/raw/vbpl/files/163729/VanBanGoc_52_10082023_172756.pdf
+OCR engine: rapidocr-onnxruntime, 19 trang
+
+## Page 1
+
+Ky boi: BO TAI CHiNH
+
+Coquan:28TranHungDao
+
+Thoigianky:10/08/202317:30:01 +07:00
+
+BQ TAI CHINH
+
+CONGHOAXAHQI CHUNGHIAVIETNAM
+
+Doc lap-Ty do -Hanh phuc
+
+S6:52/2023/TT-BTC
+
+Ha Noi,ngay 08 thang 8nam2023
+
+THONG TU
+
+Huong dan co che sur dung kinh phi ngan sach nha nuoc
+
+chi thuong xuyenho trg doanh nghiep nhovavira theo quy dinh tai
+
+Nghi dinh s6 80/2021/ND-CP ngay 26 thang 8 nam 2021 cua Chinh phu
+
+CancirLuat Ngansachnhanuocngay25thang6nam2015;
+
+Can cir Luat Ho trg doanh nghiep nhova vira ngay 12 thang 6 nam 2017;
+
+Can cir Nghi dinh so 163/2016/ND-CP ngay 21 thang 12 nam 2016 cuia
+
+Chinhphuquydinhchi tietthihanhmotsodieuciaLuatNgansachnhanuoc;
+
+Can cur Nghi dinh s0 80/2021/ND-CP ngay 26 thang 8 nam 2021 cua Chinh
+
+phiquydinhchi tietvahuongdanthihanhmotsodieuciaLuatHotrodoanh
+
+nghiepnhivavia;
+
+CancirNghidinhs014/2023/ND-CPngay20thang4nam2023cuaChinh
+
+phiquydinhchircnang,nhiemvu,quyenhanvacocautochircciaBoTaichinh;
+
+Theode nghi cia Cuc truong Cuc Tai chinh doanh nghiep,
+
+BotruongBoTaichinhbanhanhThong tuhuongdancochesirdungkinh
+
+phingansachnhamuocchithuongxuyenhotrgdoanhnghiepnhovavira theoquy
+
+dinhtaiNghidinhs080/2021/ND-CPngay26thang8nam2021ciaChinhphu.
+
+Chuong I
+
+QUYDINHCHUNG
+
+Dieu 1. Pham vi dieu chinh
+
+Thong tu nay huong dan co ché su dung kinh phi ngan sach nha nuoc chi
+
+thuong xuyen de thyc hien cac noi dung ho trg doanh nghiep nho va vira (sau day
+
+<!-- low_confidence=0.59 --> Buei 97 Xeu d-aNIz07/08 os yuip yoN !en yuip Xnb oy (AANNa eI 1en
+
+8 nam 2021 cua Chinh phu quy dinh chi tiet va huong dan thi hanh mot so dieu
+
+cua Luat H6 trg DNNVV (sau day goi la Nghi dinh s6 80/2021/ND-CP), cu the:
+
+1. H6 trg cong nghe cho DNNVV tai khoan 1, 2, 3 va 4 Dieu 11; ho tro tu
+
+van cho DNNVV tai Dieu 13; ho trg DNNVV khoi nghiep sang tao tai Dieu 22;
+
+ho trg DNNVV tham gia cum lien ket nganh, chuoi gia tri tai Dieu 25.
+
+2. Ho trg phat trien nguon nhan luc cho DNNVV tai Dieu 14.
+
+## Page 2
+
+2
+
+3. Ho trg thong tin cho DNNVV tai Dieu 12: kinh phi nang cap, duy tri,
+
+quan ly, van hanh Cong thong tin quoc gia ho trg DNNVV (sau day goi la Cong
+
+thong tin) thuoc Bo Ké hoach va Dau tu; thu thap, cap nhat thong tin vao co so dur
+
+liéu ho trgDNNVV.
+
+4. Kinh phi quan ly cac hoat dong ho trg DNNVV theo diem b khoan 2
+
+Dieu 28.
+
+Dieu 2. Doi tugng ap dung
+
+1. Doanh nghiep dugc thanh lap, to churc va hoat dong theo quy dinh cua
+
+phap luat ve doanh nghiep, dong thoi dap ung cac quy dinh tai Chuong II Nghi
+
+dinhs080/2021/ND-CPvétieuchixacdinhDNNVV.
+
+2. Cac bo, co quan ngang bo, co quan thuoc Chinh phu; Uy ban nhan dan
+
+cac tinh, thanh pho tryc thuoc trung uong (sau day goi la Uy ban nhan dan cap
+
+tinh).
+
+3. Co quan, to chuc ho trg DNNVV theo quy dinh tai khoan 4 Dieu 3 Nghi
+
+dinh s0 80/2021/ND-CP.
+
+4. Ben cung cap cac san pham, dich vu ho trg DNNVV theo quy dinh tai
+
+diem c khoan 3 Dieu 32 Nghi dinh s6 80/2021/ND-CP.
+
+5. Lao dong dang lam viec trong DNNVV; co so dao tao nghe nghiep theo
+
+quy dinh cuaBo Laodong-Thuongbinh vaXa hoi.
+
+6. Cac co quan, to chuc va ca nhan lien quan den quan ly, sur dung ngan
+
+sach nhanuochotrgDNNVV.
+
+Dieu 3. Nguon kinh phi thuc hien
+
+Kinh phi thuc hien cac noi dung ho trg DNNVV quy dinh tai Thong tu nay
+
+bao gom:
+
+1. Nguon ngan sach nha nuoc chi thuong xuyen, gom ngan sach trung uong,
+
+ngan sach dia phuong theo phan cap ngan sach (sau day goi la kinh phi ngan sach
+
+nha nuoc ho trg DNNVV).
+
+2. Nguon dong gop, tai trg cua cac doanh nghiep, to chuc, ca nhan trong va
+
+goi chung la nguon dong gop, tai trg).
+
+Dieu 4. Nguyen tac quan ly va sir dung kinh phi
+
+1. Doi voi nguon ngan sach nha nuoc:
+
+a) Kinh phi ngan sach nha nuoc ho trg DNNVV dugc thuc hien thong qua
+
+dy toan ngan sach nha nuoc giao cho cac co quan, to chuc ho trg DNNVV. Quy
+
+trinh lap, quyet dinh, giao dy toan, chap hanh va ke toan, kiem toan, quyet toan
+
+## Page 3
+
+ngan sach nha nuoc ho trg DNNVV theo quy dinh cua phap luat ve ngan sach nha
+
+nuoc, dam bao dung muc dich, doi tuong, noi dung chi, dinh muc chi, muc ho trg
+
+va nguyen tac thyc hien h0 trq quy dinh tai Nghi dinh s0 80/2021/ND-CP, huong
+
+dan tai Thong tu nay va cac quy dinh phap luat khac co lien quan.
+
+b) Viec ho trg can cur vao kha nang can doi nguon lyc va dinh huong uu tien
+
+ho trg trong ting thoi ky cua ngan sach nha nuoc hang nam.
+
+2. D6i voi nguon dong gop, tai trg: viec huy dong, quan ly, thanh quyet toan
+
+kinh phi phai tuan thu dung quy dinh phap luat hien hanh. Truong hop co thoa
+
+thuan voi doanh nghiep, to chuc, ca nhan ve viec sur dung khoan dong gop, tai trg
+
+chi tra cho phan ngan sach nha nuoc ho trg thi thyc hien theo dung thoa thuan.
+
+3.Nguyen tacxacdinh chiphi:
+
+a) Doi voi noi dung chi co quy dinh cu the tieu chuan, dinh muc tai cac van
+
+ban phap ly do co quan co tham quyen ban hanh: xac dinh chi phi theo dung che
+
+do quy dinh.
+
+b) Doi voi noi dung chi chua co quy dinh cu the tieu chuan, dinh murc: xac
+
+dinh chi phi can cu truong hop cu the, tinh chat, pham vi va cac yeu to lien quan,
+
+co tham khao chi phi turong ty da thyc hien trong thoi han 12 thang (neu co) tinh
+
+den thoi diem xac dinh chi phi.
+
+4. Cac co quan, don vi quan ly, sur dung kinh phi thuc hien cac noi dung ho
+
+trg DNNVV chiu trach nhiem truoc phap luat ve viec chap hanh quy dinh tai
+
+khoan 1, khoan 2 va khoan 3 Dieu nay; tinh hop ly, hop le, hieu qua, tiét kiem
+
+trong su dung kinh phi; tinh trung thyc, chinh xac, minh bach, day du phap ly cua
+
+ho so, chung tu lien quan; thu, chi, hach toan, quyet toan va luu tru ho so theo
+
+dung che do quy dinh.
+
+Chuo'ngII
+
+HOTRODOANHNGHIEPNHOVAVUA
+
+Muc 1
+
+HO TRQ CONG NGHE, TU' VAN, DNNVV KHOI NGHIEP SANG TAO,
+
+DNNVV THAM GIA CUM LIEN KET NGANH, CHUOI GIA TRI
+
+Dieu 5. Cac n?i dung ho trg
+
+1. Cac noi dung ho trg DNNVV ve cong nghe; tu van (khong bao gom quan
+
+ly, van hanh, duy tri hoat dong va phat trien mang luoi tu van vien); ho trq
+
+DNNVV khoi nghiep sang tao; ho tro DNNVV tham gia cum lien ket nganh,
+
+chuoi gia tri theo quy dinh tai Nghi dinh so 80/2021/ND-CP, Thong tu so
+
+<!-- low_confidence=0.57 --> 9    1
+
+## Page 4
+
+huong dan mot so dieu cua Nghi dinh so 80/2021/ND-CP (sau day goi la Thong tu
+
+SO06/2022/TT-BKHDT).
+
+2. DNNVV dugc ho trg theo cac noi dung tai khoan 1 Dieu nay thong qua
+
+co quan, to chuc h trg DNNVV va tren co so hop dong hai ben, hoac hop dong
+
+ba ben theo quy dinh tai khoan 1, diem b va c khoan 3 Dieu 32 Nghi dinh so
+
+80/2021/ND-CP. Co quan, to chuc ho trg DNNVV can cu quy dinh tai Dieu 6,
+
+Dieu 7 Thong tu nay de xac dinh hop dong tu van, hop dong khong co tu van va
+
+kinh phi ngan sach nha nuoc ho trg theo tirng hop dong.
+
+Dieu 6. Ho trg theo hgp dong tu van
+
+1. Hop dong tu van ho trg DNNVV quy dinh tai Thong tu nay la hop dong
+
+co mot hoac nhieu noi dung ho trg quy dinh tai khoan 1, khoan 3, khoan 4 Dieu
+
+11;khoan 2 Diéu 13; khoan 2, diem a va d khoan 3,khoan 4, diem b khoan 6 Diéu
+
+22; khoan 2, diem c, e va g khoan 3, diem a khoan 4 Dieu 25 Nghi dinh so
+
+80/2021/ND-CP. Truong hop co tur hai noi dung ho trg tro len trong mot hop dong
+
+<!-- low_confidence=0.59 --> x
+
+sach nha nuoc ho trg cua ting hang muc.
+
+2. Noi dung chi ho trg va xac dinh chi phi:
+
+a) Thu lao cho ca nhan tu van: xac dinh theo muc luong tuong ung voi thoi
+
+gian lam viec cua ca nhan tu van va quy dinh tai Thong tu so 02/2015/TT-
+
+BLDTBXH ngay12 thang01nam2015cuaBo Laodong-ThuongbinhvaXa
+
+hoi quydinh mucluongdoivoi chuyen gia tuvan trongnuoc lam co so dy toan
+
+g6i thau cung cap dich vu tu van ap dung hinh thuc hop dong theo thoi gian sur
+
+b) Chi phi di lai, an, o cua ca nhan tu van khi di lam viec, khao sat thyc dia,
+
+tham dy cac cuoc hop phuc vy tryc tiép cho hoat dong tu van: xac dinh theo quy
+
+chinh quy dinh ché do cong tacphi,ché do chihoi nghi (sau day goi la Thong tu
+
+S640/2017/TT-BTC).
+
+c) Chi phi phien dich cho ca nhan tur van nuoc ngoai: xac dinh theo quy dinh
+
+tai Dieu 11 Thong tu so 71/2018/TT-BTC ngay 10 thang 8 nam2018cuaBo Tai
+
+chinh quy dinh che do tiepkhachnuocngoaivao lam viec tai Viet Nam,che do chi
+
+t chuc hoi nghi, hoi thao quoc te tai Viet Nam va che do tiep khach trong nuoc.
+
+d) Chi phi hoat dong quan ly cua to churc tu van (ap dung cho hop dong ky voi
+
+t0 churc tu van): xac dinh theo nguyen tac tai diem b khoan 3 Dieu 4 Thong tur nay.
+
+3. Cac co quan, don vi can cur ty lée, dinh muc ho trg doi voi moi hop dong
+
+tu van quy dinh tai Nghi dinh so 80/2021/ND-CP va gia tri hop dong de xac dinh
+
+kinh phi ngan sach nha nuoc ho tro. Gia tri hop dong tu van (ca thué, phi, lé phi
+
+neuco)gomcacchiphi theoquydinh taikhoan2Dieunay.
+
+## Page 5
+
+Dieu 7. Ho trg theo hgp dong khong co tu van
+
+1. Hop dong khong co tu van ho trg DNNVV quy dinh tai Thong tu nay la
+
+hop dong co mot hoac nhieu noi dung ho trg quy dinh tai khoan 2 Diéu 11; khoan
+
+1, diem b va c khoan 3, khoan 5, diem c, d va d khoan 6 Dieu 22; khoan 1, diem d
+
+va d khoan 3, diem b va c khoan 4, khoan 5 Dieu 25 Nghi dinh so 80/2021/ND-
+
+CP. Truong hop co tur hai noi dung ho trg tro len trong mot hop dong thi phai tach
+
+biet thanh tirng hang muc rieng de xac dinh gia tri va kinh phi ngan sach nha nuoc
+
+ho trg cua ting hang muc.
+
+2. Noi dung chi ho trg va xac dinh chi phi:
+
+a) H6 trg chi phi cho hoc vien cua DNNVV khoi nghiep sang tao, DNNVV
+
+tham gia cum lien ket nganh, chuoi gia tri tham gia cac khoa dao tao:
+
+Doi voi khoa dao tao chuyen sau trong nuoc dugc ngan sach nha nuoc ho
+
+trg kinh phi to churc theo quy dinh tai Dieu 8 Thong tu nay: hoc phi (da bao gom
+
+tai lieu hoc tap) xac dinh theo quy dinh tai diem b khoan 3 Dieu 8 Thong tu nay;
+
+chi phi di lai, an, o cua hoc vien xac dinh theo quy dinh tai Thong tu so
+
+40/2017/TT-BTC.
+
+nuoc ho trg kinh phi to chuc: hoc phi, chi phi tai lieu hoc tap (khong bao gom tai
+
+lieu tham khao) xac dinh theo nguyen tac tai diem b khoan 3 Dieu 4 Thong tu nay;
+
+chi phi di lai, an, o cua hoc vien xac dinh theo quy dinh tai Thong tu so
+
+40/2017/TT-BTC.
+
+Doi voi khoa dao tao chuyen sau ngan han o nuoc ngoai: hoc phi, tai lieu
+
+hoc tap (khong bao gom tai lieu tham khao) xac dinh theo nguyen tac tai diem b
+
+khoan 3 Dieu 4 Thong tu nay; chi phi di lai, an, o cua hoc vien xac dinh theo quy
+
+dinh tai Thong tu s0 102/2012/TT-BTC ngay 21 thang 6 nam 2012 cua B0 Tai
+
+chinh quy dinh ché do cong tac phi cho can bo, cong chuc nha nuoc di cong tac
+
+ngan han o nuoc ngoai do ngan sach nha nuoc bao dam kinh phi (sau day goi la
+
+Thong tu s0 102/2012/TT-BTC).
+
+b) To churc khoa dao tao nang cao trinh do cong nghe, ky thuat san xuat
+
+chuyen sau tai DNNVV tham gia cum lien ket nganh, chuoi gia tri: chi phi to churc
+
+xac dinh nhu doi voi khoa dao tao tai DNNVV trong linh vuc san xuat, che bien
+
+quy dinh tai Dieu 8 Thong tu nay.
+
+c) Tham gia cuoc thi quoc té ve khoi nghiep sang tao cua DNNVV khoi
+
+thi; chi phi di lai, an, o tai nuoc so tai cua dai dien DNNVV va van chuyen tai
+
+lieu, san pham, trang thiet bi phuc vu tham gia cuoc thi xac dinh theo quy dinh tai
+
+Thong tu s0 102/2012/TT-BTC.
+
+## Page 6
+
+6
+
+d) Tham gia hoi chp trien lam xuc tién thuong mai to chuc o trong nuoc,
+
+hoac  nuoc ngoai cua DNNVV khoi nghiep sang tao, DNNVV tham gia cum lien
+
+ket nganh, chuoi gia tri: chi phi thue dia diem, thiet ke va dan dung gian hang, van
+
+chuyen san pham trung bay xac dinh theo nguyen tac tai diem b khoan 3 Dieu 4
+
+Thong tu nay; chi phi di lai, an, o cua dai dien DNNVV xac dinh theo quy dinh tai
+
+Thong tu so 40/2017/TT-BTC (doi voi hoi chg o trong nuoc) va Thong tu so
+
+102/2012/TT-BTC (d6i voi hoi chg o nuoc ngoai).
+
+d) Cac chi phi quy dinh tai khoan 2 Dieu 11; khoan 1, diem b va c khoan 3,
+
+diem c khoan 6 Dieu 22; diem d khoan 3,diem b va ckhoan 4,khoan 5 Dieu 25
+
+Nghi dinh s680/2021/ND-CP (trong do diemckhoan6 Dieu22va diem d khoan
+
+3 Dieu 25 Nghi dinh s6 80/2021/ND-CP dugc quy dinh cu the tai khoan 2 Dieu 15
+
+va khoan 3 Dieu 18 Thong tu so 06/2022/TT-BKHDT) xac dinh theo nguyen tac
+
+tai diem b khoan 3 Dieu 4 Thong tu nay.
+
+3. Cac co quan, don vi can cu ty le, dinh muc ho trg doi voi moi noi dung
+
+<!-- low_confidence=0.51 --> quip Knb ou yyd o p d-aNio gs yup iyn en qup Knb on q
+
+khoan 2 Dieu nay de xac dinh kinh phi ngan sach nha nuoc ho trg trong hop dong
+
+khong co tu van.
+
+Muc2
+
+HO TRQPHAT TRIEN NGUON NHAN LUC
+
+CHODOANHNGHIEPNHOVAVUA
+
+Dieu 8. Khoa dao tao ve quan tri doanh nghiep; khoi sy kinh doanh;
+
+dao tao tryc tiep tai DNNvV trong linh vuc san xuat, che bien; dao tao tryc
+
+tuyen qua cong cu day hoc truc tuyen co san
+
+1. Noi dung chi ho trg tochuccac khoa dao tao:
+
+<!-- low_confidence=0.53 --> n (s   g o     o o  (
+
+theo hinh thuc dao tao tryc tiep:
+
+- Chi khao sat (cuoc phi guri phiéu khao sat); chi phi chieu sinh (cuoc guri
+
+thu moi, cuoc dien thoai, dang thong tin quang cao ve khoa dao tao tren cac
+
+phuong tien thong tin, truyen thong hoac thue ben cung cap de thyc hien chieu
+
+sinh tron goi).
+
+- Chi cho giang vien, bao cao vien: thu lao giang day (da bao gom thu lao
+
+soan giao an bai giang); an, o, di lai (ap dung voi giang vien, bao cao vien giang
+
+day tryc tiep).
+
+- Chi thue hoi truong, phong hoc, may tinh, may chiéu, cac thiét bi phuc vu
+
+hoc tap; in an, photo, mua tai lieu hoc tap cho hoc vien theo noi dung chuong trinh
+
+khoa dao tao (khong bao gom tai lieu tham khao); giai khat giua gio; van phong
+
+## Page 7
+
+pham; khai giang, be giang (hoa tuoi, bang ron); dien, nuoc, ve sinh, trong giu xe,
+
+chupva luu trur anh tu lieu va cackhoan chi truc tiepkhacphucvukhoa dao tao.
+
+- Chi to chuc cho hoc vien thuc hanh (neu can) theo cac hinh thuc: thi
+
+nghiem, trinh dien mo hinh, dien tap thyc te (chi phi thue, mua, van chuyen toi dia
+
+diem to chuc 1op hoc cac thiet bi, nguyen, nhien, vat lieu, cong cu, dung cu phuc
+
+vu cho thinghiemva tochuc trinh dienmohinh,dien tap thycté);dikhaosat thyc
+
+te tai doanh nghiep trong nuoc (chi phi thue phuong tien dua, don hoc vien tur lop
+
+hoc den dia diem khao sat va thu lao bao cao vien trinh bay tai buoi thyc te).
+
+- Chi to churc kiem tra, danh gia ket qua hoc tap cua hoc vien (ra de thi, coi
+
+thi, cham thi); cap chung nhan da tham gia khoa dao tao cho hoc vien co nhu cau.
+
+- Chi hoat dong quan ly tryc tiep mot khoa dao tao cua don vi dao tao (don
+
+vi daotaoquydinh taikhoan1Dieu 11 Thongtuso06/2022/TT-BKHDT):chi
+
+cho can bo quan ly lop (chi phi an, o, di lai trong truong hop lop hoc o xa don vi
+
+dao tao, lam them gio, thong tin lien lac); chi to chuc cuoc hop ve trien khai khoa
+
+dao tao (giai khat giua gio, thu lao nguoi chu tri, nguoi tham du).
+
+b) Khoa dao tao quan tri doanh nghiep (co ban, hoac chuyen sau) to churc
+
+theo hinh thurc dao tao két hop (hinh thurc dao tao két hop quy dinh tai khoan 4
+
+Dieu 11 Thong tur s6 06/2022/TT-BKHDT):
+
+Ngoai cac khoan chi quy dinh tai diem a khoan nay co them cac khoan chi:
+
+tai lieu giang day, hoc tap ban dien tur; thue phong day tieu chuan khi don vi dao
+
+tao khong bo tri dugc phong day va phai thue ngoai; mua hoac thue cong cu, thiet
+
+bi dac thu, duong truyen de giang vien va bao cao vien giang day tryc tuyen, hoc
+
+vien hoc tap tryc tuyen; thu laonhanvienho trp ky thuatcho dao tao tryc tuyen.
+
+c)Khoa dao taokhoisykinh doanh:
+
+Noi dung chi ho trg theo quy dinh tai diem a, b khoan nay nhung khong bao
+
+gom chi di khao sat thuc té tai doanh nghiep trong nuoc; chi to chuc kiem tra,
+
+danh gia ket qua hoc tap cua hoc vien.
+
+d) Khoa dao tao tai DNNVV trong linh vuc san xuat, che bien:
+
+Noi dung chi ho trg theo quy dinh tai diem a, b khoan nay nhung khong bao
+
+gom chi chieu sinh. Trong do, chi thue hoi truong, phong hoc, may chieu, thiet bi
+
+phuc vu hoc tap va dien, nuoc, ve sinh, trong giu xe chi xac dinh khi DNNVV
+
+khong co hoi truong de to churc khoa dao tao.
+
+:ues oo uaKn onn ooy Xep nio suoo enb uakm onn oe oep gouy (p
+
+Noi dung chi theo quy dinh tai diem a, b khoan nay nhung khong bao gom
+
+chi phi an, o, di lai cua giang vien, bao cao vien, can bo quan ly lop; chi phi tai
+
+lieu (ban cung), giai khat giua gio va van phong pham cho hoc vien; chi di khao
+
+sat thyc te; chi dien nuoc, trong giu xe.
+
+## Page 8
+
+8
+
+2. Xac dinh chi phi:
+
+a) Thu lao giang vien giang day, thu lao bao cao vien tham gia giang day tai
+
+lop hoc hoac trinh bay tai buoi thuc té:xac dinh theo quy dinh tai diem a khoan 2
+
+Dieu 5 Thong tu s6 36/2018/TT-BTC ngay 30 thang 3 nam 2018 cua B0 Tai chinh
+
+huong dan viec lap dy toan, quan ly, sur dung va quyét toan kinh phi danh cho
+
+cong tac dao tao,boi duong can bo,cong chuc,vien churc (sau day goi la Thong tu
+
+S636/2018/TT-BTC).
+
+b) Chi phi an, o, di lai cua giang vien, bao cao vien, can bo to chuc lop; giai
+
+khat giua gio: xac dinh theo quy dinh tai Thong tu so 40/2017/TT-BTC.
+
+c) Chi phi ra de thi,coi thi,cham thi:xac dinh theo quy dinh tai khoan 4,
+
+diemckhoan 8,khoan 10 Dieu 8 Thong tu s069/2021/TT-BTC ngay 11 thang 8
+
+nam 2021 cua Bo Tai chinh huong dan quan ly kinh phi chuan bi,tochucva tham
+
+<!-- low_confidence=0.51 --> o oud onp o oa top upde y oo p
+
+d) Chi phi tai lieu giang day, tai lieu hoc tap ban dien tur: xac dinh theo quy
+
+dinh tai Thong tu s0194/2012/TT-BTC ngay 15 thang 11 nam2012cua Bo Tai
+
+chinh huong dan murc chi tao lap thong tin dien tur nham duy tri hoat dong thuong
+
+xuyen cua cac co quan, don vi sur dung ngan sach nha nuoc.
+
+d) Chi phi lam them gio: xac dinh theo quy dinh cua Bo luat Lao dong,
+
+Nghi dinh s6 145/2020/ND-CP ngay 14 thang 12 nam 2020 cua Chinh phu quy
+
+dinh chi tiet va huong dan thi hanh mot so dieu cua Bo luat Lao dong ve dieu kien
+
+lao dongva quanhe lao dong(sau day goi la Nghi dinh so 145/2020/ND-CP)
+
+va cac van ban huong dan thyc hien.
+
+e) Cac khoan chi phi theo thyc té (khao sat, chieu sinh; in an, photo, mua tai
+
+lieu hoc tap; thue hoi truong, phong hoc, may tinh, may chiéu, cac thiét bi phuc vu
+
+hoc tap; mua, thue duong truyen, cong cu, thiet bi dac thu va thu lao nhan vien ho
+
+trg ky thuat cho dao tao tryc tuyen; van phong pham; khai giang, bé giang; chi phi
+
+cho hoc vien thyc hanh; cap chung nhan cho hoc vien; dien, nuoc, vé sinh, trong
+
+giu xe,quay phim, chup va luru tru anh tu lieu; thong tin lien lac cua can bo t
+
+Truong hop khoan chi lien quan dén nhieu khoa dao tao (khao sat, chieu
+
+sinh, thong tin lien lac; mua, thue goi dich vu duong truyen, cong cu va thiet bi
+
+dac thu theo thoi gian cho dao tao tryc tuyén) thi phai thyc hien phanbo chi phi
+
+cho tirng khoa, theo tieu chi phan bo do don vi dao tao xac dinh dam bao tinh hop
+
+ly cuakhoanchi.
+
+g) Chi hoat dong quan ly tryc tiep mot khoa dao tao cua don vi dao tao theo
+
+muc quy dinh tai diem m khoan 2 Dieu 5 Thong tu s636/2018/TT-BTC,dugc sura
+
+doi tai khoan 7 Dieu 1 Thong tu so 06/2023/TT-BTC ngay 31 thang 01 nam 2023
+
+cuaBTaichinh suadoi,bosungmot sodieu cua Thong tuso36/2018/TT-BTC
+
+(sau day goi la Thong tu so 06/2023/TT-BTC).
+
+## Page 9
+
+3. Xac dinh kinh phi ngan sach nha nuoc ho tro:
+
+a) Cac co quan,don vi can cu ty 1é, dinhmuc ho trg doi voi moi khoa dao
+
+<!-- low_confidence=0.60 --> p 1on on qu op suon) d-aNIo7/08 os quip iyoN tI nia en yuip Knb o
+
+<!-- low_confidence=0.58 --> un on ooy Kep no uo enb uakn on oen oep eouy onyo gn yyd tyo %oo1
+
+san) va tong chi phi mot khoa dao tao (xac dinh theo quy dinh tai khoan 1, khoan 2
+
+Dieu nay) de tinh kinh phi ngan sach nha nuoc ho trg to chuc khoa dao tao.
+
+b) Hoc vien dugc ho trg hoc phi theo quy dinh tai diem b khoan 1 Dieu 14
+
+Nghi dinh s6 80/2021/ND-CP. Kinh phi ngan sach nha nuoc h6 trg xac dinh can
+
+cu muc ho trg hoc phi cho 01 hoc vien va sohoc vien thuoc doi tuong dugc ho trg
+
+hoc phi.
+
+Xac dinh murc ho tro hoc phi cho 01 hoc vien:
+
+Kinh phi ngan
+
+Tong chi phi
+
+So tien tai trg
+
+sach nha nuoc
+
+to churc khoa
+
+chokhoadao
+
+ho trq to chuc
+
+tao (néu co)
+
+dao tao
+
+Murc ho tro
+
+khoa dao tao
+
+hocphi cho
+
+Tong so hoc vien tham gia khoa dao tao
+
+01hoc vien
+
+Trong do:
+
+- Tong chi phi to churc khoa dao tao xac dinh theo quy dinh tai khoan 1,
+
+khoan 2 Dieu nay.
+
+- Kinh phi ngan sach nha nuoc ho trg to churc khoa dao tao xac dinh theo
+
+diem akhoannay.
+
+- S6 tien tai trg cho khoa dao tao (neu co) huy dong dugc tir doanh nghiep,
+
+to churc, ca nhan trong va ngoai nuoc.
+
+quyét toan kinh phi to churc ting khoa dao tao theo mau tai Phu luc kem theo Thong
+
+tur nay.
+
+Dieu 9. Dao tao qua he thong dao tao tryc tuyen E-Learning
+
+1. Noi dung chi dao tao ve khoi sy kinh doanh va quan tri doanh nghiep qua
+
+hé thongdao tao tryc tuyen E-Learning theo quy dinh tai diem a khoan 2Dieu 14
+
+Nghi dinh s6 80/2021/ND-CP va quy dinh tai phan I, khoan 1 phan II, khoan 1 va
+
+khoan2phanIIMuc6Phuluc3.2kemtheoThongtuso06/2022/TT-BKHDT.
+
+2. Murc chi:
+
+a)Xay dung, thue,mua he thong dao tao tryc tuyen;bao tri,nang cap phan
+
+mem, bo sung, cap nhat cac tinh nang moi, duy tri va van hanh he thong dao tao
+
+tryc tuyen; thue, mua may chu, duong truyen; so hoa va nhap di lieu, tao lap
+
+## Page 10
+
+10
+
+thong tin dien tur: thyc hien theo quy dinh tai Nghi dinh so 73/2019/ND-CP ngay
+
+05 thang 9 nam 2019 cua Chinh phu quy dinh quan ly dau tu ung dung cong nghé
+
+thong tin su dung nguon von ngan sach nha nuoc (sau day goi la Nghi dinh so
+
+73/2019/ND-CP) va quy dinh cua phap luat co lien quan; cac dinh murc kinh té -
+
+ky thuat trong linh vyc thong tin va truyen thong.
+
+b) Xay dyng bai giang tryc tuyen, hoc lieu dien tur: thyc hien theo quy dinh
+
+tai Thong tu so 76/2018/TT-BTC ngay 17 thang 8 nam 2018 cua B0 Tai chinh
+
+huong dan noi dung, muc chi xay dung chuong trinh dao tao, bien soan giao trinh
+
+mon hoc doi voi giao duc dai hoc, giao duc nghe nghiep va cac van ban hien hanh
+
+lienquan.
+
+c) To churc cac hoat dong truyen thong, quang ba dao tao tryc tuyen: chi phi
+
+xacdinh theonguyen tac quy dinh tai khoan3Dieu 4Thong tu nay.
+
+Dieu 10. Dao tao nghe cho lao dong cua DNNVV
+
+Lao dong cua DNNVV dap ung dieu kien quy dinh tai khoan 4 Dieu 14
+
+Nghi dinh so 80/2021/ND-CP khi tham gia khoa dao tao nghe trinh do so cap hoac
+
+chuong trinh dao tao tiu 03 thang tro xuong dugc ngan sach nha nuoc ho trg chi
+
+phi dao tao nghe, moi nguoi mot lan, muc chi theo thong bao cua co so dao tao
+
+nghe nghiep nhung toi da khong qua muc quy dinh tai diem d khoan 1 Dieu 7 Thong
+
+tu so 152/2016/TT-BTC ngay 17 thang 10 nam 2016 cua Bo Tai chinh quy dinh
+
+quan ly va sur dung kinh phi ho trp dao tao trinh do so cap va dao tao duoi 3 thang.
+
+Muc3
+
+MANG LUOI TU VANVIEN, CONG THONG TIN, CO SO DU' LIEU
+
+VAQUANLYCACHOATDQNGHOTRQDNNVV
+
+Dieu 11. Quan ly, van hanh, duy tri hoat dong cua mang luoi tu van
+
+vien va boi duong, dao tao phat trien mang luoi tu van vien
+
+1. Noi dung chi va muc chi thyc hien quan ly, van hanh, duy tri hoat dong
+
+cuamangluoi tuvan vien:
+
+a) Chi mua sam, xay dung phan mem quan ly mang luoi tu van vien; mua
+
+sam, nang cap, duy tri ha tang phan cung, dich vu duong truyen, may chu va dich
+
+vu lien quan khac de luu tru, van hanh mang luoi tu van vien; xay dung, duy tri
+
+cap nhat du lieu mang luoi tu van vien: thyc hien theo quy dinh tai Nghi dinh so
+
+73/2019/ND-CP va cac van ban huong dan.
+
+b) Chi to chuc hoi nghi, hoi thao, tong ket, danh gia viec hinh thanh, quan
+
+ly, van hanh, duy tri mang luoi tu van vien: thyc hien theo quy dinh tai Thong tu
+
+S040/2017/TT-BTC.
+
+## Page 11
+
+11
+
+2. Boi duong, dao tao phat trien mang luoi tur van vien:
+
+a) Noi dung chi va muc chi to churc khoa dao tao, boi duong cho tu van vien
+
+theo quy dinh tai diem a, b hoac d khoan 1 va khoan 2 Dieu 8 Thong tu nay.
+
+b) Don vi cong nhan tu van vien (khi tryc tiép to churc khoa dao tao), hoac
+
+ben cung cap dich vu dao tao co trach nhiem lap dy toan chi tiet va thuc hien bao
+
+cao quyet toankinh phi to chuc tiung khoa dao tao theo mau tai Phu luckem theo
+
+Thong tu nay.
+
+Dieu 12. Nang cap, duy tri, quan ly, van hanh Cong thong tin va thu
+
+thap, capnhat thong tin vao co so dir lieu ho trg DNNVV
+
+1. Noi dung chi:
+
+a) Chi hoat dong nang cap gom: nang cap chinh sua, kiem thu chuc nang
+
+phan mem ho trg DNNVV; nang cap he thong phan cung hien co (mua bo sung
+
+linh kien, thiet bi).
+
+b) Chi hoat dong duy tri, quan ly, van hanh gom: thue dich vu bao tri, bao
+
+duong, sura chua he thong ha tang ky thuat,phan mem; thue dich vu quan ly van
+
+hanh,thue quan tri,ho trgky thuat he thong thong tin,dich vu an ninh mang,an
+
+toan thong tin; gia han ban quyen phan mem thuong mai, phan mem phong chong
+
+virus, dambao an toan,an ninh thong tin;gia han dich vy ten mien, dich vu chung
+
+chi so (SSL) va cac dich vu khac lien quan tryc tiep den duy tri, van hanh Cong
+
+thong tin; gia han, thue bo sung duong truyen de phat trien cac dich vu ve ho trg
+
+DNNVVvéchuyen doi so,htrg tai chinh va cac dich vu ho trgkhac; chiphi dao
+
+tao cho can bo quan tri, van hanh he thong (neu co); to churc cap nhat tin bai, thong
+
+tin h trg,cacchinh sach,dich vu h trgDNNVV (chi nhuan butviet tin,bai,bao
+
+cao tong hop, nghien curu).
+
+c) Chi hoat dong thu thap, cap nhat thong tin vao co so du lieu ho trg
+
+DNNVV gom: thu thap du lieu, tao lap du lieu de hinh thanh cac co so du lieu;
+
+quan ly, duy tri, cap nhat du lieu, quan ly sy thay doi du lieu; chia se du lieu va
+
+quan ly chia se du lieu; khai thac, su dung du lieu do minh quan ly va khai thac, sur
+
+dung du lieu dugc chia se tur co quan nha nuoc khac; nhap du lieu co cau truc vao
+
+co so durlieuveDNNVV.
+
+2. Murc chi: thuc hien theo quy dinh tai Nghi dinh so 73/2019/ND-CP va cac
+
+vanban phap luat c6 lien quan,cac dinh muckinh té-ky thuat trong linh vuc
+
+thong tin va truyen thong, Thong tu so 36/2018/TT-BTC, Thong tu so
+
+Chinh phu quy dinh ve ché do nhuan but trong linh vuc bao chi, xuat ban va
+
+nguyen tac tai khoan 3 Dieu 4 Thong tu nay.
+
+## Page 12
+
+12
+
+Dieu 13. Quan ly cac hoat dong ho trg DNNVV
+
+1. Noi dung chi:
+
+a) Chi hoat dong quan ly chung gom: chi truyen thong (cac ban tin, bai viet)
+
+ve cong tac ho trg, noi dung ho trg DNNVV; chi to chuc doan cong tac danh gia
+
+tinh hinh thyc hien nhiem vu h trg DNNVV,khao sat nhu cau h trg DNNVV;
+
+chi hoi nghi, hoi thao huong dan, tong ket cong tac ho trg DNNVV.
+
+b) Chi quan ly tryc tiep cac hoat dong ho trg gom: chi phuc vu thyc hien
+
+nhiem vu ho trg DNNVV cua co quan, to churc h trg DNNVV va chi hoat dong
+
+cua Hoi dong lya chon DNNVV khoi nghiep sang tao quy dinh tai khoan 3 Dieu
+
+21 Nghi dinh so 80/2021/ND-CP (di cong tac, khao sat tryc tiép tai DNNVV de
+
+quyét dinh ho tro; lam them gio; thong tin lien lac; thue chuyen gia; to churc cac
+
+cuoc hop,hoi thao nham danh gia ho so, tham dinh két qua lua chon DNNVV
+
+khoi nghiep sang tao); chi hoat dong lya chon ben cung cap cac san pham, dich vu
+
+hotryDNNVV.
+
+2.Murcchi:
+
+a) Chi phi to chuc hoi nghi, hoi thao; cong tac phi cho can bo di cong tac,
+
+khao sat thyc hien theo quy dinh tai Thong tu so 40/2017/TT-BTC.
+
+b) Chi phi lam them gio thyc hien theo quy dinh cua Bo luat Lao dong,
+
+Nghi dinh so 145/2020/ND-CP va cac van ban huong dan thyc hien.
+
+<!-- low_confidence=0.63 --> os n uou n qu Knb o uy o ei uno n yd  (
+
+02/2015/TT-BLDTBXH.
+
+d) Chi phi truyen thong, thong tin lien lac thyc hien theo nguyen tac tai
+
+khoan3 Dieu 4 Thong tu nay.
+
+d) Chi phi cho hoat dong lya chon ben cung cap thyc hien theo quy dinh cua
+
+Luat Dau thau va cac van ban huong dan.
+
+Chuong IlI
+
+BO TRi, LAP, CHAP HANH VA QUYET TOAN KINH PHI
+
+NGANSACHNHANUOCHOTRODNNVV
+
+Dieu 14. B6 tri kinh phi ngan sach nha nuoc ho trg
+
+1. D6i voi cac noi dung ho trg DNNVV quy dinh tai Muc 1, Muc 2 Chuong
+
+II Thong tu nay: kinh phi ngan sach nha nuoc ho trg DNNVV duoc bo tri trong du
+
+toan chi thuong xuyen cua bo, co quan ngang bo, co quan thuoc Chinh phu, Uy ban
+
+nhan dan cap tinh; rieng kinh phi cho dao tao quy dinh tai Dieu 9 Thong tu nay chi
+
+bo tri doi voi Bo Ké hoach va Dau tu, Uy ban nhan dan cap tinh.
+
+## Page 13
+
+13
+
+2. Doi voi quan ly, van hanh, duy tri hoat dong va boi duong, dao tao phat
+
+trien mang luoi tu van vien quy dinh tai Dieu 10, Dieu 11 Thong tu nay: kinh phi
+
+ho trg DNNVV (ngan sach trung uong) bo tri trong dy toan chi thuong xuyen cua
+
+bo, co quan ngang bo dé giao co quan, to chuc ho trg DNNVV thuoc, tryc thuoc
+
+co churc nang, nhiem vy thyc hien quan ly, van hanh, duy tri hoat dong cua mang
+
+luoi tu van vien, cong nhan tu van vien.
+
+3. Doi voi nang cap, duy tri, quan ly, van hanh Cong thong tin; thu thap, cap
+
+nhat thong tin vao co so du lieu ho trg DNNVV quy dinh tai Dieu 12 Thong tu
+
+nay: kinh phi ho try DNNVV (ngan sach trung uong) bo tri trong dy toan chi
+
+thuongxuyen cuaBoKéhoach va Dau tu;khong bo tri tunguon chi quan ly hanh
+
+chinh hang nam cho Bo Ke hoach va Dau tu de thyc hien nhiem vu nay.
+
+4. Doi voi quan ly cac hoat dong ho trg DNNVV quy dinh tai Dieu 13
+
+Thong tu nay:
+
+a) Hoat dong quan ly chung: kinh phi ngan sach nha nuoc thyc hien dugc
+
+tong hop va bo tri trong dy toan chi thuong xuyen hang nam cua Bo Ké hoach va
+
+Dau tur; co quan dau moi cua bo, co quan ngang Bo, co quan thuoc Chinh phu; So
+
+Ké hoach va Dau tu tai dia phuong theo quy dinh cua Luat Ngan sach nha nuoc va
+
+cac van ban huong dan.
+
+b) Hoat dong quan ly tryc tiep: tren co so nhu cau, ke hoach hang nam, co
+
+quan, to churc ho trg DNNVV xay dung dy toan kinh phi thuc hien guri co quan chu
+
+quan de guri Bo Ké hoach va Dau tu tong hop chung theo quy dinh tai Dieu 15
+
+Thong tu nay.
+
+Dieu 15. Lap, phan bo, giao dy toan kinh phi ngan sach nha nuoc ho tr?
+
+Viec lap dy toan, phan bo, giao dy toan, quan ly, su dung va thanh quyet
+
+dinh taikhoan1Dieu4Thongtunayvanhungquydinhsau:
+
+1. Lap dy toan:
+
+a) Vao thoi diem xay dung dy toan ngan sach nha nuoc hang nam, can cur van
+
+ban huong dan xay dung dy toan ngan sach nha nuoc va van ban huong dan xay
+
+dung ke hoach ho trg DNNVV cua co quan churc nang: cac co quan, to chuc xay
+
+dung dy toan thyc hien cac noi dung ho trg DNNVV, trong do xac dinh cu the
+
+phan kinh phi ngan sach nha nuoc ho trg theo quy dinh tai Thong tu nay, tong hop
+
+trong dy toan chi ngan sach nha nuoc cua co quan,to churc de trinh cap co tham
+
+quyen tong hop chung vao dy toan ngan sach nha nuoc cua bo, co quan trung
+
+uong, dia phuong.
+
+b) Cac bo, co quan ngang bo, co quan thuoc Chinh phu, Uy ban nhan dan
+
+cap tinh guri Bo Ké hoach va Dau tu dy toan kinh phi ngan sach nha nuoc ho trq
+
+<!-- low_confidence=0.63 --> o   y
+
+## Page 14
+
+14
+
+nha nuoc ho trg dao tao nghe cho lao dong cua DNNVV de tong hop guri Bo Ké
+
+hoachvaDautu.
+
+c) Bo Ké hoach va Dau tur ra soat, tong hop chung nhu cau kinh phi ngan sach
+
+nha nuoc ho trg DNNVV (bao gom ca ho trg dao tao nghe cho lao dong cua
+
+DNNVV) chi tiet theo tirng linh vuc chi ngan sach nha nuoc va so ho trg co muc tieu
+
+tur ngan sach trung uong cho tirng dia phuong chua can doi dugc ngan sach nha nuoc
+
+(neu co), guri Bo Tai chinh tong hop theo quy dinh cua Luat Ngan sach nha nuoc.
+
+d) Can cu kha nang can doi ngan sach trung uong nam ke hoach, nhu cau
+
+ngan sach nha nuoc ho trg do Bo Ké hoach va Dau tu de xuat, Bo Tai chinh thong
+
+bao muc dy kien ngan sach trung uong ho trg DNNVV nam ké hoach chi tiét theo
+
+tunglinhvucchi choBoKéhoachvaDautu.Trencoso thongbaocuaBoTai
+
+<!-- low_confidence=0.57 --> o d   d   p x  n
+
+co quan trung uong va tirng dia phuong chi tiét theo ting linh vyc chi ngan sach
+
+nha nuoc guri lai Bo Tai chinh tong hop vao phuong an phan bo dy toan ngan sach
+
+trung uong bao cao Chinh phu trinh Quoc hoi xem xet, quyét dinh.
+
+2.Phan bo vagiao dy toan:
+
+Can cu dy toan ngan sach nha nuoc ho trg DNNVV dugc cap co tham
+
+hien phan bo va giao dy toan cho cac co quan, to churc ho trg DNNVV thuoc, tryc
+
+thuoc theo quy dinh cua phap luat ve ngan sach nha nuoc.
+
+Dieu 16. Thanh toan kinh phi ngan sach nha nuoc ho tr?
+
+1. Viec thanh toan kinh phi ngan sach nha nuoc ho trg DNNVV quy dinh tai
+
+Thong tur nay thyc hien theo hinh thuc rut dy toan, Kho bac Nha nuoc kiem soat chi.
+
+2. Trinh ty, thu tuc ho so, kiem soat, thanh toan kinh phi ngan sach nha nuoc ho
+
+tro DNNVV thuc hien theo quy dinh tai Nghi dinh so 11/2020/ND-CP ngay 20 thang
+
+01 nam 2020 cua Chinh phu quy dinh thu tuc hanh chinh thuoc linh vyc Kho bac Nha
+
+nuoc (sau day goi la Nghi dinh s0 11/2020/ND-CP); Thong tu s0 62/2020/TT-BTC
+
+ngay 22 thang 6 nam 2020 cua Bo Tai chinh huong dan kiem soat, thanh toan cac
+
+khoan chi thuong xuyen tu ngan sach nha nuoc qua Kho bac Nha nuoc (sau day
+
+a) Murc tam ung tiur ngan sach nha nuoc:
+
+Doi voi khoan chi co gia tri hop dong tren 50 trieu dong (bao gom ca phan
+
+ngan sach nha nuoc ho trg va phan ngan sach nha nuoc khong ho trg): muc tam
+
+ung theo quy dinh tai hop dong da ky ket cua don vi sur dung ngan sach nha nuoc
+
+va cac ben lien quan. Don vi sur dung ngan sach nha nuoc duoc tam ung kinh phi
+
+mot lan hoac nhieu lan cho mot hop dong nhung toi da khong vuot qua 50% gia tri
+
+phan ngan sach nha nuoc ho trg ghi trong hop dong tai thoi diem ky ket va khong
+
+vuot qua dy toan nam dugc cap co tham quyen phe duyet cho khoan chi do.
+
+## Page 15
+
+15
+
+Doi voi nhung khoan chi khong co hop dong va nhung khoan chi co gia tri
+
+hop dong khong vuot qua 50 trieu dong (bao gom ca phan ngan sach nha nuoc ho
+
+trg va phan ngan sach nha nuoc khong ho tro): muc tam ung theo de nghi cua don
+
+vi su dung ngan sach va trong pham vi dy toan dugc giao. Don vi su dung ngan
+
+sach chju trach nhiem ve murc de nghi tam ung theo quy dinh.
+
+b) Thanh toan tam ung: don vi su dung ngan sach nha nuoc phai thyc hien
+
+<!-- low_confidence=0.50 --> s   o u   q o  n  n
+
+tam ung da hoan thanh co du ho so, chung tu thanh toan. Cu the nhu sau:
+
+Doi voi cac khoan chi khong co hop dong hoac khoan chi khong phai guri
+
+hop dong den Kho bac Nha nuoc: thyc hien theo quy dinh tai diem a khoan 3 Dieu
+
+7Th0ngtus062/2020/TT-BTC.
+
+<!-- low_confidence=0.53 --> og suop n os un suop doy in ei o o uo oo ia toa
+
+phan ngan sach nha nuoc ho trg va phan ngan sach nha nuoc khong ho tro): don vi
+
+su dung ngan sach nha nuoc thanh toan tam ung bat dau ngay tiu lan thanh toan
+
+khoi luong hoan thanh dau tien cua hop dong, muc thanh toan tam ung ting lan
+
+phai quy dinh cu the trong hop dong, dam bao thanh toan het khi gia tri thanh toan
+
+(bao gom ca tam ung va thanh toan khoi luong hoan thanh) dat 80% gia tri phan
+
+ngan sach nha nuoc ho trg ghi trong hop dong.
+
+Khi thanh toan tam ung, don vi su dung ngan sach nha nuoc thyc hien theo
+
+quy dinh tai diem c khoan 3 Dieu 7 Thong tu s0 62/2020/TT-BTC.
+
+c)Kiem soat,thanh toan:Kho bac Nha nuoc thuc hien kiem soat, thanh
+
+toan tren co so ho so kiem soat chi theo quy dinh tai khoan 4 Dieu 7 Nghi dinh so
+
+11/2020/ND-CP,Dieu 6 Thongtu s6 62/2020/TT-BTC; dam bao dung n0i dung
+
+chi va dinh muc (dbi voi cac noi dung chi co quy dinh cy the tieu chuan, dinh murc
+
+tai cac van ban quy pham phap luat) theo quy dinh Thong tu nay.
+
+Doi voi khoan chi ngan sach nha nuoc ho trg theo hop dong quy dinh tai
+
+Muc 1 Chuong II Thong tu nay, hop dong khac co mot ben ky la DNNVV dong
+
+thoi la doi tuong dugc ho tro: don vi su dung ngan sach nha nuoc guri ho so den
+
+Kho bac Nha nuoc theo quy dinh tai khoan 4 Dieu 7 Nghi dinh so 11/2020/ND-CP
+
+(trong do hop dong khong phan biet gia tri hop dong). Kho bac Nha nuoc kiem
+
+soat dam bao cac khoan chi tu ngan sach nha nuoc khongvugt ty lé ngan sach nha
+
+nuoc ho trg theo quy dinh tai Nghi dinh so 80/2021/ND-CP va quy dinh tai Thong
+
+turnay.
+
+3. Truong hop co quan, to chuc ho trg DNNVV cung cap tryc tiép san
+
+pham, dich vu ho trg DNNVV theo hop dong hai ben:
+
+a) Kho bac Nha nuoc thyc hien kiem soat chi theo quy dinh tai khoan 2
+
+Dieu nay. So tien ngan sach nha nuoc ho trg DNNVV theo moi hop dong dugc
+
+## Page 16
+
+16
+
+thanh toan tryc tiép cho co quan, to chuc ho trg DNNVV, dugc quy dinh cu thé
+
+tronghopdongva theo quydinh sau:
+
+Doi voi co quan, to chuc ho trg DNNVV la co quan nha nuoc: thanh toan
+
+vao tai khoan tien gui tai Kho bac Nha nuoc. Khi thuc hien chi tiu tai khoan tien
+
+gui,Kho bac Nha nuockiem soat,thanh toan tren co so Quy ché chi tieu noi bo,
+
+tiéu chuan, dinh murc quy dinh tai cac van ban quy pham phap luat va cac ho so
+
+theo quy dinh tai Dieu7 Nghi dinh so11/2020/ND-CP.
+
+Doi voi co quan, to churc ho trg DNNVV la don vi sy nghiep cong lap:
+
+thanh toan vao tai khoan tien guri tai Kho bac Nha nuoc, hoac vao tai khoan cua
+
+don vi mo tai ngan hang thuong mai. Khi thyc hien chi tiu tai khoan tien gui tai
+
+Kho bac Nha nuoc,Kho bac Nha nuoc khong kiem soat chi ma thyc hien chi tra
+
+theo de nghi cua don vi sy nghiep cong lap.
+
+b) Co quan, to chuc ho trg DNNVV hach toan so tien dugc thanh toan quy
+
+dinh tai diem a khoan nay vao thu hoat dong; chiu trach nhiem thyc hien dung quy
+
+dinh phap luat trong viec quan ly, sur dung va thanh toan cac chi phi lien quan dén
+
+hoat dong cung cap tryc tiep san pham, dich vu ho trg DNNVV va cac hoat dong
+
+Dieu 17. Quyét toan va tong hgp quyet toan kinh phi ngan sach nha
+
+nuoc ho tr?
+
+Cac co quan, don vi co trach nhiem thyc hien quyét toan va tong hop quyét
+
+sach hang nam cua co quan, don vi minh de co quan co tham quyen xet duyet,
+
+hien hanh.
+
+Chuong IV
+
+TO CHU'C THUC HIEN
+
+Dieu 18.Hieu lyrc thi hanh
+
+1. Thong tu nay c6 hieu luc thi hanh ke tir ngay 23 thang 9 nam 2023.
+
+2. Bai bo Thong tu so 49/2019/TT-BTC ngay 08 thang 8 nam 2019 cua B?
+
+Tai chinh huong dan quan ly va sur dung kinh phi ngan sach nha nuoc ho trg phat
+
+trien nguon nhan lyc choDNNVV va Thong tu so54/2019/TT-BTC ngay 21
+
+thang 8 nam 2019 huong dan quan ly, sur dung kinh phi ngan sach nha nuoc ho trq
+
+DNNVV sur dung dich vu tu van thuoc mang luoi tu van vien.
+
+3. Ke tu ngay Thong tu nay co hieu luc thi hanh, kinh phi ngan sach nha
+
+nuoc ho trg DNNVV da dugc cap tham quyen phe duyet theo quy dinh tai Thong
+
+tuso49/2019/TT-BTCvaThongtus654/2019/TT-BTC truocngayThongtu nay
+
+## Page 17
+
+17
+
+cohieu lyc thi hanh ma chua su dung thi dugc tiép tuc thuc hien theo dy toan da
+
+phe duyet; hoac dieu chinh lai theo noi dung va dinh muc chi quy dinh tai Thong
+
+tunaynhungphai dambaokhongvugtquady toanngansach dagiao.
+
+4. Khi cac van ban quy dinh dan chiéu tai Thong tu nay dugc sura doi, bo
+
+sung hoac thay the bang van ban moi thi ap dung theo van ban moi.
+
+Dieu 19. T6 churc thyc hien
+
+Cac bo, co quan ngang bo, co quan thuoc Chinh phu, Uy ban nhan dan cac
+
+tinh, thanh pho tryc thuoc trung uong can cu quy dinh tai Thong tu nay de to churc
+
+quan ly, su dung kinh phi ngan sach nha nuoc ho trg DNNVV. Trong qua trinh
+
+thyc hien, neu co vuong mac, de nghi phan anh kip thoi ve Bo Tai chinh de nghien
+
+ciru, giai quyet./ .u
+
+KT. BQ TRUONG
+
+Noinhan:
+
+-Ban Bi thu Trung uong Dang;
+
+THUTRUONG
+
+- Thu tuong, cac Pho Thu turong Chinh phu;
+
+-Van phong TWva cacBancua Dang;
+
+-Van phong Tong Bi thu;
+
+- Van phong Quoc hoi; Van phong Chu tich nuoc;
+
+-VienKiem satNhandan toi cao;ToaanNhan dan toi cao
+
+-Van phong Chinh phu;
+
+-Kiem toan Nha nuoc;
+
+-Cac Bo, co quan ngang Bo, co quan thuoc Chinh phu;
+
+Cao Anh Tuan
+
+-HDND,UBNDcactinh,thanhpho tryc thuocTW;
+
+-Co quan Trung uong cac Hoi,Doan the;
+
+-SoTai chinh,KBNN cac tinh,thanh pho tryc thuocTW;
+
+-CucKiem tra van ban quy pham phap luat, Bo Tu phap;
+
+-Cong bao, Cong thong tin dien tir cua Chinh phu;
+
+-Cong thong tin dien tu cua Bo Tai chinh;
+
+-Cac don vi thuoc Bo Tai chinh;
+
+- Luu: VT, Cuc TCDN (2xo ban).
+
+## Page 18
+
+Noi dung/chuyen de dao tao:.
+
+DNNVV dugc ho try dao tao (***):
+
+Hinh thuc to churc:..(Ghi ro hinh thurc dao tao tryc tiep/ket hop/tryc tuyen);
+
+Thoi gian thyc hien: .
+
+Dia diem thuc hien:
+
+PHANI-CHITIETKINHPHI
+
+Donvi dao tao:....
+
+A.2
+
+A.1
+
+<!-- low_confidence=0.56 --> %.
+
+<!-- low_confidence=0.52 --> >
+
+DU TOAN (BAO CAO QUYET TOAN) KINH PHI TO CHUC KHOA DAO TAO ...(Ap dung cho khoa dao tao: khoisu kinh doanh/quan tri doanh nghiep co ban
+
+KyNgay
+
+hieu thang
+
+Chirng tir
+
+<!-- low_confidence=0.56 --> (#*)
+
+Chi hoat dong quan ly motkhoa dao tao (toi da 10% tongchi phi tai
+
+quy dinh tai khoan 1 Dieu 8Thong tu nay)
+
+Tong chi phi to churc 1 khoa dao tao = A.1+A.2
+
+Cac ngi dung chi NSNN khong ho trg:
+
+Cac ngi dung chi dugcNSNN ho trg:
+
+mucA.1)
+
+.. Liet ke chi tiet cac noi dung chi ho trg tuong irng voi khoa dao tao
+
+.. (Liet ke chi tiet cac noi dung chi NSNN khong ho trg neu co)
+
+CO QUAN, TO CHU'C...
+
+(Ban hanh kem theo Thong tu so 52/2023/TT-BTC ngay 08 thang 8 nam 2023 cua B0 truong Bo Tai chinh)
+
+(chuyen sau)/dao tao tai DNNVV trong linh vuc san xuat, che bien/dao tao tryc tuyen qua cong cu day hoc co san/dao tao tu vanvien)
+
+Noi dung chi
+
+Phu luc
+
+tinh
+
+DV
+
+luong
+
+CONGHOAXAHQI CHUNGHIAVIETNAM
+
+S
+
+d
+
+Chi phi thuc té
+
+Don
+
+gia
+
+e
+
+S6 hoc vien tham gia:[
+
+Doc lap-Ty do-Hanh phuc
+
+f=dxe
+
+Thanh
+
+tien
+
+(*2)
+
+Chi phi
+
+de tinh
+
+ho tro
+
+NSNN
+
+(*5)
+
+NSNN ho trg
+
+NSNN ho trg
+
+h=gxtyleho
+
+So tien
+
+(*1)
+
+trg
+
+Phan chia nguon
+
+(*6)
+
+Ti tai tro
+
+(neu co)
+
+(*7)
+
+(*3)
+
+Tu hoc phi
+
+vien/DNN
+
+cua hoc
+
+j=f-h-i
+
+vVdong
+
+gop
+
+(*4)
+
+chu
+
+Ghi
+
+## Page 19
+
+PHANII-DANHSACHHQCVIEN THAM GIAKHOAHQC(**)
+
+Ghi chi:
+
+A-DNNVVkhong thuoc doi turong durgcNSNNho trq hocphi cho hocvien
+
+Ⅱ
+
+<!-- low_confidence=0.53 --> a
+
+B-
+
+1
+
+DNNVV: ten DN, dia chi, ma so thue,nganh nghe kinh doanh chinh; so lao dong binh quan nam, tong nguon von/doanh thu cua nam truoc lien ke
+
+DNNVV thuoc dja ban kinh te- xa hoi dacbiet kho khan,DNNVV do ni lam chu/sir dung nhieu lao dong nu,DNNVV la DN xa hoi
+
+cua thanh vien gop von/c dong la nu, ten nguoi quan ly dieu hanh la nt (ap dung di voi DNNVV do nt lam chu); so lao dong ntr (ap dung doi voi DNNVV su dung nhieu lao
+
+Tenhocvien（thuocDNNVV)
+
+DNNVV (tenDN,dija chi,ma so thue..Nhu muc I)
+
+Tenhocvien(thuocDNNVV)
+
+DNNVV:tenDN,diachima so thue,nganhnghekinhdoanhchinh;so lao dong binhquannam,tong nguonvonhoacdoanh thu cuanam truoc lienke;ty lenamgitvondieu l
+
+dong nt); thong tin minh chumg la DN xa hoi (ap dung doi voi DNNVV la DN xa hoi)
+
+Tenhocvien（thuocDNNVV)
+
+(****) : Doi voi khoa dao tao tai DNNVV trong linh vuc san xuat, che bien: chi ghi theo hoc vien.
+
+(*12)=(*4)-（*10)
+
+3
+
+(*) : Ap dung cho khba dao tao quan tri doanh nghiep quy dinh tai diem a khoan 1 Dieu 14 Nghi djnh so 80/2021/ND-CP
+
+(*11)=(*6)+(*10)
+
+X: Khong phan anh
+
+(*8) : So hoc vien dugc ho trg hoc phi xac dinh theo doi turong quy djnh taidiem b khoan 1 Dieu 14 Nghi dinh so 80/2021/ND-CP
+
+(*10)
+
+（1):[（L)-（9)-（S)]=（6)
+
+NGUOILAP
+
+(Ky,ho ten)
+
+:Apdung chkhadaotao taiDVtrong linhvc sanxuat,chbienghirtendoanhnghip,djchitruschinh,nganhngh,inhchoatchinh,inthoai lien lac,s
+
+:Ap dung doi voi Bao cao quyet toankinh phi.
+
+=（*8）x（*9)
+
+lao dong binh quan/nam,tong nguonvon hoac tong doanh thu cua nam)
+
+Ho trq hoc phi cho hge vien (*)
+
+=> Co cau chi phi to churc 01 kh6a dao tao:
+
+Danh sach DNNVV/Ten hoc vien (****)
+
+PHU TRACH DAO TAO
+
+(Ky,ho ten)
+
+HV(*8)(*9)
+
+Gioi Nam
+
+tinh
+
+sinh
+
+Noi o hien tai
+
+(*2)
+
+X
+
+X
+
+LANH DAO CO QUAN,DONV!
+
+(Ky, ho ten, dong dau co quan)
+
+(*11)
+
+(*10)
+
+vi tri hien tai
+
+Churc danh,
+
+(*3)
+
+<!-- low_confidence=0.52 --> ×
+
+Dien thoai
+
+canhan
+
+(*12)
+
+chu
+
+Ghi

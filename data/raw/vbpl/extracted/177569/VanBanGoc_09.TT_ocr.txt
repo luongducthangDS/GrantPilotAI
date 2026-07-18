@@ -1,0 +1,462 @@
+# Thông tư 09/2025/TT-BTC (OCR draft — mất dấu một phần, cần người review trước khi dùng làm căn cứ pháp lý)
+
+Nguồn: data/raw/vbpl/files/177569/VanBanGoc_09.TT.pdf
+OCR engine: rapidocr-onnxruntime, 6 trang
+
+## Page 1
+
+CONGHOAXAHQICHUNGHIAVIETNAM
+
+BO TAI CHINH
+
+Doc lap-Ty do-Hanh phuc
+
+S6: 09/2025/TT-BTC
+
+Ha Noi,ngay 28 thang 02 nam 2025
+
+THONG TU
+
+Huong dan co che quan ly va sur dung kinh phi ngan sach nha nuoc
+
+*www.ThuVienPhapLuat.vn
+
+thyc hien “Chuo'ng trinh ho trg doanh nghiep khu vuc tu nhan kinh doanh
+
+ben virng giai doan 2022 - 2025" ban hanh kem theo Quyet dinh so 167/QD-
+
+TTg ngay 08 thang 02 nam 2022 cua Thu tuong Chinh phu
+
+CancurLuat Ngan sachnhanuocngay25 thang6nam2015;
+
+Can cir Luat H trg doanh nghiep nhova vira ngay 12 thang 6 nam 2017;
+
+Can cir Nghi dinh so 163/2016/ND-CP ngay 21 thang 12 nam 2016 cuia
+
+Chinh phi quy dinh chi tiet thi hanh mot so dieu cia Luat Ngan sach nha nuoc;
+
+Can cir Nghi dinh so 80/2021/ND-CP ngay 26 thang 8 nam 2021 cua
+
+ChinhphiquydinhchitietvahuongdanthihanhmotsodieuciaLuatHotro
+
+doanhnghiepnhovavira;
+
+Can cir Nghi dinh so 14/2023/ND-CP ngay 20 thang4 nam 2023 cia
+
+Chinh phi quy dinh chirc nang, nhiem vu, quyen han va co cau to chirc cia Bo
+
+Tai chinh;
+
+Thuc hien Quyet dinh so 167/QD-TTg ngay 08 thang 02 nam 2022 cia
+
+Thi tuongChinhphipheduyet“Chuong trinhhotrodoanhnghiepkhuvuctu
+
+nhankinh doanh benvinggiai doan2022-2025";
+
+Theo de nghi cia Cuc truong Cuc Tai chinh doanh nghiep;
+
+BotruongBoTai chinh ban hanh Thong tu huong dan co chequan ly va
+
+sirdungkinhphingansachnhanuocthuchien“Chuongtrinhhtrodoanh
+
+nghiepkhuvurctunhankinhdoanhbenvinggiaidoan2022-2025"banhanh
+
+kem theoQuyet dinh so167/QD-TTg ngay 08thang02nam2022cuaThi tuong
+
+Chinhphi.
+
+Chuo'ng I
+
+QUYDINHCHUNG
+
+Dieu 1.Pham vi dieuchinh
+
+Thong tu nay huong dan co ché quan ly va su dung kinh phi ngan sach
+
+nha nuoc thuc hien “Chuong trinh ho trg doanh nghiep khu vuc tu nhan kinh
+
+doanh ben vung giai doan 2022-2025" ban hanh kem theo Quyét dinh so
+
+## Page 2
+
+2
+
+167/QD-TTg ngay 08 thang 02 nam 2022 cua Thu tuong Chinh phu (sau day goi
+
+la Chuong trinh 167), bao gom: cac hoat dong phat trien he sinh thai ho trg kinh
+
+doanh ben vung; ho trg doanh nghiep nho va vira khu vyc tu nhan thyc hien
+
+kinh doanh ben vung (sau day goi la doanh nghiep nho va vura kinh doanh ben
+
+vung); hoat dong quan ly Chuong trinh.
+
+Dieu 2. Doi tugng ap dung
+
+1. Cac doanh nghiep khu vyc tu nhan thyc hien kinh doanh ben vung (sau
+
+day goi la doanh nghiep kinh doanh ben vung), doanh nghiep nho va vira kinh
+
+doanh ben vung, to churc thuc day phat trien kinh doanh ben vung theo quy dinh
+
+cuaphapluat.
+
+2. Cac Bo, co quan trung uong; Uy ban nhan dan cac tinh, thanh pho tryrc
+
+thuoc trung uong (sau day goi la Uy ban nhan dan cap tinh) va cac don vi tryc
+
+thuoc.
+
+3. Cac to churc hiep hoi duoc giao nhiem vu thyc hien hoat dong cua
+
+Chuong trinh 167 (sau day goi tat la to chuc hiep hoi) gom: to chuc chinh tri -
+
+xa hoi, hoi do Dang, Nha nuoc giao nhiem vu theo quy dinh tai Nghi dinh so
+
+126/2024/ND-CP ngay 08 thang 10 nam 2024 cua Chinh phu quy dinh ve to
+
+chuc, hoat dong va quan ly hoi, dugc ngan sach nha nuoc bao dam hoac ho trg
+
+de trien khai nhiem vu theo quy dinh hien hanh va co churc nang ho tro, thuc day
+
+phat trien doanh nghiep.
+
+<!-- low_confidence=0.53 --> b o  a ou du qup on u   ub o t
+
+Nghi dinh s0 80/2021/ND-CP ngay 26 thang 8 nam 2021 cua Chinh phu quy
+
+dinh chi tiet va huong dan thi hanh mot so dieu cua Luat Ho trg doanh nghiep nho
+
+va vira (sau day goi la Nghi dinh so 80/2021/ND-CP).
+
+5. Cac co quan, to churc va ca nhan lien quan den quan ly, sur dung ngan
+
+sach nhanuoc thychién Chuong trinh 167.
+
+Dieu 3. Nguyen tac quan ly, sir dung kinh phi ngan sach nha nuoc
+
+thyc hien Chuo'ng trinh 167
+
+1. Quy trinh lap, phan bo, giao dy toan, chap hanh va ke toan, kiem toan,
+
+luat ve ngan sach nha nuoc, cac Nghi quyét cua Quoc hoi, Nghi quyet cua Chinh
+
+phu, cac van ban huong dan thi hanh va van ban phap luat lien quan; dam bao
+
+thiet thyc, hieu qua, kha thi, tiet kiem, khong trung lap hoat dong va long ghep
+
+<!-- low_confidence=0.52 --> h yun u ta do nud nn o o o qu sun ono ona p yn
+
+dam bao dung doi tuong, noi dung chi, dinh murc chi, muc ho trg quy dinh tai cac
+
+vanbanphapluatlienquan.
+
+2. Viec ho trg can cu kha nang can doi nguon lyc ngan sach nha nuoc
+
+hang nam. Ngan sach nha nuoc ho tro mot phan cho cac hoat dong theo quy
+
+dinh tai Chuong trinh 167, noi dung chi va muc chi tir ngan sach nha nuoc theo
+
+quy dinh tai Chuong II Thong tu nay.
+
+## Page 3
+
+3
+
+3. Cac co quan, don vi quan ly, su dung kinh phi thyc hien Chuong trinh
+
+167 chju trach nhiem truoc phap luat ve viec chap hanh cac quy dinh tai Thong
+
+tu nay; tinh hop ly, hop lé, hieu qua, tiét kiem trong sur dung kinh phi; tinh trung
+
+thuc, chinh xac, minh bach, day du phap ly cua ho so, chung tir lien quan; thu,
+
+chi, hach toan, quyet toan va luru tru ho so theo dung che do quy dinh.
+
+Chuong IⅡI
+
+QUYDINHCUTHE
+
+Dieu 4. Phat trien he sinh thai ho trg kinh doanh ben vung
+
+1. Noi dung chi:
+
+a) Xay dung tai lieu ve kinh doanh ben vung gom: bo cong cu danh gia
+
+mo hinh kinh doanh ben vung; cac an pham bao chi, xuat ban (cac chuong trinh,
+
+chuyen muc, tieu pham, ky sy, bai viet); cac tai lieu, an pham duoi dang cac tac
+
+pham van hoc nghe thuat (tranh, pa-no, ap phich, bang ron, khau hieu, bang dien
+
+tur); tai lieu, an pham duoi dang chuong trinh truyen hinh.
+
+b) To chuc cac hoi nghi, hoi thao, toa dam theo cac hinh thurc tryc tiép,
+
+kinh nghiem va thuc tien tot ve kinh doanh ben vung va cac mo hinh kinh doanh
+
+ben vung; tap huan, huong dan, pho bien cac tai lieu quy dinh tai diem a khoan
+
+nay; két noi doanh nghiep kinh doanh ben vung voi cac to chuc tin dung, nha
+
+dau tu, ket noi cac to churc, chuyen gia, doanh nghiep thanh cong dien hinh trong
+
+nuoc va quoc te.
+
+c) To churc khoa boi duong, nang cao nhan thuc, trinh do doi ngu can bo,
+
+cong churc, vien churc lam cong tac ho tro, quan ly ve kinh doanh ben vung.
+
+d) Xay dung mang luoi chuyen gia tu van ho trg doanh nghiep nho va vira
+
+kinh doanh ben vurng.
+
+2. Muc chi:
+
+<!-- low_confidence=0.52 --> up Knb o u onn una uq yuo yu a n ten up ex (e
+
+chinh huong dan noi dung, murc chi xay dung chuong trinh dao tao, bien soan
+
+giao trinh mon hoc doi voi giao duc dai hoc, giao duc nghe nghiep (sau day goi
+
+la Thong tur s6 76/2018/TT-BTC).
+
+b) To churc hoi nghi, hoi thao, toa dam: thyc hien theo quy dinh tai Thong
+
+tur so 40/2017/TT-BTC ngay 28 thang 4 nam 2017 cua B0 truong B0 Tai chinh
+
+quy dinh ché do cong tac phi, che do chi hoi nghi (sau day goi la Thong tur so
+
+40/2017/TT-BTC).
+
+## Page 4
+
+c) To churc khoa boi duong nang cao nhan thuc, trinh do doi ngu can bo,
+
+cong chuc, vien churc lam cong tac ho trg, quan ly ve kinh doanh ben vurng: thyc
+
+hien theo quy dinh tai Thong tu s0 36/2018/TT-BTC ngay 30 thang 3 nam 2018
+
+cua Bo truong Bo Tai chinh huong dan viec lap dy toan, quan ly, sur dung va
+
+quyét toan kinh phi danh cho cong tac dao tao, boi duong can bo, cong churc,
+
+vien chuc; Thong tu s6 06/2023/TT-BTC ngay 31 thang 01 nam 2023 cua B?
+
+truong Bo Tai chinh sura doi, b0 sung mot sodieu cua Thong tu s036/2018/TT-
+
+*www.ThuVienPhapLuat.vn
+
+BTC ngay 30 thang 3 nam 2018 cua Bo truong Bo Tai chinh huong dan viec lap
+
+duong can bo, cong churc, vien churc.
+
+d) Xay dung mang luoi chuyen gia tu van ho trg doanh nghiep nho va vira
+
+kinh doanh ben vung: thyc hien theo quy dinh tai diem d khoan 1 Dieu 13 Nghi
+
+dinh s080/2021/ND-CPvaDieu 11,khoan 2Dieu14 Thong tur s052/2023/TT-
+
+BTC ngay 08 thang 8 nam 2023 cua Bo truong Bo Tai chinh huong dan co ché
+
+sudungkinhphingansachnhanuocchi thuongxuyenhotrpdoanhnghiepnho
+
+va vura theo quy dinh tai Nghi dinh s6 80/2021/ND-CP ngay 26 thang 8 nam
+
+2021 cua Chinh phu (sau day goi la Thong tu s0 52/2023/TT-BTC).
+
+Dieu 5. Ho trg doanh nghiep nho va vira kinh doanh ben virng
+
+1. Ngan sach nha nuoc ho trg doanh nghiep nho va vira kinh doanh ben
+
+vung theo cac noi dung quy dinh tai Chuong trinh 167 va noi dung ho trg tuong
+
+ung quy dinh tai Nghi dinh s6 80/2021/ND-CP. Cac co quan, to churc ho trq
+
+doanh nghiep nho va vira xac dinh noi dung ho trg cu the va doi tuong dugc ho
+
+tro theo dung quy dinh tai Nghi dinh so 80/2021/ND-CP khi thuc hien ho tro
+
+cho doanh nghiep nho va vira kinh doanh ben vuing.
+
+2. Noi dung chi, xac dinh chi phi, kinh phi ngan sach nha nuoc ho trg va
+
+co ché ho trg doanh nghiep nho va vira kinh doanh ben vung theo quy dinh tai
+
+Thong tu s652/2023/TT-BTC. Murc ngan sach nha nuoc ho trg cho tirng noi
+
+dung theo dinh murc ho trq cao nhat quy dinh tai Nghi dinh so 80/2021/ND-CP.
+
+Dieu 6. Hoat dong quan ly Chuong trinh
+
+1.Noi dung chi:
+
+a) Xay dung tai lieu huong dan, quy trinh trien khai va xay dung khung
+
+b) Danh gia tinh hinh thyc hien Chuong trinh 167, bao gom: to churc doan
+
+cong tac danh gia tinh hinh trien khai o cac bo, co quan trung uong, dia phuong;
+
+t0 chuc hoi nghi, hoi thao, cuoc hop danh gia ket qua thyc hien Chuong trinh.
+
+2. Murc chi:
+
+a) Chi phi xay dung tai lieu thyc hien theo quy dinh tai Thong tu so
+
+76/2018/TT-BTC.
+
+## Page 5
+
+5
+
+b) Chi phi to chuc hoi nghi, hoi thao, doan di cong tac thyc hien theo quy
+
+dinh tai Thongtu s040/2017/TT-BTC.
+
+Chuo'ngIlI
+
+BO TRI, LAP, CHAP HANH VA QUYET TOAN
+
+KINH PHI NGAN SACH NHA NUOC
+
+Dieu 7. Bo tri kinh phi ngan sach nha nuoc
+
+Ngan sach trung uong bo tri cho cac hoat dong cua Chuong trinh 167 do
+
+cac bo, co quan trung uong thyc hien, ngan sach dia phuong bo tri cho cac hoat
+
+dong cua Chuong trinh 167 do cac co quan o dia phuong thyc hien va theo
+
+nhung quy dinh sau:
+
+1. Kinh phi ngan sach nha nuoc thyc hien noi dung tai cac diem a, b va c
+
+khoan 1 Dieu 4 Thong tu nay dugc bo tri trong dy toan chi thuong xuyen cua co
+
+quan, don vi quy dinh tai khoan 2 Dieu 2 Thong tu nay; doi voi cac to chuc hiep
+
+hoi quy dinh tai khoan 3 Dieu 2 Thong tu nay thyc hien theo quy dinh phap luat
+
+ve ngan sach nha nuoc va theo phap luat ve hoi.
+
+2. Kinh phi ngan sach nha nuoc thuc hien cac noi dung tai diem d khoan 1
+
+Dieu 4 va Dieu 5 Thong tu nay dugc long ghep vao nguon kinh phi ngan sach
+
+nha nuoc ho trg doanh nghiep nho va vira va bo tri theo quy dinh tai khoan 1,
+
+khoan 2 Diéu 14 Thong tu s652/2023/TT-BTC.
+
+3. Kinh phi ngan sach nha nuoc thuc hien cac noi dung tai Dieu 6 Thong tu
+
+nay dugc bo tri trong dy toan chi thuong xuyen cua co quan trien khai hoat dong
+
+quan ly Chuong trinh va theo murc quy dinh tai Chuong trinh 167.
+
+Dieu 8. Lap, phan bo, giao dy toan, quan ly, sur dung va thanh quyét
+
+toan kinh phi ngan sach nha nuoc
+
+1. Viec lap dy toan, phan bo, giao dy toan, quan ly, sur dung va quyét toan
+
+kinh phi ngan sach nha nuoc thyc hien Chuong trinh 167 theo quy dinh tai Dieu
+
+3,Dieu 7Thong tunayvaDieu15,Dieu17Thongtus652/2023/TT-BTC.
+
+2. Thanh toan kinh phi ngan sach nha nuoc.
+
+a) Doi voi kinh phi ngan sach nha nuoc quy dinh tai khoan 2 Dieu 7
+
+Thong tu nay: thyc hien thanh toan theo quy dinh tai Dieu 16 Thong tu so
+
+52/2023/TT-BTC.
+
+b) Doi voi kinh phi ngan sach nha nuoc quy dinh tai khoan 1, khoan 3
+
+Dieu 7 Thong tu nay: hinh thuc thanh toan, trinh ty, thu tuc, ho so, kiem soat,
+
+thanh toan kinh phi ngan sach nha nuoc thyc hien theo quy dinh tai Nghi dinh so
+
+11/2020/ND-CP ngay 20 thang 01 nam 2020 cua Chinh phu quy dinh thu tuc
+
+## Page 6
+
+6
+
+hanh chinh thuoc linh vuc Kho bac Nha nuoc, Thong tu so 17/2024/TT-BTC
+
+ngay 14 thang 3 nam 2024cua Bo truong Bo Tai chinh huong dan kiem soat,
+
+thanh toan cac khoan chi thuong xuyen qua Kho bac Nha nuoc.
+
+Chuo'ng IV
+
+TO CHUC THU'C HIEN
+
+Dieu 9. Dieu khoan thi hanh va to churc thuc hien
+
+1. Thong tu nay co hieu lyrc thi hanh ke tir ngay 20 thang 04 nam 2025.
+
+2. Truong hop cac van ban quy pham phap luat dugc dan chiéu de ap
+
+dung tai Thong tu nay dugc sura doi, bo sung, thay the thi ap dung theo cac van
+
+ban sura doi, bo sung, thay the do.
+
+3. Cac bo, co quan trung uong, Uy ban nhan dan cap tinh, to churc hiep
+
+hoi, cac co quan, to churc lien quan can cur quy dinh tai Thong tu nay de to churc
+
+quan ly,sur dungkinh phingan sachnha nuoc thychien Chuong trinh 167.
+
+Trong qua trinh thyc hien, neu co vuong mac, de nghi phan anh kip thoi ve B?
+
+Tai chinh de nghien curu, phoi hop giai quyét theo tham quyen.u
+
+KT. BQ TRUONG
+
+Noinhan:
+
+-Ban Bi thu Trung uongDang;
+
+THUTRUONG
+
+-Thu turong, cac Pho Thu turong Chinh phu;
+
+-Van phong TWva cac Ban cuaDang;
+
+-Van phongTong Bi thu;
+
+-Van phong Quoc hoi;
+
+-Van phong Chu tich nuoc;
+
+-Hoi dong Dan toc va cac Uy ban cua Quochoi;
+
+-Van phong Chinh phu;
+
+Cao Anh Tuan
+
+-VienKiem satNhan dan toi cao;
+
+-Toa an Nhan dan toi cao;
+
+-Kiem toanNha nuoc;
+
+-Cac Bo,co quan ngang Bo,co quan thuoc Chinh phu;
+
+-HDND,UBNDcactinh,thanhphtrycthuocTW;
+
+-Coquan Trung uong cacHoi,Doan the;
+
+-SoTai chinh,KBNNcactinh,thanhphotryc thuocTW;
+
+-CucKiem tra van ban quy pham phapluat,BoTu phap;
+
+-Cong bao,Cong thong tin dien tur cua Chinh phu;
+
+-Cong thong tin dien turcua BoTai chinh;
+
+-Cac don vi thuocBo Tai chinh;
+
+- Luu: VT, Cuc TCDN (475ban).

@@ -1,0 +1,90 @@
+|BỘ TÀI CHÍNH            |CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM            |
+|                        |Độc lập - Tự do - Hạnh phúc                   |
+|Số: 77/TC-CĐKT          |Hà Nội, ngày 10 tháng 9 năm 1993              |
+
+
+                                  THÔNG TƯ
+                     Hướng dẫn kế toán về trích nộp tiền
+   phụ thu và nhận tiền hỗ trợ từ quỹ bình ổn giá đối với các doanh nghiệp
+Căn cứ vào Quyết định số 151/TTg ngày 12-4-1993 của thủ tướng Chính phủ v�
+Thông tư số 03/TT-LB Liên bộ Ban vật giá Chính phủ - Bộ Tài chính ngày 28-5-
+1993 về hình thành, sử dụng và quản lý quỹ bình ổn giá, Bộ Tài chính hướng
+dẫn kế toán về trích nộp tiền phụ thu và nhận tiền hỗ trợ từ quỹ bình ổn
+giá đối với các doanh nghiệp như sau:
+
+1. Hạch toán trích nộp tiền phụ thu.
+
+Các tổ chức kinh tế Việt Nam được phép kinh doanh xuất nhập khẩu, sản xuất
+tiêu thụ trong nước, nếu có sản phẩm, hàng hoá phải nộp phụ thu theo quyết
+định của cơ quan có thẩm quyền của Chính phủ thì ngoài nghĩa vụ nộp thuế
+theo luật định phải nộp tiền phụ thu.
+Khi xác định số tiền phụ thu phải nộp cho số sản phẩm, hàng hoá sản xuất
+nội địa để xuất khẩu hoặc tiêu thụ trong nước ghi;
+Nợ TK 40 - Tiêu thu và kết quả
+Có TK 64 (648 - trợ giá)
+Chi tiết: thanh toán quỹ bình ổn giá.
+Khi xác định số tiền phụ thu phải nộp cho ngân sách Nhà nước cho số vật tư,
+hàng hoá nhập khẩu, ghi;
+Nợ TK: 21, 23 ...
+Có TK: 64 - Thanh toán với NS (648 - trợ giá)
+Khi nộp tiền phụ thu cho ngân sách Nhà nước, ghi; Nợ TK 64 - Thanh toán với
+ngân sách (648 - trợ giá)
+Có TK: 50, 51...
+
+2. Hạch toán tiền hỗ trợ nhận từ quỹ bình ổn giá.
+
+a) Trường hợp nhận tiền từ quỹ bình ổn giá để hỗ trợ không hoàn lại một
+phần lỗ phát sinh trong sản xuất kinh doanh thì:
+Khi có quyết định của chính phủ (hoặc cơ quan được Chính phủ uỷ quyền) về
+cấp tiền hỗ trợ từ quỹ bình ổn giá cho doanh nghiệp để bù đắp một phần lỗ
+phát sinh, ghi:
+Nợ TK 64 - Thanh toán với NS (648 - trợ giá)
+Có TK: 70, - Thu nhập
+Khi doanh nghiệp nhận được tiền hỗ trợ từ quỹ bình ổn giá ghi:
+Nợ TK 50, 51 ..
+Có TK 64 - Thanh toán với NS (648 - trợ giá)
+b) Trường hợp nhận tiền hỗ trợ một phần hoặc toàn bộ lãi suất vay vốn của
+Ngân hàng hoặc một phần chi phí lưu thông thì:
+Khi xác định số tiền được hỗ trợ theo quyết định của Chính phủ (hoặc cơ
+quan được Chính phủ uỷ quyền), ghi:
+Nợ TK: 64 - thanh toán NS (648 - trợ giá)
+Có TK 34 - chi phí lưu thông
+Khi nhận được tiền hỗ trợ, ghi:
+Nợ TK 50, 51 ..
+Có TK 64 (648 - trợ giá)
+Khi doanh nghiệp bán hàng ra, nếu hoà vốn thì doanh nghiệp hoàn lại một
+phần hoặc toàn bộ số quỹ bình ổn giá đã được hỗ trợ, ghi:
+Xác định số tiền hỗ trợ phải hoàn lại cho ngân sách:
+Nợ TK 34 - Chi phí lưu thông
+Có TK 64 - (648 - trợ giá)
+Khi nộp số tiền hỗ trợ phải hoàn lại cho ngân sách:
+Nợ TK 64 (648 trợ giá)
+Có TK: 50, 51...
+Khi doanh nghiệp bán hàng ra, nếu có chênh lệch giữa giá vốn dự trữ và giá
+bán ra thực tế thì ngoài việc hoàn lại toàn bộ số quỹ bình ổn giá đã hỗ
+trợ, các doanh nghiệp còn phải nộp thêm không quá 60% phần chênh lệch giá
+này để bổ sung quỹ bình ổn giá, ghi:
+Xác định số chênh lệch giá phải nộp:
+Nợ TK 34 - Chi phí lưu thông
+Có TK 64 - (648 - trợ giá)
+Khi nộp tiền cho ngân sách để bổ sung quỹ bình ổn giá:
+Nợ TK 64 (648 trợ giá)
+Có TK: 50, 51 ...
+c) Trường hợp ngân sách Nhà nước hỗ trợ cho các doanh nghiệp được giao
+nhiệm vụ bình ổn giá theo hình thức cho vay không thu lãi hoặc thu lãi với
+lãi suất thấp thì:
+Khi ngân sách cho vay từ quỹ bình ổn giá, ghi:
+Nợ TK 50, 51 ..
+Có TK 64 - (648 - trợ giá).
+Xác định số tiền lãi phải trả ngân sách để bổ sung quỹ bình ổn giá, ghi:
+Nợ TK 34 - Chi phí lưu thông
+Có TK 64 - (648 - trợ giá)
+Khi trả tiền vay và tiền lãi cho Ngân sách, ghi:
+Nợ TK 64 (648 - trợ giá)
+Có TK: 50, 51 ...
+Thông tư này có hiệu lực thi hành từ ngày ký./.
+�
+
+|                             | | |(Đã ký)                              |
+|                             | | |                                     |
+|                             | | |Phạm Văn Trọng                       |

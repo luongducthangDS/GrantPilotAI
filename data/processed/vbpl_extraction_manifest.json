@@ -1,0 +1,992 @@
+[
+  {
+    "document_id": "10598",
+    "relative_path": "77.TC-CÐKT.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 4056,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/10598/77.TC-CÐKT.txt"
+  },
+  {
+    "document_id": "107366",
+    "relative_path": "107366_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 15866,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/107366/107366_body_content.txt"
+  },
+  {
+    "document_id": "107366",
+    "relative_path": "170-2009-TT-BTC_170_2009_TT-BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 13414,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/107366/170-2009-TT-BTC_170_2009_TT-BTC.txt"
+  },
+  {
+    "document_id": "107366",
+    "relative_path": "170_2009_TT-BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 13414,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/107366/170_2009_TT-BTC.txt"
+  },
+  {
+    "document_id": "107366",
+    "relative_path": "VanBanGoc_170-2009-TT-BTC.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 8968,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/107366/VanBanGoc_170-2009-TT-BTC.txt"
+  },
+  {
+    "document_id": "107366",
+    "relative_path": "VanBanGoc_170-2009-TT-BTC_Phu luc.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 1730,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/107366/VanBanGoc_170-2009-TT-BTC_Phu luc.txt"
+  },
+  {
+    "document_id": "107883",
+    "relative_path": "06_2009_TTLT- BLĐTBXH-BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 14810,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/107883/06_2009_TTLT- BLĐTBXH-BTC.txt"
+  },
+  {
+    "document_id": "107883",
+    "relative_path": "28057_1.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 14004,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/107883/28057_1.txt"
+  },
+  {
+    "document_id": "108311",
+    "relative_path": "68-TC_TCDN.doc",
+    "detected_type": "rtf",
+    "method": "striprtf",
+    "status": "legacy_font_encoding_unrecoverable",
+    "char_count": 17648,
+    "notes": "legacy_font_encoding_unrecoverable",
+    "output_path": "data/raw/vbpl/extracted/108311/68-TC_TCDN.txt"
+  },
+  {
+    "document_id": "108352",
+    "relative_path": "05-TT_LB.doc",
+    "detected_type": "rtf",
+    "method": "striprtf",
+    "status": "legacy_font_encoding_unrecoverable",
+    "char_count": 6465,
+    "notes": "legacy_font_encoding_unrecoverable",
+    "output_path": "data/raw/vbpl/extracted/108352/05-TT_LB.txt"
+  },
+  {
+    "document_id": "108352",
+    "relative_path": "05_TT-LB.doc",
+    "detected_type": "rtf",
+    "method": "striprtf",
+    "status": "legacy_font_encoding_unrecoverable",
+    "char_count": 14809,
+    "notes": "legacy_font_encoding_unrecoverable",
+    "output_path": "data/raw/vbpl/extracted/108352/05_TT-LB.txt"
+  },
+  {
+    "document_id": "109653",
+    "relative_path": "1275_QĐ-BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 3785,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/109653/1275_QĐ-BTC.txt"
+  },
+  {
+    "document_id": "11005",
+    "relative_path": "05_TT-LB_41851.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 12076,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/11005/05_TT-LB_41851.txt"
+  },
+  {
+    "document_id": "110875",
+    "relative_path": "VanBanGoc_71-2015-TT-BTC_71-2015-TT-BTC.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 11844,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/110875/VanBanGoc_71-2015-TT-BTC_71-2015-TT-BTC.txt"
+  },
+  {
+    "document_id": "110952",
+    "relative_path": "VanBanGoc_21-2016-TT-BTC_21-2016-TT-BTC.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 8278,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/110952/VanBanGoc_21-2016-TT-BTC_21-2016-TT-BTC.txt"
+  },
+  {
+    "document_id": "135973",
+    "relative_path": "32_2018_TT-BLDTBXH_409295 (1).doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 14810,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/135973/32_2018_TT-BLDTBXH_409295 (1).txt"
+  },
+  {
+    "document_id": "135973",
+    "relative_path": "VanBanGoc_409295 (1).pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 6 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "13646",
+    "relative_path": "1213.QD.TTg.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 2281,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/13646/1213.QD.TTg.txt"
+  },
+  {
+    "document_id": "138456",
+    "relative_path": "PhuluckemtheoThongtu 02_2019.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 5295,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: v:line'); Message(type='warning', message='An unrecognised element was ignored: w:tblPrEx')",
+    "output_path": "data/raw/vbpl/extracted/138456/PhuluckemtheoThongtu 02_2019.txt"
+  },
+  {
+    "document_id": "138456",
+    "relative_path": "Thongtu 02_2019.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 4236,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/138456/Thongtu 02_2019.txt"
+  },
+  {
+    "document_id": "138456",
+    "relative_path": "VanBanGoc_02_2019_tt-bkhcn.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 5 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "143411",
+    "relative_path": "143411_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 6612,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/143411/143411_body_content.txt"
+  },
+  {
+    "document_id": "143411",
+    "relative_path": "PL.TT.19.2019.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 2055,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/143411/PL.TT.19.2019.txt"
+  },
+  {
+    "document_id": "143411",
+    "relative_path": "TT.49.2019.TT.BGTVT.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 7098,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: v:line'); Message(type='warning', message='An unrecognised element was ignored: w:moveFromRangeStart'); Message(type='warning', message='An unrecognised element was ignored: w:moveFrom'); Message(type='warning', message='An unrecognised element was ignored: w:moveFromRangeEnd'); Message(type='warning', message='An unrecognised element was ignored: w:moveToRangeStart'); Message(type='warning', message='An unrecognised element was ignored: w:moveTo'); Message(type='warning', message='An unrecognised element was ignored: w:moveToRangeEnd')",
+    "output_path": "data/raw/vbpl/extracted/143411/TT.49.2019.TT.BGTVT.txt"
+  },
+  {
+    "document_id": "14865",
+    "relative_path": "102.2006.TTLT.BTC.BKHCN.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 23238,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/14865/102.2006.TTLT.BTC.BKHCN.txt"
+  },
+  {
+    "document_id": "14865",
+    "relative_path": "14865_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 19421,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/14865/14865_body_content.txt"
+  },
+  {
+    "document_id": "150955",
+    "relative_path": "VanBanGoc_35.2021.TT.PDF",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "text_layer_unreliable_needs_ocr",
+    "char_count": 24351,
+    "notes": "low_diacritic_density_check_manually",
+    "output_path": "data/raw/vbpl/extracted/150955/VanBanGoc_35.2021.TT.txt"
+  },
+  {
+    "document_id": "151048",
+    "relative_path": "VanBanGoc_64.signed.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 5 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "154003",
+    "relative_path": "154003_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 13943,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/154003/154003_body_content.txt"
+  },
+  {
+    "document_id": "154003",
+    "relative_path": "Phu luc kèm TT03-2022-TT-NHNN.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 8483,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: v:line')",
+    "output_path": "data/raw/vbpl/extracted/154003/Phu luc kèm TT03-2022-TT-NHNN.txt"
+  },
+  {
+    "document_id": "154003",
+    "relative_path": "Thong tu 03-2022-TT-NHNN.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 14928,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: v:line')",
+    "output_path": "data/raw/vbpl/extracted/154003/Thong tu 03-2022-TT-NHNN.txt"
+  },
+  {
+    "document_id": "154003",
+    "relative_path": "VanBanGoc_Thong tu 03.2022-TT-NHNN.PDF",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 22949,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/154003/VanBanGoc_Thong tu 03.2022-TT-NHNN.txt"
+  },
+  {
+    "document_id": "154003",
+    "relative_path": "VanBanGoc_Thong tu 03.2022.TT.NHNN.PDF",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 23106,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/154003/VanBanGoc_Thong tu 03.2022.TT.NHNN.txt"
+  },
+  {
+    "document_id": "154004",
+    "relative_path": "154004_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 25024,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/154004/154004_body_content.txt"
+  },
+  {
+    "document_id": "154004",
+    "relative_path": "Nghị định 31-2022-NĐ-CP.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 29535,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/154004/Nghị định 31-2022-NĐ-CP.txt"
+  },
+  {
+    "document_id": "154004",
+    "relative_path": "Phụ lục đính kèm Nghị định 31-2022-NĐ-CP.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 15672,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: w:tblPrEx')",
+    "output_path": "data/raw/vbpl/extracted/154004/Phụ lục đính kèm Nghị định 31-2022-NĐ-CP.txt"
+  },
+  {
+    "document_id": "154004",
+    "relative_path": "VanBanGoc_Nghị định 31-2022-NĐ-CP.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 27 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "15867",
+    "relative_path": "11.2006.QD.BKHCN.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 2686,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/15867/11.2006.QD.BKHCN.txt"
+  },
+  {
+    "document_id": "158782",
+    "relative_path": "VanBanGoc_06.2022.TT.BKHĐT (PDF).pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 62 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "158783",
+    "relative_path": "Template.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 27,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/158783/Template.txt"
+  },
+  {
+    "document_id": "158783",
+    "relative_path": "VanBanGoc_80.2021.NĐ.CP (PDF).pdf",
+    "detected_type": "empty",
+    "method": "-",
+    "status": "empty_file",
+    "char_count": 0,
+    "notes": "",
+    "output_path": null
+  },
+  {
+    "document_id": "159227",
+    "relative_path": "0.thong tu 07.2020.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 22775,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/159227/0.thong tu 07.2020.txt"
+  },
+  {
+    "document_id": "159227",
+    "relative_path": "159227_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 12230,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/159227/159227_body_content.txt"
+  },
+  {
+    "document_id": "159227",
+    "relative_path": "VanBanGoc_07-bkhcn.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 12 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "16334",
+    "relative_path": "25.2006.TT.BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 15556,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/16334/25.2006.TT.BTC.txt"
+  },
+  {
+    "document_id": "163729",
+    "relative_path": "VanBanGoc_52_10082023_172756.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 19 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "16776",
+    "relative_path": "68.2005.QD.TTg.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 9412,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/16776/68.2005.QD.TTg.txt"
+  },
+  {
+    "document_id": "16777",
+    "relative_path": "16777_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 1024,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/16777/16777_body_content.txt"
+  },
+  {
+    "document_id": "16777",
+    "relative_path": "36.2006.QD.TTg.zip -> 36.2006.QD.TTg.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 1886,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/16777/36.2006.QD.TTg.txt"
+  },
+  {
+    "document_id": "16777",
+    "relative_path": "Quy che.zip -> Quy che.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 25415,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/16777/Quy che.txt"
+  },
+  {
+    "document_id": "177569",
+    "relative_path": "VanBanGoc_09.TT.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 6 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "183411_body_content.html",
+    "detected_type": "html",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 146754,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/183411/183411_body_content.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "268_2025_ND-CP_663962.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 148714,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: w:tblPrEx')",
+    "output_path": "data/raw/vbpl/extracted/183411/268_2025_ND-CP_663962.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "PL I - NV DMST-đã gộp.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 64220,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: v:stroke'); Message(type='warning', message='An unrecognised element was ignored: v:path'); Message(type='warning', message='An unrecognised element was ignored: v:line')",
+    "output_path": "data/raw/vbpl/extracted/183411/PL I - NV DMST-đã gộp.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "PL II - NV HTLSV. đã gộp.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 21383,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: w:tblPrEx')",
+    "output_path": "data/raw/vbpl/extracted/183411/PL II - NV HTLSV. đã gộp.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "PL III - Voucher-đã gộp.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 17508,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/183411/PL III - Voucher-đã gộp.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "PL IV - Cong nhan DMST,KNST_đã gộp.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 116932,
+    "notes": "Message(type='warning', message='A w:sym element with an unsupported character was ignored: char F097 in font Symbol'); Message(type='warning', message='An unrecognised element was ignored: v:stroke'); Message(type='warning', message='An unrecognised element was ignored: v:path')",
+    "output_path": "data/raw/vbpl/extracted/183411/PL IV - Cong nhan DMST,KNST_đã gộp.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "PL V - DN KHCN-đã gộp.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 11926,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: v:line'); Message(type='warning', message='Image of type image/x-emf is unlikely to display in web browsers'); Message(type='warning', message='An unrecognised element was ignored: w:tblPrEx')",
+    "output_path": "data/raw/vbpl/extracted/183411/PL V - DN KHCN-đã gộp.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "PL VI - Ho tro hoat dong-đã gộp.docx",
+    "detected_type": "docx",
+    "method": "mammoth",
+    "status": "ok",
+    "char_count": 32250,
+    "notes": "Message(type='warning', message='An unrecognised element was ignored: w:tblPrEx')",
+    "output_path": "data/raw/vbpl/extracted/183411/PL VI - Ho tro hoat dong-đã gộp.txt"
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "VanBanGoc_268-cp.signed.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 69 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "VanBanGoc_pl1.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 56 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "VanBanGoc_pl2.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 19 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "VanBanGoc_pl3-4.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 106 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "183411",
+    "relative_path": "VanBanGoc_pl5-6.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 2 chars/page across 42 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "18372",
+    "relative_path": "192.2004.QD.TTg.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 3509,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/18372/192.2004.QD.TTg.txt"
+  },
+  {
+    "document_id": "21370",
+    "relative_path": "70.2003.QD.BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 3819,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/21370/70.2003.QD.BTC.txt"
+  },
+  {
+    "document_id": "23967",
+    "relative_path": "113.2008.QD.TTg.doc",
+    "detected_type": "html_utf16",
+    "method": "html-strip",
+    "status": "ok",
+    "char_count": 3997,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/23967/113.2008.QD.TTg.txt"
+  },
+  {
+    "document_id": "23967",
+    "relative_path": "Phu luc.113.2008.QD.TTg.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 8401,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/23967/Phu luc.113.2008.QD.TTg.txt"
+  },
+  {
+    "document_id": "23967",
+    "relative_path": "Quy che.113.2008.QD.TTg.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 32422,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/23967/Quy che.113.2008.QD.TTg.txt"
+  },
+  {
+    "document_id": "25984",
+    "relative_path": "06.2009.TTLT-BLĐTBXH-BTC.zip -> 06.2009.TTLT-BLĐTBXH-BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 13619,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/25984/06.2009.TTLT-BLĐTBXH-BTC.txt"
+  },
+  {
+    "document_id": "25984",
+    "relative_path": "06_2009_TTLT-BLĐTBXH-BTC.doc",
+    "detected_type": "unknown",
+    "method": "-",
+    "status": "unrecognized_format",
+    "char_count": 0,
+    "notes": "",
+    "output_path": null
+  },
+  {
+    "document_id": "25984",
+    "relative_path": "Mau.zip -> Mau.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 14348,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/25984/Mau.txt"
+  },
+  {
+    "document_id": "27965",
+    "relative_path": "141_2012_TTLT-BTC-BQP-BCA.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 22129,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/27965/141_2012_TTLT-BTC-BQP-BCA.txt"
+  },
+  {
+    "document_id": "27965",
+    "relative_path": "VanBanGoc_141-2012-TTLT-BTC-BQP-BCA_141-2012-TTLT-BTC-BQP-BCA.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 18573,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/27965/VanBanGoc_141-2012-TTLT-BTC-BQP-BCA_141-2012-TTLT-BTC-BQP-BCA.txt"
+  },
+  {
+    "document_id": "27965",
+    "relative_path": "VanBanGoc_141_2012_TTLT-BTC-BQP-BCA.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "legacy_font_encoding_unrecoverable",
+    "char_count": 18323,
+    "notes": "legacy_font_encoding_unrecoverable",
+    "output_path": "data/raw/vbpl/extracted/27965/VanBanGoc_141_2012_TTLT-BTC-BQP-BCA.txt"
+  },
+  {
+    "document_id": "30297",
+    "relative_path": "10.2013.TT.BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 33969,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/30297/10.2013.TT.BTC.txt"
+  },
+  {
+    "document_id": "30297",
+    "relative_path": "10_2013_TT-BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 36045,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/30297/10_2013_TT-BTC.txt"
+  },
+  {
+    "document_id": "30297",
+    "relative_path": "41724_1.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 7610,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/30297/41724_1.txt"
+  },
+  {
+    "document_id": "30297",
+    "relative_path": "Phu luc.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 7254,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/30297/Phu luc.txt"
+  },
+  {
+    "document_id": "30297",
+    "relative_path": "VanBanGoc_10-2013-TT-BTC_10-2013-TT-BTC.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 31813,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/30297/VanBanGoc_10-2013-TT-BTC_10-2013-TT-BTC.txt"
+  },
+  {
+    "document_id": "30297",
+    "relative_path": "VanBanGoc_10-2013-TT-BTC_Phu luc.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 4647,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/30297/VanBanGoc_10-2013-TT-BTC_Phu luc.txt"
+  },
+  {
+    "document_id": "30297",
+    "relative_path": "VanBanGoc_10_2013_TT-BTC.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 36829,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/30297/VanBanGoc_10_2013_TT-BTC.txt"
+  },
+  {
+    "document_id": "37690",
+    "relative_path": "49.2014.TTLT.BTC.BKHCN.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 29355,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/37690/49.2014.TTLT.BTC.BKHCN.txt"
+  },
+  {
+    "document_id": "37690",
+    "relative_path": "VanBanGoc_49-2014-TTLT-BTC-BKHCN_49-2014-TTLT-BTC-BKHCN.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 25827,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/37690/VanBanGoc_49-2014-TTLT-BTC-BKHCN_49-2014-TTLT-BTC-BKHCN.txt"
+  },
+  {
+    "document_id": "37690",
+    "relative_path": "VanBanGoc_49.2014.TTLT.BTC.BKHCN.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 26550,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/37690/VanBanGoc_49.2014.TTLT.BTC.BKHCN.txt"
+  },
+  {
+    "document_id": "40789",
+    "relative_path": "585.QĐ.TTg.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 19379,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/40789/585.QĐ.TTg.txt"
+  },
+  {
+    "document_id": "40789",
+    "relative_path": "585.QĐ.TTg_Phuluc.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 26561,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/40789/585.QĐ.TTg_Phuluc.txt"
+  },
+  {
+    "document_id": "5998",
+    "relative_path": "163.2000.QD.BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 5984,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/5998/163.2000.QD.BTC.txt"
+  },
+  {
+    "document_id": "68173",
+    "relative_path": "71.2015.TT.BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 13703,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/68173/71.2015.TT.BTC.txt"
+  },
+  {
+    "document_id": "68173",
+    "relative_path": "VanBanGoc_71.2015.TT.BTC.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 11813,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/68173/VanBanGoc_71.2015.TT.BTC.txt"
+  },
+  {
+    "document_id": "8281",
+    "relative_path": "68.TT.TCDN.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 19398,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/8281/68.TT.TCDN.txt"
+  },
+  {
+    "document_id": "83279",
+    "relative_path": "170.2009.TT.BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 10494,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/83279/170.2009.TT.BTC.txt"
+  },
+  {
+    "document_id": "83279",
+    "relative_path": "170.2009.TT.BTC.Phu luc.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 2697,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/83279/170.2009.TT.BTC.Phu luc.txt"
+  },
+  {
+    "document_id": "83314",
+    "relative_path": "104_2008_QĐ-BTC.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 6214,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/83314/104_2008_QĐ-BTC.txt"
+  },
+  {
+    "document_id": "83314",
+    "relative_path": "VanBanGoc_104-2008-QĐ-BTC_104-2008-QĐ-BTC.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 4601,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/83314/VanBanGoc_104-2008-QĐ-BTC_104-2008-QĐ-BTC.txt"
+  },
+  {
+    "document_id": "83314",
+    "relative_path": "VanBanGoc_27553_1.PDF",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "possibly_scanned_needs_ocr",
+    "char_count": 0,
+    "notes": "avg 1 chars/page across 3 pages — likely a scanned PDF with no text layer",
+    "output_path": null
+  },
+  {
+    "document_id": "88186",
+    "relative_path": "263.2003.QD.UBDT.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 3687,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/88186/263.2003.QD.UBDT.txt"
+  },
+  {
+    "document_id": "92617",
+    "relative_path": "13.2015.TT.BKHĐT.doc",
+    "detected_type": "ole_doc",
+    "method": "antiword -m UTF-8.txt",
+    "status": "ok",
+    "char_count": 16490,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/92617/13.2015.TT.BKHĐT.txt"
+  },
+  {
+    "document_id": "92617",
+    "relative_path": "VanBanGoc_13.2015.TT.BKHĐT.pdf",
+    "detected_type": "pdf",
+    "method": "pypdf",
+    "status": "ok",
+    "char_count": 11523,
+    "notes": "",
+    "output_path": "data/raw/vbpl/extracted/92617/VanBanGoc_13.2015.TT.BKHĐT.txt"
+  }
+]

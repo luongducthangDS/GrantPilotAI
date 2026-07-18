@@ -1,0 +1,597 @@
+CÔNG TY ....................
+
+
+
+
+
+Mẫu số 01 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BIỂU TỔNG HỢP QUYẾT TOÁN HỖ TRỢ GIÁ 
+
+QUÝ .........NĂM .......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TT
+
+Nội dung
+
+Đơn vị tính
+
+Kế hoạch
+
+đã phê duyệt
+
+Thực hiện
+
+Chênh lệch
+
+Ghi chú
+
+I
+
+Doanh thu
+
+
+
+
+
+
+
+
+
+
+
+1
+
+Chuyến tàu...
+
+
+
+
+
+
+
+
+
+
+
+2
+
+Chuyến tàu...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+II
+
+Chi phí
+
+
+
+
+
+
+
+
+
+
+
+1
+
+Chuyến tàu...
+
+
+
+
+
+
+
+
+
+
+
+2
+
+Chuyến tàu...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chênh lệch (Doanh thu -Chi phí)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GIÁM ĐỐC
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mẫu số 02 
+
+CÔNG TY ....................
+
+
+
+
+
+
+
+
+
+
+
+BIỂU TỔNG HỢP QUYẾT TOÁN DOANH THUCHUYẾN TÀU.......QUÝ .........NĂM .......
+
+
+
+
+
+
+
+
+
+TT
+
+Nội dung 
+
+Doanh thu
+
+Ghi chú
+
+1
+
+Chuyến tàu ....ngày .... tháng....
+
+ 
+
+Thuyết minh
+
+2
+
+ ...
+
+ 
+
+ 
+
+3
+
+ 
+
+ 
+
+ 
+
+4
+
+ 
+
+ 
+
+ 
+
+5
+
+ 
+
+ 
+
+ 
+
+6
+
+ 
+
+ 
+
+ 
+
+7
+
+ 
+
+ 
+
+ 
+
+8
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TỔNG
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+GIÁM ĐỐC
+
+
+
+
+
+
+
+
+
+
+
+Mẫu số 03
+
+CÔNG TY ....................
+
+
+
+BIỂU TỔNG HỢP QUYẾT TOÁN CHI PHÍ  THEO CHUYẾN TÀU.......QUÝ .........NĂM .......
+
+
+
+
+
+
+
+Đơn vị tính: đồng
+
+TT
+
+Nội dung 
+
+Chi phí
+
+Ghi chú
+
+I
+
+Chi phí trực tiếp cho công tác
+
+ 
+
+ 
+
+1
+
+Chi tiền lương lao động
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+2
+
+Chi bảo hiểm + công đoàn
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+3
+
+Chi vật liệu
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+a
+
+Vật tư, nguyên vật liệu, văn phòng phẩm…
+
+ 
+
+ 
+
+b
+
+Công cụ dụng cụ
+
+ 
+
+ 
+
+4
+
+Chi nhiên liệu
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+a
+
+Nhiên liệu chạy máy móc thiết bị
+
+ 
+
+ 
+
+b
+
+Nhiên liệu khác
+
+ 
+
+ 
+
+5
+
+Chi dịch vụ mua ngoài
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+a
+
+Chi chế độ đồng phục và BHLĐ cá nhân
+
+ 
+
+ 
+
+b
+
+Chi dịch vụ khác
+
+ 
+
+ 
+
+6
+
+Chi khác
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+a
+
+Chi chế độ người lao động
+
+ 
+
+ 
+
+b
+
+Chi phí khác
+
+ 
+
+ 
+
+7
+
+Chi khấu hao TSCĐ
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+II
+
+Phân bổ chi phí quản lý 
+
+ 
+
+Có bảng thuyết minh chi tiết kèm theo
+
+1
+
+Tiền lương lao động quản lý, bổ trợ
+
+ 
+
+ 
+
+2
+
+Các chi phí khác
+
+ 
+
+ 
+
+ 
+
+TỔNG
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+GIÁM ĐỐC
