@@ -1,16 +1,16 @@
 # Data Coverage Report
 
-Generated at: 2026-07-18T04:08:51.839262+00:00
+Generated at: 2026-07-18T05:17:17.860025+00:00
 
 ## Counts
 
 - sources: 9
 - source_checks_ok: 9
-- corpus_chunks: 27
+- corpus_chunks: 35
 - policies: 6
 - policy_citations: 13
 - sample_profiles: 2
-- policy_watch: 10
+- policy_watch: 14
 
 ## Remaining Gaps
 

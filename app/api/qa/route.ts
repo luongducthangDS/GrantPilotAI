@@ -1,7 +1,8 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 
-import { answerQuestion, classifySme, retrieveCorpusChunks, type Answer, type Profile } from "@/lib/grantpilot";
+import { answerQuestion, classifySme, type Answer, type CorpusChunk, type Profile } from "@/lib/grantpilot";
+import { hybridRetrieve } from "@/lib/retrieval";
 
 const SYSTEM_INSTRUCTION = `Bạn là trợ lý pháp lý AI của GrantPilot, giúp doanh nghiệp nhỏ và vừa/startup Việt Nam tra cứu chính sách hỗ trợ.
 
@@ -12,7 +13,7 @@ Quy tắc bắt buộc:
 - Đây là công cụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ quan có thẩm quyền — nếu câu hỏi mang tính kết luận cuối cùng (ví dụ miễn thuế hoàn toàn), nhắc người dùng cần đối chiếu văn bản gốc.
 - Chỉ trả về văn bản câu trả lời thuần, không thêm tiêu đề, không lặp lại đoạn trích, không markdown.`;
 
-function buildPrompt(question: string, profile: Profile | undefined, chunks: ReturnType<typeof retrieveCorpusChunks>) {
+function buildPrompt(question: string, profile: Profile | undefined, chunks: CorpusChunk[]) {
   const context = chunks
     .map(
       (chunk, index) =>
@@ -37,7 +38,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Thiếu câu hỏi." }, { status: 400 });
   }
 
-  const chunks = retrieveCorpusChunks(question, 5);
+  const { chunks, mode } = await hybridRetrieve(question, 5);
+  console.log(`[/api/qa] retrieval mode=${mode} chunks=${chunks.length}`);
 
   if (chunks.length === 0) {
     const fallback: Answer = {

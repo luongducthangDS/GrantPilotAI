@@ -9,7 +9,8 @@
     "lint": "next lint",
     "data:crawl": "python scripts/crawl_verified_sources.py",
     "data:build": "python scripts/build_database.py",
-    "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py"
+    "data:embed": "node scripts/build-embeddings.mjs",
+    "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py && node scripts/build-embeddings.mjs"
   },
   "dependencies": {
     "@fontsource/be-vietnam-pro": "^5.2.8",
@@ -19,7 +20,8 @@
     "lucide-react": "^0.468.0",
     "next": "^15.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

@@ -27,7 +27,13 @@ GEMINI_API_KEY=<api-key-cua-ban>
 GEMINI_MODEL=gemini-2.5-flash
 ```
 
-Lấy API key tại [Google AI Studio](https://aistudio.google.com/apikey). Nếu thiếu `GEMINI_API_KEY` hoặc lỗi gọi API (quota/network), route tự động rơi về câu trả lời soạn sẵn (rule-based) thay vì lỗi trắng trang — nhưng khi đó Q&A không còn là RAG thật, chỉ là fallback demo.
+Lấy API key tại [Google AI Studio](https://aistudio.google.com/apikey). Retrieval là hybrid thật (BM25 + dense embedding + RRF, xem `lib/retrieval.ts`) — nếu thiếu `GEMINI_API_KEY`, retrieval tự rơi về BM25-only; nếu gọi LLM lỗi (quota/network), route tự rơi về câu trả lời soạn sẵn (rule-based) thay vì lỗi trắng trang — nhưng khi đó Q&A không còn là RAG thật, chỉ là fallback demo.
+
+Sau khi sửa `data/corpus.json`, phải chạy lại embedding trước khi build/deploy, nếu không dense retrieval sẽ dùng embedding cũ (id không khớp sẽ tự bị bỏ qua, không lỗi, nhưng chunk mới sẽ chỉ được tìm thấy qua BM25):
+
+```powershell
+npm run data:embed
+```
 
 ## Deploy Render
 
@@ -49,14 +55,17 @@ Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã g
 3. Mở `Hỏi đáp pháp lý`, thử 10 câu hỏi vàng.
 4. Chuyển hồ sơ mẫu sang `Cơ khí An Phát` để thấy kết quả ưu tiên SMEDF và chuỗi giá trị.
 5. Thử upload `data/synthetic_dkkd_novamind.txt` hoặc `data/synthetic_dkkd_anphat.txt` vào ô "Thả hồ sơ TXT" (OCR mock).
-6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 10 tín hiệu, gồm cả các văn bản mới phát hiện qua crawl vbpl.vn/chinhphu.vn).
+6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 14 tín hiệu, gồm cả các văn bản mới phát hiện qua crawl vbpl.vn/chinhphu.vn).
 
 ## Dữ liệu seed
 
 - `data/sample_profiles.json`: 2 hồ sơ demo.
 - `data/policies.json`: rule matching, citation, checklist.
-- `data/corpus.json`: corpus Q&A theo điều/khoản.
-- `data/policy_watch.json`: policy watch mock.
+- `data/corpus.json`: corpus Q&A theo điều/khoản (35 chunk).
+- `data/corpus_embeddings.json`: embedding từng chunk (`gemini-embedding-001`), dùng cho dense retrieval — build lại bằng `npm run data:embed` sau khi sửa corpus.
+- `data/policy_watch.json`: policy watch (14 mục, có cả mock lẫn văn bản thật đã crawl).
+- `data/vbpl_expansion_candidates.json`: ~400 văn bản từ vbpl.vn đã lọc theo domain nhưng chưa đưa vào corpus — pool mở rộng cho vòng sau.
+- `data/chinhphu_all_urls.json`, `data/chinhphu_relevant_articles.json`: snapshot crawl từ xaydungchinhsach.chinhphu.vn.
 - `data/source_verification.md`: nhật ký kiểm chứng URL/source dùng trong demo.
 - `data/verified_sources.json`: danh sách nguồn đã xác thực để crawl.
 - `data/crawled_sources.json`: snapshot crawl đã làm sạch từ nguồn xác thực.
