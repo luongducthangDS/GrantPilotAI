@@ -1,7 +1,7 @@
-import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 
 import { answerQuestion, classifySme, type Answer, type CorpusChunk, type Profile } from "@/lib/grantpilot";
+import { DEFAULT_MODELS, generateAnswer, type LlmProvider } from "@/lib/llmProviders";
 import { hybridRetrieve } from "@/lib/retrieval";
 
 const SYSTEM_INSTRUCTION = `Bạn là trợ lý pháp lý AI của GrantPilot, giúp doanh nghiệp nhỏ và vừa/startup Việt Nam tra cứu chính sách hỗ trợ.
@@ -12,6 +12,8 @@ Quy tắc bắt buộc:
 - Trả lời ngắn gọn (3-6 câu), rõ ràng, bằng tiếng Việt, có thể nhắc số hiệu văn bản/điều khoản khi phù hợp.
 - Đây là công cụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ quan có thẩm quyền — nếu câu hỏi mang tính kết luận cuối cùng (ví dụ miễn thuế hoàn toàn), nhắc người dùng cần đối chiếu văn bản gốc.
 - Chỉ trả về văn bản câu trả lời thuần, không thêm tiêu đề, không lặp lại đoạn trích, không markdown.`;
+
+const VALID_PROVIDERS: LlmProvider[] = ["google", "openai", "anthropic", "xai"];
 
 function buildPrompt(question: string, profile: Profile | undefined, chunks: CorpusChunk[]) {
   const context = chunks
@@ -31,8 +33,30 @@ function buildPrompt(question: string, profile: Profile | undefined, chunks: Cor
   return `${profileContext}Các đoạn trích từ corpus pháp lý:\n\n${context}\n\nCâu hỏi: ${question}`;
 }
 
+// Resolves which provider/key/model to use for this request: a client-
+// supplied override (bring-your-own-key from the Settings modal) takes
+// priority; otherwise falls back to the server's own GEMINI_API_KEY, if
+// configured. Returns null if neither is available.
+function resolveLlmConfig(llm: { provider?: string; apiKey?: string; model?: string } | undefined) {
+  if (llm?.apiKey && llm.provider && VALID_PROVIDERS.includes(llm.provider as LlmProvider)) {
+    const provider = llm.provider as LlmProvider;
+    return { provider, apiKey: llm.apiKey, model: llm.model?.trim() || DEFAULT_MODELS[provider] };
+  }
+
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (apiKey) {
+    return { provider: "google" as LlmProvider, apiKey, model: process.env.GEMINI_MODEL || DEFAULT_MODELS.google };
+  }
+
+  return null;
+}
+
 export async function POST(request: Request) {
-  const { question, profile } = (await request.json()) as { question?: string; profile?: Profile };
+  const { question, profile, llm } = (await request.json()) as {
+    question?: string;
+    profile?: Profile;
+    llm?: { provider?: string; apiKey?: string; model?: string };
+  };
 
   if (!question || !question.trim()) {
     return NextResponse.json({ error: "Thiếu câu hỏi." }, { status: 400 });
@@ -57,22 +81,14 @@ export async function POST(request: Request) {
     source: chunk.source
   }));
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error("GEMINI_API_KEY chưa được cấu hình — dùng câu trả lời soạn sẵn (fallback).");
+  const config = resolveLlmConfig(llm);
+  if (!config) {
+    console.error("Chưa có LLM nào được cấu hình (thiếu key server lẫn key người dùng) — dùng câu trả lời soạn sẵn (fallback).");
     return NextResponse.json(answerQuestion(question, profile));
   }
 
   try {
-    const ai = new GoogleGenAI({ apiKey });
-    const response = await ai.models.generateContent({
-      model: process.env.GEMINI_MODEL || "gemini-2.5-flash",
-      contents: buildPrompt(question, profile, chunks),
-      config: { systemInstruction: SYSTEM_INSTRUCTION, temperature: 0.2 }
-    });
-
-    const text = response.text?.trim();
-    if (!text) throw new Error("Phản hồi rỗng từ LLM.");
+    const text = await generateAnswer(config, SYSTEM_INSTRUCTION, buildPrompt(question, profile, chunks));
 
     const insufficient = /không đủ thông tin/i.test(text);
     const result: Answer = {
@@ -82,7 +98,7 @@ export async function POST(request: Request) {
     };
     return NextResponse.json(result);
   } catch (error) {
-    console.error("Gemini generate thất bại, dùng câu trả lời soạn sẵn (fallback):", error);
+    console.error(`${config.provider} generate thất bại, dùng câu trả lời soạn sẵn (fallback):`, error);
     return NextResponse.json(answerQuestion(question, profile));
   }
 }

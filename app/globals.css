@@ -999,3 +999,11 @@ button {
 .modal-actions { display: flex; justify-content: flex-end; margin: -10px 0 20px; }
 .modal-download-button { display: flex; align-items: center; gap: 9px; height: 40px; padding: 0 18px; border: 1px solid var(--teal-500); border-radius: 10px; background: linear-gradient(135deg, var(--teal-600), #0a7476); color: var(--white); cursor: pointer; font-size: 11px; font-weight: 750; }
 .modal-download-button:disabled { cursor: not-allowed; opacity: 0.66; }
+
+/* AI settings */
+.settings-button { display: flex; align-items: center; gap: 7px; height: 39px; padding: 0 14px; border: 1px solid var(--slate-200); border-radius: 999px; background: var(--white); color: var(--slate-600); cursor: pointer; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.settings-button:hover { border-color: rgba(15, 139, 141, 0.4); color: var(--navy-900); }
+.settings-modal { width: min(560px, 100%); }
+.settings-modal h2 { margin: 8px 0 14px; font-family: var(--font-serif); font-size: 24px; font-weight: 500; }
+.settings-actions { display: flex; justify-content: flex-end; margin: 6px 0 18px; }
+.settings-actions .analyze-button { width: auto; padding: 0 22px; }

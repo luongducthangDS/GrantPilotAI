@@ -14,6 +14,16 @@ import {
   policyWatch,
   sampleProfiles
 } from "@/lib/grantpilot";
+import {
+  DEFAULT_MODELS,
+  LlmProvider,
+  LlmSettings,
+  MODEL_SUGGESTIONS,
+  PROVIDER_LABELS,
+  clearLlmSettings,
+  loadLlmSettings,
+  saveLlmSettings
+} from "@/lib/llmSettings";
 
 type View = "overview" | "search" | "qa" | "updates";
 
@@ -72,8 +82,41 @@ export default function Home() {
   const [answer, setAnswer] = useState<Answer | null>(null);
   const [answerLoading, setAnswerLoading] = useState(false);
 
+  const [llmSettings, setLlmSettings] = useState<LlmSettings | null>(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [draftProvider, setDraftProvider] = useState<LlmProvider>("google");
+  const [draftApiKey, setDraftApiKey] = useState("");
+  const [draftModel, setDraftModel] = useState(DEFAULT_MODELS.google);
+
   const sme = useMemo(() => classifySme(profile), [profile]);
   const verifiedPolicyCount = useMemo(() => policies.filter((policy) => policy.status.includes("Còn hiệu lực")).length, []);
+
+  useEffect(() => {
+    setLlmSettings(loadLlmSettings());
+  }, []);
+
+  function openSettings() {
+    const current = llmSettings;
+    setDraftProvider(current?.provider ?? "google");
+    setDraftApiKey(current?.apiKey ?? "");
+    setDraftModel(current?.model ?? DEFAULT_MODELS.google);
+    setSettingsOpen(true);
+  }
+
+  function saveSettings() {
+    if (!draftApiKey.trim()) {
+      clearLlmSettings();
+      setLlmSettings(null);
+      setSettingsOpen(false);
+      setMessage("Đã xoá cấu hình AI riêng — dùng lại cấu hình mặc định của máy chủ (nếu có).");
+      return;
+    }
+    const next: LlmSettings = { provider: draftProvider, apiKey: draftApiKey.trim(), model: draftModel.trim() || DEFAULT_MODELS[draftProvider] };
+    saveLlmSettings(next);
+    setLlmSettings(next);
+    setSettingsOpen(false);
+    setMessage(`Đã lưu cấu hình AI: ${PROVIDER_LABELS[next.provider]} · ${next.model}.`);
+  }
 
   useEffect(() => {
     if (!selectedPolicy) return;
@@ -138,7 +181,7 @@ export default function Home() {
       const response = await fetch("/api/qa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: nextQuestion, profile })
+        body: JSON.stringify({ question: nextQuestion, profile, llm: llmSettings ?? undefined })
       });
       if (!response.ok) throw new Error("Không thể lấy câu trả lời.");
       const result = (await response.json()) as Answer;
@@ -227,6 +270,9 @@ export default function Home() {
             <div className="data-health">
               <span /> {policies.length} chính sách đã kết nối
             </div>
+            <button className="settings-button" onClick={openSettings} title="Cài đặt AI">
+              ⚙ {llmSettings ? `${PROVIDER_LABELS[llmSettings.provider]}` : "AI mặc định"}
+            </button>
             <div className="avatar" aria-label="Hồ sơ người dùng">GP</div>
           </div>
         </header>
@@ -535,9 +581,12 @@ export default function Home() {
             <section className="panel-card">
               <div className="section-heading compact">
                 <div>
-                  <span className="eyebrow">BƯỚC 01 · RAG + GEMINI</span>
+                  <span className="eyebrow">
+                    BƯỚC 01 · RAG + {llmSettings ? PROVIDER_LABELS[llmSettings.provider].toUpperCase() : "AI MẶC ĐỊNH CỦA MÁY CHỦ"}
+                  </span>
                   <h3>Đặt câu hỏi</h3>
                 </div>
+                <button className="text-button" onClick={openSettings}>Đổi AI →</button>
               </div>
               <div className="ask-bar">
                 <input
@@ -708,6 +757,75 @@ export default function Home() {
             <div className="legal-note">
               <strong>Lưu ý:</strong> Kết quả được tạo từ tập dữ liệu demo, không thay thế tư vấn pháp lý. Vui lòng kiểm tra văn bản gốc
               trước khi chuẩn bị hồ sơ thật.
+            </div>
+          </section>
+        </div>
+      )}
+
+      {settingsOpen && (
+        <div className="modal-backdrop" onMouseDown={(event) => {
+          if (event.currentTarget === event.target) setSettingsOpen(false);
+        }}>
+          <section className="policy-modal settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+            <button className="modal-close" onClick={() => setSettingsOpen(false)} aria-label="Đóng cài đặt">×</button>
+            <span className="eyebrow">CÀI ĐẶT AI</span>
+            <h2 id="settings-title">Chọn nhà cung cấp &amp; API key</h2>
+            <p className="modal-summary">
+              Nhập API key của bạn để Hỏi đáp pháp lý dùng nhà cung cấp bạn chọn thay vì cấu hình mặc định của máy chủ. Key chỉ lưu trên
+              trình duyệt này (localStorage) và chỉ được gửi kèm khi bạn gọi Hỏi đáp — không lưu trên máy chủ.
+            </p>
+
+            <div className="form-grid">
+              <label className="wide-field">
+                Nhà cung cấp
+                <select
+                  value={draftProvider}
+                  onChange={(event) => {
+                    const next = event.target.value as LlmProvider;
+                    setDraftProvider(next);
+                    if (!draftModel || Object.values(DEFAULT_MODELS).includes(draftModel)) setDraftModel(DEFAULT_MODELS[next]);
+                  }}
+                >
+                  {(Object.keys(PROVIDER_LABELS) as LlmProvider[]).map((key) => (
+                    <option key={key} value={key}>{PROVIDER_LABELS[key]}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="wide-field">
+                API key
+                <input
+                  type="password"
+                  value={draftApiKey}
+                  onChange={(event) => setDraftApiKey(event.target.value)}
+                  placeholder="Dán API key của bạn tại đây"
+                  autoComplete="off"
+                />
+              </label>
+              <label className="wide-field">
+                Model
+                <input
+                  list="model-suggestions"
+                  value={draftModel}
+                  onChange={(event) => setDraftModel(event.target.value)}
+                  placeholder={DEFAULT_MODELS[draftProvider]}
+                />
+                <datalist id="model-suggestions">
+                  {MODEL_SUGGESTIONS[draftProvider].map((model) => (
+                    <option key={model} value={model} />
+                  ))}
+                </datalist>
+              </label>
+            </div>
+
+            <div className="settings-actions">
+              <button className="analyze-button" onClick={saveSettings}>
+                {draftApiKey.trim() ? "Lưu cấu hình" : "Xoá cấu hình (dùng mặc định máy chủ)"}
+              </button>
+            </div>
+
+            <div className="legal-note">
+              <strong>Lưu ý:</strong> Không chia sẻ máy này nếu bạn không muốn người khác thấy key đã lưu. Bỏ trống API key rồi lưu để
+              quay lại dùng cấu hình mặc định của máy chủ (nếu quản trị viên đã cấu hình sẵn).
             </div>
           </section>
         </div>

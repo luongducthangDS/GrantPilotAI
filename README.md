@@ -35,6 +35,19 @@ Sau khi sửa `data/corpus.json`, phải chạy lại embedding trước khi bui
 npm run data:embed
 ```
 
+### Chọn nhà cung cấp AI khác (bring-your-own-key)
+
+Ngoài cấu hình mặc định của máy chủ (`GEMINI_API_KEY` ở trên), người dùng có thể tự chọn nhà cung cấp và nhập API key riêng ngay trên giao diện — bấm nút **⚙ AI mặc định** ở góc trên bên phải (hoặc "Đổi AI →" trong màn `Hỏi đáp pháp lý`). Hỗ trợ 4 nhà cung cấp:
+
+- **Google Gemini** — `@google/genai`, model mặc định `gemini-2.5-flash`.
+- **OpenAI** — Chat Completions API (`https://api.openai.com/v1/chat/completions`), model mặc định `gpt-4o-mini`.
+- **Anthropic Claude** — Messages API (`https://api.anthropic.com/v1/messages`), model mặc định `claude-sonnet-4-5`.
+- **xAI Grok** — API tương thích OpenAI (`https://api.x.ai/v1/chat/completions`), model mặc định `grok-4-fast`.
+
+Key được lưu trong `localStorage` của trình duyệt (client-side), **không lưu trên máy chủ** — chỉ gửi kèm theo mỗi lần gọi `/api/qa` để route dùng cho đúng lần gọi đó rồi bỏ qua. Bỏ trống API key rồi lưu để xoá cấu hình riêng và quay lại dùng `GEMINI_API_KEY` mặc định của máy chủ (nếu có). Retrieval (BM25 + dense) không đổi theo lựa chọn này — vẫn luôn dùng embedding Gemini đã precompute trong `data/corpus_embeddings.json`, chỉ có bước sinh câu trả lời cuối cùng là đổi theo nhà cung cấp bạn chọn.
+
+Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung cấp.
+
 ## Deploy Render
 
 Repo đã có `render.yaml` cho Render Web Service:
