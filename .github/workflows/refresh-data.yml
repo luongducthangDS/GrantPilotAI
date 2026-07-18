@@ -1,0 +1,65 @@
+name: Refresh policy watch data
+
+# GrantPilot's Monitoring Pipeline. The app itself (Next.js API routes on
+# Render) has no persistent scheduler and the crawlers need Python +
+# Playwright, neither available inside a Node.js serverless route — so
+# "monitoring" runs here instead, on a schedule, and opens a PR with
+# whatever changed for a human to review and merge. See
+# scripts/refresh_policy_watch.py for what each run actually checks.
+#
+# Requires "Allow GitHub Actions to create and approve pull requests"
+# enabled under Settings > Actions > General for the PR step to work.
+
+on:
+  schedule:
+    - cron: "0 21 * * *" # ~04:00 Asia/Ho_Chi_Minh
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install crawler dependencies
+        run: pip install requests beautifulsoup4 playwright
+
+      - name: Install Chromium for Playwright
+        run: playwright install --with-deps chromium
+
+      - name: Refresh policy watch (re-check sources + sweep for new articles)
+        run: python scripts/refresh_policy_watch.py
+
+      - name: Rebuild SQLite database + manifest
+        run: python scripts/build_database.py
+
+      - name: Open PR if anything changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(data): scheduled policy watch refresh"
+          title: "Scheduled policy watch refresh"
+          body: |
+            Automated run of `scripts/refresh_policy_watch.py`.
+
+            See `data/policy_watch_refresh_report.md` in this PR for what
+            changed (sources with drifted content, new articles found).
+            Review before merging — new items are tagged
+            "Tự động phát hiện - cần xác minh" and are not yet
+            human-verified.
+          branch: bot/policy-watch-refresh
+          delete-branch: true
+          add-paths: |
+            data/policy_watch.json
+            data/policy_watch_refresh_report.md
+            data/crawled_sources.json
+            data/grantpilot.db
+            data/database_manifest.json
+            data/coverage_report.md

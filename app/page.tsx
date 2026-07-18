@@ -78,6 +78,10 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
+  const [aiExplanations, setAiExplanations] = useState<Record<string, string>>({});
+  const [aiExplanationLoading, setAiExplanationLoading] = useState(false);
+  const [ocrLoading, setOcrLoading] = useState(false);
+
   const [question, setQuestion] = useState(goldenQuestions[0]);
   const [answer, setAnswer] = useState<Answer | null>(null);
   const [answerLoading, setAnswerLoading] = useState(false);
@@ -88,12 +92,26 @@ export default function Home() {
   const [draftApiKey, setDraftApiKey] = useState("");
   const [draftModel, setDraftModel] = useState(DEFAULT_MODELS.google);
 
+  const [watchStatus, setWatchStatus] = useState<{
+    available: boolean;
+    lastRunAt?: string | null;
+    newArticlesFound?: number;
+  } | null>(null);
+
   const sme = useMemo(() => classifySme(profile), [profile]);
   const verifiedPolicyCount = useMemo(() => policies.filter((policy) => policy.status.includes("Còn hiệu lực")).length, []);
 
   useEffect(() => {
     setLlmSettings(loadLlmSettings());
   }, []);
+
+  useEffect(() => {
+    if (view !== "updates" || watchStatus) return;
+    fetch("/api/policy-watch/status")
+      .then((response) => response.json())
+      .then(setWatchStatus)
+      .catch(() => setWatchStatus({ available: false }));
+  }, [view, watchStatus]);
 
   function openSettings() {
     const current = llmSettings;
@@ -143,18 +161,52 @@ export default function Home() {
     if (!file) return;
     setError("");
     setMessage("");
-    if (!file.name.toLowerCase().endsWith(".txt")) {
-      setError("Vui lòng chọn tệp TXT.");
+
+    const isImage = file.type.startsWith("image/");
+    const isText = file.name.toLowerCase().endsWith(".txt");
+
+    if (!isImage && !isText) {
+      setError("Vui lòng chọn tệp TXT hoặc ảnh (JPG/PNG) chụp ĐKKD/KQKD.");
       return;
     }
+
+    if (isText) {
+      try {
+        const text = await file.text();
+        const parsed = parseUploadedText(text);
+        setProfile((current) => ({ ...current, ...parsed }));
+        setResults([]);
+        setMessage("Đã đọc hồ sơ từ file .txt. Bạn có thể kiểm tra và bổ sung thông tin.");
+      } catch (reason) {
+        setError(reason instanceof Error ? reason.message : "Không thể đọc tệp.");
+      }
+      return;
+    }
+
+    setOcrLoading(true);
     try {
-      const text = await file.text();
-      const parsed = parseUploadedText(text);
-      setProfile((current) => ({ ...current, ...parsed }));
+      const base64 = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve((reader.result as string).split(",")[1] ?? "");
+        reader.onerror = () => reject(new Error("Không thể đọc ảnh."));
+        reader.readAsDataURL(file);
+      });
+
+      const response = await fetch("/api/ocr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: base64, mimeType: file.type, llm: llmSettings ?? undefined })
+      });
+      const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
+      if (!response.ok || !data.profile) throw new Error(data.error || "Không đọc được ảnh.");
+
+      setProfile((current) => ({ ...current, ...data.profile }));
       setResults([]);
-      setMessage("Đã đọc hồ sơ (OCR mock). Bạn có thể kiểm tra và bổ sung thông tin.");
+      setMessage("Đã đọc hồ sơ từ ảnh bằng AI (OCR thật). Vui lòng kiểm tra lại các trường trước khi dùng.");
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "Không thể đọc tệp.");
+      setError(reason instanceof Error ? reason.message : "Đọc ảnh thất bại.");
+    } finally {
+      setOcrLoading(false);
     }
   }
 
@@ -169,8 +221,35 @@ export default function Home() {
     const recommendations = matchPolicies(profile);
     await new Promise((resolve) => setTimeout(resolve, 500));
     setResults(recommendations);
+    setAiExplanations({});
     setMessage(`Đã đối chiếu ${policies.length} chính sách cho hồ sơ này.`);
     setAnalyzing(false);
+  }
+
+  async function fetchAiExplanations() {
+    setAiExplanationLoading(true);
+    setError("");
+    try {
+      const response = await fetch("/api/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ profile, llm: llmSettings ?? undefined })
+      });
+      if (!response.ok) throw new Error("Không thể lấy phân tích AI.");
+      const data = (await response.json()) as { explanations: { policy_id: string; explanation: string }[] };
+      if (data.explanations.length === 0) {
+        setMessage("AI không trả về phân tích bổ sung (có thể do thiếu cấu hình AI hoặc lỗi tạm thời) — vẫn còn lý do/điểm rà soát rule-based bên dưới.");
+      }
+      const next: Record<string, string> = {};
+      data.explanations.forEach((item) => {
+        next[item.policy_id] = item.explanation;
+      });
+      setAiExplanations((current) => ({ ...current, ...next }));
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Phân tích AI thất bại.");
+    } finally {
+      setAiExplanationLoading(false);
+    }
   }
 
   async function ask(nextQuestion: string) {
@@ -419,10 +498,15 @@ export default function Home() {
                     handleFile(event.dataTransfer.files[0]);
                   }}
                 >
-                  <input type="file" accept=".txt,text/plain" onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])} />
-                  <span className="upload-icon">⇧</span>
-                  <strong>Thả hồ sơ TXT vào đây (OCR mock)</strong>
-                  <p>hoặc bấm để chọn tệp · tối đa 1 MB</p>
+                  <input
+                    type="file"
+                    accept=".txt,text/plain,image/png,image/jpeg,image/webp"
+                    disabled={ocrLoading}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])}
+                  />
+                  <span className="upload-icon">{ocrLoading ? <span className="button-spinner" /> : "⇧"}</span>
+                  <strong>{ocrLoading ? "Đang đọc ảnh bằng AI..." : "Thả hồ sơ TXT hoặc ảnh ĐKKD/KQKD vào đây"}</strong>
+                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp · Ảnh (JPG/PNG): OCR thật qua AI · tối đa 1 MB"}</p>
                 </label>
 
                 <div className="sample-divider"><span>hoặc dùng hồ sơ mẫu</span></div>
@@ -642,6 +726,15 @@ export default function Home() {
                 <span className="eyebrow">POLICY WATCH</span>
                 <h2>Theo dõi thay đổi,<br /><em>chủ động chuẩn bị.</em></h2>
                 <p>Các tín hiệu chính sách dưới đây được tổng hợp từ nguồn chính thống nhưng vẫn cần được xác minh lại tại nguồn gốc trước khi nộp hồ sơ thật.</p>
+                {watchStatus && (
+                  <p className="watch-status-hint">
+                    {watchStatus.available
+                      ? `Monitoring Pipeline: lần quét gần nhất ${watchStatus.lastRunAt ? new Date(watchStatus.lastRunAt).toLocaleString("vi-VN") : "?"}${
+                          watchStatus.newArticlesFound ? ` · phát hiện ${watchStatus.newArticlesFound} tin mới` : ""
+                        }.`
+                      : "Monitoring Pipeline: chưa có lần quét nào — chạy `npm run data:watch` hoặc kích hoạt GitHub Actions."}
+                  </p>
+                )}
               </div>
               <div className="update-counter">
                 <strong>{policyWatch.length}</strong>
@@ -703,10 +796,20 @@ export default function Home() {
             <p className="modal-summary">{selectedPolicy.summary}</p>
 
             <div className="modal-actions">
+              <button className="modal-download-button secondary" onClick={fetchAiExplanations} disabled={aiExplanationLoading}>
+                {aiExplanationLoading ? "Đang phân tích..." : "✦ Phân tích sâu hơn bằng AI"}
+              </button>
               <button className="modal-download-button" onClick={() => downloadDocx(selectedPolicy)} disabled={docxLoading}>
                 {docxLoading ? "Đang tạo file..." : "⇩ Xuất đơn .docx"}
               </button>
             </div>
+
+            {aiExplanations[selectedPolicy.id] && (
+              <div className="ai-explanation">
+                <span className="badge success">PHÂN TÍCH AI</span>
+                <p>{aiExplanations[selectedPolicy.id]}</p>
+              </div>
+            )}
 
             <div className="modal-grid">
               <div>

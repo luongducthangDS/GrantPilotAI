@@ -855,6 +855,7 @@ button {
 .updates-hero { display: flex; min-height: 265px; align-items: center; justify-content: space-between; gap: 30px; overflow: hidden; padding: 43px 52px; border-radius: 21px; background: linear-gradient(120deg, var(--navy-950), #0a3443); color: var(--white); }
 .updates-hero h2 { margin: 13px 0; font-size: 44px; }
 .updates-hero p { max-width: 630px; margin: 0; color: #9fb0bf; font-size: 13px; line-height: 1.65; }
+.watch-status-hint { margin-top: 14px !important; padding: 8px 14px; display: inline-block; border-radius: 999px; background: rgba(15, 139, 141, 0.18); color: #cdeee9 !important; font-size: 11px !important; }
 .update-counter { display: grid; min-width: 190px; min-height: 145px; place-items: center; align-content: center; border: 1px solid rgba(85, 214, 190, 0.21); border-radius: 50%; background: rgba(15, 139, 141, 0.11); text-align: center; }
 .update-counter strong { color: var(--mint-400); font-family: var(--font-serif); font-size: 48px; font-weight: 500; }
 .update-counter span { color: #9fb6c3; font-size: 10px; }
@@ -996,9 +997,12 @@ button {
 .empty-hint { padding: 13px 15px; border-radius: 10px; background: var(--slate-100); color: var(--slate-600); font-size: 11px; }
 
 /* Modal actions (e.g. DOCX export) */
-.modal-actions { display: flex; justify-content: flex-end; margin: -10px 0 20px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin: -10px 0 20px; }
 .modal-download-button { display: flex; align-items: center; gap: 9px; height: 40px; padding: 0 18px; border: 1px solid var(--teal-500); border-radius: 10px; background: linear-gradient(135deg, var(--teal-600), #0a7476); color: var(--white); cursor: pointer; font-size: 11px; font-weight: 750; }
 .modal-download-button:disabled { cursor: not-allowed; opacity: 0.66; }
+.modal-download-button.secondary { border-color: var(--slate-200); background: var(--white); color: var(--slate-700); }
+.ai-explanation { margin: 0 0 20px; padding: 16px 18px; border: 1px solid rgba(15, 139, 141, 0.24); border-radius: 12px; background: #f1fbf9; }
+.ai-explanation p { margin: 10px 0 0; color: var(--navy-900); font-size: 12px; line-height: 1.7; }
 
 /* AI settings */
 .settings-button { display: flex; align-items: center; gap: 7px; height: 39px; padding: 0 14px; border: 1px solid var(--slate-200); border-radius: 999px; background: var(--white); color: var(--slate-600); cursor: pointer; font-size: 11px; font-weight: 700; white-space: nowrap; }

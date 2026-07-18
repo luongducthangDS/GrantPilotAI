@@ -1,6 +1,6 @@
 # GrantPilot AI MVP
 
-Demo Next.js cho bài toán Policy & Grant Navigator: nhập hồ sơ doanh nghiệp, match chính sách/quỹ, hỏi đáp pháp lý có citation, tạo checklist và xuất đơn `.docx` cho Đề án 844.
+Demo Next.js cho bài toán Policy & Grant Navigator: nhập hồ sơ doanh nghiệp (kể cả OCR từ ảnh ĐKKD/KQKD), match chính sách/quỹ có giải thích bằng AI, hỏi đáp pháp lý có citation (RAG thật), tạo checklist, xuất đơn `.docx` cho Đề án 844, và theo dõi chính sách mới qua pipeline crawl theo lịch.
 
 ## Chạy local bằng Next.js
 
@@ -44,9 +44,29 @@ Ngoài cấu hình mặc định của máy chủ (`GEMINI_API_KEY` ở trên), 
 - **Anthropic Claude** — Messages API (`https://api.anthropic.com/v1/messages`), model mặc định `claude-sonnet-4-5`.
 - **xAI Grok** — API tương thích OpenAI (`https://api.x.ai/v1/chat/completions`), model mặc định `grok-4-fast`.
 
-Key được lưu trong `localStorage` của trình duyệt (client-side), **không lưu trên máy chủ** — chỉ gửi kèm theo mỗi lần gọi `/api/qa` để route dùng cho đúng lần gọi đó rồi bỏ qua. Bỏ trống API key rồi lưu để xoá cấu hình riêng và quay lại dùng `GEMINI_API_KEY` mặc định của máy chủ (nếu có). Retrieval (BM25 + dense) không đổi theo lựa chọn này — vẫn luôn dùng embedding Gemini đã precompute trong `data/corpus_embeddings.json`, chỉ có bước sinh câu trả lời cuối cùng là đổi theo nhà cung cấp bạn chọn.
+Key được lưu trong `localStorage` của trình duyệt (client-side), **không lưu trên máy chủ** — chỉ gửi kèm theo mỗi lần gọi route (`/api/qa`, `/api/recommend`, `/api/ocr`) để route dùng cho đúng lần gọi đó rồi bỏ qua. Bỏ trống API key rồi lưu để xoá cấu hình riêng và quay lại dùng `GEMINI_API_KEY` mặc định của máy chủ (nếu có). Retrieval (BM25 + dense) không đổi theo lựa chọn này — vẫn luôn dùng embedding Gemini đã precompute trong `data/corpus_embeddings.json`, chỉ có bước sinh câu trả lời/giải thích/đọc ảnh cuối cùng là đổi theo nhà cung cấp bạn chọn.
 
-Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung cấp.
+Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung cấp (kể cả `generateVisionAnswer` cho OCR).
+
+### Giải thích AI cho kết quả match
+
+Ở modal chi tiết một chính sách (sau khi bấm "Xem chi tiết"), nút **"✦ Phân tích sâu hơn bằng AI"** gọi `app/api/recommend/route.ts`: lấy kết quả `matchPolicies()` (điểm số/lý do/khoảng thiếu — vẫn rule-based, không đổi) rồi nhờ LLM viết một đoạn giải thích ngắn, chỉ dựa trên dữ kiện đã có (không tự thêm căn cứ pháp lý mới). Gọi on-demand, không tự động chạy khi phân tích hồ sơ, để không tốn quota cho thao tác lọc/sắp xếp chính.
+
+### OCR ảnh ĐKKD/KQKD (thật, không mock)
+
+Ô upload hồ sơ nhận cả file `.txt` (parse trực tiếp) lẫn ảnh JPG/PNG/WebP (chụp/scan Giấy chứng nhận đăng ký doanh nghiệp hoặc báo cáo KQKD). Với ảnh, `app/api/ocr/route.ts` gọi vision LLM (theo nhà cung cấp bạn chọn ở trên, mặc định Gemini) để đọc và điền các trường hồ sơ — luôn kiểm tra lại kết quả trước khi dùng, vì đây là OCR thật (có thể đọc sai với ảnh mờ/nghiêng), không phải rule cố định.
+
+### Monitoring Pipeline (theo dõi chính sách theo lịch, không phải real-time)
+
+Kiến trúc hiện tại (Next.js API route trên Render) không có process/scheduler thường trú, và việc crawl cần Python + trình duyệt thật (Playwright) — không chạy được trong route Node.js. Vì vậy phần "theo dõi chính sách" chạy như một pipeline theo lịch, không phải stream real-time:
+
+```powershell
+npm run data:watch
+```
+
+`scripts/refresh_policy_watch.py` sẽ: (1) crawl lại 23 nguồn đã xác thực và so khớp độ tương đồng nội dung với lần crawl trước (không phải so hash tuyệt đối — một số trang `vanban.chinhphu.vn/?docid=` có widget "văn bản liên quan" xoay ngẫu nhiên, khiến hash tuyệt đối báo sai "đổi" ở gần như mọi lần); (2) quét chuyên mục chinhphu.vn tìm bài mới liên quan chính sách/doanh nghiệp (yêu cầu tín hiệu mạnh — có số hiệu văn bản pháp luật hoặc ≥2 từ khoá — vì bước này ghi thẳng vào `policy_watch.json` không qua người duyệt); (3) ghi báo cáo `data/policy_watch_refresh_report.md`. Thêm `--skip-sweep` để chỉ kiểm tra 23 nguồn, bỏ qua bước quét bài mới (không cần Playwright).
+
+Để chạy tự động theo lịch, dùng `.github/workflows/refresh-data.yml` (cron hằng ngày + có thể bấm chạy tay qua tab Actions) — workflow **mở Pull Request** thay vì tự đẩy thẳng vào `main`, để có bước người duyệt trước khi merge (cần bật "Allow GitHub Actions to create and approve pull requests" trong Settings > Actions của repo). UI đọc trạng thái lần chạy gần nhất qua `GET /api/policy-watch/status` (chỉ đọc file báo cáo, không tự crawl) và hiển thị ở đầu tab "Theo dõi cập nhật".
 
 ## Deploy Render
 
@@ -64,11 +84,11 @@ Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã g
 ## Luồng demo nhanh
 
 1. Ở `Tìm chính sách`, chọn hồ sơ mẫu `NovaMind AI`, bấm "Phân tích và tìm chính sách".
-2. Bấm "Xem chi tiết" một chính sách để thấy citation, checklist và nút "Xuất đơn .docx" (dùng được cho mọi chính sách có checklist, không chỉ Đề án 844).
+2. Bấm "Xem chi tiết" một chính sách để thấy citation, checklist, nút "✦ Phân tích sâu hơn bằng AI" (giải thích LLM) và nút "Xuất đơn .docx" (dùng được cho mọi chính sách có checklist, không chỉ Đề án 844).
 3. Mở `Hỏi đáp pháp lý`, thử 10 câu hỏi vàng.
 4. Chuyển hồ sơ mẫu sang `Cơ khí An Phát` để thấy kết quả ưu tiên SMEDF và chuỗi giá trị.
-5. Thử upload `data/synthetic_dkkd_novamind.txt` hoặc `data/synthetic_dkkd_anphat.txt` vào ô "Thả hồ sơ TXT" (OCR mock).
-6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 14 tín hiệu, gồm cả các văn bản mới phát hiện qua crawl vbpl.vn/chinhphu.vn).
+5. Thử upload `data/synthetic_dkkd_novamind.txt`/`data/synthetic_dkkd_anphat.txt` (parse `.txt` trực tiếp), hoặc một ảnh chụp/scan ĐKKD thật (JPG/PNG) để thử OCR bằng AI thật.
+6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 23 tín hiệu) và trạng thái Monitoring Pipeline (lần quét gần nhất, số tin mới phát hiện) ở đầu trang.
 
 ## Dữ liệu seed
 
@@ -76,7 +96,8 @@ Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã g
 - `data/policies.json`: rule matching, citation, checklist.
 - `data/corpus.json`: corpus Q&A theo điều/khoản (35 chunk).
 - `data/corpus_embeddings.json`: embedding từng chunk (`gemini-embedding-001`), dùng cho dense retrieval — build lại bằng `npm run data:embed` sau khi sửa corpus.
-- `data/policy_watch.json`: policy watch (14 mục, có cả mock lẫn văn bản thật đã crawl).
+- `data/policy_watch.json`: policy watch (23 mục — mock ban đầu, văn bản crawl thủ công, và tin phát hiện qua Monitoring Pipeline).
+- `data/policy_watch_refresh_report.md`: báo cáo lần chạy `scripts/refresh_policy_watch.py` gần nhất (nguồn nào đổi/lỗi, tin mới nào được thêm).
 - `data/vbpl_expansion_candidates.json`: ~400 văn bản từ vbpl.vn đã lọc theo domain nhưng chưa đưa vào corpus — pool mở rộng cho vòng sau.
 - `data/chinhphu_all_urls.json`, `data/chinhphu_relevant_articles.json`: snapshot crawl từ xaydungchinhsach.chinhphu.vn.
 - `data/source_verification.md`: nhật ký kiểm chứng URL/source dùng trong demo.

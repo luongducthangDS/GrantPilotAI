@@ -10,7 +10,8 @@
     "data:crawl": "python scripts/crawl_verified_sources.py",
     "data:build": "python scripts/build_database.py",
     "data:embed": "node scripts/build-embeddings.mjs",
-    "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py && node scripts/build-embeddings.mjs"
+    "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py && node scripts/build-embeddings.mjs",
+    "data:watch": "python scripts/refresh_policy_watch.py"
   },
   "dependencies": {
     "@fontsource/be-vietnam-pro": "^5.2.8",

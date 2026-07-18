@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T09:44:05.084477+00:00",
+  "generated_at": "2026-07-18T10:43:52.963322+00:00",
   "database": "data/grantpilot.db",
   "counts": {
     "sources": 23,
@@ -8,7 +8,7 @@
     "policies": 6,
     "policy_citations": 13,
     "sample_profiles": 2,
-    "policy_watch": 14
+    "policy_watch": 23
   },
   "unchecked_citation_sources": [
     "https://thuvienphapluat.vn/van-ban/Dau-tu/Luat-Dau-tu-2025-so-143-2025-QH15-681550.aspx"

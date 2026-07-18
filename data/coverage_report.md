@@ -1,6 +1,6 @@
 # Data Coverage Report
 
-Generated at: 2026-07-18T09:44:05.084477+00:00
+Generated at: 2026-07-18T10:43:52.963322+00:00
 
 ## Counts
 
@@ -10,7 +10,7 @@ Generated at: 2026-07-18T09:44:05.084477+00:00
 - policies: 6
 - policy_citations: 13
 - sample_profiles: 2
-- policy_watch: 14
+- policy_watch: 23
 
 ## Remaining Gaps
 
