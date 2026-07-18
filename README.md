@@ -18,14 +18,17 @@ npm run build
 npm run start -- -p 3000
 ```
 
-### Biến môi trường (RAG Q&A)
+### Biến môi trường (RAG Q&A và OCR ảnh)
 
-`Hỏi đáp pháp lý` gọi Gemini thật qua route `/api/qa`. Tạo file `.env.local` (đã gitignore, không commit) ở gốc repo:
+`Hỏi đáp pháp lý` gọi Gemini qua route `/api/qa`; upload ảnh JPG/PNG gọi Gemini multimodal qua route `/api/ocr`. Tạo file `.env.local` (đã gitignore, không commit) ở gốc repo:
 
 ```
 GEMINI_API_KEY=<api-key-cua-ban>
 GEMINI_MODEL=gemini-2.5-flash
+GEMINI_OCR_MODEL=gemini-2.5-flash
 ```
+
+`GEMINI_OCR_MODEL` là tuỳ chọn; nếu bỏ qua, OCR dùng `GEMINI_MODEL`. Ảnh upload tối đa 10 MB, chỉ nhận JPG/PNG, không được lưu xuống database hoặc filesystem. Kết quả OCR chỉ điền các trường nhìn thấy được; người dùng phải rà soát và xác nhận trước khi matching.
 
 Lấy API key tại [Google AI Studio](https://aistudio.google.com/apikey). Retrieval là hybrid thật (BM25 + dense embedding + RRF, xem `lib/retrieval.ts`) — nếu thiếu `GEMINI_API_KEY`, retrieval tự rơi về BM25-only; nếu gọi LLM lỗi (quota/network), route tự rơi về câu trả lời soạn sẵn (rule-based) thay vì lỗi trắng trang — nhưng khi đó Q&A không còn là RAG thật, chỉ là fallback demo.
 
@@ -54,7 +57,7 @@ Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã g
 2. Bấm "Xem chi tiết" một chính sách để thấy citation, checklist và nút "Xuất đơn .docx" (dùng được cho mọi chính sách có checklist, không chỉ Đề án 844).
 3. Mở `Hỏi đáp pháp lý`, thử 10 câu hỏi vàng.
 4. Chuyển hồ sơ mẫu sang `Cơ khí An Phát` để thấy kết quả ưu tiên SMEDF và chuỗi giá trị.
-5. Thử upload `data/synthetic_dkkd_novamind.txt` hoặc `data/synthetic_dkkd_anphat.txt` vào ô "Thả hồ sơ TXT" (OCR mock).
+5. Thử upload `data/synthetic_dkkd_novamind.txt`, `data/synthetic_dkkd_anphat.txt` hoặc ảnh JPG/PNG giấy đăng ký doanh nghiệp tổng hợp; rà soát rồi xác nhận kết quả OCR.
 6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 14 tín hiệu, gồm cả các văn bản mới phát hiện qua crawl vbpl.vn/chinhphu.vn).
 
 ## Dữ liệu seed
