@@ -54,7 +54,11 @@ Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung c
 
 ### OCR ảnh ĐKKD/KQKD (thật, không mock)
 
-Ô upload hồ sơ nhận cả file `.txt` (parse trực tiếp) lẫn ảnh JPG/PNG/WebP (chụp/scan Giấy chứng nhận đăng ký doanh nghiệp hoặc báo cáo KQKD). Với ảnh, `app/api/ocr/route.ts` gọi vision LLM (theo nhà cung cấp bạn chọn ở trên, mặc định Gemini) để đọc và điền các trường hồ sơ — luôn kiểm tra lại kết quả trước khi dùng, vì đây là OCR thật (có thể đọc sai với ảnh mờ/nghiêng), không phải rule cố định.
+Ô upload hồ sơ nhận cả file `.txt` (parse trực tiếp) lẫn ảnh JPG/PNG/WebP (chụp/scan Giấy chứng nhận đăng ký doanh nghiệp hoặc báo cáo KQKD). Với ảnh, `app/api/ocr/route.ts` gọi vision LLM (theo nhà cung cấp bạn chọn ở trên, mặc định Gemini) để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được — luôn kiểm tra lại kết quả trước khi dùng, vì đây là OCR thật (có thể đọc sai với ảnh mờ/nghiêng), không phải rule cố định.
+
+### Document Checklist — đối chiếu hồ sơ đã có/thiếu
+
+Trong modal chi tiết một chính sách, mục "Checklist hồ sơ" có nút **"⇪ Tải tài liệu để AI đối chiếu"** — chọn nhiều ảnh tài liệu (JPG/PNG/WebP) cùng lúc, `app/api/checklist-match/route.ts` gọi vision LLM đọc từng ảnh và so khớp với từng mục trong checklist của chính sách đó, trả về ✓ đã có / ✗ thiếu / ? chưa rõ kèm giải thích ngắn — đúng luồng "AI Document Assistant" cho việc chuẩn bị hồ sơ, không chỉ dừng ở đọc PDF trả lời câu hỏi. Giới hạn hiện tại: chỉ nhận ảnh (chưa nhận PDF nhiều trang trực tiếp), và đây chỉ là gợi ý sơ bộ — không thay thế thẩm định hồ sơ thật.
 
 ### Monitoring Pipeline (theo dõi chính sách theo lịch, không phải real-time)
 

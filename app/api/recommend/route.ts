@@ -16,7 +16,9 @@ Quy tắc bắt buộc:
 
 function buildPrompt(profile: Profile, matches: MatchResult[]) {
   const sme = classifySme(profile);
-  const profileSummary = `Hồ sơ: ${profile.name || "chưa đặt tên"}, lĩnh vực ${profile.industry}, tỉnh/thành ${profile.province}, lao động ${profile.employees}, doanh thu ${profile.revenue_bil} tỷ, vốn ${profile.capital_bil} tỷ, startup đổi mới sáng tạo: ${profile.startup_innovation ? "có" : "không"}. Phân loại DNNVV: ${sme.size} (${sme.basis}).`;
+  const age = profile.founded_year ? new Date().getFullYear() - profile.founded_year : null;
+  const ageNote = age !== null ? `, thành lập năm ${profile.founded_year} (khoảng ${age} năm hoạt động — công cụ chấm điểm rule-based CHƯA dùng số liệu này để tính điểm, một số chương trình khởi nghiệp có thể ưu tiên doanh nghiệp mới thành lập nên hãy nhắc kiểm tra lại điều kiện gốc nếu liên quan, đừng tự suy ra đạt/không đạt)` : "";
+  const profileSummary = `Hồ sơ: ${profile.name || "chưa đặt tên"}, lĩnh vực ${profile.industry}, tỉnh/thành ${profile.province}, lao động ${profile.employees}, doanh thu ${profile.revenue_bil} tỷ, vốn ${profile.capital_bil} tỷ, startup đổi mới sáng tạo: ${profile.startup_innovation ? "có" : "không"}${ageNote}. Phân loại DNNVV: ${sme.size} (${sme.basis}).`;
 
   const policiesSummary = matches
     .map(

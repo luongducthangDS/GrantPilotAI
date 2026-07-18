@@ -38,10 +38,10 @@ export const DEFAULT_VISION_MODELS: Record<LlmProvider, string> = {
   xai: "grok-4"
 };
 
-async function generateGoogle(config: LlmConfig, systemInstruction: string, prompt: string, image?: ImageInput): Promise<string> {
+async function generateGoogle(config: LlmConfig, systemInstruction: string, prompt: string, images?: ImageInput[]): Promise<string> {
   const ai = new GoogleGenAI({ apiKey: config.apiKey });
   const parts: Array<{ text: string } | { inlineData: { data: string; mimeType: string } }> = [{ text: prompt }];
-  if (image) parts.unshift({ inlineData: { data: image.data, mimeType: image.mimeType } });
+  (images ?? []).forEach((image) => parts.unshift({ inlineData: { data: image.data, mimeType: image.mimeType } }));
 
   const response = await ai.models.generateContent({
     model: config.model,
@@ -58,12 +58,12 @@ async function generateOpenAiCompatible(
   config: LlmConfig,
   systemInstruction: string,
   prompt: string,
-  image?: ImageInput
+  images?: ImageInput[]
 ): Promise<string> {
-  const userContent = image
+  const userContent = images?.length
     ? [
         { type: "text", text: prompt },
-        { type: "image_url", image_url: { url: `data:${image.mimeType};base64,${image.data}` } }
+        ...images.map((image) => ({ type: "image_url" as const, image_url: { url: `data:${image.mimeType};base64,${image.data}` } }))
       ]
     : prompt;
 
@@ -94,11 +94,11 @@ async function generateOpenAiCompatible(
   return text;
 }
 
-async function generateAnthropic(config: LlmConfig, systemInstruction: string, prompt: string, image?: ImageInput): Promise<string> {
-  const userContent = image
+async function generateAnthropic(config: LlmConfig, systemInstruction: string, prompt: string, images?: ImageInput[]): Promise<string> {
+  const userContent = images?.length
     ? [
-        { type: "image", source: { type: "base64", media_type: image.mimeType, data: image.data } },
-        { type: "text", text: prompt }
+        ...images.map((image) => ({ type: "image" as const, source: { type: "base64" as const, media_type: image.mimeType, data: image.data } })),
+        { type: "text" as const, text: prompt }
       ]
     : prompt;
 
@@ -157,19 +157,20 @@ export async function generateVisionAnswer(
   config: LlmConfig,
   systemInstruction: string,
   prompt: string,
-  image: ImageInput
+  image: ImageInput | ImageInput[]
 ): Promise<string> {
   if (!config.apiKey) throw new Error("Thiếu API key.");
+  const images = Array.isArray(image) ? image : [image];
 
   switch (config.provider) {
     case "google":
-      return generateGoogle(config, systemInstruction, prompt, image);
+      return generateGoogle(config, systemInstruction, prompt, images);
     case "openai":
-      return generateOpenAiCompatible("https://api.openai.com/v1", config, systemInstruction, prompt, image);
+      return generateOpenAiCompatible("https://api.openai.com/v1", config, systemInstruction, prompt, images);
     case "xai":
-      return generateOpenAiCompatible("https://api.x.ai/v1", config, systemInstruction, prompt, image);
+      return generateOpenAiCompatible("https://api.x.ai/v1", config, systemInstruction, prompt, images);
     case "anthropic":
-      return generateAnthropic(config, systemInstruction, prompt, image);
+      return generateAnthropic(config, systemInstruction, prompt, images);
     default:
       throw new Error(`Nhà cung cấp không được hỗ trợ: ${config.provider}`);
   }

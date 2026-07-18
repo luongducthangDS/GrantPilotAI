@@ -36,9 +36,10 @@ export async function POST(request: Request) {
       {
         children: [
           new Paragraph({
-            text: "Đơn đăng ký tham gia nhiệm vụ Đề án 844",
+            text: `Đơn đăng ký tham gia: ${policy.title}`,
             heading: HeadingLevel.HEADING_1
           }),
+          new Paragraph(`Chương trình: ${policy.program}`),
           new Paragraph("Bản demo được điền tự động từ hồ sơ doanh nghiệp trong GrantPilot AI."),
           new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
@@ -53,9 +54,7 @@ export async function POST(request: Request) {
             )
           }),
           new Paragraph({ text: "Nội dung đề xuất hỗ trợ", heading: HeadingLevel.HEADING_2 }),
-          new Paragraph(
-            "Doanh nghiệp đề xuất được hỗ trợ cố vấn, kết nối hệ sinh thái, hoàn thiện sản phẩm, rà soát sở hữu trí tuệ và chuẩn hóa hồ sơ tham gia chương trình khởi nghiệp đổi mới sáng tạo."
-          ),
+          new Paragraph(policy.summary),
           new Paragraph({ text: "Checklist hồ sơ", heading: HeadingLevel.HEADING_2 }),
           ...policy.checklist.map((item) => new Paragraph({ text: item, bullet: { level: 0 } })),
           new Paragraph({ text: "Căn cứ demo", heading: HeadingLevel.HEADING_2 }),
@@ -75,7 +74,7 @@ export async function POST(request: Request) {
   return new NextResponse(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "Content-Disposition": 'attachment; filename="grantpilot-de-an-844.docx"'
+      "Content-Disposition": `attachment; filename="grantpilot-${policy.id}.docx"`
     }
   });
 }

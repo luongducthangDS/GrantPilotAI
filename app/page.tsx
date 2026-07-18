@@ -82,6 +82,10 @@ export default function Home() {
   const [aiExplanationLoading, setAiExplanationLoading] = useState(false);
   const [ocrLoading, setOcrLoading] = useState(false);
 
+  const [checklistMatch, setChecklistMatch] = useState<{ item: string; status: string; note: string }[] | null>(null);
+  const [checklistMatchLoading, setChecklistMatchLoading] = useState(false);
+  const [checklistMatchError, setChecklistMatchError] = useState("");
+
   const [question, setQuestion] = useState(goldenQuestions[0]);
   const [answer, setAnswer] = useState<Answer | null>(null);
   const [answerLoading, setAnswerLoading] = useState(false);
@@ -144,6 +148,49 @@ export default function Home() {
     document.addEventListener("keydown", close);
     return () => document.removeEventListener("keydown", close);
   }, [selectedPolicy]);
+
+  useEffect(() => {
+    setChecklistMatch(null);
+    setChecklistMatchError("");
+  }, [selectedPolicy?.id]);
+
+  async function matchChecklistDocuments(fileList: FileList | null) {
+    if (!fileList || fileList.length === 0 || !selectedPolicy) return;
+    const files = Array.from(fileList).filter((file) => file.type.startsWith("image/"));
+    if (files.length === 0) {
+      setChecklistMatchError("Chỉ hỗ trợ ảnh (JPG/PNG/WebP) cho bước đối chiếu này.");
+      return;
+    }
+
+    setChecklistMatchLoading(true);
+    setChecklistMatchError("");
+    try {
+      const documents = await Promise.all(
+        files.map(
+          (file) =>
+            new Promise<{ name: string; mimeType: string; data: string }>((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onload = () => resolve({ name: file.name, mimeType: file.type, data: (reader.result as string).split(",")[1] ?? "" });
+              reader.onerror = () => reject(new Error(`Không đọc được tệp ${file.name}.`));
+              reader.readAsDataURL(file);
+            })
+        )
+      );
+
+      const response = await fetch("/api/checklist-match", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ checklist: selectedPolicy.checklist, documents, llm: llmSettings ?? undefined })
+      });
+      const data = await response.json();
+      if (!response.ok || !data.results) throw new Error(data.error || "Không đối chiếu được checklist.");
+      setChecklistMatch(data.results);
+    } catch (reason) {
+      setChecklistMatchError(reason instanceof Error ? reason.message : "Không đối chiếu được checklist.");
+    } finally {
+      setChecklistMatchLoading(false);
+    }
+  }
 
   function updateProfile<K extends keyof Profile>(key: K, value: Profile[K]) {
     setProfile((current) => ({ ...current, [key]: value }));
@@ -577,6 +624,16 @@ export default function Home() {
                     Vốn (tỷ VNĐ)
                     <input type="number" min="0" value={profile.capital_bil} onChange={(e) => updateProfile("capital_bil", Number(e.target.value))} />
                   </label>
+                  <label>
+                    Năm thành lập
+                    <input
+                      type="number"
+                      min="1990"
+                      max={new Date().getFullYear()}
+                      value={profile.founded_year ?? ""}
+                      onChange={(e) => updateProfile("founded_year", e.target.value ? Number(e.target.value) : undefined)}
+                    />
+                  </label>
                   <label className="toggle-field">
                     <span>
                       <strong>Startup đổi mới sáng tạo</strong>
@@ -840,9 +897,43 @@ export default function Home() {
             </div>
 
             <div className="detail-section">
-              <h3>Checklist hồ sơ</h3>
+              <div className="checklist-heading">
+                <h3>Checklist hồ sơ</h3>
+                <label className="checklist-upload-button">
+                  {checklistMatchLoading ? "Đang đối chiếu..." : "⇪ Tải tài liệu để AI đối chiếu"}
+                  <input
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    multiple
+                    disabled={checklistMatchLoading}
+                    onChange={(e) => {
+                      matchChecklistDocuments(e.target.files);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+              </div>
+              {checklistMatchError && <p className="checklist-error">{checklistMatchError}</p>}
+              {checklistMatch && (
+                <p className="checklist-hint">
+                  Kết quả AI đọc từ tài liệu bạn tải lên — chỉ mang tính gợi ý sơ bộ, không thay thế thẩm định hồ sơ thật.
+                </p>
+              )}
               <ol className="document-list">
-                {selectedPolicy.checklist.map((item) => <li key={item}><span>□</span>{item}</li>)}
+                {selectedPolicy.checklist.map((item, index) => {
+                  const match = checklistMatch?.[index];
+                  const icon = !match ? "□" : match.status === "co" ? "✓" : match.status === "thieu" ? "✗" : "?";
+                  const toneClass = !match ? "" : match.status === "co" ? "have" : match.status === "thieu" ? "missing" : "unsure";
+                  return (
+                    <li key={item} className={toneClass}>
+                      <span>{icon}</span>
+                      <div>
+                        {item}
+                        {match?.note && <small>{match.note}</small>}
+                      </div>
+                    </li>
+                  );
+                })}
               </ol>
             </div>
 
