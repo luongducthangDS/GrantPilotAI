@@ -3,14 +3,7 @@ import mammoth from "mammoth";
 import { NextResponse } from "next/server";
 
 import { normalizeIndustry, normalizeProvince } from "@/lib/grantpilot";
-import {
-  DEFAULT_MODELS,
-  DEFAULT_VISION_MODELS,
-  generateAnswer,
-  generateGoogleJson,
-  generateVisionAnswer,
-  type LlmProvider
-} from "@/lib/llmProviders";
+import { DEFAULT_LIGHT_MODELS, DEFAULT_VISION_MODELS, generateJsonAnswer, type LlmConfig } from "@/lib/llmProviders";
 
 const DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 const XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
@@ -36,41 +29,6 @@ async function extractXlsxText(buffer: Buffer): Promise<string> {
   return lines.join("\n").trim();
 }
 
-// Gemini-only: schema-constrained JSON output, so parsing never has to hunt
-// for a `{...}` blob inside freeform text. Deliberately has no `required`
-// list — every field must stay omittable when the source doesn't clearly
-// state it, matching the "don't guess" rule below.
-// maxLength on every STRING field is a real defense, not decoration: a smaller
-// model (observed live with gemini-2.5-flash-lite) can enter a repetition
-// loop on a numeric-looking string field and emit thousands of trailing "0"
-// characters instead of stopping at the real value — capping length turns
-// that failure into a truncated-but-harmless value instead of a multi-KB
-// response with a corrupted tax_code.
-const PROFILE_JSON_SCHEMA = {
-  type: "OBJECT",
-  properties: {
-    name: { type: "STRING", description: "Tên doanh nghiệp đầy đủ", maxLength: 200 },
-    tax_code: { type: "STRING", description: "Mã số thuế / mã số doanh nghiệp, chỉ chữ số", maxLength: 20 },
-    province: {
-      type: "STRING",
-      description:
-        'Tỉnh/thành phố trụ sở chính. PHẢI là một trong: "Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", hoặc "Khác" nếu là tỉnh/thành khác.',
-      maxLength: 40
-    },
-    industry: {
-      type: "STRING",
-      description: 'PHẢI là một trong: "Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại".',
-      maxLength: 40
-    },
-    business_line: { type: "STRING", description: "Mô tả ngành nghề kinh doanh chính, nguyên văn hoặc tóm tắt ngắn", maxLength: 300 },
-    employees: { type: "INTEGER", description: "Số lao động" },
-    revenue_bil: { type: "NUMBER", description: "Doanh thu, đơn vị TỶ ĐỒNG (quy đổi nếu nguồn ghi đơn vị khác)" },
-    capital_bil: { type: "NUMBER", description: "Vốn điều lệ/vốn, đơn vị TỶ ĐỒNG (quy đổi nếu nguồn ghi đơn vị khác)" },
-    representative: { type: "STRING", description: "Tên người đại diện pháp luật", maxLength: 100 },
-    founded_year: { type: "INTEGER", description: "Năm thành lập / đăng ký lần đầu, 4 chữ số" }
-  }
-};
-
 const SYSTEM_INSTRUCTION = `Bạn là công cụ trích xuất dữ liệu hồ sơ doanh nghiệp cho GrantPilot. Bạn nhận MỘT trong hai dạng đầu vào: (a) ảnh chụp/scan giấy tờ doanh nghiệp Việt Nam — thường là Giấy chứng nhận đăng ký doanh nghiệp (ĐKKD) hoặc trang báo cáo kết quả kinh doanh (KQKD); hoặc (b) văn bản dạng tự do (hồ sơ năng lực, giới thiệu công ty, báo cáo thường niên, v.v. — không nhất thiết theo mẫu key:value).
 
 Nhiệm vụ: đọc nội dung và trích xuất đúng các trường sau nếu xuất hiện rõ ràng (bỏ trống nếu không thấy, KHÔNG bịa, KHÔNG suy diễn quá xa từ ngữ cảnh):
@@ -92,16 +50,22 @@ Quy tắc bắt buộc:
 {"name": "...", "tax_code": "...", "province": "...", "industry": "...", "business_line": "...", "employees": 0, "revenue_bil": 0, "capital_bil": 0, "representative": "...", "founded_year": 0}
 Chỉ đưa các trường đọc được vào JSON — bỏ hẳn key nếu không đọc được, không dùng null/"".`;
 
-const VALID_PROVIDERS: LlmProvider[] = ["google", "openai", "anthropic", "xai"];
+function resolveConfig(hasImage: boolean): LlmConfig | null {
+  const apiKey = process.env.CUSTOM_LLM_API_KEY;
+  if (!apiKey) return null;
+  // Image path needs the vision model (Qwen2.5-VL); the text-only path
+  // (parsing free-form .txt into fields) is a mechanical extraction task,
+  // not the reasoning-heavy "answer chính" case — use the lighter model.
+  const model = hasImage ? DEFAULT_VISION_MODELS.fptai : DEFAULT_LIGHT_MODELS.fptai;
+  return { provider: "fptai", apiKey, model };
+}
 
 export async function POST(request: Request) {
   const body = (await request.json()) as {
     image?: string;
     mimeType?: string;
     text?: string;
-    llm?: { provider?: string; apiKey?: string; model?: string };
   };
-  const { llm } = body;
   let image = body.image;
   let mimeType = body.mimeType;
   let rawText = body.text;
@@ -130,81 +94,45 @@ export async function POST(request: Request) {
     }
   }
 
-  const isPdf = mimeType === "application/pdf";
-
-  let config = (() => {
-    if (llm?.apiKey && llm.provider && VALID_PROVIDERS.includes(llm.provider as LlmProvider)) {
-      const provider = llm.provider as LlmProvider;
-      const fallbackModel = image ? DEFAULT_VISION_MODELS[provider] : DEFAULT_MODELS[provider];
-      return { provider, apiKey: llm.apiKey, model: llm.model?.trim() || fallbackModel };
-    }
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return null;
-    const fallbackModel = image ? DEFAULT_VISION_MODELS.google : DEFAULT_MODELS.google;
-    return { provider: "google" as LlmProvider, apiKey, model: process.env.GEMINI_VISION_MODEL || fallbackModel };
-  })();
-
-  // Only Gemini accepts a PDF directly (inlineData with mimeType
-  // "application/pdf") — OpenAI's image_url and Anthropic's image content
-  // block both require an actual raster image. If the caller's chosen
-  // provider can't handle it, fall back to the server's Gemini key when one
-  // exists rather than failing outright.
-  if (isPdf && config?.provider !== "google") {
-    const fallbackKey = process.env.GEMINI_API_KEY;
-    if (fallbackKey) {
-      config = { provider: "google", apiKey: fallbackKey, model: process.env.GEMINI_VISION_MODEL || DEFAULT_VISION_MODELS.google };
-    } else if (config) {
-      return NextResponse.json(
-        {
-          error: `${config.provider} không đọc trực tiếp được file PDF. Vào Cài đặt AI chọn Google Gemini, hoặc tải lên ảnh (JPG/PNG) thay vì PDF.`
-        },
-        { status: 400 }
-      );
-    }
-  }
-
-  if (!config) {
+  // Qwen2.5-VL-7B-Instruct (the only vision model in the account's catalog)
+  // is called through an OpenAI-style image_url content block, which needs
+  // an actual raster image — unlike Gemini's inlineData part, it can't take
+  // raw PDF bytes directly. Rather than silently mis-send a PDF and get a
+  // confusing provider error, fail clearly and point the user at a format
+  // that does work.
+  if (mimeType === "application/pdf") {
     return NextResponse.json(
-      { error: "Chưa cấu hình AI (server hoặc cá nhân) để đọc nội dung này. Vào Cài đặt AI để nhập API key." },
+      {
+        error: "Chưa hỗ trợ đọc trực tiếp file PDF với model hiện tại. Vui lòng chụp/xuất thành ảnh (JPG/PNG) hoặc dùng file Word/Excel/TXT thay thế."
+      },
       { status: 400 }
     );
   }
 
-  try {
-    let parsed: Record<string, unknown>;
+  const config = resolveConfig(Boolean(image));
+  if (!config) {
+    return NextResponse.json({ error: "Chưa cấu hình AI trên máy chủ để đọc nội dung này." }, { status: 400 });
+  }
 
-    if (config.provider === "google") {
-      const prompt = image
-        ? "Trích xuất thông tin doanh nghiệp từ tài liệu này theo đúng schema đã quy định."
-        : `Trích xuất thông tin doanh nghiệp từ văn bản sau theo đúng schema đã quy định.\n\n---\n${rawText}\n---`;
-      const jsonText = await generateGoogleJson(
-        config,
-        SYSTEM_INSTRUCTION,
-        prompt,
-        PROFILE_JSON_SCHEMA,
-        image ? { data: image, mimeType: mimeType! } : undefined
-      );
-      parsed = JSON.parse(jsonText) as Record<string, unknown>;
-    } else {
-      const text = image
-        ? await generateVisionAnswer(
-            config,
-            SYSTEM_INSTRUCTION,
-            "Trích xuất thông tin doanh nghiệp từ ảnh này theo đúng định dạng JSON đã quy định.",
-            { data: image, mimeType: mimeType! }
-          )
-        : await generateAnswer(
-            config,
-            SYSTEM_INSTRUCTION,
-            `Trích xuất thông tin doanh nghiệp từ văn bản sau theo đúng định dạng JSON đã quy định.\n\n---\n${rawText}\n---`
-          );
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
-      parsed = JSON.parse(jsonMatch[0]) as Record<string, unknown>;
-    }
+  try {
+    const text = image
+      ? await generateJsonAnswer(
+          config,
+          SYSTEM_INSTRUCTION,
+          "Trích xuất thông tin doanh nghiệp từ ảnh này theo đúng định dạng JSON đã quy định.",
+          { data: image, mimeType: mimeType! }
+        )
+      : await generateJsonAnswer(
+          config,
+          SYSTEM_INSTRUCTION,
+          `Trích xuất thông tin doanh nghiệp từ văn bản sau theo đúng định dạng JSON đã quy định.\n\n---\n${rawText}\n---`
+        );
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
+    const parsed = JSON.parse(jsonMatch[0]) as Record<string, unknown>;
 
     // Coerce numeric fields defensively — models occasionally return
-    // "8" as a string or add stray formatting despite the schema instruction.
+    // "8" as a string or add stray formatting despite the prompt's instruction.
     for (const key of ["employees", "revenue_bil", "capital_bil", "founded_year"]) {
       if (typeof parsed[key] === "string") {
         const num = Number(String(parsed[key]).replace(",", "."));
@@ -213,21 +141,27 @@ export async function POST(request: Request) {
       }
     }
 
-    // A schema without `required` still doesn't stop a model from emitting
-    // "" for a field it isn't sure about — treat that the same as omitted.
+    // The prompt says "leave it out if unsure" but nothing stops a model from
+    // emitting "" for a field it isn't sure about — treat that the same as omitted.
     for (const key of Object.keys(parsed)) {
       if (parsed[key] === "") delete parsed[key];
     }
 
+    // founded_year: 0 observed live (Qwen2.5-VL-7B-Instruct) on a document
+    // with no founding-year field at all — the model emitted a placeholder
+    // instead of omitting the key as instructed. No real company was founded
+    // in year 0, so this is always a "didn't find it" sentinel, not data.
+    if (parsed.founded_year === 0) delete parsed.founded_year;
+
     // Defense against a real failure mode observed live: a smaller vision
-    // model (gemini-2.5-flash-lite) can enter a repetition loop on a
-    // numeric-looking string field and emit thousands of trailing "0"
-    // characters instead of stopping — sometimes truncated by the token
-    // limit into invalid JSON (caught below by the JSON.parse failure), but
-    // sometimes landing on syntactically valid JSON with a garbage value that
-    // would otherwise sail through untouched. The schema's `maxLength` hint
-    // does NOT reliably stop this, so validate after the fact instead of
-    // trusting the model's output shape.
+    // model (gemini-2.5-flash-lite, back when Gemini was still in use here)
+    // entered a repetition loop on a numeric-looking string field and emitted
+    // thousands of trailing "0" characters instead of stopping — sometimes
+    // truncated by the token limit into invalid JSON (caught below by the
+    // JSON.parse failure), but sometimes landing on syntactically valid JSON
+    // with a garbage value that would otherwise sail through untouched.
+    // Keeping this validation regardless of provider since nothing here
+    // structurally prevents the same failure mode on a different model.
     for (const key of Object.keys(parsed)) {
       const value = parsed[key];
       if (typeof value === "string" && value.length > 300) delete parsed[key];
@@ -256,7 +190,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error(`${config.provider} trích xuất hồ sơ thất bại:`, error);
     return NextResponse.json(
-      { error: image ? "Không đọc được tài liệu. Thử ảnh/PDF rõ nét hơn." : "Không đọc được nội dung văn bản." },
+      { error: image ? "Không đọc được tài liệu. Thử ảnh rõ nét hơn." : "Không đọc được nội dung văn bản." },
       { status: 502 }
     );
   }

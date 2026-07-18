@@ -5,7 +5,11 @@
     "clause": "Điều 5",
     "status": "Còn hiệu lực",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160",
-    "tags": ["dnnvv", "phan_loai", "doanh_nghiep_nho_va_vua"],
+    "tags": [
+      "dnnvv",
+      "phan_loai",
+      "doanh_nghiep_nho_va_vua"
+    ],
     "text": "Doanh nghiệp nhỏ và vừa được xác định theo lĩnh vực hoạt động, số lao động tham gia bảo hiểm xã hội bình quân năm, tổng nguồn vốn hoặc tổng doanh thu của năm trước liền kề. Nhóm nông nghiệp, lâm nghiệp, thủy sản, công nghiệp, xây dựng và nhóm thương mại, dịch vụ có ngưỡng khác nhau."
   },
   {
@@ -14,7 +18,11 @@
     "clause": "Điều 22",
     "status": "Còn hiệu lực",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=203941&pageid=27160",
-    "tags": ["startup", "doi_moi_sang_tao", "ho_tro"],
+    "tags": [
+      "startup",
+      "doi_moi_sang_tao",
+      "ho_tro"
+    ],
     "text": "Doanh nghiệp nhỏ và vừa khởi nghiệp sáng tạo được hỗ trợ sử dụng cơ sở kỹ thuật, cơ sở ươm tạo, khu làm việc chung, tư vấn sở hữu trí tuệ, khai thác tài sản trí tuệ, tiêu chuẩn đo lường chất lượng, thử nghiệm và hoàn thiện sản phẩm mới."
   },
   {
@@ -23,7 +31,11 @@
     "clause": "Điều 17",
     "status": "Hết hiệu lực một phần - đã được sửa đổi, bổ sung bởi Luật Đầu tư 61/2020/QH14 và Luật Đấu thầu 22/2023/QH15",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=190283&pageid=27160",
-    "tags": ["startup", "doi_moi_sang_tao", "co_so_uom_tao"],
+    "tags": [
+      "startup",
+      "doi_moi_sang_tao",
+      "co_so_uom_tao"
+    ],
     "text": "Nội dung hỗ trợ doanh nghiệp nhỏ và vừa khởi nghiệp sáng tạo gồm hỗ trợ ứng dụng, chuyển giao công nghệ; sử dụng trang thiết bị tại cơ sở kỹ thuật; tham gia cơ sở ươm tạo, khu làm việc chung; hướng dẫn thử nghiệm, hoàn thiện sản phẩm, dịch vụ và mô hình kinh doanh mới."
   },
   {
@@ -32,7 +44,11 @@
     "clause": "Điều 10",
     "status": "Còn hiệu lực",
     "source": "https://vanban.chinhphu.vn/?docid=205807&pageid=27160",
-    "tags": ["tu_van", "mang_luoi_tu_van", "dnnvv"],
+    "tags": [
+      "tu_van",
+      "mang_luoi_tu_van",
+      "dnnvv"
+    ],
     "text": "Doanh nghiệp nhỏ và vừa có thể được hỗ trợ tư vấn thông qua mạng lưới tư vấn viên, với mức hỗ trợ xác định theo quy mô doanh nghiệp và nội dung tư vấn được phê duyệt."
   },
   {
@@ -41,7 +57,11 @@
     "clause": "Mục I",
     "status": "Đề án đến năm 2025 (đã sửa đổi bởi QĐ 188/QĐ-TTg 2021) - cần xác minh đợt mới",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160",
-    "tags": ["de_an_844", "startup", "he_sinh_thai"],
+    "tags": [
+      "de_an_844",
+      "startup",
+      "he_sinh_thai"
+    ],
     "text": "Đề án 844 hướng tới hỗ trợ hệ sinh thái khởi nghiệp đổi mới sáng tạo quốc gia, phát triển cá nhân, nhóm cá nhân khởi nghiệp, doanh nghiệp khởi nghiệp đổi mới sáng tạo và tổ chức hỗ trợ khởi nghiệp."
   },
   {
@@ -50,7 +70,11 @@
     "clause": "Điều 6",
     "status": "Còn hiệu lực",
     "source": "https://chinhphu.vn/default.aspx?docid=197478&pageid=27160",
-    "tags": ["de_an_844", "kinh_phi", "ho_so"],
+    "tags": [
+      "de_an_844",
+      "kinh_phi",
+      "ho_so"
+    ],
     "text": "Kinh phí thực hiện nhiệm vụ thuộc Đề án 844 được lập dự toán, quản lý, sử dụng và quyết toán theo quy định ngân sách nhà nước; hồ sơ nhiệm vụ cần thuyết minh mục tiêu, nội dung, sản phẩm, dự toán và năng lực thực hiện."
   },
   {
@@ -59,7 +83,12 @@
     "clause": "Điều 1 - Phạm vi áp dụng",
     "status": "Còn hiệu lực (từ 04/04/2025)",
     "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
-    "tags": ["smedf", "vay_von", "dnnvv", "pham_vi_ap_dung"],
+    "tags": [
+      "smedf",
+      "vay_von",
+      "dnnvv",
+      "pham_vi_ap_dung"
+    ],
     "text": "Quỹ, ngân hàng thương mại, DNNVV đáp ứng tiêu chí theo Luật Hỗ trợ DNNVV và Nghị định 80/2021/NĐ-CP."
   },
   {
@@ -68,7 +97,13 @@
     "clause": "Điều 2 - Nội dung chính",
     "status": "Còn hiệu lực (từ 04/04/2025)",
     "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
-    "tags": ["smedf", "vay_von", "dnnvv", "dieu_kien_vay", "lai_suat"],
+    "tags": [
+      "smedf",
+      "vay_von",
+      "dnnvv",
+      "dieu_kien_vay",
+      "lai_suat"
+    ],
     "text": "Nguyên tắc cho vay: Quỹ giao vốn qua ngân hàng, ngân hàng thẩm định và chịu trách nhiệm rủi ro, DNNVV trả nợ đúng hạn. Điều kiện vay: DNNVV phải có vốn chủ sở hữu tối thiểu 20%, dự án khả thi, đáp ứng quy định bảo đảm tiền vay. Mức vay: Tối đa 80% vốn đầu tư dự án, không vượt 15% vốn điều lệ Quỹ. Thời hạn vay: Tối đa 7 năm, ân hạn tùy thỏa thuận. Lãi suất: Do Hội đồng thành viên công bố, tối đa 20%/năm (quá hạn: 150% lãi trong hạn). Phí cho vay: Không quá 50% lãi thu được, thỏa thuận giữa Quỹ và ngân hàng. Phương thức nhận vốn: Trực tiếp hoặc bồi hoàn."
   },
   {
@@ -77,7 +112,13 @@
     "clause": "Điều 3 - Hồ sơ, thủ tục",
     "status": "Còn hiệu lực (từ 04/04/2025)",
     "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
-    "tags": ["smedf", "vay_von", "dnnvv", "ho_so", "thu_tuc"],
+    "tags": [
+      "smedf",
+      "vay_von",
+      "dnnvv",
+      "ho_so",
+      "thu_tuc"
+    ],
     "text": "DNNVV nộp hồ sơ qua ngân hàng (giấy đề nghị, hồ sơ dự án, chứng từ pháp lý). Ngân hàng thẩm định, gửi hồ sơ đề nghị nhận vốn cho Quỹ. Quỹ phê duyệt, ký hợp đồng với ngân hàng, giải ngân trong 5 ngày làm việc."
   },
   {
@@ -86,7 +127,12 @@
     "clause": "Điều 4 - Giám sát, xử lý rủi ro",
     "status": "Còn hiệu lực (từ 04/04/2025)",
     "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
-    "tags": ["smedf", "vay_von", "giam_sat", "rui_ro"],
+    "tags": [
+      "smedf",
+      "vay_von",
+      "giam_sat",
+      "rui_ro"
+    ],
     "text": "Quỹ giám sát, ngân hàng báo cáo định kỳ, xử lý nợ quá hạn theo thỏa thuận."
   },
   {
@@ -95,7 +141,10 @@
     "clause": "Điều 5 - Hiệu lực",
     "status": "Còn hiệu lực (từ 04/04/2025)",
     "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
-    "tags": ["smedf", "hieu_luc"],
+    "tags": [
+      "smedf",
+      "hieu_luc"
+    ],
     "text": "Quyết định có hiệu lực từ ngày ký (04/04/2025), thay thế Quyết định số 07/QĐ-HĐTV (2019) và 03/QĐ-HĐTV (2020)."
   },
   {
@@ -104,7 +153,10 @@
     "clause": "Điều 6 - Trách nhiệm",
     "status": "Còn hiệu lực (từ 04/04/2025)",
     "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
-    "tags": ["smedf", "trach_nhiem"],
+    "tags": [
+      "smedf",
+      "trach_nhiem"
+    ],
     "text": "Hội đồng thành viên, Giám đốc Quỹ, ngân hàng, DNNVV chịu trách nhiệm thực hiện."
   },
   {
@@ -113,7 +165,11 @@
     "clause": "Điều 15",
     "status": "Hết hiệu lực từ 01/03/2026 - thay thế bởi Luật Đầu tư 143/2025/QH15 (GCN đầu tư đã cấp theo luật cũ vẫn có hiệu lực theo quy định chuyển tiếp)",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=200449&pageid=27160",
-    "tags": ["uu_dai_dau_tu", "thue", "dat_dai"],
+    "tags": [
+      "uu_dai_dau_tu",
+      "thue",
+      "dat_dai"
+    ],
     "text": "Hình thức ưu đãi đầu tư gồm ưu đãi thuế thu nhập doanh nghiệp, miễn giảm thuế nhập khẩu, miễn giảm tiền sử dụng đất, tiền thuê đất và khấu hao nhanh, tăng mức chi phí được trừ khi tính thu nhập chịu thuế."
   },
   {
@@ -122,7 +178,11 @@
     "clause": "Phụ lục II",
     "status": "Đã được sửa đổi/bổ sung - cần rà soát theo Luật Đầu tư 2025",
     "source": "https://vanban.chinhphu.vn/?docid=202988&pageid=27160",
-    "tags": ["nganh_nghe_uu_dai", "cong_nghe_cao", "phan_mem"],
+    "tags": [
+      "nganh_nghe_uu_dai",
+      "cong_nghe_cao",
+      "phan_mem"
+    ],
     "text": "Danh mục ngành, nghề ưu đãi đầu tư bao gồm sản xuất sản phẩm công nghệ thông tin, phần mềm, nội dung số và một số hoạt động công nghệ cao, nghiên cứu phát triển, đổi mới sáng tạo."
   },
   {
@@ -131,7 +191,12 @@
     "clause": "Mục 1 - Chủ trương, chính sách của Thành phố",
     "status": "Bài nghiên cứu - trao đổi, đăng 11/06/2024 - dùng làm bối cảnh, cần xác minh thông báo chính thức khi nộp hồ sơ thật",
     "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
-    "tags": ["ha_noi", "startup", "dia_phuong", "chinh_sach"],
+    "tags": [
+      "ha_noi",
+      "startup",
+      "dia_phuong",
+      "chinh_sach"
+    ],
     "text": "Nghị quyết số 05/2019/NQ-HĐND, ngày 08/7/2019 của HĐND thành phố Hà Nội về việc thông qua chủ trương ban hành Đề án hỗ trợ khởi nghiệp sáng tạo trên địa bàn thành phố Hà Nội giai đoạn 2019 - 2025; Quyết định số 4889/QĐ-UBND, ngày 09/9/2019 của UBND Thành phố về phê duyệt Đề án \"Hỗ trợ khởi nghiệp sáng tạo trên địa bàn thành phố Hà Nội giai đoạn 2019 - 2025\"; Chương trình số 07-CTr/TU, ngày 17/3/2021 của Thành uỷ về \"Đẩy mạnh phát triển KHCN và ĐMST trên địa bàn thành phố Hà Nội giai đoạn 2021 - 2025\"."
   },
   {
@@ -140,7 +205,12 @@
     "clause": "Mục 2.1 - Một số kết quả",
     "status": "Bài nghiên cứu - trao đổi, đăng 11/06/2024 - dùng làm bối cảnh, cần xác minh thông báo chính thức khi nộp hồ sơ thật",
     "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
-    "tags": ["ha_noi", "startup", "dia_phuong", "ket_qua"],
+    "tags": [
+      "ha_noi",
+      "startup",
+      "dia_phuong",
+      "ket_qua"
+    ],
     "text": "Hà Nội hiện có khoảng 1.000 doanh nghiệp khởi nghiệp ĐMST trên tổng số 3.800 doanh nghiệp khởi nghiệp ĐMST của cả nước (chiếm 26,32%). Đến nay, Thành phố đã có 32 vườn ươm doanh nghiệp hoạt động đa ngành, đa lĩnh vực (chiếm 38,1% tổng số vườn ươm của cả nước); 14 tổ chức cung cấp chương trình thúc đẩy kinh doanh (chiếm 40% cả nước). Từ năm 2016 đến nay, các doanh nghiệp khởi nghiệp ĐMST trên địa bàn Thành phố đã huy động được 1 tỷ USD với 100 thương vụ gọi vốn thành công."
   },
   {
@@ -149,7 +219,12 @@
     "clause": "Mục 2.2 - Khó khăn, thách thức",
     "status": "Bài nghiên cứu - trao đổi, đăng 11/06/2024 - dùng làm bối cảnh, cần xác minh thông báo chính thức khi nộp hồ sơ thật",
     "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
-    "tags": ["ha_noi", "startup", "dia_phuong", "kho_khan"],
+    "tags": [
+      "ha_noi",
+      "startup",
+      "dia_phuong",
+      "kho_khan"
+    ],
     "text": "Số doanh nghiệp khởi nghiệp ĐMST của Hà Nội gọi được vốn từ các quỹ đầu tư rất ít; phần lớn chỉ là doanh nghiệp nhỏ cung cấp sản phẩm, dịch vụ kỹ thuật số, mà chưa phát triển dựa trên nền tảng ĐMST đúng nghĩa. Ngoài ra, chưa có sự kết nối giữa cơ sở nghiên cứu - start up - nhà đầu tư - doanh nghiệp - tổ chức hỗ trợ khởi nghiệp ĐMST để thiết lập một mạng lưới tương trợ lẫn nhau."
   },
   {
@@ -158,7 +233,13 @@
     "clause": "Đối tượng và điều kiện áp dụng",
     "status": "Còn hiệu lực (từ 01/07/2026)",
     "source": "https://xaydungchinhsach.chinhphu.vn/tieu-chi-dieu-kien-ho-so-trinh-tu-thu-tuc-thuc-hien-uu-dai-ho-tro-dau-tu-tren-dia-ban-ha-noi-119260617090600476.htm",
-    "tags": ["ha_noi", "startup", "doi_moi_sang_tao", "uu_dai_dau_tu", "dia_phuong"],
+    "tags": [
+      "ha_noi",
+      "startup",
+      "doi_moi_sang_tao",
+      "uu_dai_dau_tu",
+      "dia_phuong"
+    ],
     "text": "HĐND TP Hà Nội thông qua Nghị quyết quy định tiêu chí, điều kiện, hồ sơ, trình tự, thủ tục thực hiện ưu đãi, hỗ trợ đầu tư trên địa bàn theo Điều 26 Luật Thủ đô năm 2026, hiệu lực từ 01/07/2026. Đối tượng áp dụng gồm doanh nghiệp, tổ chức, cá nhân thực hiện dự án thuộc diện ưu đãi; nhà đầu tư chiến lược; doanh nghiệp khởi nghiệp sáng tạo; tổ chức khoa học và công nghệ; trung tâm đổi mới sáng tạo; tổ chức trung gian hỗ trợ khởi nghiệp đổi mới sáng tạo. Với doanh nghiệp khởi nghiệp sáng tạo lĩnh vực khoa học và công nghệ, ngoài tiêu chí khởi nghiệp sáng tạo chung, phải có sản phẩm/dịch vụ/mô hình kinh doanh đổi mới sáng tạo, có hoạt động nghiên cứu - phát triển hoặc cải tiến công nghệ, và tham gia chương trình ươm tạo/tăng tốc khởi nghiệp hoặc hệ sinh thái khởi nghiệp đổi mới sáng tạo."
   },
   {
@@ -167,7 +248,14 @@
     "clause": "Nội dung ưu đãi và thủ tục thực hiện",
     "status": "Còn hiệu lực (từ 01/07/2026)",
     "source": "https://xaydungchinhsach.chinhphu.vn/tieu-chi-dieu-kien-ho-so-trinh-tu-thu-tuc-thuc-hien-uu-dai-ho-tro-dau-tu-tren-dia-ban-ha-noi-119260617090600476.htm",
-    "tags": ["ha_noi", "uu_dai_dau_tu", "thue", "dat_dai", "ho_so", "thu_tuc"],
+    "tags": [
+      "ha_noi",
+      "uu_dai_dau_tu",
+      "thue",
+      "dat_dai",
+      "ho_so",
+      "thu_tuc"
+    ],
     "text": "Nghị quyết quy định ưu đãi về đất đai, thuế, lựa chọn nhà thầu và hỗ trợ từ ngân sách thành phố; khoản hỗ trợ ngân sách thực hiện theo hình thức hỗ trợ sau đầu tư, trên cơ sở khả năng cân đối ngân sách và dự toán HĐND Thành phố quyết định hằng năm. Doanh nghiệp, tổ chức, cá nhân đề nghị hưởng ưu đãi nộp hồ sơ trực tuyến tại Trung tâm Phục vụ hành chính công Thành phố; cơ quan chuyên môn thẩm định, lấy ý kiến liên quan rồi ban hành văn bản xác nhận đối tượng đủ điều kiện hưởng ưu đãi, hỗ trợ."
   },
   {
@@ -176,7 +264,12 @@
     "clause": "Điều 1",
     "status": "Còn hiệu lực",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=202651&pageid=27160",
-    "tags": ["de_an_844", "sua_doi", "startup", "he_sinh_thai"],
+    "tags": [
+      "de_an_844",
+      "sua_doi",
+      "startup",
+      "he_sinh_thai"
+    ],
     "text": "Quyết định 188/QĐ-TTg ngày 09/02/2021 sửa đổi, bổ sung một số điều của Quyết định 844/QĐ-TTg, bổ sung mục tiêu xây dựng hệ thống trung tâm đổi mới sáng tạo hỗ trợ nghiên cứu phát triển, khởi nghiệp sáng tạo, phát triển mạng lưới khởi nghiệp đổi mới sáng tạo quốc gia và mở rộng đối tượng, nhiệm vụ của Đề án 844."
   },
   {
@@ -185,7 +278,12 @@
     "clause": "Điều kiện cho vay (Chương II)",
     "status": "Còn hiệu lực - đã được sửa đổi, bổ sung bởi Nghị định 45/2024/NĐ-CP",
     "source": "https://vanban.chinhphu.vn/default.aspx?docid=196965&pageid=27160",
-    "tags": ["smedf", "vay_von", "dnnvv", "to_chuc_quy"],
+    "tags": [
+      "smedf",
+      "vay_von",
+      "dnnvv",
+      "to_chuc_quy"
+    ],
     "text": "Nghị định 39/2019/NĐ-CP quy định tổ chức và hoạt động của Quỹ Phát triển doanh nghiệp nhỏ và vừa (SMEDF): Quỹ cho vay DNNVV khởi nghiệp sáng tạo, DNNVV tham gia cụm liên kết ngành, chuỗi giá trị; mức vay tối đa 80% tổng mức đầu tư dự án, thời hạn vay tối đa 7 năm; doanh nghiệp phải có vốn chủ sở hữu tham gia tối thiểu 20% và đáp ứng quy định bảo đảm tiền vay."
   },
   {
@@ -194,7 +292,12 @@
     "clause": "Điều 1",
     "status": "Còn hiệu lực (hiệu lực từ 10/06/2024)",
     "source": "https://vanban.chinhphu.vn/?docid=210143&pageid=27160",
-    "tags": ["smedf", "sua_doi", "vay_von", "dnnvv"],
+    "tags": [
+      "smedf",
+      "sua_doi",
+      "vay_von",
+      "dnnvv"
+    ],
     "text": "Nghị định 45/2024/NĐ-CP sửa đổi, bổ sung Nghị định 39/2019/NĐ-CP về Quỹ Phát triển DNNVV: mỗi DNNVV được Quỹ xem xét, quyết định tài trợ vốn không quá 01 lần; doanh nghiệp đã vay vốn của Quỹ được xem xét cho vay dự án mới nếu đã hoàn trả hết nợ gốc và lãi tiền vay đầy đủ, đúng thời hạn; kiện toàn quy định về Hội đồng thành viên, Ban kiểm soát và trách nhiệm các bên."
   },
   {
@@ -203,7 +306,12 @@
     "clause": "Hiệu lực và chuyển tiếp",
     "status": "Còn hiệu lực (từ 01/03/2026; danh mục ngành nghề kinh doanh có điều kiện từ 01/07/2026)",
     "source": "https://thuvienphapluat.vn/van-ban/Dau-tu/Luat-Dau-tu-2025-so-143-2025-QH15-681550.aspx",
-    "tags": ["uu_dai_dau_tu", "sua_doi", "thay_the", "dau_tu"],
+    "tags": [
+      "uu_dai_dau_tu",
+      "sua_doi",
+      "thay_the",
+      "dau_tu"
+    ],
     "text": "Luật Đầu tư số 143/2025/QH15 được Quốc hội thông qua ngày 11/12/2025, thay thế Luật Đầu tư số 61/2020/QH14, có hiệu lực từ 01/03/2026. Giấy chứng nhận đăng ký đầu tư, chấp thuận chủ trương đầu tư đã cấp theo Luật Đầu tư 2020 tiếp tục có hiệu lực theo quy định chuyển tiếp. Danh mục ngành, nghề đầu tư kinh doanh có điều kiện áp dụng từ 01/07/2026."
   },
   {
@@ -212,7 +320,12 @@
     "clause": "Điều 35 - Tiêu chí xác định cá nhân, nhóm cá nhân, doanh nghiệp khởi nghiệp sáng tạo",
     "status": "Còn hiệu lực (từ 14/10/2025)",
     "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
-    "tags": ["startup", "doi_moi_sang_tao", "tieu_chi", "cong_nhan"],
+    "tags": [
+      "startup",
+      "doi_moi_sang_tao",
+      "tieu_chi",
+      "cong_nhan"
+    ],
     "text": "Nghị định hướng dẫn Luật Khoa học, công nghệ và đổi mới sáng tạo quy định tiêu chí xác định cá nhân, nhóm cá nhân, doanh nghiệp khởi nghiệp sáng tạo: (1) là công dân Việt Nam có năng lực hành vi dân sự đầy đủ, thường trú tại Việt Nam (người nước ngoài cần giấy xác nhận cư trú hợp pháp); nếu là doanh nghiệp phải thành lập theo Luật Doanh nghiệp; (2) có dự án khởi nghiệp sáng tạo đã được đầu tư hoặc cam kết đầu tư bởi quỹ đầu tư khởi nghiệp sáng tạo, quỹ đầu tư mạo hiểm, nhà đầu tư cá nhân khởi nghiệp sáng tạo, hoặc được hỗ trợ/cam kết hỗ trợ bởi trung tâm đổi mới sáng tạo, trung tâm hỗ trợ khởi nghiệp sáng tạo; (3) khả năng tăng trưởng doanh thu tối thiểu 20% trong 2 năm liên tiếp."
   },
   {
@@ -221,7 +334,12 @@
     "clause": "Điều 56 - Chính sách ưu tiên, ưu đãi, hỗ trợ cho doanh nghiệp khoa học và công nghệ",
     "status": "Còn hiệu lực (từ 14/10/2025)",
     "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
-    "tags": ["doanh_nghiep_khoa_hoc_cong_nghe", "uu_dai", "thue", "dau_tu"],
+    "tags": [
+      "doanh_nghiep_khoa_hoc_cong_nghe",
+      "uu_dai",
+      "thue",
+      "dau_tu"
+    ],
     "text": "Doanh nghiệp được cấp Giấy chứng nhận doanh nghiệp khoa học và công nghệ được hưởng chính sách ưu tiên, ưu đãi, hỗ trợ theo pháp luật về đầu tư, đấu thầu, thuế, tín dụng, đất đai, khoa học, công nghệ và đổi mới sáng tạo. Khi có sản phẩm mới được cấp bổ sung vào Giấy chứng nhận, doanh nghiệp tiếp tục hưởng ưu đãi như lần đầu, tính từ ngày bổ sung."
   },
   {
@@ -230,7 +348,12 @@
     "clause": "Điều 63 - Hạ tầng, mạng lưới, hệ sinh thái hỗ trợ khởi nghiệp sáng tạo",
     "status": "Còn hiệu lực (từ 14/10/2025)",
     "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
-    "tags": ["he_sinh_thai", "startup", "ha_tang", "trung_tam_doi_moi_sang_tao"],
+    "tags": [
+      "he_sinh_thai",
+      "startup",
+      "ha_tang",
+      "trung_tam_doi_moi_sang_tao"
+    ],
     "text": "Hạ tầng hỗ trợ khởi nghiệp sáng tạo gồm cơ sở vật chất, khu làm việc chung, phòng thí nghiệm dùng chung, cơ sở thử nghiệm công nghệ, hạ tầng công nghệ thông tin, cơ sở dữ liệu khởi nghiệp sáng tạo. Mạng lưới hỗ trợ gồm cá nhân/doanh nghiệp khởi nghiệp sáng tạo, nhà nghiên cứu, chuyên gia, cơ sở giáo dục/nghiên cứu, cơ sở ươm tạo, quỹ đầu tư, tổ chức tài chính, tổ chức hỗ trợ khởi nghiệp trong và ngoài nước. Hệ sinh thái là tập hợp hạ tầng, mạng lưới, cơ chế, chính sách, dịch vụ và tổ chức hỗ trợ nhằm nâng cao năng lực khởi nghiệp sáng tạo và thương mại hóa sản phẩm."
   },
   {
@@ -239,7 +362,12 @@
     "clause": "Điều 5 (sửa đổi NĐ 38/2018/NĐ-CP) - Quỹ đầu tư khởi nghiệp sáng tạo",
     "status": "Còn hiệu lực (từ 15/09/2025)",
     "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-210-2025-nd-cp-sua-doi-bo-sung-mot-so-dieu-cua-nghi-dinh-so-38-2018-nd-cp-ngay-11-thang-3-nam-2018-cua-chinh-phu-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--179899",
-    "tags": ["quy_dau_tu", "startup", "dau_tu", "von"],
+    "tags": [
+      "quy_dau_tu",
+      "startup",
+      "dau_tu",
+      "von"
+    ],
     "text": "Quỹ đầu tư khởi nghiệp sáng tạo không có tư cách pháp nhân, có từ 02 đến tối đa 30 nhà đầu tư góp vốn theo Điều lệ quỹ; không được góp vốn vào quỹ đầu tư khởi nghiệp sáng tạo khác. Tài sản góp vốn có thể là tiền, quyền sử dụng đất, quyền sở hữu trí tuệ, công nghệ, bí quyết kỹ thuật. Quỹ đầu tư vào DNNVV khởi nghiệp sáng tạo với tổng mức đầu tư không quá 50% vốn điều lệ của doanh nghiệp sau khi nhận đầu tư."
   },
   {
@@ -248,7 +376,10 @@
     "clause": "Điều 1 - Phạm vi điều chỉnh",
     "status": "Còn hiệu lực",
     "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-55-2019-nd-cp-ve-ho-tro-phap-ly-cho-doanh-nghiep-nho-va-vua--135887",
-    "tags": ["ho_tro_phap_ly", "dnnvv"],
+    "tags": [
+      "ho_tro_phap_ly",
+      "dnnvv"
+    ],
     "text": "Nghị định quy định chi tiết các hoạt động hỗ trợ pháp lý cho doanh nghiệp nhỏ và vừa; trách nhiệm của các bộ, cơ quan ngang bộ, chính quyền địa phương cấp tỉnh, cơ quan, tổ chức khác và cá nhân có liên quan trong công tác hỗ trợ pháp lý cho doanh nghiệp nhỏ và vừa."
   },
   {
@@ -257,7 +388,11 @@
     "clause": "Điều 4 - Doanh nghiệp thực hiện hoạt động đầu tư khởi nghiệp sáng tạo",
     "status": "Còn hiệu lực - đã được sửa đổi, bổ sung bởi Nghị định 210/2025/NĐ-CP",
     "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-38-2018-nd-cp-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--130717",
-    "tags": ["startup", "dau_tu", "dang_ky_doanh_nghiep"],
+    "tags": [
+      "startup",
+      "dau_tu",
+      "dang_ky_doanh_nghiep"
+    ],
     "text": "Doanh nghiệp đăng ký thành lập theo Luật Doanh nghiệp có quyền thực hiện hoạt động đầu tư khởi nghiệp sáng tạo. Doanh nghiệp có trách nhiệm thông báo bổ sung ngành, nghề đầu tư khởi nghiệp sáng tạo theo quy định của pháp luật về đăng ký doanh nghiệp khi thực hiện hoạt động này. Cơ quan đăng ký kinh doanh có trách nhiệm xem xét tính hợp lệ của hồ sơ và thực hiện bổ sung ngành, nghề tương ứng."
   },
   {
@@ -266,7 +401,11 @@
     "clause": "Điều 1 - Phạm vi điều chỉnh và đối tượng áp dụng",
     "status": "Còn hiệu lực",
     "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-34-2018-nd-cp-ve-viec-thanh-lap-to-chuc-va-hoat-dong-cua-quy-bao-lanh-tin-dung-cho-doanh-nghiep-nho-va-vua--128875",
-    "tags": ["quy_bao_lanh_tin_dung", "dnnvv", "vay_von"],
+    "tags": [
+      "quy_bao_lanh_tin_dung",
+      "dnnvv",
+      "vay_von"
+    ],
     "text": "Nghị định quy định việc thành lập, tổ chức và hoạt động của Quỹ bảo lãnh tín dụng tại các tỉnh, thành phố trực thuộc Trung ương để cấp bảo lãnh tín dụng cho doanh nghiệp nhỏ và vừa vay vốn tại các tổ chức cho vay. Đây là kênh hỗ trợ vốn khác với Quỹ Phát triển DNNVV (SMEDF) - Quỹ bảo lãnh tín dụng không cho vay trực tiếp mà bảo lãnh để DNNVV tiếp cận vốn vay từ ngân hàng/tổ chức tín dụng."
   },
   {
@@ -275,7 +414,11 @@
     "clause": "Điều 5 - Chức năng của cơ sở ươm tạo",
     "status": "Còn hiệu lực",
     "source": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-07-2020-tt-bkhcn-huong-dan-viec-thanh-lap-co-so-uom-tao-doanh-nghiep-nho-va-vua-co-so-ky-thuat-ho-tro-doanh-nghiep-nho-va-vua-khu-lam-viec-chung-ho-tro-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--159227",
-    "tags": ["co_so_uom_tao", "startup", "ho_tro"],
+    "tags": [
+      "co_so_uom_tao",
+      "startup",
+      "ho_tro"
+    ],
     "text": "Cơ sở ươm tạo có chức năng: hỗ trợ sử dụng máy móc, trang thiết bị, cơ sở vật chất kỹ thuật để hoàn thiện ý tưởng kinh doanh, hoàn thiện công nghệ; cung cấp dịch vụ hỗ trợ tư vấn và đào tạo (công nghệ ươm tạo, sở hữu trí tuệ, pháp lý, tài chính, quản trị doanh nghiệp, kết nối đầu tư); hỗ trợ tư vấn xây dựng phương án, mô hình kinh doanh; cung cấp nguồn lực cần thiết để hỗ trợ DNNVV phát triển trong giai đoạn đầu mới thành lập; có quy trình ươm tạo doanh nghiệp nhỏ và vừa."
   },
   {
@@ -284,7 +427,11 @@
     "clause": "Điều 5 - Danh mục lĩnh vực ưu tiên hỗ trợ của Quỹ Phát triển DNNVV",
     "status": "Còn hiệu lực",
     "source": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-13-2015-tt-bkhdt-ban-hanh-danh-muc-linh-vuc-uu-tien-ho-tro-va-tieu-chi-lua-chon-doi-tuong-uu-tien-ho-tro-cua-quy-phat-trien-doanh-nghiep-nho-va-vua--92617",
-    "tags": ["smedf", "linh_vuc_uu_tien", "vay_von"],
+    "tags": [
+      "smedf",
+      "linh_vuc_uu_tien",
+      "vay_von"
+    ],
     "text": "Quỹ Phát triển DNNVV ưu tiên cho vay đối với doanh nghiệp có dự án đầu tư, phương án sản xuất, kinh doanh thuộc: nông nghiệp, lâm nghiệp và thủy sản; công nghiệp chế biến, chế tạo; cung cấp nước, hoạt động quản lý và xử lý rác thải, nước thải. Quỹ xây dựng chương trình hỗ trợ theo định hướng phát triển DNNVV được Thủ tướng Chính phủ phê duyệt trong từng thời kỳ."
   },
   {
@@ -293,7 +440,11 @@
     "clause": "Điều 6 - Điều kiện cho vay của Quỹ Phát triển DNNVV",
     "status": "Còn hiệu lực",
     "source": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-13-2015-tt-bkhdt-ban-hanh-danh-muc-linh-vuc-uu-tien-ho-tro-va-tieu-chi-lua-chon-doi-tuong-uu-tien-ho-tro-cua-quy-phat-trien-doanh-nghiep-nho-va-vua--92617",
-    "tags": ["smedf", "dieu_kien_vay", "vay_von"],
+    "tags": [
+      "smedf",
+      "dieu_kien_vay",
+      "vay_von"
+    ],
     "text": "Doanh nghiệp được vay vốn từ Quỹ Phát triển DNNVV khi đáp ứng: (1) tiêu chí xác định doanh nghiệp nhỏ và vừa; (2) có dự án đầu tư, phương án sản xuất, kinh doanh thuộc danh mục lĩnh vực ưu tiên hỗ trợ của Quỹ; (3) các điều kiện bổ sung theo quyết định phê duyệt liên quan."
   },
   {
@@ -302,7 +453,10 @@
     "clause": "Điều 3 - Các nhiệm vụ thuộc Đề án 844",
     "status": "Còn hiệu lực",
     "source": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-01-2018-tt-bkhcn-quy-dinh-to-chuc-qua-n-ly-de-an-ho-tro-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-quoc-gia-den-nam-2025--129312",
-    "tags": ["de_an_844", "nhiem_vu"],
+    "tags": [
+      "de_an_844",
+      "nhiem_vu"
+    ],
     "text": "Nhiệm vụ thuộc Đề án 844 gồm: nhiệm vụ khoa học và công nghệ (đề tài, đề án khoa học công nghệ); nhiệm vụ hằng năm/định kỳ hỗ trợ hệ sinh thái khởi nghiệp đổi mới sáng tạo quốc gia, bao gồm nhóm nhiệm vụ đào tạo/nâng cao năng lực cho khởi nghiệp đổi mới sáng tạo, nhóm nhiệm vụ truyền thông về hoạt động khởi nghiệp và đầu tư cho khởi nghiệp, và nhóm nhiệm vụ xây dựng/phát triển mạng lưới tổ chức thúc đẩy kinh doanh, nhà đầu tư cá nhân."
   },
   {
@@ -311,7 +465,215 @@
     "clause": "Điều 5 - Các nội dung hỗ trợ",
     "status": "Còn hiệu lực",
     "source": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-52-2023-tt-btc-huong-dan-co-che-su-dung-kinh-phi-ngan-sach-nha-nuoc-chi-thuong-xuyen-ho-tro-doanh-nghiep-nho-va-vua-theo-quy-dinh-tai-nghi-dinh-so-80-2021-nd-cp-ngay-26-thang-8-nam-2021-cua-chinh-phu--163729",
-    "tags": ["kinh_phi", "ngan_sach", "dnnvv"],
+    "tags": [
+      "kinh_phi",
+      "ngan_sach",
+      "dnnvv"
+    ],
     "text": "Nội dung hỗ trợ DNNVV từ ngân sách nhà nước gồm: hỗ trợ công nghệ; tư vấn; hỗ trợ DNNVV khởi nghiệp sáng tạo; hỗ trợ DNNVV tham gia cụm liên kết ngành, chuỗi giá trị theo Nghị định 80/2021/NĐ-CP và Thông tư 06/2022/TT-BKHĐT. DNNVV được hỗ trợ thông qua cơ quan/tổ chức hỗ trợ DNNVV, trên cơ sở hợp đồng hai bên hoặc ba bên theo quy định."
+  },
+  {
+    "id": "vbpl138456-02-2019-tt-bkhcn-1",
+    "title": "02/2019/TT-BKHCN",
+    "clause": "Toàn văn (chưa tách điều)",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--138456?tabs=tai-ve",
+    "tags": [
+      "thong-tu",
+      "nong-nghiep"
+    ],
+    "text": "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n\n\n\n\n\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n\nĐộc lập - Tự do - Hạnh phúc\n\n\n\n\n\nDANH MỤC CÔNG NGHỆ HỖ TRỢ DOANH NGHIỆP \n\nNGHIÊN CỨU, CHUYỂN GIAO, ỨNG DỤNG NÔNG NGHIỆP CÔNG NGHỆ CAO \n\n(Ban hành kèm theo Thông tư số 02/2019/TT-BKHCN\n\n ngày 02 tháng 6 năm 2019 của Bộ trưởng Bộ Khoa học và Công nghệ)\n\n\n\nTT\n\nCông nghệ\n\n1\n\nCông nghệ trồng rừng đáp ứng tiêu chuẩn quản lý rừng bền vững của Việt Nam.\n\n2\n\nCông nghệ tiên tiến trồng cây lâm sản ngoài gỗ, cây thuốc.\n\n3\n\nCông nghệ trồng tự động và bán tự động.\n\n4\n\nCông nghệ thủy canh, khí thủy canh.\n\n5\n\nCông nghệ tiên tiến sản xuất nông nghiệp hữu cơ.\n\n6\n\nCông nghệ tưới tiết kiệm nước, bổ sung dinh dưỡng có điều khiển tự động.\n\n7\n\nCông nghệ tiên tiến phục vụ quản lý phòng chống cháy rừng.\n\n8\n\nCông nghệ tiên tiến làm sạch và tăng độ phì nhiêu của đất.\n\n9\n\nCông nghệ tiên tiến sản xuất chất dinh dưỡng cho cây trồng.\n\n10\n\nCông nghệ chăm sóc cây trồng quy mô lớn.\n\n11\n\nCông nghệ điều khiển ra hoa, đậu quả các loại cây trồng.\n\n12\n\nCông nghệ tự động hóa quá trình thu hoạch các sản phẩm nông nghiệp.\n\n13\n\nCông nghệ tự động hóa trong chăn nuôi.\n\n14\n\nCông nghệ tiên tiến nuôi trồng thủy sản xa bờ.\n\n15\n\nCông nghệ nuôi trồng thủy sản sử dụng hệ thống tuần hoàn tiết kiệm nước.\n\n16\n\nCông nghệ nuôi trồng sinh thái thủy sản.\n\n17\n\nCông nghệ kiểm soát, xử lý môi trường nuôi trồng thủy sản thâm canh, siêu thâm canh.\n\n18\n\nCông nghệ tiên tiến trong chọn tạo, nhân giống cây trồng, vật nuôi, thủy hải sản năng suất cao, chất lượng tốt, có sức chống chịu sinh vật gây hại và thích ứng với biến đổi khí hậu.\n\n19\n\nCông nghệ sản xuất bầu ươm cây giống bằng vật liệu tự hủy an toàn với môi trường.\n\n20\n\nCông nghệ sản xuất giống, nuôi cá ngừ đại dương, tôm hùm, san hô.\n\n21\n\nCông nghệ sản xuất giống tôm sú, tôm thẻ chân trắng sạch bệnh.\n\n22\n\nCông nghệ sản xuất giống cá Tra sạch bệnh.\n\n23\n\nCông nghệ sản xuất giống các loài cây trồng, vật nuôi, thủy sản đặc sản, quý hiếm.\n\n24\n\nCông nghệ bảo quản lạnh trứng, tinh trùng, hợp tử động vật.\n\n25\n\nCông nghệ tiên tiến nhân giống cây trồng, vật nuôi, thủy sản.\n\n26\n\nCông nghệ tiên tiến dự báo ngư trường hải sản.\n\n27\n\nCông nghệ khai thác cá ngừ bằng lưới vây đuôi.\n\n28\n\nCông nghệ tiên tiến khai thác hải sản vùng biển sâu xa bờ.\n\n29\n\nCông nghệ sản xuất và tinh chế muối quy mô công nghiệp.\n\n30\n\nCông nghệ tiên tiến sản xuất thức ăn phục vụ chăn nuôi và nuôi trồng thủy sản sử dụng protein, enzym, vi sinh vật đảm bảo an toàn vệ sinh thực phẩm.\n\n31\n\nCông nghệ tiên tiến chế biến, bảo quản nguyên liệu, phụ gia"
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-1",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 1",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 1. Phạm vi điều chỉnh, đối tượng áp dụng\n\n\n\n\n\n    1. Thông tư này hướng dẫn quản lý tài chính thực hiện Chương trình hỗ\n\ntrợ phát triển doanh nghiệp khoa học và công nghệ và tổ  chức  khoa  học  v�\n\ncông nghệ công lập thực hiện cơ chế tự chủ, tự chịu  trách  nhiệm  (sau  đây\n\nviết tắt là Chương trình) được phê duyệt tại Quyết định số 592/QĐ-TTg  ngày\n\n22 tháng 5 năm 2012 của Thủ tướng Chính phủ.\n\n\n\n\n\n    2. Thông tư này áp dụng đối với tổ chức, cá nhân tham gia quản  lý  v�\n\nthực hiện Chương trình."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-2",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 2",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 2. Giải thích từ ngữ\n\n\n\n\n\n    1. Cơ quan chủ quản dự án:\n\n\n\n\n\n    a) Bộ Khoa học và Công nghệ là cơ quan chủ quản đối với các dự  án  của\n\nChương trình do Bộ Khoa học và Công nghệ trực tiếp quản lý;\n\n\n\n\n\n    b) Các Bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ, cơ quan nhà  nước\n\nkhác ở Trung ương (sau đây viết tắt là Bộ, ngành) là cơ quan chủ  quản  đối\n\nvới các dự án của Chương trình do Bộ, ngành quản lý;\n\n\n\n\n\n    c) Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương (sau đây viết\n\ntắt là Ủy ban nhân dân cấp tỉnh) là cơ quan chủ quản đối với các dự  án  của\n\nChương trình do địa phương quản lý và các dự án do Trung ương ủy  quyền  địa\n\nphương quản lý (nếu có).\n\n\n\n\n\n    2. Tổ chức, cá nhân chủ trì thực hiện dự án là tổ chức, cá nhân đề xuất\n\ndự án và được cấp thẩm quyền phê duyệt, giao thực hiện dự án."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-3",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 3",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 3. Nguyên tắc huy động các nguồn tài chính\n\n\n\n\n\n    1. Dự án cần có phương án huy động các nguồn tài chính, trong  đó  nêu\n\nđầy đủ nhu cầu về kinh phí, chi tiết theo từng nguồn  nêu  tại  Điều  6  của\n\nThông tư này và thuyết minh rõ khả năng huy động các nguồn  tài  chính  để\n\nthực hiện dự án.\n\n\n\n\n\n    2. Phương án huy động các nguồn tài chính đảm bảo tính khả thi:\n\n\n\n\n\n    a) Các nguồn kinh phí ngoài ngân sách để thực hiện dự án cần được  các\n\ntổ chức tài chính, tín dụng, quỹ xác nhận; vốn, tài sản của  tổ  chức,  cá\n\nnhân để đối ứng thực hiện dự án do tổ chức, cá nhân tự bảo đảm;\n\n\n\n\n\n    b) Các nguồn kinh phí từ ngân sách nhà nước để thực hiện dự án cần có ý\n\nkiến bằng văn bản của cơ quan quản lý nhà nước về nguồn kinh phí đó.\n\n\n\n\n\n    3. Trước khi phê duyệt dự án, cơ quan có thẩm quyền phê duyệt dự án bảo\n\nđảm phương án huy động đủ các nguồn tài chính để thực hiện dự án."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-4",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 4",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 4. Nguyên tắc hỗ trợ và sử dụng kinh phí từ nguồn  ngân  sách  nh�\n\nnước\n\n\n\n\n\n    1. Việc cân đối nguồn ngân sách nhà nước đảm bảo cơ cấu theo tỷ lệ  với\n\ncác nguồn kinh phí huy động khác ngoài ngân sách theo dự án được duyệt. Nh�\n\nnước đảm bảo bố trí đủ kinh phí hỗ trợ từ nguồn ngân sách nhà nước  cho  các\n\ndự án đã được phê duyệt.\n\n\n\n\n\n    2. Kinh phí hỗ trợ từ nguồn ngân sách nhà nước được lập  kế  hoạch  chi\n\ntiết theo từng loại nguồn vốn cho cả giai đoạn thực hiện; được  phân  bổ  v�\n\nsử dụng theo tiến độ và cơ cấu trong dự toán của dự án đã được phê duyệt.\n\n\n\n\n\n    3. Quy trình lập dự toán, phân bổ, sử dụng và thanh quyết toán kinh phí\n\nhỗ trợ từ nguồn ngân sách nhà nước thực hiện theo quy  định  của  Luật  Ngân\n\nsách nhà nước và các văn bản hướng dẫn.\n\n\n\n\n\n    4. Các tổ chức, cá nhân, doanh nghiệp sử dụng kinh phí hỗ trợ từ  nguồn\n\nngân sách nhà nước để thực hiện dự án đảm bảo đúng mục đích, đúng chế độ  v�\n\nchịu sự kiểm tra, kiểm soát của cơ quan chức năng có  thẩm  quyền  theo  quy\n\nđịnh hiện hành."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-5",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 5",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 5. Nguyên tắc sử dụng kinh phí ngoài ngân sách nhà nước\n\n\n\n\n\n    1. Tổ chức, cá nhân chủ trì thực hiện dự án có trách nhiệm sử  dụng  v�\n\ngiải ngân kinh phí ngoài ngân sách nhà nước theo đúng phương  án  huy  động\n\ncác nguồn tài chính, đảm bảo về cơ cấu theo tỷ lệ với nguồn ngân  sách  nh�\n\nnước theo dự án đã được phê duyệt.\n\n\n\n\n\n    2. Tổ chức, cá nhân chủ trì thực hiện dự án có  trách  nhiệm  giám  sát\n\nviệc huy động, giải ngân nguồn kinh phí ngoài ngân sách nhà nước đúng  tiến\n\nđộ, cơ cấu, tổng mức theo hợp đồng đã ký.\n\n\n\n                                  Chương II\n\n                            NHỮNG QUY ĐỊNH CỤ THỂ"
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-6",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 6",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 6. Kinh phí thực hiện Chương trình\n\n\n\n\n\n    1. Kinh phí thực hiện Chương trình được bảo đảm từ các nguồn:\n\n\n\n\n\n    a) Ngân sách nhà nước:\n\n\n\n\n\n    - Ngân sách Trung ương cân đối cho các nhiệm vụ của Chương trình do các\n\nBộ, ngành thực hiện và các hoạt động chung của Chương trình  do  Văn  phòng\n\ncác Chương trình khoa học và công nghệ quốc gia (sau đây  viết  tắt  là  Văn\n\nphòng Chương trình quốc gia) tổ chức thực hiện;\n\n\n\n\n\n    - Ngân sách địa phương và ngân sách Trung ương bổ sung có mục tiêu  cho\n\nngân sách địa phương cân đối cho các  nhiệm  vụ  của  Chương  trình  do  địa\n\nphương thực hiện và các nhiệm vụ do Trung ương  ủy  quyền  địa  phương  thực\n\nhiện;\n\n\n\n\n\n    - Kinh phí do ngân sách nhà nước cân đối thực hiện các nhiệm  vụ  thuộc\n\nChương trình được bố trí trong dự toán chi ngân sách hằng năm  của  các  Bộ,\n\nngành, địa phương.\n\n\n\n\n\n    b) Quỹ đổi mới công nghệ quốc gia, Quỹ phát triển khoa học và công nghệ\n\nquốc gia và các quỹ hợp pháp khác;\n\n\n\n\n\n    c) Các nguồn hợp pháp khác (vốn tín dụng, vốn ODA, vốn hợp tác quốc tế,\n\nviện trợ của nước ngoài và nguồn vốn khác);\n\n\n\n\n\n    d) Nguồn kinh phí đối ứng bao gồm:\n\n\n\n\n\n    - Kinh phí đóng góp của các cơ quan, đơn vị, cá nhân thực hiện  dự  án,\n\nnhiệm vụ;\n\n\n\n\n\n    - Kinh phí huy động từ các nguồn hợp pháp khác.\n\n\n\n\n\n    2. Ngân sách Trung ương bổ sung có mục tiêu cho ngân sách địa phương để\n\ntriển khai các dự án do Trung ương ủy quyền địa phương  quản  lý  được  thực\n\nhiện theo nguyên tắc:\n\n\n\n\n\n    a) Đối với địa phương có điều tiết các khoản thu phân chia về ngân sách\n\ntrung ương trên 50%, ngân sách Trung ương không hỗ trợ kinh  phí  thực  hiện\n\ncác dự án mà bố trí từ nguồn ngân sách địa phương để thực hiện;\n\n\n\n\n\n    b) Đối với các địa phương có điều tiết các khoản thu phân chia về  ngân\n\nsách Trung ương dưới 50%, ngân sách Trung ương hỗ trợ có mục  tiêu  cho  địa\n\nphương tối đa 50% mức kinh phí ngân sách nhà nước hỗ trợ để thực hiện dự  án\n\nđược quy định tại Thông tư này;\n\n\n\n\n\n    c) Đối với các địa phương chưa tự cân đối được ngân sách và tỉnh  Quảng\n\nNgãi (là tỉnh điều tiết về ngân sách Trung ương nhưng có  06  huyện  nghèo),\n\nngân sách Trung ương hỗ trợ có mục tiêu cho địa phương tối đa 70%  mức  kinh\n\nphí ngân sách nhà nước hỗ trợ để thực hiện dự án được quy định tại Thông  tư\n\nnày.\n\n\n\n\n\n    3. Bộ, ngành và Ủy ban nhân dân cấp tỉnh quản lý, sử dụng kinh phí ngân\n\nsách nhà nước để thực hiện các dự án thuộc Chương trình có  hiệu  quả,  lồng\n\nghép và không trùng lặp với chương trình, dự án khác."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-7",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 7",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 7. Nội dung và mức hỗ trợ từ ngân sách nhà nước đối với các dự  án\n\nthuộc Chương trình\n\n\n\n\n\n    1. Hỗ trợ mức kinh phí tối đa đến 80 triệu đồng cho hoạt  động  tư  vấn\n\ncủa các dự án được cấp có thẩm quyền phê duyệt, bao gồm: dự án hỗ trợ thành\n\nlập cơ sở và đầu mối ươm tạo công nghệ, ươm tạo doanh  nghiệp  khoa  học  v�\n\ncông nghệ; dự án hỗ trợ hoạt động ươm tạo công nghệ, ươm  tạo  doanh  nghiệp\n\nkhoa học và công nghệ; dự án hỗ trợ phát triển  doanh  nghiệp  khoa  học  v�\n\ncông nghệ. Nội dung các hoạt động tư vấn được thực hiện theo  hướng  dẫn  cụ\n\nthể của Bộ Khoa học và Công nghệ.\n\n\n\n\n\n    2. Hỗ trợ 50% kinh phí đào tạo, bồi dưỡng, tập huấn ngắn hạn trong nước\n\ncho cán bộ quản lý và người làm việc tại các cơ sở, đầu mối  ươm  tạo  công\n\nnghệ, ươm tạo doanh nghiệp khoa học và công nghệ; các doanh nghiệp khoa  học\n\nvà công nghệ và các tổ chức khoa học và công nghệ công lập thực hiện cơ  chế\n\ntự chủ, tự chịu trách nhiệm.\n\n\n\n\n\n    Nội dung và mức chi cụ thể thực hiện theo hướng dẫn  tại  Thông  tư  số\n\n139/2010/TT-BTC ngày 21 tháng 9 năm 2010 của Bộ Tài chính quy định việc lập\n\ndự toán, quản lý và sử dụng kinh phí ngân sách nhà nước dành cho  công  tác\n\nđào tạo, bồi dưỡng cán bộ công chức nhà nước và Thông tư  số  05/2011/TTLT-\n\nBKHĐT-BTC ngày 31 tháng 3 năm 2011 của liên Bộ Kế hoạch và Đầu tư, Bộ  Tài\n\nchính hướng dẫn trợ giúp đào tạo, bồi dưỡng nguồn nhân lực  cho  các  doanh\n\nnghiệp nhỏ và vừa.\n\n\n\n\n\n    3. Kinh phí sử dụng trang thiết bị, dịch vụ tại các  phòng  thí  nghiệm\n\ntrọng điểm quốc gia, cơ sở ươm tạo công nghệ, ươm tạo doanh nghiệp khoa  học\n\nvà công nghệ được hỗ trợ theo định mức như sau:\n\n\n\n\n\n    - Tối đa 50% chi phí vận hành máy móc, thiết bị (bao gồm  cả  chi  phí\n\nnhân công) tại các phòng thí nghiệm trọng điểm quốc gia, cơ sở ươm tạo  công\n\nnghệ, ươm tạo doanh nghiệp khoa học và công nghệ của dự án được cấp có  thẩm\n\nquyền phê duyệt;\n\n\n\n\n\n    - Tối đa 30% kinh phí thực hiện các nội dung của dự án được cấp có thẩm\n\nquyền phê duyệt, bao gồm: kinh phí mua vật tư, nguyên liệu,  nhiên  liệu  sử\n\ndụng trong quá trình thực hiện thí nghiệm; kinh phí thuê các  dịch  vụ  được\n\ncung cấp bởi phòng thí nghiệm trọng điểm quốc gia, cơ sở ươm tạo công  nghệ,\n\nươm tạo doanh nghiệp khoa học và công nghệ.\n\n\n\n\n\n    4. Kinh phí cho hoạt động nghiên cứu để phát triển  ý  tưởng,  giải  mã\n\ncông nghệ, hoàn thiện công nghệ để tạo ra sản phẩm mới được hỗ trợ như sau:\n\n\n\n\n\n    - Hỗ trợ 100% kinh phí cho hoạt động nghiên cứu, giải mã công  nghệ  để\n\nra vật mẫu, "
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-8",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 8",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 8. Nội dung và định mức chi hoạt động chung của Chương trình\n\n\n\n\n\n    1. Chi hoạt động của Ban Chỉ đạo:\n\n\n\n\n\n    a) Chi tổ chức các cuộc họp định kỳ, đột xuất của Ban Chỉ đạo;\n\n\n\n\n\n    b) Chi tổ chức các đoàn công tác kiểm tra, giám sát; tổ chức  sơ  kết,\n\ntổng kết đánh giá kết quả thực hiện Chương trình;\n\n\n\n\n\n    c) Các khoản chi khác của Ban Chỉ đạo.\n\n\n\n\n\n    2. Chi hoạt động chung, các dự án phục vụ công tác quản lý  của  Chương\n\ntrình:\n\n\n\n\n\n    a) Điều tra, khảo sát, phát hiện, phân loại các tổ  chức,  cá  nhân  có\n\ntiềm lực hình thành doanh nghiệp khoa học và công nghệ;\n\n\n\n\n\n    b) Điều tra, đánh giá, phân loại các tổ chức khoa học và công nghệ công\n\nlập để xây dựng kế hoạch, lộ trình chuyển đổi hoạt động sang cơ chế tự  chủ,\n\ntự chịu trách nhiệm;\n\n\n\n\n\n    c) Xây dựng cơ sở dữ liệu về doanh nghiệp khoa học và công nghệ của  cả\n\nnước, bao gồm việc thành lập, số lượng, tình hình hoạt  động,  phát  triển,\n\ntình trạng sử dụng công nghệ và khả năng tiếp cận công nghệ  mới  của  doanh\n\nnghiệp khoa học và công nghệ;\n\n\n\n\n\n    d) Thiết kế, xây dựng, vận hành trang thông tin điện tử  để  phổ  biến\n\nthông tin công nghệ và doanh nghiệp khoa học và công nghệ;\n\n\n\n\n\n    đ) Thông tin, tuyên truyền về hoạt động của Chương  trình  và  kết  quả\n\nthực hiện dự án thuộc Chương trình;\n\n\n\n\n\n    e) Triển khai các nhiệm vụ khoa học và công nghệ để nghiên cứu, đề xuất\n\nsửa đổi, bổ sung, hoàn thiện cơ chế, chính sách  phát  triển  doanh  nghiệp\n\nkhoa học và công nghệ và cơ chế tự chủ, tự chịu trách nhiệm của các tổ  chức\n\nkhoa học và công nghệ công lập;\n\n\n\n\n\n    g) Các khoản chi khác phục vụ công tác quản lý của Chương trình.\n\n\n\n\n\n    3. Chi hoạt động của Văn phòng Chương trình quốc gia phục vụ  công  tác\n\nquản lý Chương trình:\n\n\n\n\n\n    a) Tiền lương, tiền công và các khoản chi theo lương của cán  bộ,  nhân\n\nviên Văn phòng Chương trình quốc gia tham gia quản lý Chương trình;\n\n\n\n\n\n    b) Chi tổ chức các hội đồng thẩm định, hội đồng khoa học và công nghệ;\n\n\n\n\n\n    c) Chi xét duyệt, kiểm tra, đánh giá nghiệm thu các dự  án  của  Chương\n\ntrình;\n\n\n\n\n\n    d) Chi công tác kiểm toán độc lập;\n\n\n\n\n\n    đ) Chi công tác phí, hội nghị, hội thảo khoa học, tổ chức các hội  nghị\n\nsơ kết, tổng kết Chương trình, biên soạn và in ấn sách chuyên khảo, kết  quả\n\ncủa Chương trình;\n\n\n\n\n\n    e) Chi tiền nhà, điện, nước, thông tin liên lạc, mua đồ dùng, thiết bị\n\nvăn phòng, văn phòng phẩm;\n\n\n\n\n\n    g) Chi xăng xe, thuê phương tiện phục vụ công tác chuyên môn;\n\n\n\n\n\n    h) Chi mua sắm, sửa chữa tài sả"
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-9",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 9",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 9. Lập dự toán, phân bổ và giao dự toán kinh phí của Chương trình\n\n\n\n\n\n    Việc lập dự toán, phân bổ và giao dự toán ngân sách nhà nước  từ  nguồn\n\nkinh phí sự nghiệp khoa học và công nghệ đối  với  Chương  trình  thực  hiện\n\ntheo quy định của Luật Ngân sách nhà nước, các văn bản hướng dẫn hiện hành.\n\nThông tư này hướng dẫn một số nội dung cụ thể như sau:\n\n\n\n\n\n    1. Hằng năm, vào thời điểm lập dự toán thu, chi ngân sách nhà nước, các\n\nđơn vị được giao thực hiện dự án của Chương trình; căn cứ vào các nhiệm  vụ\n\nthuộc dự án được duyệt và các nội dung hướng dẫn tại Thông tư này để lập dự\n\ntoán kinh phí bảo đảm cho việc thực hiện dự án  của  Chương  trình,  gửi  cơ\n\nquan chủ quản để tổng hợp chung vào dự toán của các Bộ, ngành, địa  phương\n\ntrình cấp có thẩm quyền phê duyệt; đồng thời gửi Bộ Khoa học  và  Công  nghệ\n\nđể tổng hợp và phối hợp thực hiện.\n\n\n\n\n\n    2. Đối với kinh phí ngân sách Trung ương hỗ trợ ngân sách địa phương để\n\nthực hiện các nhiệm vụ ủy quyền cho địa phương quản lý: Bộ Khoa học và  Công\n\nnghệ lập dự toán hỗ trợ ngân sách cho từng địa phương và  tổng  hợp  gửi  Bộ\n\nTài chính cùng thời điểm lập dự toán chi ngân sách Trung ương hằng năm theo\n\nquy định của Luật Ngân sách nhà nước.\n\n\n\n\n\n    3. Kinh phí thực hiện dự án do Bộ Khoa học và Công nghệ trực tiếp  quản\n\nlý, kinh phí hoạt động của Ban Chỉ đạo Chương  trình,  kinh  phí  hoạt  động\n\nchung, các dự án phục vụ công tác quản lý của Chương trình và kinh phí  hoạt\n\nđộng của Văn phòng Chương trình quốc gia phục vụ công  tác  quản  lý  Chương\n\ntrình ở Trung ương do Văn phòng Chương trình quốc gia lập dự toán  theo  quy\n\nđịnh hiện hành gửi Bộ Khoa học và Công nghệ để tổng hợp phương án  phân  bổ\n\ndự toán chi ngân sách hằng năm gửi Bộ Tài chính theo quy định của Luật Ngân\n\nsách nhà nước.\n\n\n\n\n\n    Kinh phí hoạt động quản lý chung của Chương trình  ở  từng  địa  phương\n\n(nếu có) do địa phương bảo đảm trong dự toán ngân sách địa phương hằng năm.\n\n\n\n\n\n    4. Việc phân bổ và giao dự toán thực hiện theo quy định  quản  lý  tài\n\nchính và phân cấp ngân sách nhà nước hiện hành. Đối với  các  dự  án  trung\n\nương ủy quyền cho địa phương quản lý thì dự toán giao về từng địa phương  để\n\nquản lý theo hình thức hỗ trợ có mục tiêu."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-10",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 10",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 10. Giải ngân kinh phí từ nguồn  ngân  sách  nhà  nước  thực  hiện\n\nChương trình\n\n\n\n\n\n    1. Đối với dự án do Bộ, ngành quản lý:\n\n\n\n\n\n    a) Nhận kinh phí và kiểm soát chi:\n\n\n\n\n\n    - Đối với các dự án do Bộ Khoa học và Công nghệ trực tiếp quản lý,  Văn\n\nphòng Chương trình quốc gia mở tài khoản dự toán tại Kho bạc  Nhà  nước  để\n\ntiếp nhận kinh phí chi thực hiện các dự án do Bộ Khoa học và Công nghệ  trực\n\ntiếp quản lý; hoạt động của Ban chỉ đạo Chương trình; hoạt động  chung,  các\n\ndự án phục vụ công tác quản lý Chương trình  và  hoạt  động  của  Văn  phòng\n\nChương trình quốc gia phục vụ công tác  quản  lý  Chương  trình.  Văn  phòng\n\nChương trình quốc gia có trách nhiệm kiểm  soát  chi  và  chịu  trách  nhiệm\n\ntrước pháp luật về tính hợp pháp, hợp lệ, hồ sơ, chứng từ chi  của  tổ  chức\n\nchủ trì dự án; thực hiện thanh quyết toán với  Kho  bạc  Nhà  nước  nơi  Văn\n\nphòng các Chương trình quốc gia giao dịch theo quy định hiện hành.\n\n\n\n\n\n    Kho bạc Nhà nước thực hiện kiểm soát theo các  điều  khoản  đã  ký  kết\n\ntrong hợp đồng thực hiện dự án, không kiểm soát tài khoản tiền gửi  của  tổ\n\nchức chủ trì đề tài, dự án mở tại Kho bạc Nhà nước; không kiểm soát  hồ  sơ\n\nchi tiết từng khoản chi của tổ chức chủ trì dự án.\n\n\n\n\n\n    - Đối với các dự án do Bộ, ngành khác quản lý, Bộ, ngành quản lý,  sử\n\ndụng và giao dự toán kinh phí thực hiện các dự án cho tổ chức, cá  nhân  chủ\n\ntrì theo đúng quy định quản lý ngân sách nhà nước hiện hành;\n\n\n\n\n\n    - Tổ chức, cá nhân chủ trì thực hiện dự án mở tài khoản tại Kho bạc Nh�\n\nnước nơi giao dịch để tiếp nhận kinh phí thực hiện dự án và  tự  chịu  trách\n\nnhiệm về quyết định chi tiêu của mình, chịu sự kiểm tra, kiểm soát  của  Bộ,\n\nngành về tình hình sử dụng và quyết toán kinh phí thực hiện. Đối với các dự\n\nán do Bộ Khoa học và Công nghệ trực tiếp quản lý, tổ chức, cá nhân  chủ  trì\n\nthực hiện dự án mở tài khoản tiền gửi tại Kho bạc Nhà nước nơi giao dịch để\n\ntiếp nhận kinh phí thực hiện dự án; tự chịu trách nhiệm về  quyết  định  chi\n\ntiêu của mình và chịu sự kiểm tra, kiểm soát  của  Văn  phòng  Chương  trình\n\nquốc gia về tình hình sử dụng và quyết toán kinh phí.\n\n\n\n\n\n    - Kho bạc Nhà nước kiểm soát các khoản chi ngân sách nhà nước tại  tài\n\nkhoản dự toán của đơn vị sử dụng ngân sách nhà nước theo quy định của  Thông\n\ntư số 161/2012/TT-BTC ngày 02 tháng 10 năm 2012 của Bộ Tài chính về chế độ\n\nkiểm soát, thanh toán các khoản chi ngân sách  nhà  nước  qua  Kho  bạc  Nh�\n\nnước.\n\n\n\n\n\n    b) Tạm ứng:\n\n\n\n\n\n    - Khi tạm ứng k"
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-11",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 11",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 11. Quyết toán kinh phí thực hiện Chương trình\n\n\n\n\n\n    1. Kinh phí thực hiện các dự án, nhiệm vụ của Chương trình được sử dụng\n\nvà quyết toán theo quy định của Luật Ngân sách  nhà  nước  và  các  văn  bản\n\nhướng dẫn hiện hành.\n\n\n\n\n\n    2. Kinh phí thực hiện các dự án, nhiệm vụ của Chương  trình  khi  quyết\n\ntoán phải đảm bảo đầy đủ chứng từ hợp pháp, hợp lệ theo quy định tài  chính\n\nhiện hành."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-12",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 12",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 12. Công tác kiểm tra tài chính Chương trình\n\n\n\n\n\n    1. Hằng năm, các Bộ, ngành và Ủy ban nhân dân cấp tỉnh thực hiện  kiểm\n\ntra thường xuyên hoặc đột xuất tình hình thực hiện dự án, đánh giá tiến  độ,\n\nhiệu quả sử dụng ngân sách nhà nước của các dự án được  giao  quản  lý  hoặc\n\nđược ủy quyền quản lý, báo cáo về Văn phòng Chương  trình  quốc  gia  để  Bộ\n\nKhoa học và Công nghệ tổng hợp.\n\n\n\n\n\n    Văn phòng Chương trình quốc gia có trách nhiệm kiểm  tra  thường  xuyên\n\nhoặc đột xuất tình hình thực hiện dự án, đánh giá tiến độ, hiệu quả sử  dụng\n\nngân sách nhà nước của các dự án do Bộ Khoa học và Công nghệ trực tiếp  quản\n\nlý; phối hợp với các Bộ, ngành và Ủy ban nhân dân cấp tỉnh kiểm tra  thường\n\nxuyên hoặc đột xuất tình hình thực hiện dự án của Chương trình  do  các  bộ,\n\nngành, cơ quan trung ương và địa phương quản lý.\n\n\n\n\n\n    2. Trường hợp dự án không thực hiện đúng kế hoạch, sử dụng kinh phí sai\n\nmục đích, sai chế độ thì dự án bị đình chỉ và thu hồi kinh phí  đã  sử  dụng\n\nsai mục đích nộp ngân sách nhà nước, đồng thời thông báo  cho  Kho  bạc  Nh�\n\nnước nơi giao dịch để cùng phối hợp thực hiện việc  thu  hồi  kinh  phí  nộp\n\nngân sách nhà nước."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-13",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 13",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 13. Xử lý khi chấm dứt hợp đồng\n\n\n\n\n\n    Khi kết thúc thời hạn hợp đồng nhưng nghiệm thu không đạt yêu cầu, hoặc\n\nbị dừng thực hiện do khi kiểm tra cơ quan quản lý nhà  nước  có  thẩm  quyền\n\nthấy không thực hiện theo đúng yêu cầu mục tiêu đề ra hoặc cơ quan  chủ  trì\n\nđề nghị không tiếp tục thực hiện dự án được xem xét, quyết  định  về  xử  lý\n\ntheo quy định hiện hành về xử lý dự án không hoàn thành."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-14",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 14",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 14. Quản lý, sử dụng và xử lý tài sản của Chương trình\n\n\n\n\n\n    Việc quản lý, sử dụng và xử lý tài sản của Chương trình được thực hiện\n\ntheo quy định của pháp luật về mua sắm, quản lý, sử dụng và xử lý  tài  sản\n\nnhà nước.\n\n\n\n                                 Chương III\n\n                              TỔ CHỨC THỰC HIỆN"
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-15",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 15",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 15. Hiệu lực thi hành\n\n\n\n\n\n    Thông tư liên tịch này có hiệu lực thi hành kể từ ngày 08 tháng 6 năm\n\n2014."
+  },
+  {
+    "id": "vbpl37690-49-2014-ttlt-btc-bkhcn-16",
+    "title": "49/2014/TTLT-BTC-BKHCN",
+    "clause": "Điều 16",
+    "status": "Còn hiệu lực (nguồn: crawl vbpl.vn, cần xác minh lại trước khi dùng nộp hồ sơ thật)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+    "tags": [
+      "thong-tu-lien-tich",
+      "quan-ly-ngan-sach"
+    ],
+    "text": "Điều 16. Trách nhiệm thi hành\n\n\n\n\n\n    Bộ Tài chính chủ trì, phối hợp với Bộ Khoa học và Công nghệ hướng  dẫn\n\nvà tổ chức thực hiện Thông tư này.\n\n\n\n\n\n    Trong quá trình thực hiện, nếu có vướng mắc, đề nghị các  tổ  chức,  cá\n\nnhân phản ánh về Bộ Tài chính, Bộ Khoa học và Công nghệ để xem xét sửa đổi,\n\nbổ sung cho phù hợp./.\n\n\n\n\n\n�\n\n\n\n\n\n|KT. BỘ TRƯỞNG                     |KT. BỘ TRƯỞNG                       |\n\n|BỘ KHOA HỌC VÀ CÔNG NGHỆ          |BỘ TÀI CHÍNH                        |\n\n|THỨ TRƯỞNG                        |THỨ TRƯỞNG                          |\n\n|                                  |                                    |\n\n|(Đã ký)                           |(Đã ký)                             |\n\n|                                  |                                    |\n\n|                                  |                                    |\n\n|Trần Quốc Khánh                   |Vũ Thị Mai                          |\n\n|                                  |                                    |\n\n|Nơi nhận:                         |                                    |\n\n|- Văn phòng TW Đảng;              |                                    |\n\n|- Văn phòng Quốc hội;             |                                    |\n\n|- Văn phòng Chủ tịch nước;        |                                    |\n\n|- Văn phòng Chính phủ;            |                                    |\n\n|- Viện Kiểm sát nhân dân tối cao; |                                    |\n\n|- Tòa án nhân dân tối cao;        |                                    |\n\n|- Các Bộ, cơ quan ngang Bộ, cơ    |                                    |\n\n|quan thuộc Chính phủ;             |                                    |\n\n|- Kiểm toán Nhà nước;             |                                    |\n\n|- Cơ quan trung ương của các Hội, |                                    |\n\n|đoàn thể;                         |                                    |\n\n|- UBND, Sở Tài chính, Sở KH&CN,   |                                    |\n\n|Kho bạc Nhà nước các tỉnh, thành  |                                    |\n\n|phố trực thuộc TW;                |                                    |\n\n|- Cục kiểm tra văn bản Bộ Tư pháp;|                                    |\n\n|- Công báo, Website Chính phủ;    |                                    |\n\n|- Website Bộ Tài chính; Website Bộ|                                    |\n\n|KH&CN;                            |                                    |\n\n|- Lưu: Bộ TC (VT, Vụ HCSN); Bộ    |                        "
   }
 ]

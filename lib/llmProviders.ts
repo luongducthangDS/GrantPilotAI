@@ -1,8 +1,10 @@
 import "server-only";
 
-import { GoogleGenAI } from "@google/genai";
-
-export type LlmProvider = "google" | "openai" | "anthropic" | "xai";
+// FPT.AI Marketplace only — OpenAI-compatible chat completions
+// (POST {baseUrl}/chat/completions, Bearer auth, standard messages/choices
+// shape). Confirmed against a real curl example from the account owner
+// (2026-07-19); no Gemini/OpenAI/Anthropic/xAI calls remain in this app.
+export type LlmProvider = "fptai";
 
 export type LlmConfig = {
   provider: LlmProvider;
@@ -16,58 +18,34 @@ export type ImageInput = {
 };
 
 export const PROVIDER_LABELS: Record<LlmProvider, string> = {
-  google: "Google Gemini",
-  openai: "OpenAI",
-  anthropic: "Anthropic Claude",
-  xai: "xAI Grok"
+  fptai: "FPT.AI Marketplace"
 };
 
+// "Answer chính" per the account owner's model-assignment table: the model
+// used for the reasoning-heavy tasks (grounded Q&A, policy-match analysis)
+// where following the anti-hallucination/nuance rules in each route's
+// SYSTEM_INSTRUCTION matters most.
 export const DEFAULT_MODELS: Record<LlmProvider, string> = {
-  google: "gemini-2.5-flash",
-  openai: "gpt-4o-mini",
-  anthropic: "claude-sonnet-4-5",
-  xai: "grok-4-fast"
+  fptai: "GLM-5.2"
 };
 
-// Vision-capable default per provider — kept separate since some fast/cheap
-// text defaults (e.g. grok-4-fast) may not be the provider's best OCR model.
+// "Tác vụ nhẹ" — a lighter/cheaper model for more mechanical extraction-style
+// tasks (checklist item matching, free-form .txt field extraction) that
+// don't need GLM-5.2's full reasoning budget.
+export const DEFAULT_LIGHT_MODELS: Record<LlmProvider, string> = {
+  fptai: "DeepSeek-V4-Flash"
+};
+
+// Vision-capable default — Qwen2.5-VL-7B-Instruct is the only confirmed
+// vision model in the account's catalog; none of the other text models
+// (GLM/DeepSeek/gpt-oss/Llama/etc.) accept image input.
 export const DEFAULT_VISION_MODELS: Record<LlmProvider, string> = {
-  google: "gemini-2.5-flash",
-  openai: "gpt-4o-mini",
-  anthropic: "claude-sonnet-4-5",
-  xai: "grok-4"
+  fptai: "Qwen2.5-VL-7B-Instruct"
 };
 
-async function generateGoogle(
-  config: LlmConfig,
-  systemInstruction: string,
-  prompt: string,
-  images?: ImageInput[],
-  responseSchema?: object
-): Promise<string> {
-  const ai = new GoogleGenAI({ apiKey: config.apiKey });
-  const parts: Array<{ text: string } | { inlineData: { data: string; mimeType: string } }> = [{ text: prompt }];
-  (images ?? []).forEach((image) => parts.unshift({ inlineData: { data: image.data, mimeType: image.mimeType } }));
+const FPT_AI_BASE_URL = process.env.CUSTOM_LLM_BASE_URL || "https://mkp-api.fptcloud.com/v1";
 
-  // temperature 0.1 (was 0.2): every use case in this app is grounded
-  // extraction/analysis (OCR fields, policy explanations, cited Q&A) with no
-  // creative-writing need — caught a live case where profile OCR filled in a
-  // founded_year that didn't appear anywhere in the source document at 0.2.
-
-  const response = await ai.models.generateContent({
-    model: config.model,
-    contents: [{ role: "user", parts }],
-    config: responseSchema
-      ? { systemInstruction, temperature: 0.1, responseMimeType: "application/json", responseSchema }
-      : { systemInstruction, temperature: 0.1 }
-  });
-  const text = response.text?.trim();
-  if (!text) throw new Error("Gemini trả về phản hồi rỗng.");
-  return text;
-}
-
-async function generateOpenAiCompatible(
-  baseUrl: string,
+async function generateFptAi(
   config: LlmConfig,
   systemInstruction: string,
   prompt: string,
@@ -80,7 +58,7 @@ async function generateOpenAiCompatible(
       ]
     : prompt;
 
-  const response = await fetch(`${baseUrl}/chat/completions`, {
+  const response = await fetch(`${FPT_AI_BASE_URL}/chat/completions`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -88,7 +66,12 @@ async function generateOpenAiCompatible(
     },
     body: JSON.stringify({
       model: config.model,
+      // temperature 0.1: every use case in this app is grounded
+      // extraction/analysis (OCR fields, policy explanations, cited Q&A)
+      // with no creative-writing need — a lower temperature reduces the
+      // model's tendency to fabricate a plausible-looking value.
       temperature: 0.1,
+      stream: false,
       messages: [
         { role: "system", content: systemInstruction },
         { role: "user", content: userContent }
@@ -98,77 +81,37 @@ async function generateOpenAiCompatible(
 
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`${baseUrl} trả về lỗi ${response.status}: ${body.slice(0, 300)}`);
+    throw new Error(`FPT.AI Marketplace trả về lỗi ${response.status}: ${body.slice(0, 300)}`);
   }
 
-  const data = (await response.json()) as { choices?: { message?: { content?: string } }[] };
-  const text = data.choices?.[0]?.message?.content?.trim();
+  const data = (await response.json()) as {
+    choices?: { message?: { content?: string | null; reasoning_content?: string | null } }[];
+  };
+  const message = data.choices?.[0]?.message;
+  // GLM-5.2 (a "thinking" model) puts its actual answer in reasoning_content
+  // instead of content specifically when response_format: json_object is
+  // set — content comes back null — verified live against this deployment.
+  // content is normally the real field for every other model, so try it
+  // first and only fall back to reasoning_content when it's empty.
+  const text = (message?.content?.trim() || message?.reasoning_content?.trim()) ?? undefined;
   if (!text) throw new Error("Phản hồi rỗng từ LLM.");
   return text;
 }
 
-async function generateAnthropic(config: LlmConfig, systemInstruction: string, prompt: string, images?: ImageInput[]): Promise<string> {
-  const userContent = images?.length
-    ? [
-        ...images.map((image) => ({ type: "image" as const, source: { type: "base64" as const, media_type: image.mimeType, data: image.data } })),
-        { type: "text" as const, text: prompt }
-      ]
-    : prompt;
-
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": config.apiKey,
-      "anthropic-version": "2023-06-01"
-    },
-    body: JSON.stringify({
-      model: config.model,
-      max_tokens: 1536,
-      temperature: 0.1,
-      system: systemInstruction,
-      messages: [{ role: "user", content: userContent }]
-    })
-  });
-
-  if (!response.ok) {
-    const body = await response.text();
-    throw new Error(`Anthropic trả về lỗi ${response.status}: ${body.slice(0, 300)}`);
-  }
-
-  const data = (await response.json()) as { content?: { type: string; text?: string }[] };
-  const text = data.content?.find((block) => block.type === "text")?.text?.trim();
-  if (!text) throw new Error("Phản hồi rỗng từ Anthropic.");
-  return text;
-}
-
-// Generates a grounded answer with the caller's chosen provider/model/key.
+// Generates a grounded answer with the caller's chosen model/key.
 // Throws on any failure — callers are expected to catch and fall back
 // (e.g. to the rule-based local answerer) rather than surface raw errors.
 export async function generateAnswer(config: LlmConfig, systemInstruction: string, prompt: string): Promise<string> {
   if (!config.apiKey) throw new Error("Thiếu API key.");
-
-  switch (config.provider) {
-    case "google":
-      return generateGoogle(config, systemInstruction, prompt);
-    case "openai":
-      return generateOpenAiCompatible("https://api.openai.com/v1", config, systemInstruction, prompt);
-    case "xai":
-      return generateOpenAiCompatible("https://api.x.ai/v1", config, systemInstruction, prompt);
-    case "anthropic":
-      return generateAnthropic(config, systemInstruction, prompt);
-    default:
-      throw new Error(`Nhà cung cấp không được hỗ trợ: ${config.provider}`);
-  }
+  return generateFptAi(config, systemInstruction, prompt);
 }
 
-// Same as generateAnswer, but attaches an image to the request (vision/OCR
-// use case). All 4 providers support image input on their current
-// vision-capable models; the caller is responsible for passing a model that
-// actually supports vision (see DEFAULT_VISION_MODELS). Gemini additionally
-// accepts non-image mimeTypes (e.g. "application/pdf") via the same
-// inlineData part — OpenAI/Anthropic's image content blocks do not, so
-// callers should only send a PDF when config.provider === "google".
+// Same as generateAnswer, but attaches image(s) to the request (vision/OCR
+// use case). Only a vision-capable model (see DEFAULT_VISION_MODELS) can
+// actually use this — the caller is responsible for passing one. PDF is NOT
+// supported here: unlike Gemini's inlineData part, an OpenAI-style
+// image_url content block needs an actual raster image (jpg/png/webp), so
+// callers must rasterize a PDF page before calling this.
 export async function generateVisionAnswer(
   config: LlmConfig,
   systemInstruction: string,
@@ -177,40 +120,27 @@ export async function generateVisionAnswer(
 ): Promise<string> {
   if (!config.apiKey) throw new Error("Thiếu API key.");
   const images = Array.isArray(image) ? image : [image];
-
-  switch (config.provider) {
-    case "google":
-      return generateGoogle(config, systemInstruction, prompt, images);
-    case "openai":
-      return generateOpenAiCompatible("https://api.openai.com/v1", config, systemInstruction, prompt, images);
-    case "xai":
-      return generateOpenAiCompatible("https://api.x.ai/v1", config, systemInstruction, prompt, images);
-    case "anthropic":
-      return generateAnthropic(config, systemInstruction, prompt, images);
-    default:
-      throw new Error(`Nhà cung cấp không được hỗ trợ: ${config.provider}`);
-  }
+  return generateFptAi(config, systemInstruction, prompt, images);
 }
 
-// Structured JSON output — Gemini-only. The SDK enforces the response is
-// valid JSON matching `schema`'s *shape*, which eliminates the "find a {...}
-// in freeform text" failure mode generateVisionAnswer/generateAnswer rely on
-// for the other providers. It does NOT enforce field-level semantics (e.g. a
-// STRING field still isn't guaranteed to be one of a specific enum unless
-// the schema itself declares one) — callers should still validate/normalize
-// values downstream. Deliberately does not mark fields `required` in the
-// schema you pass: doing so forces Gemini to invent a value for anything it
-// isn't sure about, which conflicts with this app's "leave it blank rather
-// than guess" rule for profile extraction.
-export async function generateGoogleJson(
+// No real schema-validated guarantee the way Gemini's responseSchema was —
+// this is just generateAnswer/generateVisionAnswer under a name that
+// signals intent at the call site. Callers must regex-extract the
+// {...}/[...] block from the returned text and validate/sanitize every
+// field themselves (this app's OCR and recommend routes do this as their
+// primary parsing path, not a fallback). Deliberately does NOT send
+// response_format: json_object — verified live that it breaks GLM-5.2 (a
+// "thinking" model): the API pushes the actual answer into a
+// reasoning_content field instead of content, and for a long/complex
+// prompt reasoning_content often never resolves into clean JSON at all.
+// Regular (non-forced) generation reliably puts the real answer in content.
+export async function generateJsonAnswer(
   config: LlmConfig,
   systemInstruction: string,
   prompt: string,
-  schema: object,
   image?: ImageInput | ImageInput[]
 ): Promise<string> {
   if (!config.apiKey) throw new Error("Thiếu API key.");
-  if (config.provider !== "google") throw new Error("Structured JSON output hiện chỉ hỗ trợ Google Gemini.");
   const images = image ? (Array.isArray(image) ? image : [image]) : undefined;
-  return generateGoogle(config, systemInstruction, prompt, images, schema);
+  return generateFptAi(config, systemInstruction, prompt, images);
 }

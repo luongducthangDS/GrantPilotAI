@@ -80,13 +80,21 @@ export type Answer = {
 
 export const sampleProfiles = sampleProfilesData as Profile[];
 export const policies = policiesData as Policy[];
-export const policyWatch = policyWatchData as Array<{
+
+// Source JSON isn't authored in date order (new entries get appended, not
+// inserted in place) — sort defensively here so every consumer (overview
+// preview, updates timeline) gets newest-first without each having to
+// remember to sort itself. ISO "YYYY-MM-DD" strings sort correctly with
+// plain string comparison.
+export const policyWatch = (policyWatchData as Array<{
   date: string;
   title: string;
   impact: string;
   status: string;
   source: string;
-}>;
+}>)
+  .slice()
+  .sort((a, b) => b.date.localeCompare(a.date));
 
 export type CorpusChunk = {
   id: string;
@@ -136,13 +144,22 @@ function tokens(value: string): Set<string> {
 }
 
 export function classifySme(profile: Profile): SmeResult {
-  const isTradeService = ["Phần mềm / AI", "Dịch vụ đổi mới sáng tạo"].includes(profile.industry);
+  // Điều 5 NĐ 80/2021/NĐ-CP splits thresholds by sector: "thương mại và dịch
+  // vụ" vs. "nông nghiệp, lâm nghiệp, thủy sản; công nghiệp và xây dựng".
+  // "Thương mại" belongs in the trade/service group — it was missing before,
+  // which silently pushed trade businesses through the stricter thresholds.
+  const isTradeService = ["Phần mềm / AI", "Dịch vụ đổi mới sáng tạo", "Thương mại"].includes(profile.industry);
   const employees = Number(profile.employees || 0);
   const revenue = Number(profile.revenue_bil || 0);
   const capital = Number(profile.capital_bil || 0);
   let size = "Không thuộc DNNVV";
 
-  if (employees <= 10 && revenue <= 10 && capital <= 3) {
+  // Siêu nhỏ: lao động <=10 VÀ (doanh thu <= ngưỡng HOẶC vốn <= 3 tỷ) — chỉ
+  // cần đạt MỘT trong hai điều kiện tài chính, không phải cả hai. Ngưỡng
+  // doanh thu khác nhau theo nhóm ngành: 10 tỷ cho thương mại/dịch vụ, 3 tỷ
+  // cho các nhóm còn lại.
+  const microRevenueCap = isTradeService ? 10 : 3;
+  if (employees <= 10 && (revenue <= microRevenueCap || capital <= 3)) {
     size = "Siêu nhỏ";
   } else if (isTradeService) {
     if (employees <= 50 && (revenue <= 100 || capital <= 50)) {

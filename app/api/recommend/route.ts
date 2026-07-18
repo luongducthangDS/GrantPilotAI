@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { classifySme, matchPolicies, type MatchResult, type Profile } from "@/lib/grantpilot";
-import { DEFAULT_MODELS, generateAnswer, generateGoogleJson, type LlmProvider } from "@/lib/llmProviders";
+import { DEFAULT_MODELS, generateJsonAnswer, type LlmConfig } from "@/lib/llmProviders";
 
 // This is Step 3's default analysis layer now (fires automatically after
 // matchPolicies() runs), not an opt-in extra — so the prompt has to hold up
@@ -25,21 +25,6 @@ QUY TẮC BẮT BUỘC — vi phạm bất kỳ điều nào dưới đây đề
 7. CHỈ trả về JSON hợp lệ đúng định dạng đã quy định, không kèm giải thích, không markdown. Định dạng:
 [{"policy_id": "...", "explanation": "..."}, ...]`;
 
-// Structured output schema for the Google path — same array shape the
-// prompt's rule 7 already asks for, enforced at the API level so parsing
-// never depends on finding a `[...]` blob inside freeform text.
-const EXPLANATIONS_SCHEMA = {
-  type: "ARRAY",
-  items: {
-    type: "OBJECT",
-    properties: {
-      policy_id: { type: "STRING", description: "Đúng policy_id đã cho trong danh sách chính sách" },
-      explanation: { type: "STRING", description: "Đoạn phân tích 2-4 câu, chỉ dựa trên dữ kiện đã cho" }
-    },
-    required: ["policy_id", "explanation"]
-  }
-};
-
 function buildPrompt(profile: Profile, matches: MatchResult[]) {
   const sme = classifySme(profile);
   const age = profile.founded_year ? new Date().getFullYear() - profile.founded_year : null;
@@ -57,10 +42,7 @@ function buildPrompt(profile: Profile, matches: MatchResult[]) {
 }
 
 export async function POST(request: Request) {
-  const { profile, llm } = (await request.json()) as {
-    profile?: Profile;
-    llm?: { provider?: string; apiKey?: string; model?: string };
-  };
+  const { profile } = (await request.json()) as { profile?: Profile };
 
   if (!profile) {
     return NextResponse.json({ error: "Thiếu hồ sơ doanh nghiệp." }, { status: 400 });
@@ -68,16 +50,8 @@ export async function POST(request: Request) {
 
   const matches = matchPolicies(profile);
 
-  const VALID_PROVIDERS: LlmProvider[] = ["google", "openai", "anthropic", "xai"];
-  const config = (() => {
-    if (llm?.apiKey && llm.provider && VALID_PROVIDERS.includes(llm.provider as LlmProvider)) {
-      const provider = llm.provider as LlmProvider;
-      return { provider, apiKey: llm.apiKey, model: llm.model?.trim() || DEFAULT_MODELS[provider] };
-    }
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return null;
-    return { provider: "google" as LlmProvider, apiKey, model: process.env.GEMINI_MODEL || DEFAULT_MODELS.google };
-  })();
+  const apiKey = process.env.CUSTOM_LLM_API_KEY;
+  const config: LlmConfig | null = apiKey ? { provider: "fptai", apiKey, model: DEFAULT_MODELS.fptai } : null;
 
   if (!config) {
     return NextResponse.json({ explanations: [] });
@@ -85,17 +59,10 @@ export async function POST(request: Request) {
 
   try {
     const prompt = buildPrompt(profile, matches);
-    let parsed: { policy_id: string; explanation: string }[];
-
-    if (config.provider === "google") {
-      const jsonText = await generateGoogleJson(config, SYSTEM_INSTRUCTION, prompt, EXPLANATIONS_SCHEMA);
-      parsed = JSON.parse(jsonText) as { policy_id: string; explanation: string }[];
-    } else {
-      const text = await generateAnswer(config, SYSTEM_INSTRUCTION, prompt);
-      const jsonMatch = text.match(/\[[\s\S]*\]/);
-      if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
-      parsed = JSON.parse(jsonMatch[0]) as { policy_id: string; explanation: string }[];
-    }
+    const text = await generateJsonAnswer(config, SYSTEM_INSTRUCTION, prompt);
+    const jsonMatch = text.match(/\[[\s\S]*\]/);
+    if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
+    const parsed = JSON.parse(jsonMatch[0]) as { policy_id: string; explanation: string }[];
 
     // Guard against a policy_id that doesn't match anything actually sent —
     // a hallucinated or mistyped id would otherwise silently orphan an

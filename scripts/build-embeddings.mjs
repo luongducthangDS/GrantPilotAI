@@ -3,18 +3,18 @@
 // building the app, so lib/retrieval.ts has an up-to-date dense index.
 //
 // Usage: node scripts/build-embeddings.mjs
-// Requires GEMINI_API_KEY (reads .env.local if present, like Next.js does).
+// Requires CUSTOM_LLM_API_KEY (reads .env / .env.local if present, like Next.js does).
 
-import { GoogleGenAI } from "@google/genai";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
 
 const ROOT = resolve(import.meta.dirname, "..");
-const MODEL = process.env.GEMINI_EMBEDDING_MODEL || "gemini-embedding-001";
+const MODEL = process.env.CUSTOM_EMBEDDING_MODEL || "Vietnamese_Embedding";
+const BASE_URL = process.env.CUSTOM_LLM_BASE_URL || "https://mkp-api.fptcloud.com/v1";
 const BATCH_SIZE = 20;
 
-function loadEnvLocal() {
-  const path = resolve(ROOT, ".env.local");
+function loadEnvFile(name) {
+  const path = resolve(ROOT, name);
   if (!existsSync(path)) return;
   for (const line of readFileSync(path, "utf-8").split(/\r?\n/)) {
     if (!line || line.startsWith("#")) continue;
@@ -30,23 +30,34 @@ function chunkHaystack(chunk) {
   return [chunk.title, chunk.clause, chunk.tags.join(" "), chunk.text].join(" ");
 }
 
+async function embedBatch(texts, apiKey) {
+  const response = await fetch(`${BASE_URL}/embeddings`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({ model: MODEL, input: texts })
+  });
+  if (!response.ok) {
+    throw new Error(`Embeddings API trả về lỗi ${response.status}: ${(await response.text()).slice(0, 300)}`);
+  }
+  const data = await response.json();
+  return data.data ?? [];
+}
+
 async function main() {
-  loadEnvLocal();
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw new Error("Thiếu GEMINI_API_KEY (đặt trong .env.local hoặc biến môi trường).");
+  // .env.local loaded after .env so any override there wins, matching Next.js's own precedence.
+  loadEnvFile(".env");
+  loadEnvFile(".env.local");
+  const apiKey = process.env.CUSTOM_LLM_API_KEY;
+  if (!apiKey) throw new Error("Thiếu CUSTOM_LLM_API_KEY (đặt trong .env hoặc biến môi trường).");
 
   const corpus = JSON.parse(readFileSync(resolve(ROOT, "data/corpus.json"), "utf-8"));
-  const ai = new GoogleGenAI({ apiKey });
   const results = [];
 
   for (let i = 0; i < corpus.length; i += BATCH_SIZE) {
     const batch = corpus.slice(i, i + BATCH_SIZE);
-    const response = await ai.models.embedContent({
-      model: MODEL,
-      contents: batch.map(chunkHaystack)
-    });
+    const embeddingsData = await embedBatch(batch.map(chunkHaystack), apiKey);
     batch.forEach((chunk, index) => {
-      const values = response.embeddings?.[index]?.values;
+      const values = embeddingsData[index]?.embedding;
       if (!values) throw new Error(`Không nhận được embedding cho chunk ${chunk.id}`);
       results.push({ id: chunk.id, embedding: values });
     });

@@ -6,21 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "data:crawl": "python scripts/crawl_verified_sources.py",
     "data:crawl-policy": "python scripts/crawl_chinhphu_policy.py",
     "data:crawl-vbpl-official": "python scripts/crawl_vbpl_official.py",
     "data:filter-vbpl": "python scripts/filter_vbpl_dataset.py",
     "data:build": "python scripts/build_database.py",
     "data:embed": "node scripts/build-embeddings.mjs",
-    "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py && node scripts/build-embeddings.mjs",
+    "data:qdrant-upload": "node scripts/upload-to-qdrant.mjs",
+    "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py && node scripts/build-embeddings.mjs && node scripts/upload-to-qdrant.mjs",
     "data:test": "python -m unittest discover -s tests -p test_data_pipeline.py",
     "data:watch": "python scripts/refresh_policy_watch.py"
   },
   "dependencies": {
     "@fontsource/be-vietnam-pro": "^5.2.8",
     "@fontsource/lora": "^5.2.8",
-    "@google/genai": "^2.12.0",
+    "@qdrant/js-client-rest": "^1.18.0",
     "docx": "^9.5.1",
     "exceljs": "^4.4.0",
     "lucide-react": "^0.468.0",
@@ -37,5 +38,9 @@
     "eslint": "^9.17.0",
     "eslint-config-next": "^15.1.0",
     "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "postcss": "^8.5.10",
+    "uuid": "^11.1.1"
   }
 }

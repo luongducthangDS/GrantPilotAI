@@ -8,3 +8,10 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 22
+      # Secrets — set these in the Render dashboard (Environment tab), not here.
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: CUSTOM_LLM_API_KEY
+        sync: false

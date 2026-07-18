@@ -15,16 +15,6 @@ import {
   policyWatch,
   sampleProfiles
 } from "@/lib/grantpilot";
-import {
-  DEFAULT_MODELS,
-  LlmProvider,
-  LlmSettings,
-  MODEL_SUGGESTIONS,
-  PROVIDER_LABELS,
-  clearLlmSettings,
-  loadLlmSettings,
-  saveLlmSettings
-} from "@/lib/llmSettings";
 
 type View = "overview" | "search" | "qa" | "updates";
 
@@ -148,12 +138,6 @@ export default function Home() {
   const [answerLoading, setAnswerLoading] = useState(false);
   const chatThreadRef = useRef<HTMLDivElement | null>(null);
 
-  const [llmSettings, setLlmSettings] = useState<LlmSettings | null>(null);
-  const [settingsOpen, setSettingsOpen] = useState(false);
-  const [draftProvider, setDraftProvider] = useState<LlmProvider>("google");
-  const [draftApiKey, setDraftApiKey] = useState("");
-  const [draftModel, setDraftModel] = useState(DEFAULT_MODELS.google);
-
   const [watchStatus, setWatchStatus] = useState<{
     available: boolean;
     lastRunAt?: string | null;
@@ -162,10 +146,6 @@ export default function Home() {
 
   const sme = useMemo(() => classifySme(profile), [profile]);
   const verifiedPolicyCount = useMemo(() => policies.filter((policy) => policy.status.includes("Còn hiệu lực")).length, []);
-
-  useEffect(() => {
-    setLlmSettings(loadLlmSettings());
-  }, []);
 
   useEffect(() => {
     saveStoredProfile(profile);
@@ -183,29 +163,6 @@ export default function Home() {
       .then(setWatchStatus)
       .catch(() => setWatchStatus({ available: false }));
   }, [view, watchStatus]);
-
-  function openSettings() {
-    const current = llmSettings;
-    setDraftProvider(current?.provider ?? "google");
-    setDraftApiKey(current?.apiKey ?? "");
-    setDraftModel(current?.model ?? DEFAULT_MODELS.google);
-    setSettingsOpen(true);
-  }
-
-  function saveSettings() {
-    if (!draftApiKey.trim()) {
-      clearLlmSettings();
-      setLlmSettings(null);
-      setSettingsOpen(false);
-      setMessage("Đã xoá cấu hình AI riêng — dùng lại cấu hình mặc định của máy chủ (nếu có).");
-      return;
-    }
-    const next: LlmSettings = { provider: draftProvider, apiKey: draftApiKey.trim(), model: draftModel.trim() || DEFAULT_MODELS[draftProvider] };
-    saveLlmSettings(next);
-    setLlmSettings(next);
-    setSettingsOpen(false);
-    setMessage(`Đã lưu cấu hình AI: ${PROVIDER_LABELS[next.provider]} · ${next.model}.`);
-  }
 
   useEffect(() => {
     if (!selectedPolicy) return;
@@ -247,7 +204,7 @@ export default function Home() {
       const response = await fetch("/api/checklist-match", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ checklist: selectedPolicy.checklist, documents, llm: llmSettings ?? undefined })
+        body: JSON.stringify({ checklist: selectedPolicy.checklist, documents })
       });
       const data = await response.json();
       if (!response.ok || !data.results) throw new Error(data.error || "Không đối chiếu được checklist.");
@@ -291,8 +248,16 @@ export default function Home() {
       setError(
         isLegacyOffice
           ? "Định dạng .doc/.xls cũ chưa hỗ trợ được — vui lòng lưu lại thành .docx/.xlsx rồi thử lại."
-          : "Vui lòng chọn tệp TXT, Word (.docx), Excel (.xlsx), ảnh (JPG/PNG) hoặc PDF."
+          : "Vui lòng chọn tệp TXT, Word (.docx), Excel (.xlsx) hoặc ảnh (JPG/PNG)."
       );
+      return;
+    }
+
+    // Model hiện tại chỉ nhận ảnh raster (jpg/png) qua image_url, không nhận
+    // trực tiếp PDF như Gemini trước đây — báo ngay ở client thay vì để
+    // người dùng đợi round-trip lên server rồi mới thấy lỗi.
+    if (isPdf) {
+      setError("Chưa hỗ trợ đọc trực tiếp file PDF. Vui lòng chụp/xuất thành ảnh (JPG/PNG) hoặc dùng file Word/Excel/TXT thay thế.");
       return;
     }
 
@@ -319,7 +284,7 @@ export default function Home() {
           const response = await fetch("/api/ocr", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text, llm: llmSettings ?? undefined })
+            body: JSON.stringify({ text })
           });
           const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
           if (!response.ok || !data.profile) throw new Error(data.error || "AI không đọc được nội dung.");
@@ -362,7 +327,7 @@ export default function Home() {
       const response = await fetch("/api/ocr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: base64, mimeType, llm: llmSettings ?? undefined })
+        body: JSON.stringify({ image: base64, mimeType })
       });
       const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
       if (!response.ok || !data.profile) throw new Error(data.error || "Không đọc được tài liệu.");
@@ -389,12 +354,17 @@ export default function Home() {
       const data = (await response.json()) as { name?: string; tax_code?: string; province?: string; address?: string; error?: string };
       if (!response.ok || !data.name) throw new Error(data.error || "Không tra cứu được mã số thuế này.");
 
-      setProfile((current) => ({
-        ...current,
+      // Reset onto EMPTY_PROFILE (not the previous `current` state) — this is a
+      // lookup for a *different* company. The registry only returns
+      // name/tax_code/(province); merging onto whatever was previously loaded
+      // (e.g. a sample profile) would silently keep that other company's
+      // industry/employees/revenue/capital/startup flag on this new profile.
+      setProfile({
+        ...EMPTY_PROFILE,
         name: data.name!,
         tax_code: data.tax_code ?? taxCode,
         ...(data.province ? { province: data.province } : {})
-      }));
+      });
       setResults([]);
       setMessage(
         `Đã tra cứu MST ${taxCode}: điền tên${data.province ? " & địa phương" : ""} từ dữ liệu đăng ký thuế thật${
@@ -435,12 +405,12 @@ export default function Home() {
       const response = await fetch("/api/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ profile, llm: llmSettings ?? undefined })
+        body: JSON.stringify({ profile })
       });
       if (!response.ok) throw new Error("Không thể lấy phân tích AI.");
       const data = (await response.json()) as { explanations: { policy_id: string; explanation: string }[] };
       if (data.explanations.length === 0) {
-        setMessage("AI không trả về phân tích bổ sung (có thể do thiếu cấu hình AI hoặc lỗi tạm thời) — vẫn còn lý do/điểm rà soát theo quy tắc bên dưới.");
+        setMessage("AI không trả về phân tích bổ sung (có thể lỗi tạm thời) — vẫn còn lý do/điểm rà soát theo quy tắc bên dưới.");
       } else {
         setMessage(`Đã đối chiếu ${policies.length} chính sách, kèm phân tích AI cho từng chính sách.`);
       }
@@ -472,7 +442,7 @@ export default function Home() {
       const response = await fetch("/api/qa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: trimmed, history, profile, llm: llmSettings ?? undefined })
+        body: JSON.stringify({ question: trimmed, history, profile })
       });
       if (!response.ok) throw new Error("Không thể lấy câu trả lời.");
       const result = (await response.json()) as Answer;
@@ -554,7 +524,7 @@ export default function Home() {
           <span className="status-dot" />
           <div>
             <strong>Bảo mật dữ liệu</strong>
-            <p>Hồ sơ được xử lý ngay trên thiết bị.</p>
+            <p>File TXT đúng mẫu đọc tại trình duyệt; ảnh/Word/Excel và các bước phân tích AI được gửi tới máy chủ &amp; nhà cung cấp AI.</p>
           </div>
         </div>
         <div className="sidebar-footer">GrantPilot AI · 2026</div>
@@ -570,9 +540,6 @@ export default function Home() {
             <div className="data-health">
               <span /> {policies.length} chính sách đã kết nối
             </div>
-            <button className="settings-button" onClick={openSettings} title="Cài đặt AI">
-              ⚙ {llmSettings ? `${PROVIDER_LABELS[llmSettings.provider]}` : "AI mặc định"}
-            </button>
             <div className="avatar" aria-label="Hồ sơ người dùng">GP</div>
           </div>
         </header>
@@ -702,7 +669,7 @@ export default function Home() {
                     <span className="eyebrow">BƯỚC 01</span>
                     <h3>Nhập hồ sơ doanh nghiệp</h3>
                   </div>
-                  <span className="privacy-badge">Xử lý cục bộ</span>
+                  <span className="privacy-badge">TXT: tại chỗ · còn lại qua AI máy chủ</span>
                 </div>
 
                 <label
@@ -726,8 +693,8 @@ export default function Home() {
                     onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])}
                   />
                   <span className="upload-icon">{ocrLoading ? <span className="button-spinner" /> : "⇧"}</span>
-                  <strong>{ocrLoading ? "Đang đọc tài liệu bằng AI..." : "Thả hồ sơ TXT, Word, Excel, ảnh hoặc PDF vào đây"}</strong>
-                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Word/Excel/Ảnh/PDF: đọc bằng AI (PDF chỉ đọc trực tiếp qua Gemini)"}</p>
+                  <strong>{ocrLoading ? "Đang đọc tài liệu bằng AI..." : "Thả hồ sơ TXT, Word, Excel hoặc ảnh vào đây"}</strong>
+                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Word/Excel/Ảnh: đọc bằng AI. PDF chưa hỗ trợ trực tiếp — chụp/xuất thành ảnh trước."}</p>
                 </label>
 
                 <div className="tax-lookup-row">
@@ -928,9 +895,7 @@ export default function Home() {
             <section className="panel-card chat-panel">
               <div className="section-heading compact">
                 <div>
-                  <span className="eyebrow">
-                    HỘI THOẠI · {llmSettings ? PROVIDER_LABELS[llmSettings.provider].toUpperCase() : "AI MẶC ĐỊNH CỦA MÁY CHỦ"}
-                  </span>
+                  <span className="eyebrow">HỘI THOẠI</span>
                   <h3>Hỏi đáp pháp lý</h3>
                 </div>
                 <div className="chat-panel-actions">
@@ -939,7 +904,6 @@ export default function Home() {
                       Cuộc trò chuyện mới
                     </button>
                   )}
-                  <button className="text-button" onClick={openSettings}>Đổi AI →</button>
                 </div>
               </div>
               <p className="qa-profile-hint">
@@ -988,8 +952,7 @@ export default function Home() {
                 )}
                 {answerLoading && (
                   <div className="chat-bubble chat-bubble-assistant chat-bubble-loading">
-                    <span className="button-spinner" /> Đang truy hồi dữ liệu và gọi{" "}
-                    {llmSettings ? PROVIDER_LABELS[llmSettings.provider] : "AI"} để sinh câu trả lời...
+                    <span className="button-spinner" /> Đang truy hồi dữ liệu và gọi AI để sinh câu trả lời...
                   </div>
                 )}
               </div>
@@ -1211,74 +1174,6 @@ export default function Home() {
         </div>
       )}
 
-      {settingsOpen && (
-        <div className="modal-backdrop" onMouseDown={(event) => {
-          if (event.currentTarget === event.target) setSettingsOpen(false);
-        }}>
-          <section className="policy-modal settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
-            <button className="modal-close" onClick={() => setSettingsOpen(false)} aria-label="Đóng cài đặt">×</button>
-            <span className="eyebrow">CÀI ĐẶT AI</span>
-            <h2 id="settings-title">Chọn nhà cung cấp &amp; API key</h2>
-            <p className="modal-summary">
-              Nhập API key của bạn để Hỏi đáp pháp lý dùng nhà cung cấp bạn chọn thay vì cấu hình mặc định của máy chủ. Key chỉ lưu trên
-              trình duyệt này (localStorage) và chỉ được gửi kèm khi bạn gọi Hỏi đáp — không lưu trên máy chủ.
-            </p>
-
-            <div className="form-grid">
-              <label className="wide-field">
-                Nhà cung cấp
-                <select
-                  value={draftProvider}
-                  onChange={(event) => {
-                    const next = event.target.value as LlmProvider;
-                    setDraftProvider(next);
-                    if (!draftModel || Object.values(DEFAULT_MODELS).includes(draftModel)) setDraftModel(DEFAULT_MODELS[next]);
-                  }}
-                >
-                  {(Object.keys(PROVIDER_LABELS) as LlmProvider[]).map((key) => (
-                    <option key={key} value={key}>{PROVIDER_LABELS[key]}</option>
-                  ))}
-                </select>
-              </label>
-              <label className="wide-field">
-                API key
-                <input
-                  type="password"
-                  value={draftApiKey}
-                  onChange={(event) => setDraftApiKey(event.target.value)}
-                  placeholder="Dán API key của bạn tại đây"
-                  autoComplete="off"
-                />
-              </label>
-              <label className="wide-field">
-                Model
-                <input
-                  list="model-suggestions"
-                  value={draftModel}
-                  onChange={(event) => setDraftModel(event.target.value)}
-                  placeholder={DEFAULT_MODELS[draftProvider]}
-                />
-                <datalist id="model-suggestions">
-                  {MODEL_SUGGESTIONS[draftProvider].map((model) => (
-                    <option key={model} value={model} />
-                  ))}
-                </datalist>
-              </label>
-            </div>
-
-            <div className="settings-actions">
-              <button className="analyze-button" onClick={saveSettings}>
-                {draftApiKey.trim() ? "Lưu cấu hình" : "Xoá cấu hình (dùng mặc định máy chủ)"}
-              </button>
-            </div>
-
-            <div className="legal-note">
-              <strong>Lưu ý:</strong> Không chia sẻ máy này nếu bạn không muốn người khác thấy key đã lưu. Bỏ trống API key rồi lưu để
-              quay lại dùng cấu hình mặc định của máy chủ (nếu quản trị viên đã cấu hình sẵn).
-            </div>
-          </section>
-        </div>
-      )}
     </div>
   );
 }

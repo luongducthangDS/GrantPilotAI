@@ -18,56 +18,61 @@ npm run build
 npm run start -- -p 3000
 ```
 
-### Biến môi trường (RAG Q&A hội thoại)
+### Biến môi trường (AI + Retrieval)
 
-`Hỏi đáp pháp lý` là một **hội thoại nhiều lượt** (không phải hỏi-đáp từng câu rời rạc) — mỗi câu hỏi tiếp theo trong cùng cuộc trò chuyện được hiểu theo ngữ cảnh các lượt trước (không cần lặp lại thông tin), bấm "Cuộc trò chuyện mới" để bắt đầu lại. Gọi Gemini thật qua route `/api/qa`. Tạo file `.env.local` (đã gitignore, không commit) ở gốc repo:
+Toàn bộ tính năng AI trong app (đọc file/ảnh, đối chiếu checklist, phân tích chính sách, hỏi đáp pháp lý) và cả embedding cho retrieval đều đi qua **một API key duy nhất** — FPT.AI Marketplace (OpenAI-compatible: `POST {base_url}/chat/completions`, `/embeddings`, `/rerank`). Không còn BYOK (bring-your-own-key) — trước đây có nút "⚙ AI mặc định" cho người dùng tự nhập key/nhà cung cấp riêng, đã bỏ vì giờ chỉ dùng một API key chung.
+
+Tạo file `.env` hoặc `.env.local` (đã gitignore, không commit) ở gốc repo:
 
 ```
-GEMINI_API_KEY=<api-key-cua-ban>
-GEMINI_MODEL=gemini-2.5-flash
+CUSTOM_LLM_BASE_URL=https://mkp-api.fptcloud.com/v1
+CUSTOM_LLM_API_KEY=<api-key-cua-ban>
+
+QDRANT_URL=<qdrant-cluster-url>
+QDRANT_API_KEY=<qdrant-api-key>
+QDRANT_COLLECTION=grantpilot_corpus
 ```
 
-Lấy API key tại [Google AI Studio](https://aistudio.google.com/apikey). Retrieval là hybrid thật (BM25 + dense embedding + RRF, xem `lib/retrieval.ts`) — nếu thiếu `GEMINI_API_KEY`, retrieval tự rơi về BM25-only; nếu gọi LLM lỗi (quota/network), route tự rơi về câu trả lời soạn sẵn (rule-based, không có nhận thức hội thoại) thay vì lỗi trắng trang — nhưng khi đó Q&A không còn là RAG thật, chỉ là phương án dự phòng cuối cùng.
+Model được gán theo tác vụ (xem `lib/llmProviders.ts`), không phải một model chung cho tất cả:
 
-Sau khi sửa `data/corpus.json`, phải chạy lại embedding trước khi build/deploy, nếu không dense retrieval sẽ dùng embedding cũ (id không khớp sẽ tự bị bỏ qua, không lỗi, nhưng chunk mới sẽ chỉ được tìm thấy qua BM25):
+| Tác vụ | Model | Dùng ở |
+|---|---|---|
+| OCR/đọc ảnh | `Qwen2.5-VL-7B-Instruct` (vision) | `app/api/ocr/route.ts`, `app/api/checklist-match/route.ts` |
+| Trả lời chính (Q&A, phân tích chính sách) | `GLM-5.2` (reasoning model) | `app/api/qa/route.ts`, `app/api/recommend/route.ts` |
+| Tác vụ nhẹ (trích xuất text tự do, lọc phạm vi câu hỏi) | `DeepSeek-V4-Flash` | nhánh AI-fallback của `.txt` trong `app/api/ocr/route.ts`, scope guard trong `app/api/qa/route.ts` |
+| Embedding | `Vietnamese_Embedding` | `lib/retrieval.ts`, `scripts/build-embeddings.mjs` |
+| Rerank | `bge-reranker-v2-m3` | `lib/retrieval.ts` |
+
+`Hỏi đáp pháp lý` là một **hội thoại nhiều lượt** (không phải hỏi-đáp từng câu rời rạc) — mỗi câu hỏi tiếp theo trong cùng cuộc trò chuyện được hiểu theo ngữ cảnh các lượt trước, bấm "Cuộc trò chuyện mới" để bắt đầu lại. Trước khi truy hồi/sinh câu trả lời, một bước lọc phạm vi (model nhẹ, prompt chặt chẽ — xem `SCOPE_GUARD_INSTRUCTION` trong `app/api/qa/route.ts`) kiểm tra câu hỏi có thuộc phạm vi chính sách/pháp luật doanh nghiệp không; nếu rõ ràng ngoài phạm vi (thời tiết, chuyện phiếm...), trả lời từ chối ngắn ngay mà không chạy retrieval/model chính — tránh tốn tài nguyên và trả lời lan man cho câu hỏi không liên quan. Retrieval là hybrid thật (BM25 + dense embedding qua Qdrant Cloud + RRF + rerank, xem `lib/retrieval.ts`) — nếu thiếu `CUSTOM_LLM_API_KEY`/`QDRANT_URL`, retrieval tự rơi xuống nấc thấp hơn (BM25-only); nếu gọi LLM lỗi, route tự rơi về câu trả lời soạn sẵn (rule-based, không có nhận thức hội thoại) thay vì lỗi trắng trang.
+
+Sau khi sửa `data/corpus.json`, phải chạy lại embedding + đẩy lại Qdrant trước khi build/deploy:
 
 ```powershell
 npm run data:embed
+npm run data:qdrant-upload
 ```
-
-### Chọn nhà cung cấp AI khác (bring-your-own-key)
-
-Ngoài cấu hình mặc định của máy chủ (`GEMINI_API_KEY` ở trên), người dùng có thể tự chọn nhà cung cấp và nhập API key riêng ngay trên giao diện — bấm nút **⚙ AI mặc định** ở góc trên bên phải (hoặc "Đổi AI →" trong màn `Hỏi đáp pháp lý`). Hỗ trợ 4 nhà cung cấp:
-
-- **Google Gemini** — `@google/genai`, model mặc định `gemini-2.5-flash`.
-- **OpenAI** — Chat Completions API (`https://api.openai.com/v1/chat/completions`), model mặc định `gpt-4o-mini`.
-- **Anthropic Claude** — Messages API (`https://api.anthropic.com/v1/messages`), model mặc định `claude-sonnet-4-5`.
-- **xAI Grok** — API tương thích OpenAI (`https://api.x.ai/v1/chat/completions`), model mặc định `grok-4-fast`.
-
-Key được lưu trong `localStorage` của trình duyệt (client-side), **không lưu trên máy chủ** — chỉ gửi kèm theo mỗi lần gọi route (`/api/qa`, `/api/recommend`, `/api/ocr`) để route dùng cho đúng lần gọi đó rồi bỏ qua. Bỏ trống API key rồi lưu để xoá cấu hình riêng và quay lại dùng `GEMINI_API_KEY` mặc định của máy chủ (nếu có). Retrieval (BM25 + dense) không đổi theo lựa chọn này — vẫn luôn dùng embedding Gemini đã precompute trong `data/corpus_embeddings.json`, chỉ có bước sinh câu trả lời/giải thích/đọc ảnh cuối cùng là đổi theo nhà cung cấp bạn chọn.
-
-Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung cấp (kể cả `generateVisionAnswer` cho OCR).
 
 ### Giải thích AI cho kết quả match
 
-Bước 3 ("Kết quả đề xuất") tự động gọi `app/api/recommend/route.ts` ngay sau khi có kết quả rule-based — không cần bấm nút riêng. Route lấy kết quả `matchPolicies()` (điểm số/lý do/khoảng thiếu — vẫn rule-based, không đổi) rồi nhờ LLM viết một đoạn giải thích ngắn cho từng chính sách theo prompt chặt chẽ (7 quy tắc đánh số: chỉ dùng dữ kiện đã cho, không tự kết luận đủ điều kiện khi rule-based ghi "Cần rà soát", phải nêu rõ các điểm ranh giới/mơ hồ cần người dùng tự xác minh — ví dụ năm thành lập gần ngưỡng ưu tiên). Kết quả hiện trực tiếp trên từng thẻ chính sách (badge "AI") song song với lý do rule-based, không thay thế. Nhánh Google dùng structured output (`responseSchema`) để đảm bảo JSON hợp lệ; các nhà cung cấp khác dùng regex tìm khối JSON trong text trả về.
+Bước 3 ("Kết quả đề xuất") tự động gọi `app/api/recommend/route.ts` ngay sau khi có kết quả rule-based — không cần bấm nút riêng. Route lấy kết quả `matchPolicies()` (điểm số/lý do/khoảng thiếu — vẫn rule-based, không đổi) rồi nhờ LLM (`GLM-5.2`) viết một đoạn giải thích ngắn cho từng chính sách theo prompt chặt chẽ (7 quy tắc đánh số: chỉ dùng dữ kiện đã cho, không tự kết luận đủ điều kiện khi rule-based ghi "Cần rà soát", phải nêu rõ các điểm ranh giới/mơ hồ cần người dùng tự xác minh — ví dụ năm thành lập gần ngưỡng ưu tiên). Kết quả hiện trực tiếp trên từng thẻ chính sách (badge "AI") song song với lý do rule-based, không thay thế. Parse JSON bằng regex tìm khối `[...]` trong text trả về — không có structured-output/schema-enforced JSON thật (API hiện dùng không hỗ trợ), nên mọi trường đều được validate/sanitize lại phía server trước khi dùng (ví dụ `policy_id` không khớp danh sách đã gửi sẽ bị lọc bỏ).
 
 ### Tra cứu hồ sơ bằng mã số thuế
 
 Ô "Nhập mã số thuế" ở Bước 01 của "Tìm chính sách" gọi `app/api/tax-lookup/route.ts`, tra cứu tên + địa chỉ + tình trạng hoạt động thật qua API công khai VietQR (nguồn: Cục Thuế, không cần API key riêng). Điền tên và tỉnh/thành từ dữ liệu đăng ký thuế thật (không phải AI đoán) — các trường còn lại (lĩnh vực, lao động, doanh thu, vốn) vẫn cần nhập tay vì VietQR không cung cấp. Cùng một `profile` này cũng được dùng để cá nhân hoá câu trả lời ở "Hỏi đáp pháp lý" (xem dòng gợi ý trên ô hỏi).
 
-### Đọc hồ sơ từ TXT / Word / Excel / ảnh / PDF (thật, không mock)
+### Đọc hồ sơ từ TXT / Word / Excel / ảnh (thật, không mock)
 
-Ô upload hồ sơ nhận: `.txt` (parse trực tiếp theo mẫu `key: value`, tự chuyển sang AI nếu không khớp mẫu), `.docx`/`.xlsx`, ảnh JPG/PNG/WebP, hoặc PDF.
+Ô upload hồ sơ nhận: `.txt` (parse trực tiếp theo mẫu `key: value`, tự chuyển sang AI nếu không khớp mẫu), `.docx`/`.xlsx`, hoặc ảnh JPG/PNG/WebP.
 
-- **Word/Excel**: server trích xuất văn bản trước bằng `mammoth` (.docx) hoặc `exceljs` (.xlsx) — không dùng gói `xlsx`/SheetJS vì bản trên npm có lỗ hổng bảo mật mức cao (prototype pollution + ReDoS) chưa có bản vá, không phù hợp để parse file người dùng tải lên. Sau khi trích xuất, văn bản đi qua đúng luồng AI như đường `.txt` fallback (không cần model có khả năng đọc ảnh). **Chỉ hỗ trợ `.docx`/`.xlsx`** — định dạng cũ `.doc`/`.xls` (Word/Excel 2003 trở về trước) chưa hỗ trợ được, cần lưu lại thành định dạng mới trước khi tải lên.
-- **Ảnh/PDF**: `app/api/ocr/route.ts` gọi vision LLM để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được. Với nhà cung cấp Google Gemini, route dùng structured output (`responseSchema`) thay vì tự dò JSON trong text tự do, đáng tin cậy hơn. **PDF chỉ đọc trực tiếp được qua Gemini** (OpenAI/Anthropic không nhận PDF qua content block ảnh) — nếu bạn chọn nhà cung cấp khác mà tải PDF lên, server tự chuyển sang `GEMINI_API_KEY` của máy chủ nếu có, không thì báo lỗi rõ ràng để bạn đổi sang ảnh hoặc đổi nhà cung cấp.
+- **Word/Excel**: server trích xuất văn bản trước bằng `mammoth` (.docx) hoặc `exceljs` (.xlsx) — không dùng gói `xlsx`/SheetJS vì bản trên npm có lỗ hổng bảo mật mức cao (prototype pollution + ReDoS) chưa có bản vá, không phù hợp để parse file người dùng tải lên. Sau khi trích xuất, văn bản đi qua model nhẹ (`DeepSeek-V4-Flash`) — tác vụ trích xuất trường từ text, không cần model vision. **Chỉ hỗ trợ `.docx`/`.xlsx`** — định dạng cũ `.doc`/`.xls` (Word/Excel 2003 trở về trước) chưa hỗ trợ được, cần lưu lại thành định dạng mới trước khi tải lên.
+- **Ảnh**: `app/api/ocr/route.ts` gọi vision LLM (`Qwen2.5-VL-7B-Instruct`) để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được.
+- **PDF chưa hỗ trợ trực tiếp** — model vision hiện dùng chỉ nhận ảnh raster qua `image_url` (khác Gemini trước đây, vốn nhận thẳng PDF qua `inlineData`). Tải PDF lên sẽ bị chặn ngay ở client kèm thông báo rõ ràng; cần chụp/xuất PDF thành ảnh (JPG/PNG) trước, hoặc dùng Word/Excel/TXT.
 
 Mỗi lần tải file mới, hồ sơ ở Bước 2 được **reset về rỗng rồi mới điền** những trường đọc được — không merge lên hồ sơ đang có (tránh trường hợp trường không đọc được từ file mới vẫn giữ giá trị cũ từ hồ sơ mẫu/file trước, trông như thể đến từ file mới). Luôn kiểm tra lại kết quả trước khi dùng, vì đây là đọc thật bằng AI (có thể sai/thiếu), không phải rule cố định.
 
 ### Document Checklist — đối chiếu hồ sơ đã có/thiếu
 
-Trong modal chi tiết một chính sách, mục "Checklist hồ sơ" có nút **"⇪ Tải tài liệu để AI đối chiếu"** — chọn nhiều ảnh tài liệu (JPG/PNG/WebP) cùng lúc, `app/api/checklist-match/route.ts` gọi vision LLM đọc từng ảnh và so khớp với từng mục trong checklist của chính sách đó, trả về ✓ đã có / ✗ thiếu / ? chưa rõ kèm giải thích ngắn — đúng luồng "AI Document Assistant" cho việc chuẩn bị hồ sơ, không chỉ dừng ở đọc PDF trả lời câu hỏi. Giới hạn hiện tại: chỉ nhận ảnh (chưa nhận PDF nhiều trang trực tiếp), và đây chỉ là gợi ý sơ bộ — không thay thế thẩm định hồ sơ thật.
+Trong modal chi tiết một chính sách, mục "Checklist hồ sơ" có nút **"⇪ Tải tài liệu để AI đối chiếu"** — chọn nhiều ảnh tài liệu (JPG/PNG/WebP) cùng lúc, `app/api/checklist-match/route.ts` gọi vision LLM (`Qwen2.5-VL-7B-Instruct`) đọc từng ảnh và so khớp với từng mục trong checklist của chính sách đó, trả về ✓ đã có / ✗ thiếu / ? chưa rõ kèm giải thích ngắn. Giới hạn hiện tại: chỉ nhận ảnh (không nhận PDF, cùng lý do như phần đọc hồ sơ ở trên), và đây chỉ là gợi ý sơ bộ — không thay thế thẩm định hồ sơ thật.
 
 ### Monitoring Pipeline (theo dõi chính sách theo lịch, không phải real-time)
 
@@ -90,32 +95,39 @@ Repo đã có `render.yaml` cho Render Web Service:
 - Start command: `npm run start`
 - Node version: `22`
 
-Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này, rồi vào **Environment** thêm biến `GEMINI_API_KEY` (và tuỳ chọn `GEMINI_MODEL`) — nếu bỏ qua bước này, Q&A trên bản deploy sẽ luôn dùng fallback rule-based thay vì gọi LLM thật. Sau khi build xong, Render sẽ cấp URL dạng `https://<service-name>.onrender.com`.
+Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này, rồi vào **Environment** thêm các biến sau (đã khai trong `render.yaml` với `sync: false` — nghĩa là bắt buộc set tay trong dashboard Render, không lưu giá trị thật vào file):
 
-Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã ghi trong `grantpilot-ai-spec.md` mục 10.2/10.3, chưa phù hợp để demo trước giám khảo nếu chưa xử lý.
+```
+CUSTOM_LLM_API_KEY=<api-key-cua-ban>
+QDRANT_URL=<qdrant-cluster-url>
+QDRANT_API_KEY=<qdrant-api-key>
+```
+
+Nếu bỏ qua bước này, Q&A trên bản deploy sẽ luôn dùng fallback rule-based thay vì gọi LLM thật, và retrieval sẽ chỉ chạy BM25-only (không có dense/rerank). Sau khi build xong, Render sẽ cấp URL dạng `https://<service-name>.onrender.com`.
+
+Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start (xem mục dưới), chưa phù hợp để demo trước giám khảo nếu chưa xử lý.
 
 ## Cần bạn quyết định trước khi dùng thật
 
-Hai việc dưới đây **không thể tự sửa bằng code** vì phát sinh chi phí/cần quyền truy cập tài khoản thanh toán — cần bạn tự quyết định và thực hiện:
+Việc dưới đây **không thể tự sửa bằng code** vì phát sinh chi phí — cần bạn tự quyết định và thực hiện:
 
-1. **Nâng cấp `GEMINI_API_KEY` khỏi free tier.** Free tier chỉ cho **20 request/ngày** cho `gemini-2.5-flash` — đã cạn nhiều lần chỉ trong lúc phát triển/test, với người dùng thật con số này sẽ hết trong vài phút. Nâng cấp gói trả phí tại [Google AI Studio](https://aistudio.google.com/apikey) hoặc Google Cloud Console. Trong lúc chưa nâng cấp, người dùng có thể tự nhập API key riêng của họ qua "⚙ AI mặc định" để không dùng chung quota với server.
-2. **Cân nhắc đổi `render.yaml` khỏi gói free.** Gói free của Render bị cold-start (dịch vụ ngủ sau ~15 phút không hoạt động, lần gọi kế tiếp mất 30-60+ giây để thức dậy) — trải nghiệm xấu cho người dùng thật ghé lần đầu. Nếu chuyển sang gói trả phí, chỉ cần đổi `plan: free` → `plan: starter` (hoặc gói tương ứng) trong `render.yaml` rồi deploy lại.
+**Cân nhắc đổi `render.yaml` khỏi gói free.** Gói free của Render bị cold-start (dịch vụ ngủ sau ~15 phút không hoạt động, lần gọi kế tiếp mất 30-60+ giây để thức dậy) — trải nghiệm xấu cho người dùng thật ghé lần đầu. Nếu chuyển sang gói trả phí, chỉ cần đổi `plan: free` → `plan: starter` (hoặc gói tương ứng) trong `render.yaml` rồi deploy lại.
 
 ## Luồng sử dụng nhanh
 
-1. Ở `Tìm chính sách`, chọn hồ sơ mẫu `NovaMind AI`, bấm "Phân tích và tìm chính sách".
-2. Bấm "Xem chi tiết" một chính sách để thấy citation, checklist, nút "✦ Phân tích sâu hơn bằng AI" (giải thích LLM) và nút "Xuất đơn .docx" (dùng được cho mọi chính sách có checklist, không chỉ Đề án 844).
-3. Mở `Hỏi đáp pháp lý`, thử 1 câu hỏi vàng rồi hỏi tiếp một câu ngắn tham chiếu tới câu trả lời trước ("Trong số đó, mục nào bắt buộc nhất?") để thấy hội thoại giữ ngữ cảnh.
+1. Ở `Tìm chính sách`, chọn hồ sơ mẫu `NovaMind AI`, bấm "Phân tích và tìm chính sách" — Bước 3 tự động chạy cả rule-based lẫn phân tích AI, không cần bấm thêm nút nào.
+2. Bấm "Xem chi tiết" một chính sách để thấy citation, checklist, và nút "Xuất đơn .docx" (dùng được cho mọi chính sách có checklist, không chỉ Đề án 844).
+3. Mở `Hỏi đáp pháp lý`, thử 1 câu hỏi vàng rồi hỏi tiếp một câu ngắn tham chiếu tới câu trả lời trước ("Trong số đó, mục nào bắt buộc nhất?") để thấy hội thoại giữ ngữ cảnh. Thử thêm một câu hỏi rõ ràng ngoài phạm vi (ví dụ "thời tiết hôm nay thế nào?") để thấy scope guard từ chối ngay, không chạy retrieval.
 4. Chuyển hồ sơ mẫu sang `Cơ khí An Phát` để thấy kết quả ưu tiên SMEDF và chuỗi giá trị.
-5. Thử upload `data/synthetic_dkkd_novamind.txt`/`data/synthetic_dkkd_anphat.txt` (parse `.txt` trực tiếp), hoặc một ảnh chụp/scan ĐKKD thật (JPG/PNG) để thử OCR bằng AI thật.
+5. Thử upload `data/synthetic_dkkd_novamind.txt`/`data/synthetic_dkkd_anphat.txt` (parse `.txt` trực tiếp), hoặc một ảnh chụp/scan ĐKKD thật (JPG/PNG) để thử OCR bằng AI thật (PDF chưa hỗ trợ trực tiếp, xem mục "Đọc hồ sơ" ở trên).
 6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 23 tín hiệu) và trạng thái Monitoring Pipeline (lần quét gần nhất, số tin mới phát hiện) ở đầu trang.
 
 ## Dữ liệu seed
 
 - `data/sample_profiles.json`: 2 hồ sơ demo.
 - `data/policies.json`: rule matching, citation, checklist (8 chương trình — bao gồm 2 chương trình mới nhất cho khởi nghiệp sáng tạo: NĐ 268/2025 công nhận + hệ sinh thái, NĐ 38/2018 sửa đổi bởi NĐ 210/2025 về quỹ đầu tư khởi nghiệp sáng tạo).
-- `data/corpus.json`: corpus Q&A theo điều/khoản (35 chunk).
-- `data/corpus_embeddings.json`: embedding từng chunk (`gemini-embedding-001`), dùng cho dense retrieval — build lại bằng `npm run data:embed` sau khi sửa corpus.
+- `data/corpus.json`: corpus Q&A theo điều/khoản (52 chunk — phần lớn curate tay từ đầu dự án, cộng thêm một số chunk merge tự động từ `scripts/merge_vbpl_extracted.py` đã qua soát lỗi thủ công trước khi giữ lại; xem `data/raw/vbpl/extraction_report.md` cho toàn bộ 99 file đã trích xuất, phần lớn chưa được merge vào corpus vì cần soát thêm).
+- `data/corpus_embeddings.json`: embedding từng chunk — build lại bằng `npm run data:embed` sau khi sửa corpus, sau đó đẩy lên Qdrant Cloud bằng `npm run data:qdrant-upload` (`lib/retrieval.ts` query dense vector qua Qdrant, không load toàn bộ embedding vào bộ nhớ nữa — cần `QDRANT_URL`/`QDRANT_API_KEY`).
 - `data/policy_watch.json`: policy watch (23 mục — mock ban đầu, văn bản crawl thủ công, và tin phát hiện qua Monitoring Pipeline).
 - `data/policy_watch_refresh_report.md`: báo cáo lần chạy `scripts/refresh_policy_watch.py` gần nhất (nguồn nào đổi/lỗi, tin mới nào được thêm).
 - `data/vbpl_expansion_candidates.json`: ~400 văn bản từ vbpl.vn đã lọc theo domain nhưng chưa đưa vào corpus — pool mở rộng cho vòng sau.
@@ -129,7 +141,7 @@ Hai việc dưới đây **không thể tự sửa bằng code** vì phát sinh 
 - `data/processed/database_manifest.json`: số lượng bản ghi và trạng thái coverage.
 - `data/processed/coverage_report.md`: các mảng dữ liệu còn thiếu/cần xác minh.
 
-`Hỏi đáp pháp lý` gọi Gemini thật (xem "Biến môi trường" ở trên); matching và các phần còn lại vẫn chạy rule-based phía client. Xem `grantpilot-ai-spec.md` mục 10 để biết chi tiết phần nào đã thật, phần nào còn giả lập/thiếu.
+`Hỏi đáp pháp lý` gọi LLM thật qua FPT.AI Marketplace (xem "Biến môi trường" ở trên); matching cơ bản vẫn chạy rule-based phía client, phân tích sâu hơn ở Bước 3 mới gọi AI. Xem `grantpilot-ai-spec.md` mục 10 để biết chi tiết phần nào đã thật, phần nào còn giả lập/thiếu.
 
 Refresh database:
 

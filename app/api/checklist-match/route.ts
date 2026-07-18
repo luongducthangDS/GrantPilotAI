@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { DEFAULT_VISION_MODELS, generateVisionAnswer, type LlmProvider } from "@/lib/llmProviders";
+import { DEFAULT_VISION_MODELS, generateVisionAnswer, type LlmConfig } from "@/lib/llmProviders";
 
 const SYSTEM_INSTRUCTION = `Bạn là trợ lý đối chiếu hồ sơ xin tài trợ/ưu đãi của GrantPilot. Bạn nhận một danh sách các mục cần có trong checklist hồ sơ, và một hoặc nhiều ảnh tài liệu người dùng đã tải lên (có thể là nhiều loại giấy tờ khác nhau trong cùng một lượt upload).
 
@@ -14,13 +14,10 @@ Quy tắc bắt buộc:
 - CHỈ trả về JSON hợp lệ, không kèm markdown/giải thích thêm, đúng thứ tự các mục checklist đã cho. Định dạng:
 [{"item": "...", "status": "co", "note": "..."}, ...]`;
 
-const VALID_PROVIDERS: LlmProvider[] = ["google", "openai", "anthropic", "xai"];
-
 export async function POST(request: Request) {
-  const { checklist, documents, llm } = (await request.json()) as {
+  const { checklist, documents } = (await request.json()) as {
     checklist?: string[];
     documents?: { name: string; mimeType: string; data: string }[];
-    llm?: { provider?: string; apiKey?: string; model?: string };
   };
 
   if (!checklist?.length) {
@@ -30,21 +27,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Chưa có tài liệu nào được tải lên." }, { status: 400 });
   }
 
-  const config = (() => {
-    if (llm?.apiKey && llm.provider && VALID_PROVIDERS.includes(llm.provider as LlmProvider)) {
-      const provider = llm.provider as LlmProvider;
-      return { provider, apiKey: llm.apiKey, model: llm.model?.trim() || DEFAULT_VISION_MODELS[provider] };
-    }
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return null;
-    return { provider: "google" as LlmProvider, apiKey, model: process.env.GEMINI_VISION_MODEL || DEFAULT_VISION_MODELS.google };
-  })();
+  const apiKey = process.env.CUSTOM_LLM_API_KEY;
+  const config: LlmConfig | null = apiKey ? { provider: "fptai", apiKey, model: DEFAULT_VISION_MODELS.fptai } : null;
 
   if (!config) {
-    return NextResponse.json(
-      { error: "Chưa cấu hình AI (server hoặc cá nhân) để đọc tài liệu. Vào Cài đặt AI để nhập API key." },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Chưa cấu hình AI trên máy chủ để đọc tài liệu." }, { status: 400 });
   }
 
   const prompt = `Checklist cần đối chiếu (${checklist.length} mục):\n${checklist.map((item, i) => `${i + 1}. ${item}`).join("\n")}\n\nSố tài liệu đã tải lên: ${documents.length} (${documents.map((d) => d.name).join(", ")}).`;

@@ -14,3 +14,4 @@ check_api_gemini.ipynb
 data/raw/vbpl_filter_progress.json
 data/raw/vbpl/files/
 data/processed/vbpl_grantpilot_slice.jsonl
+*.tsbuildinfo
