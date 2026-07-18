@@ -26,6 +26,12 @@ export type Profile = {
   representative?: string;
   email?: string;
   phone?: string;
+  // Filename under public/sample-documents/ this sample profile was
+  // transcribed from — when set, "chọn hồ sơ mẫu" re-reads the real file
+  // through the same upload+OCR pipeline as a real upload, instead of
+  // injecting these hand-typed fields directly. See chooseProfile() in
+  // app/page.tsx. Not present on a profile the user has actually filled in.
+  sourceDocument?: string;
 };
 
 export type PolicyForm = {

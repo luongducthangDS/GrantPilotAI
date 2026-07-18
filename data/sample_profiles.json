@@ -5,32 +5,26 @@
     "tax_code": "0109998888",
     "province": "Hà Nội",
     "industry": "Phần mềm / AI",
-    "business_line": "Sản xuất phần mềm, nền tảng AI cho quản trị doanh nghiệp",
+    "business_line": "Sản xuất phần mềm, cung cấp giải pháp trí tuệ nhân tạo (AI)",
     "employees": 25,
     "revenue_bil": 8,
     "capital_bil": 5,
     "startup_innovation": true,
-    "stage": "MVP đã có khách hàng thử nghiệm",
-    "founded_year": 2024,
-    "representative": "Nguyễn Minh Anh",
-    "email": "founder@novamind.vn",
-    "phone": "0901234567"
+    "representative": "Nguyễn Văn A",
+    "sourceDocument": "novamind-ai.pdf"
   },
   {
     "id": "manufacturing_binhduong",
-    "name": "Công ty TNHH Cơ khí An Phát",
-    "tax_code": "3701234567",
+    "name": "Công ty Cổ phần Cơ khí Hòa Mai",
+    "tax_code": "1234567890",
     "province": "Bình Dương",
     "industry": "Sản xuất",
-    "business_line": "Sản xuất linh kiện cơ khí chính xác cho chuỗi cung ứng công nghiệp",
-    "employees": 80,
+    "business_line": "Gia công cơ khí, chế tạo máy móc công nghiệp",
+    "employees": 120,
     "revenue_bil": 45,
-    "capital_bil": 20,
+    "capital_bil": 30,
     "startup_innovation": false,
-    "stage": "Đang mở rộng nhà xưởng",
-    "founded_year": 2020,
-    "representative": "Trần Quốc Huy",
-    "email": "contact@anphat-cokhi.vn",
-    "phone": "0912345678"
+    "representative": "Trần Văn B",
+    "sourceDocument": "co-khi-hoa-mai.pdf"
   }
 ]

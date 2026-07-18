@@ -268,11 +268,30 @@ export default function Home() {
     setMessage("");
   }
 
-  function chooseProfile(candidate: Profile) {
-    setProfile(candidate);
+  async function chooseProfile(candidate: Profile) {
     setResults([]);
-    setMessage(`Đã chọn hồ sơ mẫu ${candidate.name}.`);
     setError("");
+
+    // Sample profiles are transcribed from a real document — re-read that
+    // document through the actual upload+OCR pipeline instead of injecting
+    // the hand-typed fields directly, so "hồ sơ mẫu" demonstrates the real
+    // reading pipeline rather than a hardcoded shortcut. Falls back to the
+    // direct injection only if the file can't be fetched (e.g. offline).
+    if (candidate.sourceDocument) {
+      try {
+        const response = await fetch(`/sample-documents/${candidate.sourceDocument}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const blob = await response.blob();
+        const file = new File([blob], candidate.sourceDocument, { type: blob.type || "application/pdf" });
+        await handleFile(file);
+        return;
+      } catch (reason) {
+        console.error("Không tải được tài liệu mẫu, dùng dữ liệu có sẵn:", reason);
+      }
+    }
+
+    setProfile(candidate);
+    setMessage(`Đã chọn hồ sơ mẫu ${candidate.name}.`);
   }
 
   async function handleFile(file?: File) {
