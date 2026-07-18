@@ -22,8 +22,20 @@ export const DEFAULT_MODELS: Record<LlmProvider, string> = {
   xai: "grok-4-fast"
 };
 
+// Google list confirmed callable against a real key (see the user's own
+// check_api_gemini.ipynb) as of 2026-07: 2.5-flash/-lite are the
+// established stable tier, 3.5-flash/3.1-flash-lite are the newer stable
+// tier, 3-flash-preview is explicitly a preview build (can change/be
+// pulled without notice — kept as an opt-in choice, not the default).
 export const MODEL_SUGGESTIONS: Record<LlmProvider, string[]> = {
-  google: ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-3.5-flash"],
+  google: [
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-pro",
+    "gemini-3.5-flash",
+    "gemini-3.1-flash-lite",
+    "gemini-3-flash-preview"
+  ],
   openai: ["gpt-4o-mini", "gpt-4o", "gpt-4.1", "gpt-4.1-mini"],
   anthropic: ["claude-sonnet-4-5", "claude-opus-4-1", "claude-haiku-4-5"],
   xai: ["grok-4-fast", "grok-4", "grok-3"]

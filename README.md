@@ -18,16 +18,16 @@ npm run build
 npm run start -- -p 3000
 ```
 
-### Biến môi trường (RAG Q&A)
+### Biến môi trường (RAG Q&A hội thoại)
 
-`Hỏi đáp pháp lý` gọi Gemini thật qua route `/api/qa`. Tạo file `.env.local` (đã gitignore, không commit) ở gốc repo:
+`Hỏi đáp pháp lý` là một **hội thoại nhiều lượt** (không phải hỏi-đáp từng câu rời rạc) — mỗi câu hỏi tiếp theo trong cùng cuộc trò chuyện được hiểu theo ngữ cảnh các lượt trước (không cần lặp lại thông tin), bấm "Cuộc trò chuyện mới" để bắt đầu lại. Gọi Gemini thật qua route `/api/qa`. Tạo file `.env.local` (đã gitignore, không commit) ở gốc repo:
 
 ```
 GEMINI_API_KEY=<api-key-cua-ban>
 GEMINI_MODEL=gemini-2.5-flash
 ```
 
-Lấy API key tại [Google AI Studio](https://aistudio.google.com/apikey). Retrieval là hybrid thật (BM25 + dense embedding + RRF, xem `lib/retrieval.ts`) — nếu thiếu `GEMINI_API_KEY`, retrieval tự rơi về BM25-only; nếu gọi LLM lỗi (quota/network), route tự rơi về câu trả lời soạn sẵn (rule-based) thay vì lỗi trắng trang — nhưng khi đó Q&A không còn là RAG thật, chỉ là fallback demo.
+Lấy API key tại [Google AI Studio](https://aistudio.google.com/apikey). Retrieval là hybrid thật (BM25 + dense embedding + RRF, xem `lib/retrieval.ts`) — nếu thiếu `GEMINI_API_KEY`, retrieval tự rơi về BM25-only; nếu gọi LLM lỗi (quota/network), route tự rơi về câu trả lời soạn sẵn (rule-based, không có nhận thức hội thoại) thay vì lỗi trắng trang — nhưng khi đó Q&A không còn là RAG thật, chỉ là phương án dự phòng cuối cùng.
 
 Sau khi sửa `data/corpus.json`, phải chạy lại embedding trước khi build/deploy, nếu không dense retrieval sẽ dùng embedding cũ (id không khớp sẽ tự bị bỏ qua, không lỗi, nhưng chunk mới sẽ chỉ được tìm thấy qua BM25):
 
@@ -105,7 +105,7 @@ Hai việc dưới đây **không thể tự sửa bằng code** vì phát sinh 
 
 1. Ở `Tìm chính sách`, chọn hồ sơ mẫu `NovaMind AI`, bấm "Phân tích và tìm chính sách".
 2. Bấm "Xem chi tiết" một chính sách để thấy citation, checklist, nút "✦ Phân tích sâu hơn bằng AI" (giải thích LLM) và nút "Xuất đơn .docx" (dùng được cho mọi chính sách có checklist, không chỉ Đề án 844).
-3. Mở `Hỏi đáp pháp lý`, thử 10 câu hỏi vàng.
+3. Mở `Hỏi đáp pháp lý`, thử 1 câu hỏi vàng rồi hỏi tiếp một câu ngắn tham chiếu tới câu trả lời trước ("Trong số đó, mục nào bắt buộc nhất?") để thấy hội thoại giữ ngữ cảnh.
 4. Chuyển hồ sơ mẫu sang `Cơ khí An Phát` để thấy kết quả ưu tiên SMEDF và chuỗi giá trị.
 5. Thử upload `data/synthetic_dkkd_novamind.txt`/`data/synthetic_dkkd_anphat.txt` (parse `.txt` trực tiếp), hoặc một ảnh chụp/scan ĐKKD thật (JPG/PNG) để thử OCR bằng AI thật.
 6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 23 tín hiệu) và trạng thái Monitoring Pipeline (lần quét gần nhất, số tin mới phát hiện) ở đầu trang.

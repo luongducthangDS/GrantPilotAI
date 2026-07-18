@@ -4,18 +4,22 @@ import { answerQuestion, classifySme, type Answer, type CorpusChunk, type Profil
 import { DEFAULT_MODELS, generateAnswer, type LlmProvider } from "@/lib/llmProviders";
 import { hybridRetrieve } from "@/lib/retrieval";
 
-const SYSTEM_INSTRUCTION = `Bạn là trợ lý pháp lý AI của GrantPilot, giúp doanh nghiệp nhỏ và vừa/startup Việt Nam tra cứu chính sách hỗ trợ.
+const SYSTEM_INSTRUCTION = `Bạn là trợ lý pháp lý AI của GrantPilot, giúp doanh nghiệp nhỏ và vừa/startup Việt Nam tra cứu chính sách hỗ trợ, qua một cuộc hội thoại nhiều lượt (không phải từng câu hỏi độc lập).
 
 Quy tắc bắt buộc:
 - CHỈ trả lời dựa trên các đoạn trích dẫn được cung cấp bên dưới. Không được bịa, không dùng kiến thức ngoài phạm vi các đoạn trích này.
 - Nếu các đoạn trích không đủ căn cứ để trả lời chắc chắn câu hỏi, phải nói rõ "Không đủ thông tin trong dữ liệu hiện có để trả lời chắc chắn" thay vì suy đoán hoặc phỏng đoán.
+- Dùng lịch sử hội thoại (nếu có) để hiểu ngữ cảnh và các câu hỏi nối tiếp (ví dụ dùng "còn", "vậy", "cái đó", đại từ thay thế) — nhưng KHÔNG dùng lịch sử hội thoại làm căn cứ pháp lý; căn cứ vẫn chỉ lấy từ các đoạn trích của LƯỢT HIỆN TẠI.
 - Trả lời ngắn gọn (3-6 câu), rõ ràng, bằng tiếng Việt, có thể nhắc số hiệu văn bản/điều khoản khi phù hợp.
 - Đây là công cụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ quan có thẩm quyền — nếu câu hỏi mang tính kết luận cuối cùng (ví dụ miễn thuế hoàn toàn), nhắc người dùng cần đối chiếu văn bản gốc.
 - Chỉ trả về văn bản câu trả lời thuần, không thêm tiêu đề, không lặp lại đoạn trích, không markdown.`;
 
 const VALID_PROVIDERS: LlmProvider[] = ["google", "openai", "anthropic", "xai"];
+const MAX_HISTORY_TURNS = 12;
 
-function buildPrompt(question: string, profile: Profile | undefined, chunks: CorpusChunk[]) {
+type HistoryTurn = { role: "user" | "assistant"; text: string };
+
+function buildPrompt(question: string, profile: Profile | undefined, chunks: CorpusChunk[], history: HistoryTurn[]) {
   const context = chunks
     .map(
       (chunk, index) =>
@@ -30,7 +34,13 @@ function buildPrompt(question: string, profile: Profile | undefined, chunks: Cor
       })()
     : "";
 
-  return `${profileContext}Các đoạn trích từ dữ liệu pháp lý:\n\n${context}\n\nCâu hỏi: ${question}`;
+  const historyText = history.length
+    ? `Lịch sử hội thoại trước đó (từ cũ đến mới, chỉ để hiểu ngữ cảnh, không phải căn cứ pháp lý):\n${history
+        .map((turn) => `${turn.role === "user" ? "Người dùng" : "Trợ lý"}: ${turn.text}`)
+        .join("\n")}\n\n`
+    : "";
+
+  return `${profileContext}${historyText}Các đoạn trích từ dữ liệu pháp lý cho lượt hỏi hiện tại:\n\n${context}\n\nCâu hỏi hiện tại: ${question}`;
 }
 
 // Resolves which provider/key/model to use for this request: a client-
@@ -52,8 +62,9 @@ function resolveLlmConfig(llm: { provider?: string; apiKey?: string; model?: str
 }
 
 export async function POST(request: Request) {
-  const { question, profile, llm } = (await request.json()) as {
+  const { question, history: rawHistory, profile, llm } = (await request.json()) as {
     question?: string;
+    history?: HistoryTurn[];
     profile?: Profile;
     llm?: { provider?: string; apiKey?: string; model?: string };
   };
@@ -62,8 +73,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Thiếu câu hỏi." }, { status: 400 });
   }
 
-  const { chunks, mode } = await hybridRetrieve(question, 5);
-  console.log(`[/api/qa] retrieval mode=${mode} chunks=${chunks.length}`);
+  // Cap defensively even though the client already caps what it sends —
+  // an unbounded history would grow the prompt (and cost) without limit.
+  const history = (rawHistory ?? [])
+    .filter((turn) => (turn?.role === "user" || turn?.role === "assistant") && typeof turn.text === "string" && turn.text.trim())
+    .slice(-MAX_HISTORY_TURNS);
+
+  // A short follow-up ("còn về thuế thì sao?") often doesn't carry enough
+  // keywords on its own for retrieval to find the right chunks — fold in
+  // the last user turn (if any) as extra retrieval signal, without
+  // changing what's shown as "the question" to the model/UI.
+  const lastUserTurn = [...history].reverse().find((turn) => turn.role === "user")?.text;
+  const retrievalQuery = lastUserTurn && lastUserTurn !== question ? `${lastUserTurn} ${question}` : question;
+
+  const { chunks, mode } = await hybridRetrieve(retrievalQuery, 5);
+  console.log(`[/api/qa] retrieval mode=${mode} chunks=${chunks.length} historyTurns=${history.length}`);
 
   if (chunks.length === 0) {
     const fallback: Answer = {
@@ -88,7 +112,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const text = await generateAnswer(config, SYSTEM_INSTRUCTION, buildPrompt(question, profile, chunks));
+    const text = await generateAnswer(config, SYSTEM_INSTRUCTION, buildPrompt(question, profile, chunks, history));
 
     const insufficient = /không đủ thông tin/i.test(text);
     const result: Answer = {

@@ -1,9 +1,10 @@
 "use client";
 
-import { ChangeEvent, DragEvent, useEffect, useMemo, useState } from "react";
+import { ChangeEvent, DragEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   Answer,
+  Citation,
   MatchResult,
   Profile,
   classifySme,
@@ -26,6 +27,14 @@ import {
 } from "@/lib/llmSettings";
 
 type View = "overview" | "search" | "qa" | "updates";
+
+type ChatMessage =
+  | { id: string; role: "user"; text: string }
+  | { id: string; role: "assistant"; text: string; citations: Citation[]; confidence: Answer["confidence"] };
+
+function makeMessageId() {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+}
 
 const provinces = ["Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", "Khác"];
 const industries = ["Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại", "Khác"];
@@ -113,9 +122,10 @@ export default function Home() {
   const [checklistMatchLoading, setChecklistMatchLoading] = useState(false);
   const [checklistMatchError, setChecklistMatchError] = useState("");
 
-  const [question, setQuestion] = useState(goldenQuestions[0]);
-  const [answer, setAnswer] = useState<Answer | null>(null);
+  const [question, setQuestion] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [answerLoading, setAnswerLoading] = useState(false);
+  const chatThreadRef = useRef<HTMLDivElement | null>(null);
 
   const [llmSettings, setLlmSettings] = useState<LlmSettings | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -139,6 +149,11 @@ export default function Home() {
   useEffect(() => {
     saveStoredProfile(profile);
   }, [profile]);
+
+  useEffect(() => {
+    const el = chatThreadRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, answerLoading]);
 
   useEffect(() => {
     if (view !== "updates" || watchStatus) return;
@@ -415,23 +430,40 @@ export default function Home() {
   }
 
   async function ask(nextQuestion: string) {
-    setQuestion(nextQuestion);
-    setAnswerLoading(true);
+    const trimmed = nextQuestion.trim();
+    if (!trimmed || answerLoading) return;
+
+    // Snapshot before appending the new user turn — this is exactly the
+    // history that should be sent as "prior context" for this question.
+    const history = messages.map((m) => ({ role: m.role, text: m.text }));
+
+    setQuestion("");
     setError("");
+    setMessages((current) => [...current, { id: makeMessageId(), role: "user", text: trimmed }]);
+    setAnswerLoading(true);
     try {
       const response = await fetch("/api/qa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: nextQuestion, profile, llm: llmSettings ?? undefined })
+        body: JSON.stringify({ question: trimmed, history, profile, llm: llmSettings ?? undefined })
       });
       if (!response.ok) throw new Error("Không thể lấy câu trả lời.");
       const result = (await response.json()) as Answer;
-      setAnswer(result);
+      setMessages((current) => [
+        ...current,
+        { id: makeMessageId(), role: "assistant", text: result.text, citations: result.citations, confidence: result.confidence }
+      ]);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Hỏi đáp thất bại.");
     } finally {
       setAnswerLoading(false);
     }
+  }
+
+  function resetConversation() {
+    setMessages([]);
+    setQuestion("");
+    setError("");
   }
 
   async function downloadDocx(policy: MatchResult) {
@@ -840,28 +872,82 @@ export default function Home() {
               </div>
               <div className="question-bank">
                 {goldenQuestions.map((item) => (
-                  <button key={item} className={question === item ? "selected" : ""} onClick={() => ask(item)} disabled={answerLoading}>
+                  <button key={item} onClick={() => ask(item)} disabled={answerLoading}>
                     {item}
                   </button>
                 ))}
               </div>
             </div>
 
-            <section className="panel-card">
+            <section className="panel-card chat-panel">
               <div className="section-heading compact">
                 <div>
                   <span className="eyebrow">
-                    BƯỚC 01 · RAG + {llmSettings ? PROVIDER_LABELS[llmSettings.provider].toUpperCase() : "AI MẶC ĐỊNH CỦA MÁY CHỦ"}
+                    HỘI THOẠI · {llmSettings ? PROVIDER_LABELS[llmSettings.provider].toUpperCase() : "AI MẶC ĐỊNH CỦA MÁY CHỦ"}
                   </span>
-                  <h3>Đặt câu hỏi</h3>
+                  <h3>Hỏi đáp pháp lý</h3>
                 </div>
-                <button className="text-button" onClick={openSettings}>Đổi AI →</button>
+                <div className="chat-panel-actions">
+                  {messages.length > 0 && (
+                    <button className="text-button" onClick={resetConversation} disabled={answerLoading}>
+                      Cuộc trò chuyện mới
+                    </button>
+                  )}
+                  <button className="text-button" onClick={openSettings}>Đổi AI →</button>
+                </div>
               </div>
               <p className="qa-profile-hint">
                 Câu trả lời được cá nhân hoá theo hồ sơ:{" "}
                 <strong>{profile.name || "chưa có tên"}</strong>
                 {profile.province ? ` · ${profile.province}` : ""} — đổi hồ sơ (kể cả tra cứu bằng mã số thuế) ở tab &quot;Tìm chính sách&quot;.
               </p>
+
+              <div className="chat-thread" ref={chatThreadRef}>
+                {messages.length === 0 && !answerLoading && (
+                  <div className="empty-hint">
+                    Chọn một câu hỏi gợi ý hoặc tự nhập câu hỏi rồi bấm &quot;Hỏi&quot;. Các câu hỏi tiếp theo trong cùng hội thoại sẽ được
+                    hiểu theo ngữ cảnh trước đó — không cần lặp lại thông tin đã hỏi.
+                  </div>
+                )}
+                {messages.map((message) =>
+                  message.role === "user" ? (
+                    <div className="chat-bubble chat-bubble-user" key={message.id}>
+                      <p>{message.text}</p>
+                    </div>
+                  ) : (
+                    <div className="chat-bubble chat-bubble-assistant" key={message.id}>
+                      <span className={`badge ${message.confidence === "Có căn cứ" ? "success" : "warning"}`}>{message.confidence}</span>
+                      <p>{message.text}</p>
+                      {message.citations.length > 0 ? (
+                        <div className="detail-section citation-section">
+                          <h3>Nguồn pháp lý</h3>
+                          {message.citations.map((citation) => (
+                            <a
+                              href={citation.source}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              key={`${message.id}-${citation.document}-${citation.clause}`}
+                            >
+                              <span className="source-icon">§</span>
+                              <span><strong>{citation.document}</strong><small>{citation.clause} · {citation.status}</small></span>
+                              <b>↗</b>
+                            </a>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="empty-hint">Không có citation vì câu hỏi ngoài phạm vi dữ liệu hiện có.</div>
+                      )}
+                    </div>
+                  )
+                )}
+                {answerLoading && (
+                  <div className="chat-bubble chat-bubble-assistant chat-bubble-loading">
+                    <span className="button-spinner" /> Đang truy hồi dữ liệu và gọi{" "}
+                    {llmSettings ? PROVIDER_LABELS[llmSettings.provider] : "AI"} để sinh câu trả lời...
+                  </div>
+                )}
+              </div>
+
               <div className="ask-bar">
                 <input
                   value={question}
@@ -870,43 +956,14 @@ export default function Home() {
                   placeholder="Hỏi về DNNVV, Đề án 844, SMEDF, ưu đãi đầu tư..."
                   disabled={answerLoading}
                 />
-                <button onClick={() => ask(question)} disabled={answerLoading}>
+                <button onClick={() => ask(question)} disabled={answerLoading || !question.trim()}>
                   {answerLoading ? <><span className="button-spinner" /> Đang truy hồi...</> : <>Hỏi →</>}
                 </button>
               </div>
-
-              {answerLoading ? (
-                <div className="empty-hint">
-                  Đang truy hồi dữ liệu và gọi {llmSettings ? PROVIDER_LABELS[llmSettings.provider] : "AI"} để sinh câu trả lời...
-                </div>
-              ) : answer ? (
-                <div className="answer-box">
-                  <span className={`badge ${answer.confidence === "Có căn cứ" ? "success" : "warning"}`}>
-                    {answer.confidence}
-                  </span>
-                  <p>{answer.text}</p>
-                  {answer.citations.length > 0 ? (
-                    <div className="detail-section citation-section">
-                      <h3>Nguồn pháp lý</h3>
-                      {answer.citations.map((citation) => (
-                        <a href={citation.source} target="_blank" rel="noopener noreferrer" key={`${citation.document}-${citation.clause}`}>
-                          <span className="source-icon">§</span>
-                          <span><strong>{citation.document}</strong><small>{citation.clause} · {citation.status}</small></span>
-                          <b>↗</b>
-                        </a>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="empty-hint">Không có citation vì câu hỏi ngoài phạm vi dữ liệu hiện có.</div>
-                  )}
-                  <div className="legal-note">
-                    <strong>Lưu ý:</strong> Thông tin ở đây chỉ phục vụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ
-                    quan có thẩm quyền.
-                  </div>
-                </div>
-              ) : (
-                <div className="empty-hint">Chọn một câu hỏi gợi ý hoặc tự nhập câu hỏi rồi bấm &quot;Hỏi&quot;.</div>
-              )}
+              <div className="legal-note">
+                <strong>Lưu ý:</strong> Thông tin ở đây chỉ phục vụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ
+                quan có thẩm quyền.
+              </div>
             </section>
           </section>
         )}
