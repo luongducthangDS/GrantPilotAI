@@ -1021,6 +1021,23 @@ export default function Home() {
               </ol>
             </div>
 
+            {selectedPolicy.forms && selectedPolicy.forms.length > 0 && (
+              <div className="detail-section">
+                <h3>Biểu mẫu gốc</h3>
+                <div className="official-forms-list">
+                  {selectedPolicy.forms.map((form) => (
+                    <a href={form.url} target="_blank" rel="noopener noreferrer" key={form.url} className="official-form-card">
+                      <span className="source-icon">⇩</span>
+                      <span>
+                        <strong>{form.name}</strong>
+                        <small>{form.description}</small>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="detail-section citation-section">
               <h3>Nguồn pháp lý</h3>
               {selectedPolicy.citations.map((citation) => (

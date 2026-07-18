@@ -28,6 +28,12 @@ export type Profile = {
   phone?: string;
 };
 
+export type PolicyForm = {
+  name: string;
+  description: string;
+  url: string;
+};
+
 export type Policy = {
   id: string;
   title: string;
@@ -45,6 +51,12 @@ export type Policy = {
   };
   citations: Citation[];
   checklist: string[];
+  // Real downloadable official application forms, when a policy's legal
+  // basis publishes one (rare — most policies in this dataset don't have a
+  // verified one yet). Links point straight at the government source
+  // (vbpl.vn's file storage), not a locally hosted copy — no server-side
+  // file hosting to maintain, and the user always gets the current version.
+  forms?: PolicyForm[];
 };
 
 export type MatchResult = Policy & {

@@ -220,7 +220,14 @@
         "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411"
       }
     ],
-    "checklist": ["Hồ sơ mô tả dự án/sản phẩm khởi nghiệp sáng tạo và mô hình kinh doanh", "Cam kết hoặc hợp đồng đầu tư từ quỹ đầu tư khởi nghiệp sáng tạo/quỹ đầu tư mạo hiểm/nhà đầu tư cá nhân, hoặc văn bản cam kết hỗ trợ từ trung tâm đổi mới sáng tạo/trung tâm hỗ trợ khởi nghiệp sáng tạo", "Số liệu hoặc kế hoạch kinh doanh thể hiện khả năng tăng trưởng doanh thu tối thiểu 20%/năm trong 2 năm liên tiếp", "Hồ sơ đăng ký doanh nghiệp theo Luật Doanh nghiệp (hoặc giấy tờ cư trú hợp lệ nếu đăng ký với tư cách cá nhân/nhóm cá nhân)"]
+    "checklist": ["Đơn theo Mẫu số IV.1.1 (Phụ lục IV, NĐ 268/2025) — chọn đúng mục \"Doanh nghiệp khởi nghiệp sáng tạo\" ở Phần 2", "Bản sao CCCD/Hộ chiếu và giấy tờ chứng thực cá nhân khác của người đại diện", "Bản sao giấy tờ pháp lý của doanh nghiệp (Quyết định thành lập/Mã số thuế/Giấy chứng nhận đăng ký doanh nghiệp)", "Văn bản đầu tư, cam kết đầu tư, hoặc giấy chứng nhận tham gia chương trình ươm tạo/tăng tốc khởi nghiệp, hoặc chứng nhận giải thưởng khởi nghiệp sáng tạo cấp quốc gia/quốc tế, hoặc văn bằng bảo hộ sáng chế (một trong các loại, nếu có)", "Bản thuyết minh dự án/mô hình kinh doanh", "Tài liệu chứng minh đáp ứng tiêu chí Điều 35 (bao gồm khả năng tăng trưởng doanh thu tối thiểu 20%/năm trong 2 năm liên tiếp)"],
+    "forms": [
+      {
+        "name": "Mẫu số IV.1.1 — Yêu cầu công nhận tổ chức, cá nhân đổi mới sáng tạo, hỗ trợ đổi mới sáng tạo",
+        "description": "Đơn đăng ký gốc (Phụ lục IV, kèm theo NĐ 268/2025/NĐ-CP) — dùng chung cho trung tâm ĐMST, cá nhân/nhóm cá nhân/doanh nghiệp khởi nghiệp sáng tạo, chuyên gia hỗ trợ và nhà đầu tư cá nhân khởi nghiệp sáng tạo. Tải về từ vbpl.vn (tệp .docx gốc), tự chọn đúng mục tương ứng ở Phần 2 của mẫu.",
+        "url": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/PL%20IV%20-%20Cong%20nhan%20DMST%2CKNST_%C4%91%C3%A3%20g%E1%BB%99p.docx/download"
+      }
+    ]
   },
   {
     "id": "p_nd38_investment_fund",
