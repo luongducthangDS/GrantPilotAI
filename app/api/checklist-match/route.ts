@@ -1,7 +1,19 @@
 import { NextResponse } from "next/server";
 
+import { chunkText, rankChunks } from "@/lib/chunkRetrieve";
 import { extractDocumentText, MIN_PDF_TEXT_CHARS, PDF_MIME } from "@/lib/documentText";
 import { DEFAULT_VISION_MODELS, generateVisionAnswer, type LlmConfig } from "@/lib/llmProviders";
+
+// Above this combined character budget, extracted text is no longer sent to
+// the model in full — a 20-30 page upload can easily run 15k-30k+ chars,
+// risking a blown context window (truncated/invalid JSON output — the exact
+// failure mode already documented in /api/ocr/route.ts) and "lost in the
+// middle" misses even when it doesn't outright fail. Below the budget,
+// behavior is unchanged: full text, no quality loss for normal-sized docs.
+const SAFE_TEXT_BUDGET_CHARS = 12000;
+// When over budget, only the top N chunks per checklist item (by BM25
+// relevance) are kept, deduped across items.
+const TOP_CHUNKS_PER_ITEM = 3;
 
 const SYSTEM_INSTRUCTION = `Bạn là trợ lý đối chiếu hồ sơ xin tài trợ/ưu đãi của GrantPilot. Bạn nhận một danh sách các mục cần có trong checklist hồ sơ, và một hoặc nhiều tài liệu người dùng đã tải lên (có thể là ảnh, hoặc văn bản trích từ PDF/Word — nhiều loại giấy tờ khác nhau trong cùng một lượt upload).
 
@@ -45,7 +57,7 @@ export async function POST(request: Request) {
   // and reported back instead of being silently (and uselessly) sent as an
   // "image". This mirrors the check /api/ocr/route.ts already does.
   const images: { data: string; mimeType: string }[] = [];
-  const extractedSections: string[] = [];
+  const docTexts: { name: string; text: string }[] = [];
   const unreadableDocs: string[] = [];
   for (const doc of documents) {
     const buffer = Buffer.from(doc.data, "base64");
@@ -57,18 +69,18 @@ export async function POST(request: Request) {
     }
     if (doc.mimeType === PDF_MIME) {
       if (extracted && extracted.length >= MIN_PDF_TEXT_CHARS) {
-        extractedSections.push(`--- Tài liệu: ${doc.name} ---\n${extracted}`);
+        docTexts.push({ name: doc.name, text: extracted });
       } else {
         unreadableDocs.push(doc.name);
       }
     } else if (extracted) {
-      extractedSections.push(`--- Tài liệu: ${doc.name} ---\n${extracted}`);
+      docTexts.push({ name: doc.name, text: extracted });
     } else {
       images.push({ data: doc.data, mimeType: doc.mimeType });
     }
   }
 
-  if (!extractedSections.length && !images.length) {
+  if (!docTexts.length && !images.length) {
     return NextResponse.json(
       {
         error: `Không đọc được tài liệu nào (PDF dạng scan ảnh, không có lớp văn bản: ${unreadableDocs.join(", ")}). Vui lòng thử ảnh chụp rõ nét (JPG/PNG) hoặc file Word thay thế.`
@@ -77,11 +89,37 @@ export async function POST(request: Request) {
     );
   }
 
+  const totalTextChars = docTexts.reduce((sum, d) => sum + d.text.length, 0);
+  let extractedSections: string[];
+  let selectiveRetrievalUsed = false;
+
+  if (totalTextChars <= SAFE_TEXT_BUDGET_CHARS) {
+    extractedSections = docTexts.map((d) => `--- Tài liệu: ${d.name} ---\n${d.text}`);
+  } else {
+    // Over budget: chunk every document (by Điều/Chương/Mục headings when
+    // present, else fixed-size paragraph windows — see lib/chunkRetrieve.ts)
+    // and, for each checklist item, keep only the top-N most relevant
+    // chunks (BM25 over this request's chunks, not the policy corpus).
+    // Chunks are deduped across items so overlap doesn't inflate the prompt.
+    const allChunks = docTexts.flatMap((d) => chunkText(d.name, d.text));
+    const selected = new Map<string, { heading: string; text: string }>();
+    for (const item of checklist) {
+      for (const chunk of rankChunks(allChunks, item, TOP_CHUNKS_PER_ITEM)) {
+        selected.set(`${chunk.heading}::${chunk.text.slice(0, 50)}`, chunk);
+      }
+    }
+    extractedSections = [...selected.values()].map((c) => `--- ${c.heading} ---\n${c.text}`);
+    selectiveRetrievalUsed = true;
+  }
+
   const prompt = [
     `Checklist cần đối chiếu (${checklist.length} mục):`,
     checklist.map((item, i) => `${i + 1}. ${item}`).join("\n"),
     `\nSố tài liệu đã tải lên: ${documents.length} (${documents.map((d) => d.name).join(", ")}).`,
     extractedSections.length ? `\nVăn bản trích xuất từ PDF/Word:\n\n${extractedSections.join("\n\n")}` : "",
+    selectiveRetrievalUsed
+      ? `\nLưu ý: tài liệu khá dài, hệ thống chỉ trích các đoạn liên quan nhất tới từng mục checklist (không phải toàn văn). Nếu không thấy đoạn nào khớp một mục, đừng suy đoán — đánh giá "thieu" hoặc "chua_ro" tùy trường hợp.`
+      : "",
     unreadableDocs.length
       ? `\nLưu ý: các tài liệu sau KHÔNG đọc được (PDF scan ảnh, không có lớp văn bản, không thể xử lý): ${unreadableDocs.join(", ")}. Với các mục checklist mà chỉ có tài liệu không đọc được liên quan, hãy đánh giá là "thieu" và ghi chú rõ lý do.`
       : ""
@@ -92,7 +130,7 @@ export async function POST(request: Request) {
     const jsonMatch = text.match(/\[[\s\S]*\]/);
     if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
     const parsed = JSON.parse(jsonMatch[0]) as { item: string; status: string; note: string }[];
-    return NextResponse.json({ results: parsed, unreadableDocs });
+    return NextResponse.json({ results: parsed, unreadableDocs, selectiveRetrievalUsed });
   } catch (error) {
     console.error(`${config.provider} checklist-match thất bại:`, error);
     return NextResponse.json({ error: "Không đối chiếu được tài liệu. Thử lại với ảnh rõ nét hơn." }, { status: 502 });

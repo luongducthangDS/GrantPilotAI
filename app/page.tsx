@@ -144,6 +144,7 @@ export default function Home() {
   const [checklistMatch, setChecklistMatch] = useState<{ item: string; status: string; note: string }[] | null>(null);
   const [checklistMatchLoading, setChecklistMatchLoading] = useState(false);
   const [checklistMatchError, setChecklistMatchError] = useState("");
+  const [checklistMatchNote, setChecklistMatchNote] = useState("");
   const checklistMatchByText = useMemo(() => {
     if (!checklistMatch) return null;
     const map = new Map<string, { item: string; status: string; note: string }>();
@@ -196,6 +197,7 @@ export default function Home() {
   useEffect(() => {
     setChecklistMatch(null);
     setChecklistMatchError("");
+    setChecklistMatchNote("");
   }, [selectedPolicy?.id]);
 
   async function matchChecklistDocuments(fileList: FileList | null) {
@@ -242,8 +244,20 @@ export default function Home() {
       const data = await response.json();
       if (!response.ok || !data.results) throw new Error(data.error || "Không đối chiếu được checklist.");
       setChecklistMatch(data.results);
+      // Transparency notes: tài liệu dài chỉ được đọc theo đoạn liên quan
+      // nhất (không phải toàn văn), và/hoặc một số PDF scan ảnh không đọc
+      // được — người dùng cần biết để không hiểu nhầm kết quả là đã đọc hết.
+      const notes: string[] = [];
+      if (data.selectiveRetrievalUsed) {
+        notes.push("Tài liệu khá dài — AI chỉ đọc các đoạn liên quan nhất tới từng mục, không phải toàn văn.");
+      }
+      if (data.unreadableDocs?.length) {
+        notes.push(`Không đọc được (PDF scan ảnh): ${data.unreadableDocs.join(", ")}.`);
+      }
+      setChecklistMatchNote(notes.join(" "));
     } catch (reason) {
       setChecklistMatchError(reason instanceof Error ? reason.message : "Không đối chiếu được checklist.");
+      setChecklistMatchNote("");
     } finally {
       setChecklistMatchLoading(false);
     }
@@ -1155,6 +1169,7 @@ export default function Home() {
                   Kết quả AI đọc từ tài liệu bạn tải lên — chỉ mang tính gợi ý sơ bộ, không thay thế thẩm định hồ sơ thật.
                 </p>
               )}
+              {checklistMatchNote && <p className="checklist-hint">{checklistMatchNote}</p>}
               <ol className="document-list">
                 {selectedPolicy.checklist.map((item) => {
                   // Match by item text, not array position — the model can
