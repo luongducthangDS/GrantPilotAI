@@ -49,12 +49,17 @@ async function generateGoogle(
   const parts: Array<{ text: string } | { inlineData: { data: string; mimeType: string } }> = [{ text: prompt }];
   (images ?? []).forEach((image) => parts.unshift({ inlineData: { data: image.data, mimeType: image.mimeType } }));
 
+  // temperature 0.1 (was 0.2): every use case in this app is grounded
+  // extraction/analysis (OCR fields, policy explanations, cited Q&A) with no
+  // creative-writing need — caught a live case where profile OCR filled in a
+  // founded_year that didn't appear anywhere in the source document at 0.2.
+
   const response = await ai.models.generateContent({
     model: config.model,
     contents: [{ role: "user", parts }],
     config: responseSchema
-      ? { systemInstruction, temperature: 0.2, responseMimeType: "application/json", responseSchema }
-      : { systemInstruction, temperature: 0.2 }
+      ? { systemInstruction, temperature: 0.1, responseMimeType: "application/json", responseSchema }
+      : { systemInstruction, temperature: 0.1 }
   });
   const text = response.text?.trim();
   if (!text) throw new Error("Gemini trả về phản hồi rỗng.");
@@ -83,7 +88,7 @@ async function generateOpenAiCompatible(
     },
     body: JSON.stringify({
       model: config.model,
-      temperature: 0.2,
+      temperature: 0.1,
       messages: [
         { role: "system", content: systemInstruction },
         { role: "user", content: userContent }
@@ -120,7 +125,7 @@ async function generateAnthropic(config: LlmConfig, systemInstruction: string, p
     body: JSON.stringify({
       model: config.model,
       max_tokens: 1536,
-      temperature: 0.2,
+      temperature: 0.1,
       system: systemInstruction,
       messages: [{ role: "user", content: userContent }]
     })

@@ -40,25 +40,33 @@ async function extractXlsxText(buffer: Buffer): Promise<string> {
 // for a `{...}` blob inside freeform text. Deliberately has no `required`
 // list — every field must stay omittable when the source doesn't clearly
 // state it, matching the "don't guess" rule below.
+// maxLength on every STRING field is a real defense, not decoration: a smaller
+// model (observed live with gemini-2.5-flash-lite) can enter a repetition
+// loop on a numeric-looking string field and emit thousands of trailing "0"
+// characters instead of stopping at the real value — capping length turns
+// that failure into a truncated-but-harmless value instead of a multi-KB
+// response with a corrupted tax_code.
 const PROFILE_JSON_SCHEMA = {
   type: "OBJECT",
   properties: {
-    name: { type: "STRING", description: "Tên doanh nghiệp đầy đủ" },
-    tax_code: { type: "STRING", description: "Mã số thuế / mã số doanh nghiệp, chỉ chữ số" },
+    name: { type: "STRING", description: "Tên doanh nghiệp đầy đủ", maxLength: 200 },
+    tax_code: { type: "STRING", description: "Mã số thuế / mã số doanh nghiệp, chỉ chữ số", maxLength: 20 },
     province: {
       type: "STRING",
       description:
-        'Tỉnh/thành phố trụ sở chính. PHẢI là một trong: "Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", hoặc "Khác" nếu là tỉnh/thành khác.'
+        'Tỉnh/thành phố trụ sở chính. PHẢI là một trong: "Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", hoặc "Khác" nếu là tỉnh/thành khác.',
+      maxLength: 40
     },
     industry: {
       type: "STRING",
-      description: 'PHẢI là một trong: "Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại".'
+      description: 'PHẢI là một trong: "Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại".',
+      maxLength: 40
     },
-    business_line: { type: "STRING", description: "Mô tả ngành nghề kinh doanh chính, nguyên văn hoặc tóm tắt ngắn" },
+    business_line: { type: "STRING", description: "Mô tả ngành nghề kinh doanh chính, nguyên văn hoặc tóm tắt ngắn", maxLength: 300 },
     employees: { type: "INTEGER", description: "Số lao động" },
     revenue_bil: { type: "NUMBER", description: "Doanh thu, đơn vị TỶ ĐỒNG (quy đổi nếu nguồn ghi đơn vị khác)" },
     capital_bil: { type: "NUMBER", description: "Vốn điều lệ/vốn, đơn vị TỶ ĐỒNG (quy đổi nếu nguồn ghi đơn vị khác)" },
-    representative: { type: "STRING", description: "Tên người đại diện pháp luật" },
+    representative: { type: "STRING", description: "Tên người đại diện pháp luật", maxLength: 100 },
     founded_year: { type: "INTEGER", description: "Năm thành lập / đăng ký lần đầu, 4 chữ số" }
   }
 };
@@ -209,6 +217,23 @@ export async function POST(request: Request) {
     // "" for a field it isn't sure about — treat that the same as omitted.
     for (const key of Object.keys(parsed)) {
       if (parsed[key] === "") delete parsed[key];
+    }
+
+    // Defense against a real failure mode observed live: a smaller vision
+    // model (gemini-2.5-flash-lite) can enter a repetition loop on a
+    // numeric-looking string field and emit thousands of trailing "0"
+    // characters instead of stopping — sometimes truncated by the token
+    // limit into invalid JSON (caught below by the JSON.parse failure), but
+    // sometimes landing on syntactically valid JSON with a garbage value that
+    // would otherwise sail through untouched. The schema's `maxLength` hint
+    // does NOT reliably stop this, so validate after the fact instead of
+    // trusting the model's output shape.
+    for (const key of Object.keys(parsed)) {
+      const value = parsed[key];
+      if (typeof value === "string" && value.length > 300) delete parsed[key];
+    }
+    if (typeof parsed.tax_code === "string" && !/^\d{10}(-\d{3})?$|^\d{13}$/.test(parsed.tax_code)) {
+      delete parsed.tax_code;
     }
 
     // The UI's province/industry <select> only recognizes exact label strings.
