@@ -137,3 +137,22 @@ Các file Python cũ vẫn được giữ để dự phòng:
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+## Bộ 47 văn bản VBPL về hỗ trợ doanh nghiệp
+
+File xuất chính thức từ `vbpl.vn` được lưu tại
+`data/raw/vbpl/vbpl_ho_tro_doanh_nghiep_trung_uong_con_hieu_luc.xlsx`. Bộ lọc nguồn
+là từ khóa `hỗ trợ doanh nghiệp`, tìm trong `Tiêu đề`, phạm vi `Trung ương` và tình
+trạng `Còn hiệu lực`.
+
+Tải lại toàn bộ văn bản gốc và phụ lục bằng:
+
+```powershell
+npm run data:crawl-vbpl-official
+```
+
+Crawler tự dò giao diện tải hiện hành của VBPL, có retry/timeout, tiếp tục từ file
+đã tải, kiểm tra kích thước, tạo SHA-256 và đánh dấu tệp trùng. File nhị phân nằm
+trong `data/raw/vbpl/files/` (không đưa vào Git); inventory thô và manifest đã xử lý
+được lưu lần lượt trong `data/raw/vbpl/attachment_inventory.json` và
+`data/processed/vbpl_ho_tro_doanh_nghiep_manifest.json`.

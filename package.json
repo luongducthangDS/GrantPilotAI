@@ -9,6 +9,7 @@
     "lint": "next lint",
     "data:crawl": "python scripts/crawl_verified_sources.py",
     "data:crawl-policy": "python scripts/crawl_chinhphu_policy.py",
+    "data:crawl-vbpl-official": "python scripts/crawl_vbpl_official.py",
     "data:filter-vbpl": "python scripts/filter_vbpl_dataset.py",
     "data:build": "python scripts/build_database.py",
     "data:embed": "node scripts/build-embeddings.mjs",

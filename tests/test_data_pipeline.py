@@ -11,6 +11,11 @@ SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
 
 from crawl_chinhphu_policy import is_relevant  # noqa: E402
+from crawl_vbpl_official import (  # noqa: E402
+    parse_rsc_file_list,
+    safe_filename,
+    stable_download_url,
+)
 from crawl_verified_sources import html_to_text  # noqa: E402
 from data_pipeline_utils import (  # noqa: E402
     build_retry_session,
@@ -64,6 +69,20 @@ class CrawlerTextTests(unittest.TestCase):
     def test_policy_relevance_is_diacritic_insensitive(self) -> None:
         self.assertTrue(is_relevant("Ho tro doanh nghiep khoi nghiep", ""))
         self.assertFalse(is_relevant("Kết quả bóng đá", "Lịch thi đấu cuối tuần"))
+
+
+class VbplOfficialCrawlerTests(unittest.TestCase):
+    def test_parse_rsc_file_list(self) -> None:
+        payload = '0:["$@1"]\n1:[{"fileName":"Phụ lục I.docx","size":123}]\n'
+        self.assertEqual(parse_rsc_file_list(payload)[0]["fileName"], "Phụ lục I.docx")
+
+    def test_safe_filename_preserves_vietnamese(self) -> None:
+        self.assertEqual(safe_filename('Phụ lục: hỗ trợ?.docx'), "Phụ lục_ hỗ trợ_.docx")
+
+    def test_stable_download_url_quotes_unicode(self) -> None:
+        url = stable_download_url("123/Phụ lục I.docx")
+        self.assertIn("Ph%E1%BB%A5%20l%E1%BB%A5c%20I.docx", url)
+        self.assertTrue(url.endswith("/download"))
 
 
 if __name__ == "__main__":
