@@ -1086,7 +1086,14 @@ export default function Home() {
                 {aiExplanationLoading ? "Đang phân tích..." : "✦ Phân tích sâu hơn bằng AI"}
               </button>
               <button className="modal-download-button" onClick={() => downloadDocx(selectedPolicy)} disabled={docxLoading}>
-                {docxLoading ? "Đang tạo file..." : "⇩ Xuất đơn .docx"}
+                {docxLoading
+                  ? "Đang tạo file..."
+                  : // Keep this id list in sync with REAL_FORM_POLICY_IDS in
+                    // app/api/grant-docx/route.ts — just a label hint here,
+                    // the actual real-form-vs-summary branching happens server-side.
+                    selectedPolicy.id === "p_nd268_recognition"
+                    ? "⇩ Xuất đơn theo mẫu gốc (.docx)"
+                    : "⇩ Xuất tóm tắt hồ sơ (.docx)"}
               </button>
             </div>
 
