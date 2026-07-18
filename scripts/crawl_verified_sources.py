@@ -1,32 +1,37 @@
 from __future__ import annotations
 
+import argparse
 import datetime as dt
-import gzip
 import html
 import json
 import re
 import ssl
 import sys
-import urllib.error
-import urllib.request
-import zlib
-from pathlib import Path
 from typing import Any
 
+import requests
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA_DIR = ROOT / "data"
+from data_pipeline_utils import (
+    DATA_DIR,
+    PROCESSED_DIR,
+    RAW_DIR,
+    build_retry_session,
+    canonical_url,
+    configure_utf8_stdio,
+    content_hash,
+    decode_response,
+    deduplicate,
+    ensure_data_dirs,
+    normalize_for_match,
+    write_json,
+)
+
+
 SOURCES_PATH = DATA_DIR / "verified_sources.json"
-OUTPUT_PATH = DATA_DIR / "crawled_sources.json"
+RAW_OUTPUT_PATH = RAW_DIR / "verified_source_pages.json"
+PROCESSED_OUTPUT_PATH = PROCESSED_DIR / "crawled_sources.json"
 
-
-def normalize(value: str) -> str:
-    import unicodedata
-
-    value = unicodedata.normalize("NFD", value.lower())
-    value = "".join(char for char in value if unicodedata.category(char) != "Mn")
-    value = value.replace("đ", "d")
-    return re.sub(r"\s+", " ", value).strip()
+configure_utf8_stdio()
 
 
 def html_to_text(markup: str) -> tuple[str, str]:
@@ -41,59 +46,65 @@ def html_to_text(markup: str) -> tuple[str, str]:
     return title, cleaned
 
 
-def fetch_url(url: str, timeout: int = 35) -> dict[str, Any]:
-    request = urllib.request.Request(
+def fetch_url(
+    url: str,
+    session: requests.Session,
+    timeout: float = 35.0,
+) -> dict[str, Any]:
+    response = session.get(
         url,
         headers={
-            "User-Agent": "GrantPilotAI/0.2 source verifier",
+            "User-Agent": "GrantPilotAI/0.3 data-pipeline",
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         },
+        timeout=(min(timeout, 10.0), timeout),
     )
-    context = ssl.create_default_context()
-    with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
-        raw = response.read()
-        # Some CDNs (e.g. openresty edge caches) send a gzip/deflate body even
-        # without an Accept-Encoding request header — urllib never
-        # auto-decompresses, so do it ourselves or downstream text becomes
-        # garbage binary instead of raising a decode error.
-        content_encoding = (response.headers.get("content-encoding") or "").lower()
-        if content_encoding == "gzip":
-            raw = gzip.decompress(raw)
-        elif content_encoding == "deflate":
-            raw = zlib.decompress(raw)
-        content_type = response.headers.get("content-type", "")
-        charset_match = re.search(r"charset=([^;\s]+)", content_type, flags=re.IGNORECASE)
-        charset = charset_match.group(1) if charset_match else "utf-8"
-        text = raw.decode(charset, errors="ignore")
-        title, clean_text = html_to_text(text)
-        return {
-            "http_status": response.status,
-            "final_url": response.geturl(),
-            "content_type": content_type,
-            "bytes": len(raw),
-            "title": title,
-            "text": clean_text,
-        }
+    response.raise_for_status()
+    markup = decode_response(response)
+    title, clean_text = html_to_text(markup)
+    return {
+        "http_status": response.status_code,
+        "final_url": response.url,
+        "content_type": response.headers.get("content-type", ""),
+        "bytes": len(response.content),
+        "title": title,
+        "text": clean_text,
+        "content_hash": content_hash(clean_text),
+    }
 
 
-def crawl() -> list[dict[str, Any]]:
+def crawl(timeout: float = 35.0, retries: int = 3) -> list[dict[str, Any]]:
+    ensure_data_dirs()
     sources = json.loads(SOURCES_PATH.read_text(encoding="utf-8"))
+    sources, duplicate_sources = deduplicate(sources, key=lambda source: canonical_url(source["url"]))
+    if duplicate_sources:
+        print(f"Bỏ qua {len(duplicate_sources)} nguồn trùng URL.")
+
     now = dt.datetime.now(dt.timezone.utc).isoformat()
-    rows: list[dict[str, Any]] = []
+    raw_rows: list[dict[str, Any]] = []
+    processed_rows: list[dict[str, Any]] = []
+    seen_content: dict[str, str] = {}
+    session = build_retry_session(retries=retries)
 
     for source in sources:
         row = dict(source)
         row["fetched_at"] = now
         try:
-            fetched = fetch_url(source["url"])
-            text_norm = normalize(fetched["text"])
-            hits = [keyword for keyword in source["expected_keywords"] if normalize(keyword) in text_norm]
+            fetched = fetch_url(source["url"], session=session, timeout=timeout)
+            text_norm = normalize_for_match(fetched["text"])
+            hits = [
+                keyword
+                for keyword in source["expected_keywords"]
+                if normalize_for_match(keyword) in text_norm
+            ]
             row.update(fetched)
             row["ok"] = fetched["http_status"] == 200 and len(hits) == len(source["expected_keywords"])
             row["keyword_hits"] = hits
-            row["keyword_misses"] = [keyword for keyword in source["expected_keywords"] if keyword not in hits]
+            row["keyword_misses"] = [
+                keyword for keyword in source["expected_keywords"] if keyword not in hits
+            ]
             row["text_excerpt"] = fetched["text"][:1200]
-        except (urllib.error.URLError, TimeoutError, ssl.SSLError, OSError) as exc:
+        except (requests.RequestException, TimeoutError, ssl.SSLError, OSError) as exc:
             row.update(
                 {
                     "ok": False,
@@ -101,25 +112,50 @@ def crawl() -> list[dict[str, Any]]:
                     "final_url": source["url"],
                     "content_type": "",
                     "bytes": 0,
-                    "title": "",
+                    "title": source["title"],
                     "text": "",
+                    "content_hash": "",
                     "text_excerpt": "",
                     "keyword_hits": [],
                     "keyword_misses": source["expected_keywords"],
                     "error": str(exc),
                 }
             )
-        rows.append(row)
 
-    OUTPUT_PATH.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
-    return rows
+        raw_rows.append(row)
+        digest = row.get("content_hash", "")
+        if digest and digest in seen_content:
+            row["duplicate_of"] = seen_content[digest]
+            continue
+        if digest:
+            seen_content[digest] = row["id"]
+        processed_rows.append({key: value for key, value in row.items() if key != "text"})
+
+    write_json(RAW_OUTPUT_PATH, raw_rows)
+    write_json(PROCESSED_OUTPUT_PATH, processed_rows)
+    print(
+        f"Đã ghi {len(raw_rows)} bản thô vào {RAW_OUTPUT_PATH.relative_to(DATA_DIR.parent)}; "
+        f"{len(processed_rows)} bản đã loại trùng vào {PROCESSED_OUTPUT_PATH.relative_to(DATA_DIR.parent)}."
+    )
+    return processed_rows
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Crawl và xác minh các nguồn GrantPilotAI.")
+    parser.add_argument("--timeout", type=float, default=35.0, help="Read timeout cho mỗi request (giây).")
+    parser.add_argument("--retries", type=int, default=3, help="Số lần retry cho lỗi tạm thời.")
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
-    results = crawl()
+    args = parse_args()
+    results = crawl(timeout=args.timeout, retries=args.retries)
     ok = sum(1 for row in results if row["ok"])
     print(f"Crawled {len(results)} sources; ok={ok}; failed={len(results) - ok}")
     for row in results:
         status = "OK" if row["ok"] else "FAIL"
-        print(f"{status} {row['id']} status={row.get('http_status')} hits={len(row.get('keyword_hits', []))}/{len(row['expected_keywords'])}")
+        print(
+            f"{status} {row['id']} status={row.get('http_status')} "
+            f"hits={len(row.get('keyword_hits', []))}/{len(row['expected_keywords'])}"
+        )
     sys.exit(0 if ok == len(results) else 1)

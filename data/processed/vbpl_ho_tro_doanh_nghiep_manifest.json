@@ -1,0 +1,2447 @@
+{
+  "source": "https://vbpl.vn",
+  "query": {
+    "keyword": "hỗ trợ doanh nghiệp",
+    "searchIn": "Tiêu đề",
+    "scope": "Trung ương",
+    "status": "Còn hiệu lực"
+  },
+  "officialExport": "data/raw/vbpl/vbpl_ho_tro_doanh_nghiep_trung_uong_con_hieu_luc.xlsx",
+  "documentCount": 47,
+  "attachmentCount": 127,
+  "uniqueFileBytes": 59551206,
+  "duplicateFileCount": 28,
+  "documents": [
+    {
+      "documentId": "183411",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--183411?tabs=tai-ve",
+      "source": {
+        "ID": "183411",
+        "Số ký hiệu": "268/2025/NĐ-CP",
+        "Tên văn bản": "Nghị định số 268/2025/NĐ-CP Quy định chi tiết và hướng dẫn một số điều của Luật Khoa học, công nghệ và đổi mới sáng tạo về đổi mới sáng tạo; khuyến khích hoạt động khoa học, công nghệ và đổi mới sáng tạo trong doanh nghiệp; công nhận trung tâm đổi mới sáng tạo, hỗ trợ khởi nghiệp sáng tạo; công nhận cá nhân, doanh nghiệp khởi nghiệp sáng tạo; hạ tầng, mạng lưới và hệ sinh thái khởi nghiệp sáng tạo",
+        "Loại văn bản": "Nghị định",
+        "Cơ quan ban hành": "Chính phủ",
+        "Ngành": "Khoa học và công nghệ",
+        "Lĩnh vực": "Hoạt động khoa học và công nghệ",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2025/10/14 00:00:00",
+        "Ngày có hiệu lực": "2025/10/14 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Khoa học và Công nghệ",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "183411_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 284237,
+          "downloadedSize": 284237,
+          "sha256": "fe4aec36d046dbced41d189bd25d2a4d69ffd1582939c493b3f732796b780e9b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/183411_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/183411/183411_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "268_2025_ND-CP_663962.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 88169,
+          "downloadedSize": 88169,
+          "sha256": "5fb0595225d9f5c31ed1ed8c314747ca2d34703dece700e886f291cf172be3f5",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/268_2025_ND-CP_663962.docx/download",
+          "localPath": "data/raw/vbpl/files/183411/268_2025_ND-CP_663962.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "PL I - NV DMST-đã gộp.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 183689,
+          "downloadedSize": 183689,
+          "sha256": "73364b6abe4f0b115719d0cf0d43076640587e5931f62ac9ab00e640e25483f1",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/PL%20I%20-%20NV%20DMST-%C4%91%C3%A3%20g%E1%BB%99p.docx/download",
+          "localPath": "data/raw/vbpl/files/183411/PL I - NV DMST-đã gộp.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "PL II - NV HTLSV. đã gộp.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 4797125,
+          "downloadedSize": 4797125,
+          "sha256": "be0152104a2db4510cdbff7adc03f7c3f10875c54ceeb66308ffc007e86819fd",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/PL%20II%20-%20NV%20HTLSV.%20%C4%91%C3%A3%20g%E1%BB%99p.docx/download",
+          "localPath": "data/raw/vbpl/files/183411/PL II - NV HTLSV. đã gộp.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "PL III - Voucher-đã gộp.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 64478,
+          "downloadedSize": 64478,
+          "sha256": "b1f4f08c2970b389ce17c8f35c7cfd0c5c98f81bbfb4d0c728a383947fc17eb3",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/PL%20III%20-%20Voucher-%C4%91%C3%A3%20g%E1%BB%99p.docx/download",
+          "localPath": "data/raw/vbpl/files/183411/PL III - Voucher-đã gộp.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "PL IV - Cong nhan DMST,KNST_đã gộp.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 6345272,
+          "downloadedSize": 6345272,
+          "sha256": "7f0f78481965c641057c5105f2148c7560f207bee35215ba86359932e62af146",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/PL%20IV%20-%20Cong%20nhan%20DMST%2CKNST_%C4%91%C3%A3%20g%E1%BB%99p.docx/download",
+          "localPath": "data/raw/vbpl/files/183411/PL IV - Cong nhan DMST,KNST_đã gộp.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "PL V - DN KHCN-đã gộp.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 53929,
+          "downloadedSize": 53929,
+          "sha256": "225687f3e65bc8211fcbd297b02430a5b94dba1983d9910ed72c6e04ade21992",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/PL%20V%20-%20DN%20KHCN-%C4%91%C3%A3%20g%E1%BB%99p.docx/download",
+          "localPath": "data/raw/vbpl/files/183411/PL V - DN KHCN-đã gộp.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "PL VI - Ho tro hoat dong-đã gộp.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 95392,
+          "downloadedSize": 95392,
+          "sha256": "9726a7ab39f58c8a030babd31bec537fef3f664670fbe976a7bf45e795cb1b89",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/PL%20VI%20-%20Ho%20tro%20hoat%20dong-%C4%91%C3%A3%20g%E1%BB%99p.docx/download",
+          "localPath": "data/raw/vbpl/files/183411/PL VI - Ho tro hoat dong-đã gộp.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_268-cp.signed.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 3064695,
+          "downloadedSize": 3064695,
+          "sha256": "eb733c0911ffe79dde9911153777d2ac9c8a6300d5aa11eba161027517cc72d3",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/VanBanGoc_268-cp.signed.pdf/download",
+          "localPath": "data/raw/vbpl/files/183411/VanBanGoc_268-cp.signed.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_pl1.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 1324132,
+          "downloadedSize": 1324132,
+          "sha256": "1a1f841421065b1264115fe8193cd80c952822c40953eb47f80af04e9b00ac31",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/VanBanGoc_pl1.pdf/download",
+          "localPath": "data/raw/vbpl/files/183411/VanBanGoc_pl1.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_pl2.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 410154,
+          "downloadedSize": 410154,
+          "sha256": "f310467a5d35379c51a000459a9015776014cfb755262e73cdb61ba28f7e76bf",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/VanBanGoc_pl2.pdf/download",
+          "localPath": "data/raw/vbpl/files/183411/VanBanGoc_pl2.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_pl3-4.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 2799573,
+          "downloadedSize": 2799573,
+          "sha256": "f1b9e69313fae86925f797a499cfff77edb2a91085ba35b3f824e7d71e31cd88",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/VanBanGoc_pl3-4.pdf/download",
+          "localPath": "data/raw/vbpl/files/183411/VanBanGoc_pl3-4.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_pl5-6.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 855024,
+          "downloadedSize": 855024,
+          "sha256": "26c1dc8e56be1850bb780e2e4bcaf5862241ee24a75ecf21068ba179c01b4b7f",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/183411/VanBanGoc_pl5-6.pdf/download",
+          "localPath": "data/raw/vbpl/files/183411/VanBanGoc_pl5-6.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "177569",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--177569?tabs=tai-ve",
+      "source": {
+        "ID": "177569",
+        "Số ký hiệu": "09/2025/TT-BTC",
+        "Tên văn bản": "Thông tư số 09/2025/TT-BTC Hướng dẫn cơ chế quản lý và sử dụng kinh phí ngân sách nhà nước thực hiện \"Chương trình hỗ trợ doanh nghiệp khu vực tư nhân kinh doanh bền vững giai đoạn 2022 - 2025\" ban hành kèm theo Quyết định số 167/QĐ-TTg ngày 08 tháng 02 năm 2022 của Thủ tướng Chính phủ",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý thuế, phí, lệ phí và thu khác của ngân sách nhà nước",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2025/02/28 00:00:00",
+        "Ngày có hiệu lực": "2025/04/20 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "VanBanGoc_09.TT.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 2374315,
+          "downloadedSize": 2374315,
+          "sha256": "1bac19b6990d6752ee6d57398240c7b172192870233c78a9fcc9e50b533e8367",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/177569/VanBanGoc_09.TT.pdf/download",
+          "localPath": "data/raw/vbpl/files/177569/VanBanGoc_09.TT.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "163729",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--163729?tabs=tai-ve",
+      "source": {
+        "ID": "163729",
+        "Số ký hiệu": "52/2023/TT-BTC",
+        "Tên văn bản": "Thông tư số 52/2023/TT-BTC Hướng dẫn cơ chế sử dụng kinh phí ngân sách nhà nước chi thường xuyên hỗ trợ doanh nghiệp nhỏ và vừa theo quy định tại Nghị định số 80/2021/NĐ-CP ngày 26 tháng 8 năm 2021 của Chính phủ",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2023/08/08 00:00:00",
+        "Ngày có hiệu lực": "2023/09/23 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "2"
+      },
+      "attachments": [
+        {
+          "fileName": "VanBanGoc_52_10082023_172756.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 7713339,
+          "downloadedSize": 7713339,
+          "sha256": "4d4509c7046cb498b012f72a16a8663aa6d2789613c8bb8d63d3fc00d095792e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/163729/VanBanGoc_52_10082023_172756.pdf/download",
+          "localPath": "data/raw/vbpl/files/163729/VanBanGoc_52_10082023_172756.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "154004",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--154004?tabs=tai-ve",
+      "source": {
+        "ID": "154004",
+        "Số ký hiệu": "31/2022/NĐ-CP",
+        "Tên văn bản": "NGHỊ ĐỊNH SỐ 31/2022/NĐ-CP VỀ HỖ TRỢ LÃI SUẤT TỪ NGÂN SÁCH NHÀ NƯỚC ĐỐI VỚI KHOẢN VAY CỦA DOANH NGHIỆP, HỢP TÁC XÃ, HỘ KINH DOANH",
+        "Loại văn bản": "Nghị định",
+        "Cơ quan ban hành": "Chính phủ",
+        "Ngành": "Ngân hàng",
+        "Lĩnh vực": "Tín dụng",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2022/05/20 00:00:00",
+        "Ngày có hiệu lực": "2022/05/20 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Ngân hàng Nhà nước Việt Nam",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "154004_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 45865,
+          "downloadedSize": 45865,
+          "sha256": "831c88879de4bb0a1629de88fdf10eb45a656c0720cd52f1dddf7f18e6b9afa2",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154004/154004_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/154004/154004_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Nghị định 31-2022-NĐ-CP.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 95744,
+          "downloadedSize": 95744,
+          "sha256": "5d3e3f652cda582738672c86479016e08ce7e1b18d4544de62d7a8aa174e55eb",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154004/Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%2031-2022-N%C4%90-CP.doc/download",
+          "localPath": "data/raw/vbpl/files/154004/Nghị định 31-2022-NĐ-CP.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Phụ lục đính kèm Nghị định 31-2022-NĐ-CP.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 40390,
+          "downloadedSize": 40390,
+          "sha256": "a52b7b25300b25581f149c9a5d7ace530ca5b8d2e789f14a90a0a201193868ce",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154004/Ph%E1%BB%A5%20l%E1%BB%A5c%20%C4%91%C3%ADnh%20k%C3%A8m%20Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%2031-2022-N%C4%90-CP.docx/download",
+          "localPath": "data/raw/vbpl/files/154004/Phụ lục đính kèm Nghị định 31-2022-NĐ-CP.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_Nghị định 31-2022-NĐ-CP.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 1264008,
+          "downloadedSize": 1264008,
+          "sha256": "7b9e927f7711a2986322ea4e0bd591918f6e1b08a34640bddccfc0ac38f59174",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154004/VanBanGoc_Ngh%E1%BB%8B%20%C4%91%E1%BB%8Bnh%2031-2022-N%C4%90-CP.pdf/download",
+          "localPath": "data/raw/vbpl/files/154004/VanBanGoc_Nghị định 31-2022-NĐ-CP.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "154003",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--154003?tabs=tai-ve",
+      "source": {
+        "ID": "154003",
+        "Số ký hiệu": "03/2022/TT-NHNN",
+        "Tên văn bản": "Thông tư số 03/2022/TT-NHNN Hướng dẫn ngân hàng thương mại thực hiện hỗ trợ lãi suất theo Nghị định số 31/2022/NĐ-CP ngày 20 tháng 5 năm 2022 của Chính phủ về hỗ trợ lãi suất từ ngân sách nhà nước đối với khoản vay của\n doanh nghiệp, hợp tác xã, hộ kinh doanh",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Ngân hàng Nhà nước Việt Nam",
+        "Ngành": "Ngân hàng",
+        "Lĩnh vực": "Tín dụng",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2022/05/20 00:00:00",
+        "Ngày có hiệu lực": "2022/05/20 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Ngân hàng Nhà nước Việt Nam",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "154003_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 28108,
+          "downloadedSize": 28108,
+          "sha256": "a776398bb66a4854b4320b058cd0f54c315ace44149277c6b3588830003ff5b7",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154003/154003_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/154003/154003_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Phu luc kèm TT03-2022-TT-NHNN.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 57714,
+          "downloadedSize": 57714,
+          "sha256": "73f9c245d55dd99122001929eeeb297985798ca32e7594793fb8677e88f31bde",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154003/Phu%20luc%20k%C3%A8m%20TT03-2022-TT-NHNN.docx/download",
+          "localPath": "data/raw/vbpl/files/154003/Phu luc kèm TT03-2022-TT-NHNN.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Thong tu 03-2022-TT-NHNN.docx",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 57594,
+          "downloadedSize": 57594,
+          "sha256": "d4fc91ecec8ab0e70f1e521f9ac6a7a26ee12436f96c649cbcc7b4e78a3f950f",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154003/Thong%20tu%2003-2022-TT-NHNN.docx/download",
+          "localPath": "data/raw/vbpl/files/154003/Thong tu 03-2022-TT-NHNN.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_Thong tu 03.2022-TT-NHNN.PDF",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 550220,
+          "downloadedSize": 550220,
+          "sha256": "7e6751af2369559f472b64824d0e696ee1f5d5c32acc5d061322d83c111b6491",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154003/VanBanGoc_Thong%20tu%2003.2022-TT-NHNN.PDF/download",
+          "localPath": "data/raw/vbpl/files/154003/VanBanGoc_Thong tu 03.2022-TT-NHNN.PDF",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_Thong tu 03.2022.TT.NHNN.PDF",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 600463,
+          "downloadedSize": 600463,
+          "sha256": "4461528cc3940ba3f414c3f054e11a7bbb2c25365297412464a3f73bcf8963a1",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/154003/VanBanGoc_Thong%20tu%2003.2022.TT.NHNN.PDF/download",
+          "localPath": "data/raw/vbpl/files/154003/VanBanGoc_Thong tu 03.2022.TT.NHNN.PDF",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "158782",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--158782?tabs=tai-ve",
+      "source": {
+        "ID": "158782",
+        "Số ký hiệu": "06/2022/TT-BKHĐT",
+        "Tên văn bản": "Thông tư số 06/2022/TT-BKHĐT Hướng dẫn một số điều của Nghị định số 80/2021/NĐ-CP ngày 26/8/2021 của Chính phủ quy định chi tiết và hướng dẫn thi hành một số điều của Luật Hỗ trợ doanh nghiệp nhỏ và vừa",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Kế hoạch và Đầu tư",
+        "Ngành": "",
+        "Lĩnh vực": "",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2022/05/10 00:00:00",
+        "Ngày có hiệu lực": "2022/06/25 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "2"
+      },
+      "attachments": [
+        {
+          "fileName": "VanBanGoc_06.2022.TT.BKHĐT (PDF).pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 2595432,
+          "downloadedSize": 2595432,
+          "sha256": "048fc624c1e22716a3b1bc259c976adef2ef220112a5266e0851356336642fb1",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/158782/VanBanGoc_06.2022.TT.BKH%C4%90T%20%28PDF%29.pdf/download",
+          "localPath": "data/raw/vbpl/files/158782/VanBanGoc_06.2022.TT.BKHĐT (PDF).pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "158783",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--158783?tabs=tai-ve",
+      "source": {
+        "ID": "158783",
+        "Số ký hiệu": "80/2021/NĐ-CP",
+        "Tên văn bản": "Nghị định số 80/2021/NĐ-CP Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Hỗ trợ doanh nghiệp nhỏ và vừa",
+        "Loại văn bản": "Nghị định",
+        "Cơ quan ban hành": "Chính phủ",
+        "Ngành": "",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2021/08/26 00:00:00",
+        "Ngày có hiệu lực": "2021/10/15 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/158783/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_80.2021.NĐ.CP (PDF).pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 0,
+          "downloadedSize": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/158783/VanBanGoc_80.2021.N%C4%90.CP%20%28PDF%29.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/VanBanGoc_80.2021.NĐ.CP (PDF).pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "151048",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--151048?tabs=tai-ve",
+      "source": {
+        "ID": "151048",
+        "Số ký hiệu": "64/2021/TT-BTC",
+        "Tên văn bản": "Thông tư số 64/2021/TT-BTC Hướng dẫn lập dự toán, quản lý, sử dụng và quyết toán kinh phí ngân sách nhà nước phục vụ hoạt động hỗ trợ pháp lý cho doanh nghiệp nhỏ và vừa",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Tài chính hành chính sự nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2021/07/29 00:00:00",
+        "Ngày có hiệu lực": "2021/10/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "VanBanGoc_64.signed.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 424492,
+          "downloadedSize": 424492,
+          "sha256": "e168cb0735fbab5fd0de354c5368702cea5dca2c1213f50c6f6295048225982e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/151048/VanBanGoc_64.signed.pdf/download",
+          "localPath": "data/raw/vbpl/files/151048/VanBanGoc_64.signed.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "150955",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--150955?tabs=tai-ve",
+      "source": {
+        "ID": "150955",
+        "Số ký hiệu": "35/2021/TT-BTC",
+        "Tên văn bản": "Thông tư số 35/2021/TT-BTC Quy định cơ chế quản lý tài chính thực hiện Chương trình quốc gia hỗ trợ doanh nghiệp nâng cao năng suất và chất lượng sản phẩm, hàng hóa giai đoạn 2021 - 2030",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Tài chính hành chính sự nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2021/05/19 00:00:00",
+        "Ngày có hiệu lực": "2021/07/05 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "VanBanGoc_35.2021.TT.PDF",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 5940226,
+          "downloadedSize": 5940226,
+          "sha256": "518fdcca8e77e031a4ae44a1559cd34cb3db406f18a118b8369182937ef97009",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/150955/VanBanGoc_35.2021.TT.PDF/download",
+          "localPath": "data/raw/vbpl/files/150955/VanBanGoc_35.2021.TT.PDF",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "159227",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--159227?tabs=tai-ve",
+      "source": {
+        "ID": "159227",
+        "Số ký hiệu": "07/2020/TT-BKHCN",
+        "Tên văn bản": "Thông tư số 07/2020/TT-BKHCN Hướng dẫn việc thành lập cơ sở ươm tạo doanh nghiệp nhỏ và vừa, cơ sở kỹ thuật hỗ trợ doanh nghiệp nhỏ và vừa, khu làm việc chung hỗ trợ doanh nghiệp nhỏ và vừa khởi nghiệp sáng tạo",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Khoa học và Công nghệ",
+        "Ngành": "Khoa học và công nghệ",
+        "Lĩnh vực": "Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2020/12/11 00:00:00",
+        "Ngày có hiệu lực": "2022/02/12 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Khoa học và Công nghệ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "0.thong tu 07.2020.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 195584,
+          "downloadedSize": 195584,
+          "sha256": "3549c0e3081067c0a667218ccf555d3c725f2dcf3ff972584d1e2146949d8ca0",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/159227/0.thong%20tu%2007.2020.doc/download",
+          "localPath": "data/raw/vbpl/files/159227/0.thong tu 07.2020.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "159227_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 27921,
+          "downloadedSize": 27921,
+          "sha256": "ff6cad0b9ba25f4de7de335b9211af05957bf1f664af5e4f559df9730b1f231f",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/159227/159227_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/159227/159227_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_07-bkhcn.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 887994,
+          "downloadedSize": 887994,
+          "sha256": "3d4451289e9105b9162b415036312a105df61505815e5334f8cd33f221ea5c00",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/159227/VanBanGoc_07-bkhcn.pdf/download",
+          "localPath": "data/raw/vbpl/files/159227/VanBanGoc_07-bkhcn.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "143411",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--143411?tabs=tai-ve",
+      "source": {
+        "ID": "143411",
+        "Số ký hiệu": "49/2019/TT-BGTVT",
+        "Tên văn bản": "Thông tư số 49/2019/TT-BGTVT Hướng dẫn quy trình, hồ sơ thanh quyết toán, thủ tục hỗ trợ giá cho doanh nghiệp kinh doanh vận tải đường sắt thực hiện vận tải phục vụ nhiệm vụ đặc biệt, nhiệm vụ an sinh xã hội",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Giao thông vận tải",
+        "Ngành": "Giao thông Vận tải",
+        "Lĩnh vực": "Đường sắt",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2019/12/17 00:00:00",
+        "Ngày có hiệu lực": "2020/02/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Xây dựng",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "143411_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 14148,
+          "downloadedSize": 14148,
+          "sha256": "3d566f353e52792abd3fb4aae69200618516bebae4692974a54f544531b7701e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/143411/143411_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/143411/143411_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "PL.TT.19.2019.docx",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 28303,
+          "downloadedSize": 28303,
+          "sha256": "0b45424ae6d7defa7a93ca982a67cd36f810406159ff14306023f2c1db9281e5",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/143411/PL.TT.19.2019.docx/download",
+          "localPath": "data/raw/vbpl/files/143411/PL.TT.19.2019.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "TT.49.2019.TT.BGTVT.docx",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 54742,
+          "downloadedSize": 54742,
+          "sha256": "eaf020f8f3d3182257db5320b3528b0a38b9ba688533607507b872b4a8a4f352",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/143411/TT.49.2019.TT.BGTVT.docx/download",
+          "localPath": "data/raw/vbpl/files/143411/TT.49.2019.TT.BGTVT.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/143411/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "138456",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--138456?tabs=tai-ve",
+      "source": {
+        "ID": "138456",
+        "Số ký hiệu": "02/2019/TT-BKHCN",
+        "Tên văn bản": "Thông tư số 02/2019/TT-BKHCN Ban hành Danh mục công nghệ hỗ trợ doanh nghiệp nghiên cứu, chuyển giao, ứng dụng nông nghiệp công nghệ cao",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Khoa học và Công nghệ",
+        "Ngành": "Khoa học và công nghệ",
+        "Lĩnh vực": "Nông nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2019/06/03 00:00:00",
+        "Ngày có hiệu lực": "2019/07/15 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Khoa học và Công nghệ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "PhuluckemtheoThongtu 02_2019.docx",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 49396,
+          "downloadedSize": 49396,
+          "sha256": "3c080ffff8419c5922b13ee51045c7fcf0bdf7bae71ddb1493ac4b1d0d7a023c",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/138456/PhuluckemtheoThongtu%2002_2019.docx/download",
+          "localPath": "data/raw/vbpl/files/138456/PhuluckemtheoThongtu 02_2019.docx",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Thongtu 02_2019.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 95232,
+          "downloadedSize": 95232,
+          "sha256": "f75eafda5c6df04ea92d9554313fadcf8bf59a7c3333f6b7adfad305cba9fef8",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/138456/Thongtu%2002_2019.doc/download",
+          "localPath": "data/raw/vbpl/files/138456/Thongtu 02_2019.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_02_2019_tt-bkhcn.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 633913,
+          "downloadedSize": 633913,
+          "sha256": "a90627c6d4aee477b215dff18c55e619f85d93e7593c4b0b5ce0a2c0723fab03",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/138456/VanBanGoc_02_2019_tt-bkhcn.pdf/download",
+          "localPath": "data/raw/vbpl/files/138456/VanBanGoc_02_2019_tt-bkhcn.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "135973",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--135973?tabs=tai-ve",
+      "source": {
+        "ID": "135973",
+        "Số ký hiệu": "32/2018/TT-BLĐTBXH",
+        "Tên văn bản": "Thông tư số 32/2018/TT-BLĐTBXH Hướng dẫn việc hỗ trợ đào tạo nghề đối với lao động đang làm việc trong doanh nghiệp nhỏ và vừa",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Lao động - Thương binh và Xã hội",
+        "Ngành": "",
+        "Lĩnh vực": "",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2018/12/26 00:00:00",
+        "Ngày có hiệu lực": "2019/02/08 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Nội vụ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "32_2018_TT-BLDTBXH_409295 (1).doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 51712,
+          "downloadedSize": 51712,
+          "sha256": "1b23ce421a76c9120ca186ed971438581582a87fe9389a5579ba2851da649c75",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/135973/32_2018_TT-BLDTBXH_409295%20%281%29.doc/download",
+          "localPath": "data/raw/vbpl/files/135973/32_2018_TT-BLDTBXH_409295 (1).doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_409295 (1).pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 843900,
+          "downloadedSize": 843900,
+          "sha256": "030a354f56c572062e3ac30cb5ffac2e05a1cffb353f07b62f33e1b4972cb661",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/135973/VanBanGoc_409295%20%281%29.pdf/download",
+          "localPath": "data/raw/vbpl/files/135973/VanBanGoc_409295 (1).pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "128204",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--128204?tabs=tai-ve",
+      "source": {
+        "ID": "128204",
+        "Số ký hiệu": "142/2017/TT-BTC",
+        "Tên văn bản": "Thông tư số 142/2017/TT-BTC Quy định cơ chế tài chính thực hiện Chương trình hỗ trợ phát triển     doanh nghiệp khoa học và công nghệ và tổ chức khoa học và công nghệ công lập thực hiện cơ chế tự chủ, tự chịu trách nhiệm",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Chưa phân loại",
+        "Lĩnh vực": "Quản lý ngân sách; Tài chính khác",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2017/12/29 00:00:00",
+        "Ngày có hiệu lực": "2018/02/15 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/128204/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "110952",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--110952?tabs=tai-ve",
+      "source": {
+        "ID": "110952",
+        "Số ký hiệu": "21/2016/TT-BTC",
+        "Tên văn bản": "Thông tư số 21/2016/TT-BTC Hướng dẫn về khai thuế giá trị gia tăng và ưu đãi thuế thu nhập doanh nghiệp theo quy định tại Nghị định số 111/2015/NĐ-CP ngày 3/11/2015 của Chính phủ về phát triển công nghiệp hỗ trợ",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý thuế, phí và lệ phí",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2016/02/05 00:00:00",
+        "Ngày có hiệu lực": "2016/04/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "VanBanGoc_21-2016-TT-BTC_21-2016-TT-BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 329122,
+          "downloadedSize": 329122,
+          "sha256": "1273b620bef55e0f55ac3bb8466fc7992ca77666728c51906e7a6854138ee095",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/110952/VanBanGoc_21-2016-TT-BTC_21-2016-TT-BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/110952/VanBanGoc_21-2016-TT-BTC_21-2016-TT-BTC.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "92617",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--92617?tabs=tai-ve",
+      "source": {
+        "ID": "92617",
+        "Số ký hiệu": "13/2015/TT-BKHĐT",
+        "Tên văn bản": "Thông tư số 13/2015/TT-BKHĐT Ban hành Danh mục lĩnh vực ưu tiên hỗ trợ và tiêu chí lựa chọn đối tượng ưu tiên hỗ trợ của Quỹ Phát triển doanh nghiệp nhỏ và vừa",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Kế hoạch và Đầu tư",
+        "Ngành": "Kế hoạch và Đầu tư",
+        "Lĩnh vực": "Đầu tư từ VN ra nước ngoài",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2015/10/28 00:00:00",
+        "Ngày có hiệu lực": "2015/12/13 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "13.2015.TT.BKHĐT.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 78336,
+          "downloadedSize": 78336,
+          "sha256": "aba932b5e9d5cb6c0e1b77a170d315558277e1da49ea9ecb47670a5be777eeff",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/92617/13.2015.TT.BKH%C4%90T.doc/download",
+          "localPath": "data/raw/vbpl/files/92617/13.2015.TT.BKHĐT.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_13.2015.TT.BKHĐT.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 327391,
+          "downloadedSize": 327391,
+          "sha256": "7965f0c6ec2be870f4cdf3e492c6c1a5afc9f15083ca2726db43221617c50100",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/92617/VanBanGoc_13.2015.TT.BKH%C4%90T.pdf/download",
+          "localPath": "data/raw/vbpl/files/92617/VanBanGoc_13.2015.TT.BKHĐT.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "68173",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--68173?tabs=tai-ve",
+      "source": {
+        "ID": "68173",
+        "Số ký hiệu": "71/2015 /TT-BTC",
+        "Tên văn bản": "Thông tư số 71/2015 /TT-BTC Quy định việc lập dự toán, quản lý, sử dụng và quyết toán kinh phí hỗ trợ hoạt động của hội cựu chiến binh trong các cơ quan nhà nước, tổ chức chính trị - xã hội, đơn vị sự nghiệp, doanh nghiệp và tổ chức khác",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2015/05/11 00:00:00",
+        "Ngày có hiệu lực": "2015/07/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "71.2015.TT.BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 61440,
+          "downloadedSize": 61440,
+          "sha256": "c3f9d0e729abe9a1bfd64a2188d0dc4ed0b3f6e87ef0e5750434b12d320755a4",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/68173/71.2015.TT.BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/68173/71.2015.TT.BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_71.2015.TT.BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 307833,
+          "downloadedSize": 307833,
+          "sha256": "c80773a2dc25eec384865b943e2ba1d69c8b34cfa881190dc813d2815accb2f2",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/68173/VanBanGoc_71.2015.TT.BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/68173/VanBanGoc_71.2015.TT.BTC.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "110875",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--110875?tabs=tai-ve",
+      "source": {
+        "ID": "110875",
+        "Số ký hiệu": "71/2015/TT-BTC",
+        "Tên văn bản": "Thông tư số 71/2015/TT-BTC Quy định víệc lập dự toán, quản lý, sử dụng và quỵết toán kinh phí hỗ trợ hoạt động của Hội Cựu chiến binh trong các cơ quan nhà nước, tổ chửc chính trị - xã hội, đơn vị sự nghỉệp, doanh nghiệp và tổ chức khác",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý ngân sách",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2015/05/11 00:00:00",
+        "Ngày có hiệu lực": "2015/07/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "VanBanGoc_71-2015-TT-BTC_71-2015-TT-BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 416237,
+          "downloadedSize": 416237,
+          "sha256": "acdf95392372fae06cc3b00c3457a0435c6b6103803cac0a9782a955bc2f45cf",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/110875/VanBanGoc_71-2015-TT-BTC_71-2015-TT-BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/110875/VanBanGoc_71-2015-TT-BTC_71-2015-TT-BTC.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "37690",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--37690?tabs=tai-ve",
+      "source": {
+        "ID": "37690",
+        "Số ký hiệu": "49/2014/TTLT-BTC-BKHCN",
+        "Tên văn bản": "Thông tư liên tịch số 49/2014/TTLT-BTC-BKHCN Hướng dẫn quản lý tài chính của Chương trình hỗ trợ phát triển doanh nghiệp khoa học và công nghệ và tổ chức khoa học và công nghệ công lập thực hiện cơ chế tự chủ, tự chịu trách nhiệm",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Tài chính; Bộ Khoa học và Công nghệ",
+        "Ngành": "Khoa học và công nghệ; Tài chính",
+        "Lĩnh vực": "Quản lý ngân sách",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2014/04/23 00:00:00",
+        "Ngày có hiệu lực": "2014/06/08 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "49.2014.TTLT.BTC.BKHCN.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 96256,
+          "downloadedSize": 96256,
+          "sha256": "804e4e0cfa542b6f22ca15ecd862f3568111b78cf9c8825bc8103a9204d7ba2b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/37690/49.2014.TTLT.BTC.BKHCN.doc/download",
+          "localPath": "data/raw/vbpl/files/37690/49.2014.TTLT.BTC.BKHCN.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_49-2014-TTLT-BTC-BKHCN_49-2014-TTLT-BTC-BKHCN.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 612945,
+          "downloadedSize": 612945,
+          "sha256": "073eeff2d47f7256f119f3100107573cde035bafe931b3275b4143e0328d557a",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/37690/VanBanGoc_49-2014-TTLT-BTC-BKHCN_49-2014-TTLT-BTC-BKHCN.pdf/download",
+          "localPath": "data/raw/vbpl/files/37690/VanBanGoc_49-2014-TTLT-BTC-BKHCN_49-2014-TTLT-BTC-BKHCN.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_49.2014.TTLT.BTC.BKHCN.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 369569,
+          "downloadedSize": 369569,
+          "sha256": "8902b12b6e35757dbbe9342fd5a09f830d311a2bfd0a273bc20f4e6b24e128fb",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/37690/VanBanGoc_49.2014.TTLT.BTC.BKHCN.pdf/download",
+          "localPath": "data/raw/vbpl/files/37690/VanBanGoc_49.2014.TTLT.BTC.BKHCN.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "30297",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--30297?tabs=tai-ve",
+      "source": {
+        "ID": "30297",
+        "Số ký hiệu": "10/2013/TT-BTC",
+        "Tên văn bản": "Thông tư số 10/2013/TT-BTC Hướng dẫn cơ chế quản lý và sử dụng Quỹ hỗ trợ sắp xếp doanh nghiệp tại các Công ty mẹ của Tập đoàn kinh tế, Tổng công ty nhà nước, Công ty mẹ trong tổ hợp công ty mẹ - công ty con",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2013/01/18 00:00:00",
+        "Ngày có hiệu lực": "2013/03/10 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "10.2013.TT.BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 113664,
+          "downloadedSize": 113664,
+          "sha256": "3d0689b90ec95e8228cb8ed35bc0199b78f884aa84c1d51d5c5ae1107f9e9634",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/30297/10.2013.TT.BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/30297/10.2013.TT.BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "10_2013_TT-BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 137216,
+          "downloadedSize": 137216,
+          "sha256": "8b09880c753c615b6a95ae8948f09137d68a1595e7c6db57f257fb535b70fcdc",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/30297/10_2013_TT-BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/30297/10_2013_TT-BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "41724_1.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 78848,
+          "downloadedSize": 78848,
+          "sha256": "a47823533bd4263bd8bb619182e280f2280e101d600b9514ab16f3d96e757e61",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/30297/41724_1.doc/download",
+          "localPath": "data/raw/vbpl/files/30297/41724_1.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Phu luc.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 79360,
+          "downloadedSize": 79360,
+          "sha256": "20fdc164d7b94ceae890d0069371f7c415ee8abbb52b175f52d221b353855d7b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/30297/Phu%20luc.doc/download",
+          "localPath": "data/raw/vbpl/files/30297/Phu luc.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_10-2013-TT-BTC_10-2013-TT-BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 884167,
+          "downloadedSize": 884167,
+          "sha256": "409dbfe7cb8badb4b3df89f6825f6abe6ef34f069ff69dcdb2c5fa0ce0bba866",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/30297/VanBanGoc_10-2013-TT-BTC_10-2013-TT-BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/30297/VanBanGoc_10-2013-TT-BTC_10-2013-TT-BTC.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_10-2013-TT-BTC_Phu luc.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 573357,
+          "downloadedSize": 573357,
+          "sha256": "d27a6be5cb8cf98e72cbefaa5141f01963b89c37c5fb3a2ab1909547dc877722",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/30297/VanBanGoc_10-2013-TT-BTC_Phu%20luc.pdf/download",
+          "localPath": "data/raw/vbpl/files/30297/VanBanGoc_10-2013-TT-BTC_Phu luc.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_10_2013_TT-BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 401205,
+          "downloadedSize": 401205,
+          "sha256": "a28b9f30f3d630976f49bf4ef3d44c1d825bbc2a709d8eef4b6dfb5aae9d65e3",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/30297/VanBanGoc_10_2013_TT-BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/30297/VanBanGoc_10_2013_TT-BTC.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "27965",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--27965?tabs=tai-ve",
+      "source": {
+        "ID": "27965",
+        "Số ký hiệu": "141/2012/TTLT-BTC-BQP-BCA",
+        "Tên văn bản": "Thông tư liên tịch số 141/2012/TTLT-BTC-BQP-BCA Hướng dẫn cơ chế hỗ trợ tài chính đối với doanh nghiệp trực tiếp phục vụ quốc phòng, an ninh tại Nghị định số 104/2010/NĐ-CP ngày 11/10/2010 của Chinh phủ",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Tài chính; Bộ Công an; Bộ Quốc phòng",
+        "Ngành": "Công an; Quốc phòng; Tài chính",
+        "Lĩnh vực": "Tài chính khác",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2012/08/22 00:00:00",
+        "Ngày có hiệu lực": "2012/10/10 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "141_2012_TTLT-BTC-BQP-BCA.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 86016,
+          "downloadedSize": 86016,
+          "sha256": "458fd1df38f7f4c88764a34483a6ca3385b5ba0800d166f128325163b65c138b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/27965/141_2012_TTLT-BTC-BQP-BCA.doc/download",
+          "localPath": "data/raw/vbpl/files/27965/141_2012_TTLT-BTC-BQP-BCA.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_141-2012-TTLT-BTC-BQP-BCA_141-2012-TTLT-BTC-BQP-BCA.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 438747,
+          "downloadedSize": 438747,
+          "sha256": "fabdb45398e0c190465d14c87cc5bf8644769d69e353c90f97624fcebb98b048",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/27965/VanBanGoc_141-2012-TTLT-BTC-BQP-BCA_141-2012-TTLT-BTC-BQP-BCA.pdf/download",
+          "localPath": "data/raw/vbpl/files/27965/VanBanGoc_141-2012-TTLT-BTC-BQP-BCA_141-2012-TTLT-BTC-BQP-BCA.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_141_2012_TTLT-BTC-BQP-BCA.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 147360,
+          "downloadedSize": 147360,
+          "sha256": "e7c85af19ddc36711556940c642b62c227b8d49c39576321b91a50561aa9e4c0",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/27965/VanBanGoc_141_2012_TTLT-BTC-BQP-BCA.pdf/download",
+          "localPath": "data/raw/vbpl/files/27965/VanBanGoc_141_2012_TTLT-BTC-BQP-BCA.pdf",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "109653",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--109653?tabs=tai-ve",
+      "source": {
+        "ID": "109653",
+        "Số ký hiệu": "1275/QĐ-BTC",
+        "Tên văn bản": "Quyết định số 1275/QĐ-BTC về việc xuất quỹ hỗ trợ sắp xếp doanh nghiệp Trung ương hỗ trợ lao động dôi dư cho công ty cổ phần thủy sản Sóc Trăng",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Chưa phân loại",
+        "Lĩnh vực": "Quản lý tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2010/06/03 00:00:00",
+        "Ngày có hiệu lực": "2010/06/03 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "1275_QĐ-BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 39936,
+          "downloadedSize": 39936,
+          "sha256": "28948be4c6fb7740236ab31884832ef68537b320915301c36a1894fa3e3595b2",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/109653/1275_Q%C4%90-BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/109653/1275_QĐ-BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/109653/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "40789",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--40789?tabs=tai-ve",
+      "source": {
+        "ID": "40789",
+        "Số ký hiệu": "585/QĐ-TTg",
+        "Tên văn bản": "Quyết định số 585/QĐ-TTg Phê duyệt chương trình hỗ trợ pháp lý liên ngành dành cho doanh nghiệp giai đoạn năm 2010 - 2014",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Thủ tướng Chính phủ",
+        "Ngành": "Tư pháp",
+        "Lĩnh vực": "Bổ trợ tư pháp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2010/05/05 00:00:00",
+        "Ngày có hiệu lực": "2010/05/05 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tư pháp",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "585.QĐ.TTg.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 99840,
+          "downloadedSize": 99840,
+          "sha256": "2c110c6a48b998632a481091ce6d703fce7062e2bb8aff306897ba9669581279",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/40789/585.Q%C4%90.TTg.doc/download",
+          "localPath": "data/raw/vbpl/files/40789/585.QĐ.TTg.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "585.QĐ.TTg_Phuluc.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 97792,
+          "downloadedSize": 97792,
+          "sha256": "d1eddb1f769f7f0475dc27d085d4188e4cf8b70a4838fa5d697638a385f6b40c",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/40789/585.Q%C4%90.TTg_Phuluc.doc/download",
+          "localPath": "data/raw/vbpl/files/40789/585.QĐ.TTg_Phuluc.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/40789/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "107366",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--107366?tabs=tai-ve",
+      "source": {
+        "ID": "107366",
+        "Số ký hiệu": "170/2009/TT-BTC",
+        "Tên văn bản": "Thông tư số 170/2009/TT-BTC Hướng dẫn thực hiện hỗ trợ kinh phí cho việc sắp xếp lao động sau cổ phần hoá đối với các doanh nghiệp thuộc Tập đoàn Dệt May Việt Nam",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2009/08/24 00:00:00",
+        "Ngày có hiệu lực": "2009/10/08 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "107366_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 82739,
+          "downloadedSize": 82739,
+          "sha256": "8ed715e98ef64aa9c0c327390690f684b17b906c1030bb8c1b9e809301b22f32",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107366/107366_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/107366/107366_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "170-2009-TT-BTC_170_2009_TT-BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 100352,
+          "downloadedSize": 100352,
+          "sha256": "5ab1faf88abe671f5e52d7ad7883b0c34c3ca7b89e43e8bae83a797e127a0e34",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107366/170-2009-TT-BTC_170_2009_TT-BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/107366/170-2009-TT-BTC_170_2009_TT-BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "170_2009_TT-BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 100352,
+          "downloadedSize": 100352,
+          "sha256": "2c7053892ba6d3c3a35004e2e84f1f92348c511b8933aaec455e6284a8835e61",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107366/170_2009_TT-BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/107366/170_2009_TT-BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_170-2009-TT-BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 3083865,
+          "downloadedSize": 3083865,
+          "sha256": "083aacd77c79256cdd24f6d7becb498d169d4af1d4a8b09ff560b9021934cf4b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107366/VanBanGoc_170-2009-TT-BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/107366/VanBanGoc_170-2009-TT-BTC.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_170-2009-TT-BTC_170-2009-TT-BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 3083865,
+          "downloadedSize": 3083865,
+          "sha256": "083aacd77c79256cdd24f6d7becb498d169d4af1d4a8b09ff560b9021934cf4b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107366/VanBanGoc_170-2009-TT-BTC_170-2009-TT-BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/107366/VanBanGoc_170-2009-TT-BTC.pdf",
+          "duplicateOf": "data/raw/vbpl/files/107366/VanBanGoc_170-2009-TT-BTC.pdf"
+        },
+        {
+          "fileName": "VanBanGoc_170-2009-TT-BTC_Phu luc.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 1220236,
+          "downloadedSize": 1220236,
+          "sha256": "3a026a8a7b9e8fb4afdaad797c94c9bccc97619d18c82fa703b3526fc4655008",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107366/VanBanGoc_170-2009-TT-BTC_Phu%20luc.pdf/download",
+          "localPath": "data/raw/vbpl/files/107366/VanBanGoc_170-2009-TT-BTC_Phu luc.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_Phu luc.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 1220236,
+          "downloadedSize": 1220236,
+          "sha256": "3a026a8a7b9e8fb4afdaad797c94c9bccc97619d18c82fa703b3526fc4655008",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107366/VanBanGoc_Phu%20luc.pdf/download",
+          "localPath": "data/raw/vbpl/files/107366/VanBanGoc_170-2009-TT-BTC_Phu luc.pdf",
+          "duplicateOf": "data/raw/vbpl/files/107366/VanBanGoc_170-2009-TT-BTC_Phu luc.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "12301",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--12301?tabs=tai-ve",
+      "source": {
+        "ID": "12301",
+        "Số ký hiệu": "06/2009/TTLT/BLĐTBXH-BTC",
+        "Tên văn bản": "Thông tư liên tịch số 06/2009/TTLT/BLĐTBXH-BTC Hướng dẫn thực hiện Quyết định số 30/2009/QĐ-TTg ngày 23 tháng 2 năm 2009 của Thủ tướng Chính phủ về việc hỗ trợ đối với người lao động mất việc làm trong doanh nghiệp gặp khó khăn do suy giảm kinh tế",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Lao động - Thương binh và Xã hội; Bộ Tài chính",
+        "Ngành": "Lao động - Thương binh và Xã hội; Tài chính",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2009/02/27 00:00:00",
+        "Ngày có hiệu lực": "2009/02/27 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/12301/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "107883",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--107883?tabs=tai-ve",
+      "source": {
+        "ID": "107883",
+        "Số ký hiệu": "06/2009/TTLT- BLĐTBXH-BTC",
+        "Tên văn bản": "Thông tư liên tịch số 06/2009/TTLT- BLĐTBXH-BTC Hướng dẫn thực hiện Quyết định số 30 /2009/QĐ- TTg ngày 23 tháng 2 năm 2009 của Thủ tướng Chính phủ về việc hỗ trợ đối với người lao động mất việc làm trong doanh nghiệp gặp khó khăn do suy giảm kinh tế",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Tài chính; Bộ Lao động - Thương binh và Xã hội",
+        "Ngành": "Chưa phân loại",
+        "Lĩnh vực": "Quản lý tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2009/02/27 00:00:00",
+        "Ngày có hiệu lực": "2009/02/27 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Nội vụ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "06_2009_TTLT- BLĐTBXH-BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 68096,
+          "downloadedSize": 68096,
+          "sha256": "5120d13b4231d82d84c28c162a82b09201332a06aae33353f844bd1bd65454f0",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107883/06_2009_TTLT-%20BL%C4%90TBXH-BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/107883/06_2009_TTLT- BLĐTBXH-BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "28057_1.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 200192,
+          "downloadedSize": 200192,
+          "sha256": "43375a9f4895ecccd893bb03205e88a12d02681c8841f4588c20a6faffc4b73e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107883/28057_1.doc/download",
+          "localPath": "data/raw/vbpl/files/107883/28057_1.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/107883/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "25984",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--25984?tabs=tai-ve",
+      "source": {
+        "ID": "25984",
+        "Số ký hiệu": "06/2009/TTLT-BLĐTBXH-BTC",
+        "Tên văn bản": "Thông tư liên tịch số 06/2009/TTLT-BLĐTBXH-BTC Thông tư hướng dẫn thực hiện Quyết định số 30/2009/QĐ-TTg ngày 23 tháng 2 năm 2009 của Thủ tướng Chính phủ về việc hỗ trợ đối với người lao động mất việc làm trong doanh nghiệp gặp khó khăn do suy giảm kinh tế",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Lao động - Thương binh và Xã hội; Bộ Tài chính",
+        "Ngành": "Lao động - Thương binh và Xã hội; Tài chính",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2009/02/27 00:00:00",
+        "Ngày có hiệu lực": "2009/02/27 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Nội vụ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "06.2009.TTLT-BLĐTBXH-BTC.zip",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 7839,
+          "downloadedSize": 7839,
+          "sha256": "6ed81e2f7cac2858207951db9d7be1fe0e2ce6d6bd96c10a5f4d414fa345e5bf",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/25984/06.2009.TTLT-BL%C4%90TBXH-BTC.zip/download",
+          "localPath": "data/raw/vbpl/files/25984/06.2009.TTLT-BLĐTBXH-BTC.zip",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "06_2009_TTLT-BLĐTBXH-BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 2,
+          "downloadedSize": 2,
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/25984/06_2009_TTLT-BL%C4%90TBXH-BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/25984/06_2009_TTLT-BLĐTBXH-BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Mau.zip",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 14178,
+          "downloadedSize": 14178,
+          "sha256": "a590eabe6df98f1aca93c9fb23b3367b23bd9a91ed605b62d6b471a4d61d9d87",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/25984/Mau.zip/download",
+          "localPath": "data/raw/vbpl/files/25984/Mau.zip",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/25984/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "12386",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--12386?tabs=tai-ve",
+      "source": {
+        "ID": "12386",
+        "Số ký hiệu": "30/2009/QĐ-TTg",
+        "Tên văn bản": "Quyết định số 30/2009/QĐ-TTg Về việc hỗ trợ đối với người lao động mất việc làm trong doanh nghiệp gặp khó khăn do suy giảm kinh tế",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Thủ tướng Chính phủ",
+        "Ngành": "Lao động - Thương binh và Xã hội; Tài chính",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2009/02/23 00:00:00",
+        "Ngày có hiệu lực": "2009/02/23 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Nội vụ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/12386/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "83314",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--83314?tabs=tai-ve",
+      "source": {
+        "ID": "83314",
+        "Số ký hiệu": "104/2008/QĐ-BTC",
+        "Tên văn bản": "Quyết định số 104/2008/QĐ-BTC Về việc sửa đổi, bổ sung Quy chế quản lý và sử dụng Quỹ hỗ trợ sắp xếp doanh nghiệp tại các Tập đoàn, Tổng công ty nhà nước, công ty mẹ ban hành kèm theo Quyết định số 09/2008/QĐ-BTC ngày 31/01/2008 của Bộ trưởng Bộ Tài chính",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2008/11/13 00:00:00",
+        "Ngày có hiệu lực": "2008/12/13 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "3"
+      },
+      "attachments": [
+        {
+          "fileName": "104_2008_QĐ-BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 48640,
+          "downloadedSize": 48640,
+          "sha256": "92d23f76270d4d08d096de97d94079754dadad2c67d051f0bf3f9c64647bf20d",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/83314/104_2008_Q%C4%90-BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/83314/104_2008_QĐ-BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_104-2008-QĐ-BTC_104-2008-QĐ-BTC.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 1791181,
+          "downloadedSize": 1791181,
+          "sha256": "77e8afe1cd614218f0cd0ab162f75d83fd47dfce156eb2133977fcd2742032c0",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/83314/VanBanGoc_104-2008-Q%C4%90-BTC_104-2008-Q%C4%90-BTC.pdf/download",
+          "localPath": "data/raw/vbpl/files/83314/VanBanGoc_104-2008-QĐ-BTC_104-2008-QĐ-BTC.pdf",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "VanBanGoc_27553_1.PDF",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 502494,
+          "downloadedSize": 502494,
+          "sha256": "b65361dcdd0cd16e3980ed10261aec919121ba73829a49e171c78c42636a325b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/83314/VanBanGoc_27553_1.PDF/download",
+          "localPath": "data/raw/vbpl/files/83314/VanBanGoc_27553_1.PDF",
+          "duplicateOf": null
+        }
+      ]
+    },
+    {
+      "documentId": "23967",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--23967?tabs=tai-ve",
+      "source": {
+        "ID": "23967",
+        "Số ký hiệu": "113/2008/QĐ-TTg",
+        "Tên văn bản": "Quyết định số 113/2008/QĐ-TTg Về việc thành lập và ban hành Quy chế quản lý và sử dụng Quỹ hỗ trợ sắp xếp doanh nghiệp Trung ương",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Thủ tướng Chính phủ",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2008/08/18 00:00:00",
+        "Ngày có hiệu lực": "2008/09/13 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "1"
+      },
+      "attachments": [
+        {
+          "fileName": "113.2008.QD.TTg.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 59660,
+          "downloadedSize": 59660,
+          "sha256": "be875a7f4def521b662ecf6a0090ff3dd900510708b28d79e2ebd2fdd56d443d",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/23967/113.2008.QD.TTg.doc/download",
+          "localPath": "data/raw/vbpl/files/23967/113.2008.QD.TTg.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Phu luc.113.2008.QD.TTg.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 79872,
+          "downloadedSize": 79872,
+          "sha256": "42189263029cd41aa313b004cbe562e910fd77712d130e181ce66aecb5e89061",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/23967/Phu%20luc.113.2008.QD.TTg.doc/download",
+          "localPath": "data/raw/vbpl/files/23967/Phu luc.113.2008.QD.TTg.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Quy che.113.2008.QD.TTg.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 110592,
+          "downloadedSize": 110592,
+          "sha256": "0a55a7d2b8fef58c346632b07c2035422a921c4882c8933bfacee2143256eb2a",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/23967/Quy%20che.113.2008.QD.TTg.doc/download",
+          "localPath": "data/raw/vbpl/files/23967/Quy che.113.2008.QD.TTg.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/23967/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "14865",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--14865?tabs=tai-ve",
+      "source": {
+        "ID": "14865",
+        "Số ký hiệu": "102/2006/TTLT/BTC-BKHCN",
+        "Tên văn bản": "Thông tư liên tịch số 102/2006/TTLT/BTC-BKHCN Hướng dẫn quản lý tài chính đối với Chương trình hỗ trợ phát triển tài sản trí tuệ của doanh nghiệp",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Khoa học và Công nghệ; Bộ Tài chính",
+        "Ngành": "Khoa học và công nghệ; Tài chính",
+        "Lĩnh vực": "Quản lý ngân sách; Tài chính khác",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2006/10/31 00:00:00",
+        "Ngày có hiệu lực": "2006/12/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "102.2006.TTLT.BTC.BKHCN.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 87552,
+          "downloadedSize": 87552,
+          "sha256": "dec2d0bbe8d3a121d06c143d374fe8a4743aaeee00d5967c38afaba5aef5717c",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/14865/102.2006.TTLT.BTC.BKHCN.doc/download",
+          "localPath": "data/raw/vbpl/files/14865/102.2006.TTLT.BTC.BKHCN.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "14865_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 31236,
+          "downloadedSize": 31236,
+          "sha256": "9b9d71436fbc1c17c50c2836f1b35d71b205a8ae5bd5d9a25e89014a9aa8b907",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/14865/14865_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/14865/14865_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/14865/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "15867",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--15867?tabs=tai-ve",
+      "source": {
+        "ID": "15867",
+        "Số ký hiệu": "11/2006/QĐ-BKHCN",
+        "Tên văn bản": "Quyết định số 11/2006/QĐ-BKHCN Ban hành \"Quy chế tuyển chọn tổ chức, cá nhân chủ trì thực hiện dự án thuộc Chương trình hỗ trợ phát triển tài sản trí tuệ của doanh nghiệp\"",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Bộ Khoa học và Công nghệ",
+        "Ngành": "Khoa học và công nghệ",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2006/06/01 00:00:00",
+        "Ngày có hiệu lực": "2006/06/29 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Khoa học và Công nghệ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "11.2006.QD.BKHCN.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 47616,
+          "downloadedSize": 47616,
+          "sha256": "6a02bd0143fe0bb0faed383d3958ccac6323a271f514a4f510d9b9fe40575649",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/15867/11.2006.QD.BKHCN.doc/download",
+          "localPath": "data/raw/vbpl/files/15867/11.2006.QD.BKHCN.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/15867/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "16334",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--16334?tabs=tai-ve",
+      "source": {
+        "ID": "16334",
+        "Số ký hiệu": "25/2006/TT-BTC",
+        "Tên văn bản": "Thông tư số 25/2006/TT-BTC Hướng dẫn thực hiện việc hỗ trợ doanh nghiệp nông, lâm nghiệp Nhà nước, Ban quản lý rừng đặc dụng, Ban quản lý rừng phòng hộ sử dụng lao động là người dân tộc thiểu số cư trú hợp pháp tại các tỉnh Tây Nguyên",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý ngân sách; Tài chính khác",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2006/03/30 00:00:00",
+        "Ngày có hiệu lực": "2006/05/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "25.2006.TT.BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 65536,
+          "downloadedSize": 65536,
+          "sha256": "f817582a21d1be1049d2c5b7a24a9828d573a017da12561a74c4f71c2ae97cd8",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16334/25.2006.TT.BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/16334/25.2006.TT.BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16334/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "16777",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--16777?tabs=tai-ve",
+      "source": {
+        "ID": "16777",
+        "Số ký hiệu": "36/2006/QĐ-TTg",
+        "Tên văn bản": "Quyết định số 36/2006/QĐ-TTg Về việc ban hành \"Quy chế quản lý Chương trình hỗ trợ phát triển tài sản trí tuệ của doanh nghiệp\"",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Thủ tướng Chính phủ",
+        "Ngành": "Khoa học và công nghệ",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2006/02/08 00:00:00",
+        "Ngày có hiệu lực": "2006/03/01 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Khoa học và Công nghệ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "16777_body_content.html",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 3197,
+          "downloadedSize": 3197,
+          "sha256": "40c6b9afbf0e6e87909cad883a392d590486ee9741f992363513edcccfaa86a4",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16777/16777_body_content.html/download",
+          "localPath": "data/raw/vbpl/files/16777/16777_body_content.html",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "36.2006.QD.TTg.zip",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 4544,
+          "downloadedSize": 4544,
+          "sha256": "d175d2b159847d80b9334557c7fa0411ed4c2a68b0d3ad77ac22e1c121ca90c4",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16777/36.2006.QD.TTg.zip/download",
+          "localPath": "data/raw/vbpl/files/16777/36.2006.QD.TTg.zip",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Quy che.zip",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 11956,
+          "downloadedSize": 11956,
+          "sha256": "961bd3f2464aea50cc961492b42ec27b0692e6f84e6b92f810e74d0a7f6ed98a",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16777/Quy%20che.zip/download",
+          "localPath": "data/raw/vbpl/files/16777/Quy che.zip",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16777/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "16671",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--16671?tabs=tai-ve",
+      "source": {
+        "ID": "16671",
+        "Số ký hiệu": "01/2006/QĐ-BKHCN",
+        "Tên văn bản": "Quyết định số 01/2006/QĐ-BKHCN Ban hành Quy chế hoạt động của Ban Chỉ đạo Chương trình hỗ trợ phát triển tài sản trí tuệ của doanh nghiệp",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Bộ Khoa học và Công nghệ",
+        "Ngành": "Khoa học và công nghệ",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2006/01/04 00:00:00",
+        "Ngày có hiệu lực": "2006/01/31 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Khoa học và Công nghệ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16671/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "16776",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--16776?tabs=tai-ve",
+      "source": {
+        "ID": "16776",
+        "Số ký hiệu": "68/2005/QĐ-TTg",
+        "Tên văn bản": "Quyết định số 68/2005/QĐ-TTg Về việc phê duyệt Chương trình hỗ trợ phát triển tài sản trí tuệ của doanh nghiệp",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Thủ tướng Chính phủ",
+        "Ngành": "Khoa học và công nghệ",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2005/04/04 00:00:00",
+        "Ngày có hiệu lực": "2005/04/23 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Khoa học và Công nghệ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "68.2005.QD.TTg.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 52224,
+          "downloadedSize": 52224,
+          "sha256": "03ea80e957901a8204fb7410d166d9f6a48d5bbe29b63c90cf3271f4f8deeac1",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16776/68.2005.QD.TTg.doc/download",
+          "localPath": "data/raw/vbpl/files/16776/68.2005.QD.TTg.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/16776/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "18372",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--18372?tabs=tai-ve",
+      "source": {
+        "ID": "18372",
+        "Số ký hiệu": "192/2004/QĐ-TTg",
+        "Tên văn bản": "Quyết định số 192/2004/QĐ-TTg Ban hành Quy chế công khai tài chính đối với các cấp ngân sách nhà nước, các đơn vị dự toán ngân sách, các tổ chức được ngân sách nhà nước hỗ trợ, các dự án đầu tư xây dựng cơ bản có sử dụng vốn ngân sách nhà nước, các doanh nghiệp nhà nước, các quỹ có nguồn từ ngân sách nhà nước và các quỹ có nguồn từ các khoản đóng góp của nhân dân",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Thủ tướng Chính phủ",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2004/11/16 00:00:00",
+        "Ngày có hiệu lực": "2004/12/11 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "2"
+      },
+      "attachments": [
+        {
+          "fileName": "192.2004.QD.TTg.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 39936,
+          "downloadedSize": 39936,
+          "sha256": "ab56d3c927b6bd0c3b9b869be43f9e83ca5d1d9eb4f5c6b1dac8bab4ff9f0a8b",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/18372/192.2004.QD.TTg.doc/download",
+          "localPath": "data/raw/vbpl/files/18372/192.2004.QD.TTg.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/18372/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "88186",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--88186?tabs=tai-ve",
+      "source": {
+        "ID": "88186",
+        "Số ký hiệu": "263/2003/QĐ-UBDT",
+        "Tên văn bản": "Quyết định số 263/2003/QĐ-UBDT Về việc giải thể doanh nghiệp nhà nước: Công ty Hỗ trợ Phát triển dân tộc và miền núi thuộc Ủy ban dân tộc",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Uỷ ban Dân tộc",
+        "Ngành": "Dân tộc và Miền núi",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2003/11/17 00:00:00",
+        "Ngày có hiệu lực": "2003/12/02 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Dân tộc và Tôn giáo",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "263.2003.QD.UBDT.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 47616,
+          "downloadedSize": 47616,
+          "sha256": "40da36608739690f74157018d13876ec4c184b0659948d22d709141be13ba596",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/88186/263.2003.QD.UBDT.doc/download",
+          "localPath": "data/raw/vbpl/files/88186/263.2003.QD.UBDT.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/88186/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "21370",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--21370?tabs=tai-ve",
+      "source": {
+        "ID": "21370",
+        "Số ký hiệu": "70/2003/QĐ-BTC",
+        "Tên văn bản": "Quyết định số 70/2003/QĐ-BTC của Bộ trưởng BTC V/v quy định thời hạn chấm dứt xử lý ghi thu, ghi chi ngân sách hỗ trợ vốn đầu tư cho Doanh nghiệp Nhà nước",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý ngân sách; Quản lý tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2003/05/15 00:00:00",
+        "Ngày có hiệu lực": "2003/06/21 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "70.2003.QD.BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 41472,
+          "downloadedSize": 41472,
+          "sha256": "29b21c8f35ffedc39eba1dd8e83dee63132c842dfa5710510125e5a4fd17b2a0",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/21370/70.2003.QD.BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/21370/70.2003.QD.BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/21370/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "13646",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--13646?tabs=tai-ve",
+      "source": {
+        "ID": "13646",
+        "Số ký hiệu": "1213/QĐ-TTg",
+        "Tên văn bản": "Quyết định số 1213/QĐ-TTg Về việc hỗ trợ kinh phí để trả lương cho cán bộ công đoàn chuyên trách đang làm việc tại các doanh nghiệp ngoài quốc doanh",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Thủ tướng Chính phủ",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2001/09/07 00:00:00",
+        "Ngày có hiệu lực": "2001/09/07 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "1213.QD.TTg.doc",
+          "mediaType": "application/octet-stream",
+          "category": 4,
+          "sourceSize": 40960,
+          "downloadedSize": 40960,
+          "sha256": "ff58e43d47ea9ea816ab49beea3a743e7716fd3ce60ec2f09d17911890a95d0a",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/13646/1213.QD.TTg.doc/download",
+          "localPath": "data/raw/vbpl/files/13646/1213.QD.TTg.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/13646/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "5998",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--5998?tabs=tai-ve",
+      "source": {
+        "ID": "5998",
+        "Số ký hiệu": "163/2000/QĐ-BTC",
+        "Tên văn bản": "Quyết định số 163/2000/QĐ-BTC Về việc giao nhiệm vụ quản lý quỹ hỗ trợ sắp xếp và cổ phần hoá doanh nghiệp nhà nước cho các đơn vị thuộc bộ và trực thuộc bộ",
+        "Loại văn bản": "Quyết định",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Quản lý tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2000/10/09 00:00:00",
+        "Ngày có hiệu lực": "2000/10/09 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "163.2000.QD.BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 48128,
+          "downloadedSize": 48128,
+          "sha256": "92d90f073038687bf8ce642253d6cfeadf5a017a262de22acb888d21395471d2",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/5998/163.2000.QD.BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/5998/163.2000.QD.BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/5998/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "83279",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--83279?tabs=tai-ve",
+      "source": {
+        "ID": "83279",
+        "Số ký hiệu": "170/2009/TT-BTC",
+        "Tên văn bản": "Thông tư số 170/2009/TT-BTC Hướng dẫn thực hiện hỗ trợ kinh phí cho việc sắp xếp lao động sau cổ phần hoá đối với các doanh nghiệp thuộc Tập đoàn Dệt May Việt Nam",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Tài chính",
+        "Lĩnh vực": "Tài chính doanh nghiệp",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "2000/08/24 00:00:00",
+        "Ngày có hiệu lực": "2000/10/08 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "170.2009.TT.BTC.Phu luc.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 63488,
+          "downloadedSize": 63488,
+          "sha256": "4a03b1678b568e086bf0774a8dc79e8b0403cb800d631fba3949af349b01604a",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/83279/170.2009.TT.BTC.Phu%20luc.doc/download",
+          "localPath": "data/raw/vbpl/files/83279/170.2009.TT.BTC.Phu luc.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "170.2009.TT.BTC.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 56320,
+          "downloadedSize": 56320,
+          "sha256": "fc3837c6c6547cbd37430be2d0f3b897b7543e12f4e0673d843c8bd3d91ac9f1",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/83279/170.2009.TT.BTC.doc/download",
+          "localPath": "data/raw/vbpl/files/83279/170.2009.TT.BTC.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/83279/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "8281",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--8281?tabs=tai-ve",
+      "source": {
+        "ID": "8281",
+        "Số ký hiệu": "68/TC-TCDN",
+        "Tên văn bản": "Thông tư số 68/TC-TCDN Hướng dẫn việc quản lý sử dụng một số khoản hỗ trợ tài chính của Nhà nước đối với doanh nghiệp Nhà nước",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Lao động - Thương binh và Xã hội",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "1997/09/25 00:00:00",
+        "Ngày có hiệu lực": "1997/09/25 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "68.TT.TCDN.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 97792,
+          "downloadedSize": 97792,
+          "sha256": "801baa8c253230b519460f0785b19d92affdcac426c5539ff6bbd35aa42680e9",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/8281/68.TT.TCDN.doc/download",
+          "localPath": "data/raw/vbpl/files/8281/68.TT.TCDN.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/8281/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "108311",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--108311?tabs=tai-ve",
+      "source": {
+        "ID": "108311",
+        "Số ký hiệu": "68-TC/TCDN",
+        "Tên văn bản": "Thông tư số 68-TC/TCDN hướng dẫn việc quản lý sử dụng một số khoản hỗ trợ tài chính của Nhà nước đối với doanh nghiệp Nhà nước",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "Lao động - Thương binh và Xã hội",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "1997/09/24 00:00:00",
+        "Ngày có hiệu lực": "1997/09/24 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "68-TC_TCDN.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 124211,
+          "downloadedSize": 124211,
+          "sha256": "d46702ac02ad5b0a8e7341da475762863cf58872560a336e74127c061d95c709",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/108311/68-TC_TCDN.doc/download",
+          "localPath": "data/raw/vbpl/files/108311/68-TC_TCDN.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/108311/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "10598",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--10598?tabs=tai-ve",
+      "source": {
+        "ID": "10598",
+        "Số ký hiệu": "77/TC-CĐKT",
+        "Tên văn bản": "Thông tư số 77/TC-CĐKT Hướng dẫn kế toán về trích nộp  tiền phụ thu và nhận tiền hỗ trợ từ quỹ bình ổn giá đối với các doanh nghiệp",
+        "Loại văn bản": "Thông tư",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "1993/09/10 00:00:00",
+        "Ngày có hiệu lực": "1993/09/10 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "77.TC-CÐKT.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 65536,
+          "downloadedSize": 65536,
+          "sha256": "3b962d53953fd45b0fba933beeb2a90124ac970be05944204116969068c46e65",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/10598/77.TC-C%C3%90KT.doc/download",
+          "localPath": "data/raw/vbpl/files/10598/77.TC-CÐKT.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/10598/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "11005",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--11005?tabs=tai-ve",
+      "source": {
+        "ID": "11005",
+        "Số ký hiệu": "05/TT-LB",
+        "Tên văn bản": "Thông tư liên tịch số 05/TT-LB Hướng dẫn việc cấp phát, quản lý và sử dụng kinh phí hỗ trợ giải quyết chính sách đối với người lao động thôi việc khi giải thể doanh nghiệp Nhà nước",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Lao động - Thương binh và Xã hội; Bộ Tài chính",
+        "Ngành": "",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "1992/04/11 00:00:00",
+        "Ngày có hiệu lực": "1992/04/11 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Nội vụ",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "05_TT-LB_41851.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 50688,
+          "downloadedSize": 50688,
+          "sha256": "624374daa569ed9654e6b8ff66eba9026dffe2eba273150f06381383ea35cf7e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/11005/05_TT-LB_41851.doc/download",
+          "localPath": "data/raw/vbpl/files/11005/05_TT-LB_41851.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/11005/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    },
+    {
+      "documentId": "108352",
+      "detailUrl": "https://vbpl.vn/van-ban/chi-tiet/x--108352?tabs=tai-ve",
+      "source": {
+        "ID": "108352",
+        "Số ký hiệu": "05/TT-LB",
+        "Tên văn bản": "Thông tư liên tịch số 05/TT-LB Thông tư hướng dẫn việc cấp phát, quản lý và sử dụng kinh phí hỗ trợ giải quyết chính sách đối với người lao động thôi việc khi giải thể doanh nghiệp Nhà nước",
+        "Loại văn bản": "Thông tư liên tịch",
+        "Cơ quan ban hành": "Bộ Tài chính",
+        "Ngành": "",
+        "Lĩnh vực": "Chưa phân loại",
+        "Nhóm Văn bản": "Văn bản quy phạm pháp luật",
+        "Ngày ban hành": "1992/04/10 00:00:00",
+        "Ngày có hiệu lực": "1992/04/10 00:00:00",
+        "Ngày hết hiệu lực toàn bộ": "",
+        "Tình trạng hiệu lực": "Còn hiệu lực",
+        "Cơ quan biên tập": "Bộ Tài chính",
+        "Số lượng văn bản bị tác động hiệu lực": "0"
+      },
+      "attachments": [
+        {
+          "fileName": "05-TT_LB.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 35935,
+          "downloadedSize": 35935,
+          "sha256": "b76b1df09fe598c27cc97c1dc6d0accad391b0658c3e0ba8c31b80b3deba8221",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/108352/05-TT_LB.doc/download",
+          "localPath": "data/raw/vbpl/files/108352/05-TT_LB.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "05_TT-LB.doc",
+          "mediaType": "application/octet-stream",
+          "category": 2,
+          "sourceSize": 219660,
+          "downloadedSize": 219660,
+          "sha256": "9910af4ba07dedf0ad97b5abb4143fe1efb4b82286fcf9719aefc087a65d1a72",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/108352/05_TT-LB.doc/download",
+          "localPath": "data/raw/vbpl/files/108352/05_TT-LB.doc",
+          "duplicateOf": null
+        },
+        {
+          "fileName": "Template.pdf",
+          "mediaType": "application/octet-stream",
+          "category": 1,
+          "sourceSize": 32052,
+          "downloadedSize": 32052,
+          "sha256": "7c05f673e08d4f457c77b5f511bbe47bf92df2f65962e51c9e4ce11a5290383e",
+          "sourceUrl": "https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/minio/buckets/vbpl/108352/Template.pdf/download",
+          "localPath": "data/raw/vbpl/files/158783/Template.pdf",
+          "duplicateOf": "data/raw/vbpl/files/158783/Template.pdf"
+        }
+      ]
+    }
+  ]
+}

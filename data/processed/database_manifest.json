@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-18T11:37:33.452209+00:00",
-  "database": "data/grantpilot.db",
+  "generated_at": "2026-07-18T12:30:18.774739+00:00",
+  "database": "data/processed/grantpilot.db",
   "counts": {
     "sources": 23,
     "source_checks_ok": 22,

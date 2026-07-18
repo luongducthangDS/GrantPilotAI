@@ -107,21 +107,31 @@ Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã g
 - `data/policy_watch.json`: policy watch (23 mục — mock ban đầu, văn bản crawl thủ công, và tin phát hiện qua Monitoring Pipeline).
 - `data/policy_watch_refresh_report.md`: báo cáo lần chạy `scripts/refresh_policy_watch.py` gần nhất (nguồn nào đổi/lỗi, tin mới nào được thêm).
 - `data/vbpl_expansion_candidates.json`: ~400 văn bản từ vbpl.vn đã lọc theo domain nhưng chưa đưa vào corpus — pool mở rộng cho vòng sau.
-- `data/chinhphu_all_urls.json`, `data/chinhphu_relevant_articles.json`: snapshot crawl từ xaydungchinhsach.chinhphu.vn.
+- `data/raw/chinhphu_all_urls.json`: URL thô đã loại trùng từ xaydungchinhsach.chinhphu.vn.
+- `data/processed/chinhphu_relevant_articles.json`: bài liên quan đã chuẩn hóa, gắn content hash và loại trùng.
 - `data/source_verification.md`: nhật ký kiểm chứng URL/source dùng trong demo.
 - `data/verified_sources.json`: danh sách nguồn đã xác thực để crawl.
-- `data/crawled_sources.json`: snapshot crawl đã làm sạch từ nguồn xác thực.
-- `data/grantpilot.db`: SQLite database build từ seed + crawl.
-- `data/database_manifest.json`: số lượng bản ghi và trạng thái coverage.
-- `data/coverage_report.md`: các mảng dữ liệu còn thiếu/cần xác minh.
+- `data/raw/verified_source_pages.json`: nội dung thô từ các nguồn xác thực.
+- `data/processed/crawled_sources.json`: snapshot đã làm sạch, gắn content hash và loại trùng.
+- `data/processed/grantpilot.db`: SQLite database build từ seed + crawl.
+- `data/processed/database_manifest.json`: số lượng bản ghi và trạng thái coverage.
+- `data/processed/coverage_report.md`: các mảng dữ liệu còn thiếu/cần xác minh.
 
 `Hỏi đáp pháp lý` gọi Gemini thật (xem "Biến môi trường" ở trên); matching và các phần còn lại vẫn chạy rule-based phía client. Xem `grantpilot-ai-spec.md` mục 10 để biết chi tiết phần nào đã thật, phần nào còn giả lập/thiếu.
 
 Refresh database:
 
 ```powershell
+pip install -r requirements.txt
+playwright install chromium
 npm run data:refresh
 ```
+
+Các crawler hỗ trợ retry và timeout qua tham số `--retries`, `--timeout`. Chạy
+`npm run data:crawl-policy` cho nguồn Chính phủ, `npm run data:filter-vbpl` cho
+VBPL (ghi vào `data/processed/vbpl_grantpilot_slice.jsonl`, được gitignore vì có
+thể rất lớn) và `npm run data:test` để kiểm tra các hàm chuẩn hóa/khử trùng mà
+không gọi mạng.
 
 ## Bản Streamlit dự phòng
 
@@ -131,3 +141,22 @@ Các file Python cũ vẫn được giữ để dự phòng:
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+## Bộ 47 văn bản VBPL về hỗ trợ doanh nghiệp
+
+File xuất chính thức từ `vbpl.vn` được lưu tại
+`data/raw/vbpl/vbpl_ho_tro_doanh_nghiep_trung_uong_con_hieu_luc.xlsx`. Bộ lọc nguồn
+là từ khóa `hỗ trợ doanh nghiệp`, tìm trong `Tiêu đề`, phạm vi `Trung ương` và tình
+trạng `Còn hiệu lực`.
+
+Tải lại toàn bộ văn bản gốc và phụ lục bằng:
+
+```powershell
+npm run data:crawl-vbpl-official
+```
+
+Crawler tự dò giao diện tải hiện hành của VBPL, có retry/timeout, tiếp tục từ file
+đã tải, kiểm tra kích thước, tạo SHA-256 và đánh dấu tệp trùng. File nhị phân nằm
+trong `data/raw/vbpl/files/` (không đưa vào Git); inventory thô và manifest đã xử lý
+được lưu lần lượt trong `data/raw/vbpl/attachment_inventory.json` và
+`data/processed/vbpl_ho_tro_doanh_nghiep_manifest.json`.

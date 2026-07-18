@@ -6,16 +6,18 @@ import sqlite3
 from pathlib import Path
 from typing import Any
 
+from data_pipeline_utils import PROCESSED_DIR, configure_utf8_stdio, ensure_data_dirs
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
-DB_PATH = DATA_DIR / "grantpilot.db"
-MANIFEST_PATH = DATA_DIR / "database_manifest.json"
-COVERAGE_PATH = DATA_DIR / "coverage_report.md"
+DB_PATH = PROCESSED_DIR / "grantpilot.db"
+MANIFEST_PATH = PROCESSED_DIR / "database_manifest.json"
+COVERAGE_PATH = PROCESSED_DIR / "coverage_report.md"
 
 
-def load_json(name: str) -> Any:
-    return json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
+def load_json(name: str, directory: Path = DATA_DIR) -> Any:
+    return json.loads((directory / name).read_text(encoding="utf-8"))
 
 
 def reset_db(conn: sqlite3.Connection) -> None:
@@ -125,7 +127,7 @@ def reset_db(conn: sqlite3.Connection) -> None:
 
 
 def insert_data(conn: sqlite3.Connection) -> dict[str, int]:
-    sources = load_json("crawled_sources.json")
+    sources = load_json("crawled_sources.json", PROCESSED_DIR)
     corpus = load_json("corpus.json")
     policies = load_json("policies.json")
     profiles = load_json("sample_profiles.json")
@@ -281,8 +283,13 @@ def write_manifest(conn: sqlite3.Connection, counts: dict[str, int]) -> None:
 
 
 def main() -> None:
-    if not (DATA_DIR / "crawled_sources.json").exists():
-        raise SystemExit("Missing data/crawled_sources.json. Run scripts/crawl_verified_sources.py first.")
+    configure_utf8_stdio()
+    ensure_data_dirs()
+    if not (PROCESSED_DIR / "crawled_sources.json").exists():
+        raise SystemExit(
+            "Missing data/processed/crawled_sources.json. "
+            "Run scripts/crawl_verified_sources.py first."
+        )
 
     conn = sqlite3.connect(DB_PATH)
     try:
