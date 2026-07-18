@@ -39,6 +39,27 @@ function makeMessageId() {
 const provinces = ["Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", "Khác"];
 const industries = ["Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại", "Khác"];
 
+// Used to reset the form before applying a fresh file/OCR extraction —
+// merging onto whatever the *previous* profile happened to hold would let
+// stale fields (e.g. a prior company's employee count) linger and look
+// like they came from the new document, which they didn't.
+const EMPTY_PROFILE: Profile = {
+  name: "",
+  tax_code: "",
+  province: "Khác",
+  industry: "Khác",
+  business_line: "",
+  employees: 0,
+  revenue_bil: 0,
+  capital_bil: 0,
+  startup_innovation: false,
+  stage: "",
+  founded_year: undefined,
+  representative: "",
+  email: "",
+  phone: ""
+};
+
 const navItems: { id: View; label: string; hint: string }[] = [
   { id: "overview", label: "Tổng quan", hint: "01" },
   { id: "search", label: "Tìm chính sách", hint: "02" },
@@ -279,7 +300,7 @@ export default function Home() {
       try {
         const text = await file.text();
         const parsed = parseUploadedText(text);
-        setProfile((current) => ({ ...current, ...parsed }));
+        setProfile({ ...EMPTY_PROFILE, ...parsed });
         setResults([]);
 
         // parseUploadedText() only understands the demo's own "key: value" format.
@@ -303,7 +324,7 @@ export default function Home() {
           const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
           if (!response.ok || !data.profile) throw new Error(data.error || "AI không đọc được nội dung.");
 
-          setProfile((current) => ({ ...current, ...data.profile }));
+          setProfile({ ...EMPTY_PROFILE, ...data.profile });
           setMessage("Đã đọc hồ sơ từ file .txt bằng AI (định dạng tự do). Vui lòng kiểm tra lại các trường trước khi dùng.");
         } catch (aiReason) {
           setMessage(
@@ -346,7 +367,7 @@ export default function Home() {
       const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
       if (!response.ok || !data.profile) throw new Error(data.error || "Không đọc được tài liệu.");
 
-      setProfile((current) => ({ ...current, ...data.profile }));
+      setProfile({ ...EMPTY_PROFILE, ...data.profile });
       setResults([]);
       const sourceLabel = isPdf ? "PDF" : isDocx ? "Word" : isXlsx ? "Excel" : "ảnh";
       setMessage(`Đã đọc hồ sơ từ ${sourceLabel} bằng AI. Vui lòng kiểm tra lại các trường trước khi dùng.`);
@@ -399,8 +420,12 @@ export default function Home() {
     await new Promise((resolve) => setTimeout(resolve, 500));
     setResults(recommendations);
     setAiExplanations({});
-    setMessage(`Đã đối chiếu ${policies.length} chính sách cho hồ sơ này.`);
+    setMessage(`Đã đối chiếu ${policies.length} chính sách theo quy tắc — đang phân tích sâu hơn bằng AI...`);
     setAnalyzing(false);
+    // Step 3 is now AI-analyzed by default, not an opt-in per-policy click —
+    // fire without awaiting so the rule-based ranking above renders
+    // immediately and the AI layer streams in on top of it.
+    fetchAiExplanations();
   }
 
   async function fetchAiExplanations() {
@@ -415,7 +440,9 @@ export default function Home() {
       if (!response.ok) throw new Error("Không thể lấy phân tích AI.");
       const data = (await response.json()) as { explanations: { policy_id: string; explanation: string }[] };
       if (data.explanations.length === 0) {
-        setMessage("AI không trả về phân tích bổ sung (có thể do thiếu cấu hình AI hoặc lỗi tạm thời) — vẫn còn lý do/điểm rà soát rule-based bên dưới.");
+        setMessage("AI không trả về phân tích bổ sung (có thể do thiếu cấu hình AI hoặc lỗi tạm thời) — vẫn còn lý do/điểm rà soát theo quy tắc bên dưới.");
+      } else {
+        setMessage(`Đã đối chiếu ${policies.length} chính sách, kèm phân tích AI cho từng chính sách.`);
       }
       const next: Record<string, string> = {};
       data.explanations.forEach((item) => {
@@ -812,10 +839,20 @@ export default function Home() {
             <div className="result-column">
               <section className="result-header">
                 <div>
-                  <span className="eyebrow">BƯỚC 03</span>
+                  <span className="eyebrow">BƯỚC 03 · XẾP HẠNG THEO QUY TẮC + PHÂN TÍCH AI</span>
                   <h2>Kết quả đề xuất</h2>
                 </div>
-                {results.length > 0 && <span>{results.length} chính sách</span>}
+                {results.length > 0 && (
+                  <span>
+                    {results.length} chính sách
+                    {aiExplanationLoading && (
+                      <>
+                        {" "}
+                        · <span className="button-spinner ai-loading-spinner" /> AI đang phân tích...
+                      </>
+                    )}
+                  </span>
+                )}
               </section>
 
               {results.length === 0 ? (
@@ -845,6 +882,15 @@ export default function Home() {
                         <div className="reason-row">
                           {policy.reasons.slice(0, 2).map((reason) => <span key={reason}>✓ {reason}</span>)}
                         </div>
+                        {aiExplanations[policy.id] ? (
+                          <p className="policy-ai-note">
+                            <span className="badge success">AI</span> {aiExplanations[policy.id]}
+                          </p>
+                        ) : aiExplanationLoading ? (
+                          <p className="policy-ai-note policy-ai-note-loading">
+                            <span className="button-spinner ai-loading-spinner" /> Đang phân tích bằng AI...
+                          </p>
+                        ) : null}
                         <div className="policy-footer">
                           <span>{policy.scope}</span>
                           <span>{policy.citations.length} nguồn dẫn</span>

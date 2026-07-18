@@ -428,12 +428,15 @@ export function parseUploadedText(text: string): Partial<Profile> {
     else delete profile.industry;
   }
 
+  // Only trust an explicit labeled line ("Startup: ..." / "Đổi mới sáng tạo: ...").
+  // A loose "does this word appear anywhere in the text" fallback used to also
+  // match here, which false-positives on any document whose mission/values
+  // section uses "đổi mới sáng tạo" as a generic corporate buzzword — common
+  // even for large, decades-old companies with no startup-program eligibility.
   const startupMatch = text.match(/(?:startup|doi moi sang tao|đổi mới sáng tạo)[:\s]+(.+)/i);
   if (startupMatch) {
     const value = normalizeText(startupMatch[1]);
     profile.startup_innovation = !["khong", "khong co", "no", "false"].some((token) => value.includes(token));
-  } else if (normalizeText(text).includes("startup") || normalizeText(text).includes("doi moi sang tao")) {
-    profile.startup_innovation = true;
   }
 
   return profile;

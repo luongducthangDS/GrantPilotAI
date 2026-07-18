@@ -50,7 +50,7 @@ Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung c
 
 ### Giải thích AI cho kết quả match
 
-Ở modal chi tiết một chính sách (sau khi bấm "Xem chi tiết"), nút **"✦ Phân tích sâu hơn bằng AI"** gọi `app/api/recommend/route.ts`: lấy kết quả `matchPolicies()` (điểm số/lý do/khoảng thiếu — vẫn rule-based, không đổi) rồi nhờ LLM viết một đoạn giải thích ngắn, chỉ dựa trên dữ kiện đã có (không tự thêm căn cứ pháp lý mới). Gọi on-demand, không tự động chạy khi phân tích hồ sơ, để không tốn quota cho thao tác lọc/sắp xếp chính.
+Bước 3 ("Kết quả đề xuất") tự động gọi `app/api/recommend/route.ts` ngay sau khi có kết quả rule-based — không cần bấm nút riêng. Route lấy kết quả `matchPolicies()` (điểm số/lý do/khoảng thiếu — vẫn rule-based, không đổi) rồi nhờ LLM viết một đoạn giải thích ngắn cho từng chính sách theo prompt chặt chẽ (7 quy tắc đánh số: chỉ dùng dữ kiện đã cho, không tự kết luận đủ điều kiện khi rule-based ghi "Cần rà soát", phải nêu rõ các điểm ranh giới/mơ hồ cần người dùng tự xác minh — ví dụ năm thành lập gần ngưỡng ưu tiên). Kết quả hiện trực tiếp trên từng thẻ chính sách (badge "AI") song song với lý do rule-based, không thay thế. Nhánh Google dùng structured output (`responseSchema`) để đảm bảo JSON hợp lệ; các nhà cung cấp khác dùng regex tìm khối JSON trong text trả về.
 
 ### Tra cứu hồ sơ bằng mã số thuế
 
@@ -63,7 +63,7 @@ Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung c
 - **Word/Excel**: server trích xuất văn bản trước bằng `mammoth` (.docx) hoặc `exceljs` (.xlsx) — không dùng gói `xlsx`/SheetJS vì bản trên npm có lỗ hổng bảo mật mức cao (prototype pollution + ReDoS) chưa có bản vá, không phù hợp để parse file người dùng tải lên. Sau khi trích xuất, văn bản đi qua đúng luồng AI như đường `.txt` fallback (không cần model có khả năng đọc ảnh). **Chỉ hỗ trợ `.docx`/`.xlsx`** — định dạng cũ `.doc`/`.xls` (Word/Excel 2003 trở về trước) chưa hỗ trợ được, cần lưu lại thành định dạng mới trước khi tải lên.
 - **Ảnh/PDF**: `app/api/ocr/route.ts` gọi vision LLM để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được. Với nhà cung cấp Google Gemini, route dùng structured output (`responseSchema`) thay vì tự dò JSON trong text tự do, đáng tin cậy hơn. **PDF chỉ đọc trực tiếp được qua Gemini** (OpenAI/Anthropic không nhận PDF qua content block ảnh) — nếu bạn chọn nhà cung cấp khác mà tải PDF lên, server tự chuyển sang `GEMINI_API_KEY` của máy chủ nếu có, không thì báo lỗi rõ ràng để bạn đổi sang ảnh hoặc đổi nhà cung cấp.
 
-Luôn kiểm tra lại kết quả trước khi dùng, vì đây là đọc thật bằng AI (có thể sai/thiếu), không phải rule cố định.
+Mỗi lần tải file mới, hồ sơ ở Bước 2 được **reset về rỗng rồi mới điền** những trường đọc được — không merge lên hồ sơ đang có (tránh trường hợp trường không đọc được từ file mới vẫn giữ giá trị cũ từ hồ sơ mẫu/file trước, trông như thể đến từ file mới). Luôn kiểm tra lại kết quả trước khi dùng, vì đây là đọc thật bằng AI (có thể sai/thiếu), không phải rule cố định.
 
 ### Document Checklist — đối chiếu hồ sơ đã có/thiếu
 

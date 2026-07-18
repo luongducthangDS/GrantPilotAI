@@ -1,18 +1,44 @@
 import { NextResponse } from "next/server";
 
 import { classifySme, matchPolicies, type MatchResult, type Profile } from "@/lib/grantpilot";
-import { DEFAULT_MODELS, generateAnswer, type LlmProvider } from "@/lib/llmProviders";
+import { DEFAULT_MODELS, generateAnswer, generateGoogleJson, type LlmProvider } from "@/lib/llmProviders";
 
-const SYSTEM_INSTRUCTION = `Bạn là trợ lý phân tích chính sách của GrantPilot. Bạn nhận được: hồ sơ doanh nghiệp, và kết quả một công cụ chấm điểm rule-based (score/lý do/điểm cần rà soát) cho từng chính sách.
+// This is Step 3's default analysis layer now (fires automatically after
+// matchPolicies() runs), not an opt-in extra — so the prompt has to hold up
+// under every profile, not just the ones someone happened to click into
+// during testing. Numbered, explicit anti-hallucination rules on purpose:
+// a vaguer "don't make things up" instruction is exactly what earlier,
+// looser prompts in this app relied on before being tightened.
+const SYSTEM_INSTRUCTION = `Bạn là trợ lý phân tích chính sách của GrantPilot, hoạt động như một lớp phân tích bổ sung phía TRÊN một công cụ chấm điểm rule-based đã chạy trước — công cụ đó, không phải bạn, quyết định điểm số/score.
 
-Nhiệm vụ: với MỖI chính sách được cung cấp, viết một đoạn phân tích ngắn (2-4 câu) bổ sung góc nhìn mà rule-based không thể diễn đạt tự nhiên — ví dụ: chỉ ra khi hồ sơ ở sát ngưỡng phân loại (nên xác nhận lại số liệu), gợi ý thứ tự ưu tiên nếu nhiều chính sách cùng phù hợp, hoặc cảnh báo giả định còn thiếu dữ kiện.
+Bạn nhận được: (1) hồ sơ doanh nghiệp, (2) kết quả chấm điểm rule-based cho từng chính sách (score/lý do/điểm cần rà soát).
 
-Quy tắc bắt buộc:
-- CHỈ dùng dữ kiện đã cho (hồ sơ + score/reasons/gaps/eligibility của từng chính sách). Không bịa thêm căn cứ pháp lý, số liệu hay điều khoản nào ngoài dữ kiện đã cung cấp.
-- Nếu không có gì đáng bổ sung ngoài những gì rule-based đã nêu, hãy nói ngắn gọn là dữ liệu hiện tại đã đủ rõ, đừng lặp lại y nguyên reasons/gaps.
-- Không thay thế tư vấn pháp lý; nếu cần, nhắc đối chiếu văn bản gốc.
-- CHỈ trả về JSON hợp lệ, không kèm markdown, không giải thích thêm. Định dạng:
+Nhiệm vụ: với MỖI chính sách được cung cấp, viết đúng một đoạn phân tích ngắn (2-4 câu) bổ sung góc nhìn mà rule-based không diễn đạt được — ví dụ: hồ sơ ở sát ngưỡng phân loại (cần xác nhận lại số liệu), gợi ý thứ tự ưu tiên nếu nhiều chính sách cùng phù hợp, hoặc cảnh báo giả định còn thiếu dữ kiện.
+
+QUY TẮC BẮT BUỘC — vi phạm bất kỳ điều nào dưới đây đều không chấp nhận được:
+1. CHỈ được dùng dữ kiện có trong hồ sơ và kết quả chấm điểm đã cho. TUYỆT ĐỐI KHÔNG tự suy diễn, bịa thêm, hoặc dùng kiến thức chung của bạn để "biết trước" bất kỳ điều luật, điều khoản, số liệu, hạn mức hay điều kiện nào không có trong dữ liệu được cung cấp bên dưới — kể cả khi bạn tin điều đó là đúng.
+2. KHÔNG tự kết luận doanh nghiệp "chắc chắn đủ điều kiện" hay "chắc chắn không đủ điều kiện" nếu rule-based không kết luận rõ như vậy (match_level "Cần rà soát" nghĩa là chưa chắc chắn — phải giữ nguyên sắc thái đó, không tự tin quá mức).
+3. Nếu không có gì đáng bổ sung ngoài những gì rule-based đã nêu trong reasons/gaps, phải nói ngắn gọn là dữ liệu hiện tại đã đủ rõ — KHÔNG lặp lại nguyên văn reasons/gaps chỉ để "cho có nội dung".
+4. Nếu hồ sơ có dữ kiện ở ranh giới/mơ hồ (ví dụ năm thành lập gần ngưỡng ưu tiên, doanh thu sát mức phân loại DNNVV), phải nêu đây là điểm người dùng cần tự xác minh — không tự phán đoán thay người dùng.
+5. Không thay thế tư vấn pháp lý; nếu phân tích mang tính kết luận, nhắc người dùng đối chiếu văn bản gốc trước khi nộp hồ sơ thật.
+6. Văn phong: tiếng Việt, ngắn gọn, chuyên nghiệp, không markdown, không lặp lại nguyên văn tiêu đề chính sách.
+7. CHỈ trả về JSON hợp lệ đúng định dạng đã quy định, không kèm giải thích, không markdown. Định dạng:
 [{"policy_id": "...", "explanation": "..."}, ...]`;
+
+// Structured output schema for the Google path — same array shape the
+// prompt's rule 7 already asks for, enforced at the API level so parsing
+// never depends on finding a `[...]` blob inside freeform text.
+const EXPLANATIONS_SCHEMA = {
+  type: "ARRAY",
+  items: {
+    type: "OBJECT",
+    properties: {
+      policy_id: { type: "STRING", description: "Đúng policy_id đã cho trong danh sách chính sách" },
+      explanation: { type: "STRING", description: "Đoạn phân tích 2-4 câu, chỉ dựa trên dữ kiện đã cho" }
+    },
+    required: ["policy_id", "explanation"]
+  }
+};
 
 function buildPrompt(profile: Profile, matches: MatchResult[]) {
   const sme = classifySme(profile);
@@ -58,11 +84,26 @@ export async function POST(request: Request) {
   }
 
   try {
-    const text = await generateAnswer(config, SYSTEM_INSTRUCTION, buildPrompt(profile, matches));
-    const jsonMatch = text.match(/\[[\s\S]*\]/);
-    if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
-    const parsed = JSON.parse(jsonMatch[0]) as { policy_id: string; explanation: string }[];
-    return NextResponse.json({ explanations: parsed });
+    const prompt = buildPrompt(profile, matches);
+    let parsed: { policy_id: string; explanation: string }[];
+
+    if (config.provider === "google") {
+      const jsonText = await generateGoogleJson(config, SYSTEM_INSTRUCTION, prompt, EXPLANATIONS_SCHEMA);
+      parsed = JSON.parse(jsonText) as { policy_id: string; explanation: string }[];
+    } else {
+      const text = await generateAnswer(config, SYSTEM_INSTRUCTION, prompt);
+      const jsonMatch = text.match(/\[[\s\S]*\]/);
+      if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
+      parsed = JSON.parse(jsonMatch[0]) as { policy_id: string; explanation: string }[];
+    }
+
+    // Guard against a policy_id that doesn't match anything actually sent —
+    // a hallucinated or mistyped id would otherwise silently orphan an
+    // explanation with nowhere to render.
+    const validIds = new Set(matches.map((m) => m.id));
+    const filtered = parsed.filter((item) => validIds.has(item.policy_id));
+
+    return NextResponse.json({ explanations: filtered });
   } catch (error) {
     console.error(`${config.provider} recommend-explain thất bại:`, error);
     return NextResponse.json({ explanations: [] });
