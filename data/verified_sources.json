@@ -79,5 +79,131 @@
     "expected_keywords": ["Hà Nội", "khởi nghiệp đổi mới sáng tạo"],
     "demo_status": "Seed demo - cần xác minh khi nộp thật",
     "notes": "Nguồn bối cảnh hệ sinh thái, chưa phải thông báo nhận hồ sơ."
+  },
+  {
+    "id": "qd188_2021",
+    "title": "Quyết định 188/QĐ-TTg",
+    "category": "grant",
+    "url": "https://vanban.chinhphu.vn/default.aspx?docid=202651&pageid=27160",
+    "expected_keywords": ["188/QĐ-TTg", "844/QĐ-TTg"],
+    "demo_status": "Còn hiệu lực",
+    "notes": "Sửa đổi, bổ sung Quyết định 844/QĐ-TTg."
+  },
+  {
+    "id": "nd39_2019",
+    "title": "Nghị định 39/2019/NĐ-CP",
+    "category": "grant",
+    "url": "https://vanban.chinhphu.vn/default.aspx?docid=196965&pageid=27160",
+    "expected_keywords": ["39/2019", "doanh nghiệp nhỏ và vừa"],
+    "demo_status": "Còn hiệu lực - đã được sửa đổi, bổ sung bởi Nghị định 45/2024/NĐ-CP",
+    "notes": "Tổ chức và hoạt động của Quỹ Phát triển doanh nghiệp nhỏ và vừa (SMEDF)."
+  },
+  {
+    "id": "nd45_2024",
+    "title": "Nghị định 45/2024/NĐ-CP",
+    "category": "grant",
+    "url": "https://vanban.chinhphu.vn/?docid=210143&pageid=27160",
+    "expected_keywords": ["45/2024", "doanh nghiệp nhỏ và vừa"],
+    "demo_status": "Còn hiệu lực (từ 10/06/2024)",
+    "notes": "Sửa đổi, bổ sung Nghị định 39/2019/NĐ-CP về SMEDF."
+  },
+  {
+    "id": "law_investment_2025",
+    "title": "Luật Đầu tư 2025 (143/2025/QH15)",
+    "category": "legal",
+    "url": "https://thuvienphapluat.vn/van-ban/Dau-tu/Luat-Dau-tu-2025-so-143-2025-QH15-681550.aspx",
+    "expected_keywords": ["143/2025", "Luật Đầu tư"],
+    "demo_status": "Còn hiệu lực (từ 01/03/2026)",
+    "notes": "thuvienphapluat.vn chặn crawl đơn giản (HTTP 403) - đã xác nhận nhiều lần trong session, cần nguồn thay thế hoặc trình duyệt thật."
+  },
+  {
+    "id": "hanoi_uudai_dautu_2026",
+    "title": "Nghị quyết HĐND TP Hà Nội - Ưu đãi, hỗ trợ đầu tư theo Luật Thủ đô 2026",
+    "category": "local_context",
+    "url": "https://xaydungchinhsach.chinhphu.vn/tieu-chi-dieu-kien-ho-so-trinh-tu-thu-tuc-thuc-hien-uu-dai-ho-tro-dau-tu-tren-dia-ban-ha-noi-119260617090600476.htm",
+    "expected_keywords": ["Hà Nội", "ưu đãi"],
+    "demo_status": "Còn hiệu lực (từ 01/07/2026)",
+    "notes": "Chương trình địa phương cụ thể, actionable, áp dụng trực tiếp cho startup KH&CN."
+  },
+  {
+    "id": "nd268_2025",
+    "title": "Nghị định 268/2025/NĐ-CP",
+    "category": "legal",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
+    "expected_keywords": ["268/2025", "khoa học"],
+    "demo_status": "Còn hiệu lực (từ 14/10/2025)",
+    "notes": "Khung pháp lý mới nhất cho khởi nghiệp sáng tạo - hướng dẫn Luật Khoa học, công nghệ và đổi mới sáng tạo."
+  },
+  {
+    "id": "nd210_2025",
+    "title": "Nghị định 210/2025/NĐ-CP",
+    "category": "legal",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-210-2025-nd-cp-sua-doi-bo-sung-mot-so-dieu-cua-nghi-dinh-so-38-2018-nd-cp-ngay-11-thang-3-nam-2018-cua-chinh-phu-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--179899",
+    "expected_keywords": ["210/2025", "khởi nghiệp sáng tạo"],
+    "demo_status": "Còn hiệu lực (từ 15/09/2025)",
+    "notes": "Sửa đổi Nghị định 38/2018/NĐ-CP về quỹ đầu tư khởi nghiệp sáng tạo."
+  },
+  {
+    "id": "nd55_2019",
+    "title": "Nghị định 55/2019/NĐ-CP",
+    "category": "legal",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-55-2019-nd-cp-ve-ho-tro-phap-ly-cho-doanh-nghiep-nho-va-vua--135887",
+    "expected_keywords": ["55/2019", "hỗ trợ pháp lý"],
+    "demo_status": "Còn hiệu lực",
+    "notes": "Hỗ trợ pháp lý cho doanh nghiệp nhỏ và vừa."
+  },
+  {
+    "id": "nd38_2018",
+    "title": "Nghị định 38/2018/NĐ-CP",
+    "category": "legal",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-38-2018-nd-cp-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--130717",
+    "expected_keywords": ["38/2018", "khởi nghiệp sáng tạo"],
+    "demo_status": "Còn hiệu lực - đã được sửa đổi, bổ sung bởi Nghị định 210/2025/NĐ-CP",
+    "notes": "Văn bản gốc quy định đầu tư cho DNNVV khởi nghiệp sáng tạo."
+  },
+  {
+    "id": "nd34_2018",
+    "title": "Nghị định 34/2018/NĐ-CP",
+    "category": "grant",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-34-2018-nd-cp-ve-viec-thanh-lap-to-chuc-va-hoat-dong-cua-quy-bao-lanh-tin-dung-cho-doanh-nghiep-nho-va-vua--128875",
+    "expected_keywords": ["34/2018", "bảo lãnh tín dụng"],
+    "demo_status": "Còn hiệu lực",
+    "notes": "Quỹ bảo lãnh tín dụng cho DNNVV - kênh vốn khác với SMEDF."
+  },
+  {
+    "id": "tt07_2020",
+    "title": "Thông tư 07/2020/TT-BKHCN",
+    "category": "legal",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-07-2020-tt-bkhcn-huong-dan-viec-thanh-lap-co-so-uom-tao-doanh-nghiep-nho-va-vua-co-so-ky-thuat-ho-tro-doanh-nghiep-nho-va-vua-khu-lam-viec-chung-ho-tro-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--159227",
+    "expected_keywords": ["07/2020", "ươm tạo"],
+    "demo_status": "Còn hiệu lực",
+    "notes": "Thành lập cơ sở ươm tạo/khu làm việc chung cho DNNVV khởi nghiệp sáng tạo."
+  },
+  {
+    "id": "tt13_2015",
+    "title": "Thông tư 13/2015/TT-BKHĐT",
+    "category": "grant",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-13-2015-tt-bkhdt-ban-hanh-danh-muc-linh-vuc-uu-tien-ho-tro-va-tieu-chi-lua-chon-doi-tuong-uu-tien-ho-tro-cua-quy-phat-trien-doanh-nghiep-nho-va-vua--92617",
+    "expected_keywords": ["13/2015", "Qũy Phát triển"],
+    "demo_status": "Còn hiệu lực",
+    "notes": "Danh mục lĩnh vực ưu tiên hỗ trợ + điều kiện cho vay của SMEDF."
+  },
+  {
+    "id": "tt01_2018",
+    "title": "Thông tư 01/2018/TT-BKHCN",
+    "category": "grant",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-01-2018-tt-bkhcn-quy-dinh-to-chuc-qua-n-ly-de-an-ho-tro-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-quoc-gia-den-nam-2025--129312",
+    "expected_keywords": ["01/2018", "Đề án"],
+    "demo_status": "Còn hiệu lực",
+    "notes": "Tổ chức quản lý Đề án 844."
+  },
+  {
+    "id": "tt52_2023",
+    "title": "Thông tư 52/2023/TT-BTC",
+    "category": "legal",
+    "url": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-52-2023-tt-btc-huong-dan-co-che-su-dung-kinh-phi-ngan-sach-nha-nuoc-chi-thuong-xuyen-ho-tro-doanh-nghiep-nho-va-vua-theo-quy-dinh-tai-nghi-dinh-so-80-2021-nd-cp-ngay-26-thang-8-nam-2021-cua-chinh-phu--163729",
+    "expected_keywords": ["52/2023", "kinh phí"],
+    "demo_status": "Còn hiệu lực",
+    "notes": "Cơ chế sử dụng kinh phí ngân sách nhà nước hỗ trợ DNNVV."
   }
 ]

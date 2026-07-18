@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import gzip
 import html
 import json
 import re
@@ -8,6 +9,7 @@ import ssl
 import sys
 import urllib.error
 import urllib.request
+import zlib
 from pathlib import Path
 from typing import Any
 
@@ -50,6 +52,15 @@ def fetch_url(url: str, timeout: int = 35) -> dict[str, Any]:
     context = ssl.create_default_context()
     with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
         raw = response.read()
+        # Some CDNs (e.g. openresty edge caches) send a gzip/deflate body even
+        # without an Accept-Encoding request header — urllib never
+        # auto-decompresses, so do it ourselves or downstream text becomes
+        # garbage binary instead of raising a decode error.
+        content_encoding = (response.headers.get("content-encoding") or "").lower()
+        if content_encoding == "gzip":
+            raw = gzip.decompress(raw)
+        elif content_encoding == "deflate":
+            raw = zlib.decompress(raw)
         content_type = response.headers.get("content-type", "")
         charset_match = re.search(r"charset=([^;\s]+)", content_type, flags=re.IGNORECASE)
         charset = charset_match.group(1) if charset_match else "utf-8"
