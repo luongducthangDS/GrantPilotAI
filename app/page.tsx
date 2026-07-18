@@ -248,16 +248,8 @@ export default function Home() {
       setError(
         isLegacyOffice
           ? "Định dạng .doc/.xls cũ chưa hỗ trợ được — vui lòng lưu lại thành .docx/.xlsx rồi thử lại."
-          : "Vui lòng chọn tệp TXT, Word (.docx), Excel (.xlsx) hoặc ảnh (JPG/PNG)."
+          : "Vui lòng chọn tệp TXT, Word (.docx), Excel (.xlsx), PDF hoặc ảnh (JPG/PNG)."
       );
-      return;
-    }
-
-    // Model hiện tại chỉ nhận ảnh raster (jpg/png) qua image_url, không nhận
-    // trực tiếp PDF như Gemini trước đây — báo ngay ở client thay vì để
-    // người dùng đợi round-trip lên server rồi mới thấy lỗi.
-    if (isPdf) {
-      setError("Chưa hỗ trợ đọc trực tiếp file PDF. Vui lòng chụp/xuất thành ảnh (JPG/PNG) hoặc dùng file Word/Excel/TXT thay thế.");
       return;
     }
 
@@ -582,8 +574,11 @@ export default function Home() {
                   <div className="document-check">✓</div>
                   <strong>Hồ sơ phù hợp</strong>
                   <span>Đã đối chiếu điều kiện</span>
-                  <div className="match-bar"><b /></div>
-                  <small>92% tương thích</small>
+                  {/* Minh họa giao diện — không phải kết quả tính từ dữ liệu thật.
+                      Cố tình không hiển thị số % cụ thể ở đây để tránh bị hiểu nhầm
+                      là một kết quả chấm điểm thật (điểm % thật nằm ở ScoreRing
+                      trong tab "Tìm chính sách", luôn tính từ matchPolicies()). */}
+                  <small>Minh họa giao diện — điểm phù hợp thật ở tab &quot;Tìm chính sách&quot;</small>
                 </div>
                 <div className="route-line" />
               </div>
@@ -693,8 +688,8 @@ export default function Home() {
                     onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])}
                   />
                   <span className="upload-icon">{ocrLoading ? <span className="button-spinner" /> : "⇧"}</span>
-                  <strong>{ocrLoading ? "Đang đọc tài liệu bằng AI..." : "Thả hồ sơ TXT, Word, Excel hoặc ảnh vào đây"}</strong>
-                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Word/Excel/Ảnh: đọc bằng AI. PDF chưa hỗ trợ trực tiếp — chụp/xuất thành ảnh trước."}</p>
+                  <strong>{ocrLoading ? "Đang đọc tài liệu bằng AI..." : "Thả hồ sơ TXT, Word, Excel, PDF hoặc ảnh vào đây"}</strong>
+                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Word/Excel/PDF: đọc lớp văn bản rồi dùng AI · Ảnh: đọc bằng AI. PDF scan ảnh (không có lớp văn bản) chưa đọc được — dùng ảnh chụp thay thế."}</p>
                 </label>
 
                 <div className="tax-lookup-row">

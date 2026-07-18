@@ -1,12 +1,21 @@
 import ExcelJS from "exceljs";
 import mammoth from "mammoth";
 import { NextResponse } from "next/server";
+import { PDFParse } from "pdf-parse";
 
 import { normalizeIndustry, normalizeProvince } from "@/lib/grantpilot";
 import { DEFAULT_LIGHT_MODELS, DEFAULT_VISION_MODELS, generateJsonAnswer, type LlmConfig } from "@/lib/llmProviders";
 
 const DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 const XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+// Below this, a PDF's text layer is treated as "not really there" — a
+// genuinely scanned/image-only PDF still yields a handful of stray
+// characters from stray embedded fonts/artifacts, not real content. The
+// vision model here can't read PDFs directly (see the mimeType check below),
+// so a PDF that fails this bar has no reading path at all — reported
+// honestly as an error rather than silently sent through with near-empty text.
+const MIN_PDF_TEXT_CHARS = 40;
 
 async function extractDocxText(buffer: Buffer): Promise<string> {
   const result = await mammoth.extractRawText({ buffer });
@@ -27,6 +36,21 @@ async function extractXlsxText(buffer: Buffer): Promise<string> {
     });
   });
   return lines.join("\n").trim();
+}
+
+// Most Vietnamese business forms (ĐKKD, KQKD) distributed as PDF are
+// digitally generated with a real embedded text layer, not scans — pulling
+// that text directly avoids needing a vision model (which can't read PDF
+// bytes anyway on this API, only raster images) and reads the WHOLE
+// document at once, not just what a rasterized page happens to show.
+async function extractPdfText(buffer: Buffer): Promise<string> {
+  const parser = new PDFParse({ data: buffer });
+  try {
+    const result = await parser.getText();
+    return result.text.trim();
+  } finally {
+    await parser.destroy();
+  }
 }
 
 const SYSTEM_INSTRUCTION = `Bạn là công cụ trích xuất dữ liệu hồ sơ doanh nghiệp cho GrantPilot. Bạn nhận MỘT trong hai dạng đầu vào: (a) ảnh chụp/scan giấy tờ doanh nghiệp Việt Nam — thường là Giấy chứng nhận đăng ký doanh nghiệp (ĐKKD) hoặc trang báo cáo kết quả kinh doanh (KQKD); hoặc (b) văn bản dạng tự do (hồ sơ năng lực, giới thiệu công ty, báo cáo thường niên, v.v. — không nhất thiết theo mẫu key:value).
@@ -97,16 +121,29 @@ export async function POST(request: Request) {
   // Qwen2.5-VL-7B-Instruct (the only vision model in the account's catalog)
   // is called through an OpenAI-style image_url content block, which needs
   // an actual raster image — unlike Gemini's inlineData part, it can't take
-  // raw PDF bytes directly. Rather than silently mis-send a PDF and get a
-  // confusing provider error, fail clearly and point the user at a format
-  // that does work.
-  if (mimeType === "application/pdf") {
-    return NextResponse.json(
-      {
-        error: "Chưa hỗ trợ đọc trực tiếp file PDF với model hiện tại. Vui lòng chụp/xuất thành ảnh (JPG/PNG) hoặc dùng file Word/Excel/TXT thay thế."
-      },
-      { status: 400 }
-    );
+  // raw PDF bytes directly. Almost every real ĐKKD/KQKD PDF is digitally
+  // generated (not scanned) though, so pull its embedded text layer instead —
+  // same text-extraction path as Word/Excel, reads the whole document, no
+  // vision model or image conversion needed for the common case.
+  if (image && mimeType === "application/pdf") {
+    try {
+      const buffer = Buffer.from(image, "base64");
+      rawText = await extractPdfText(buffer);
+      if (rawText.length < MIN_PDF_TEXT_CHARS) {
+        throw new Error("PDF không có lớp văn bản đọc được (có thể là bản scan ảnh).");
+      }
+      image = undefined;
+      mimeType = undefined;
+    } catch (error) {
+      console.error("Trích xuất văn bản PDF thất bại:", error);
+      return NextResponse.json(
+        {
+          error:
+            "Không đọc được nội dung PDF này — có thể là bản scan ảnh (không có lớp văn bản), model hiện tại chưa đọc trực tiếp được PDF dạng ảnh. Vui lòng thử ảnh chụp rõ nét (JPG/PNG) hoặc file Word/Excel/TXT thay thế."
+        },
+        { status: 400 }
+      );
+    }
   }
 
   const config = resolveConfig(Boolean(image));

@@ -525,7 +525,10 @@ button {
 .card-front strong { font-family: var(--font-serif); font-size: 23px; font-weight: 500; }
 .card-front > span { margin-top: 8px; color: #9fc4c7; font-size: 12px; }
 .match-bar { height: 6px; margin-top: 28px; overflow: hidden; border-radius: 99px; background: rgba(255, 255, 255, 0.12); }
-.match-bar b { display: block; width: 92%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--mint-400), var(--gold-500)); }
+/* Decorative only (aria-hidden hero visual) — intentionally not tied to any
+   real score, so width is a fixed illustrative fill rather than a specific
+   percentage that could be mistaken for a real match result. */
+.match-bar b { display: block; width: 70%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--mint-400), var(--gold-500)); }
 .card-front small { margin-top: 10px; color: var(--mint-400); font-size: 11px; }
 
 .route-line {
