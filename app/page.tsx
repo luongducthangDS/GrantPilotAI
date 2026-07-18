@@ -25,8 +25,9 @@ import {
   loadLlmSettings,
   saveLlmSettings
 } from "@/lib/llmSettings";
+import type { VbplSearchResponse } from "@/lib/vbplTypes";
 
-type View = "overview" | "search" | "qa" | "updates";
+type View = "overview" | "search" | "qa" | "updates" | "library";
 
 type ChatMessage =
   | { id: string; role: "user"; text: string }
@@ -43,7 +44,8 @@ const navItems: { id: View; label: string; hint: string }[] = [
   { id: "overview", label: "Tổng quan", hint: "01" },
   { id: "search", label: "Tìm chính sách", hint: "02" },
   { id: "qa", label: "Hỏi đáp pháp lý", hint: "03" },
-  { id: "updates", label: "Theo dõi cập nhật", hint: "04" }
+  { id: "updates", label: "Theo dõi cập nhật", hint: "04" },
+  { id: "library", label: "Thư viện VBPL", hint: "05" }
 ];
 
 function formatDate(value: string) {
@@ -52,6 +54,19 @@ function formatDate(value: string) {
     month: "2-digit",
     year: "numeric"
   }).format(new Date(`${value}T00:00:00`));
+}
+
+function formatVbplDate(value: string) {
+  if (!value) return "Chưa xác định";
+  const [date] = value.split(" ");
+  const [year, month, day] = date.split("/");
+  return year && month && day ? `${day}/${month}/${year}` : value;
+}
+
+function formatFileSize(bytes: number) {
+  if (!bytes) return "Không rõ dung lượng";
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
 function statusClass(status: string) {
@@ -139,6 +154,14 @@ export default function Home() {
     newArticlesFound?: number;
   } | null>(null);
 
+  const [vbplSearchInput, setVbplSearchInput] = useState("");
+  const [vbplKeyword, setVbplKeyword] = useState("");
+  const [vbplType, setVbplType] = useState("");
+  const [vbplPage, setVbplPage] = useState(1);
+  const [vbplData, setVbplData] = useState<VbplSearchResponse | null>(null);
+  const [vbplLoading, setVbplLoading] = useState(false);
+  const [vbplError, setVbplError] = useState("");
+
   const sme = useMemo(() => classifySme(profile), [profile]);
   const verifiedPolicyCount = useMemo(() => policies.filter((policy) => policy.status.includes("Còn hiệu lực")).length, []);
 
@@ -162,6 +185,32 @@ export default function Home() {
       .then(setWatchStatus)
       .catch(() => setWatchStatus({ available: false }));
   }, [view, watchStatus]);
+
+  useEffect(() => {
+    if (view !== "library") return;
+    const controller = new AbortController();
+    const params = new URLSearchParams({ page: String(vbplPage), limit: "8" });
+    if (vbplKeyword) params.set("q", vbplKeyword);
+    if (vbplType) params.set("type", vbplType);
+
+    setVbplLoading(true);
+    setVbplError("");
+    fetch(`/api/vbpl?${params.toString()}`, { signal: controller.signal })
+      .then(async (response) => {
+        if (!response.ok) throw new Error("Không tải được thư viện văn bản.");
+        return (await response.json()) as VbplSearchResponse;
+      })
+      .then(setVbplData)
+      .catch((reason) => {
+        if (reason instanceof DOMException && reason.name === "AbortError") return;
+        setVbplError(reason instanceof Error ? reason.message : "Không tải được thư viện văn bản.");
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setVbplLoading(false);
+      });
+
+    return () => controller.abort();
+  }, [view, vbplKeyword, vbplType, vbplPage]);
 
   function openSettings() {
     const current = llmSettings;
@@ -527,7 +576,7 @@ export default function Home() {
           <span className="status-dot" />
           <div>
             <strong>Bảo mật dữ liệu</strong>
-            <p>Hồ sơ được xử lý ngay trên thiết bị.</p>
+            <p>Hồ sơ có thể được gửi bảo mật tới AI bạn chọn.</p>
           </div>
         </div>
         <div className="sidebar-footer">GrantPilot AI · 2026</div>
@@ -541,7 +590,7 @@ export default function Home() {
           </div>
           <div className="topbar-actions">
             <div className="data-health">
-              <span /> {policies.length} chính sách đã kết nối
+              <span /> {policies.length} chương trình · 47 văn bản VBPL
             </div>
             <button className="settings-button" onClick={openSettings} title="Cài đặt AI">
               ⚙ {llmSettings ? `${PROVIDER_LABELS[llmSettings.provider]}` : "AI mặc định"}
@@ -675,7 +724,7 @@ export default function Home() {
                     <span className="eyebrow">BƯỚC 01</span>
                     <h3>Nhập hồ sơ doanh nghiệp</h3>
                   </div>
-                  <span className="privacy-badge">Xử lý cục bộ</span>
+                  <span className="privacy-badge">Không lưu hồ sơ lâu dài</span>
                 </div>
 
                 <label
@@ -1019,6 +1068,165 @@ export default function Home() {
                 ))}
               </div>
             </section>
+          </section>
+        )}
+
+        {view === "library" && (
+          <section className="view-stack vbpl-library">
+            <div className="updates-hero vbpl-hero">
+              <div>
+                <span className="eyebrow">CƠ SỞ DỮ LIỆU QUỐC GIA VỀ PHÁP LUẬT</span>
+                <h2>Tra cứu văn bản,<br /><em>tải đúng phụ lục.</em></h2>
+                <p>
+                  Bộ dữ liệu được lọc theo từ khóa “hỗ trợ doanh nghiệp”, phạm vi Trung ương và tình trạng còn hiệu lực. Tệp được tải
+                  trực tiếp từ nguồn VBPL của Bộ Tư pháp.
+                </p>
+              </div>
+              <div className="vbpl-summary-grid" aria-label="Thống kê thư viện VBPL">
+                <div><strong>{vbplData?.summary.documentCount ?? 47}</strong><span>văn bản</span></div>
+                <div><strong>{vbplData?.summary.attachmentCount ?? 127}</strong><span>tệp &amp; phụ lục</span></div>
+              </div>
+            </div>
+
+            <section className="panel-card vbpl-search-panel">
+              <form
+                className="vbpl-search-form"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  setVbplPage(1);
+                  setVbplKeyword(vbplSearchInput.trim());
+                }}
+              >
+                <label>
+                  Tìm theo tiêu đề hoặc số hiệu
+                  <input
+                    value={vbplSearchInput}
+                    onChange={(event) => setVbplSearchInput(event.target.value)}
+                    placeholder="Ví dụ: 268/2025/NĐ-CP hoặc khởi nghiệp sáng tạo"
+                  />
+                </label>
+                <label>
+                  Loại văn bản
+                  <select
+                    value={vbplType}
+                    onChange={(event) => {
+                      setVbplType(event.target.value);
+                      setVbplPage(1);
+                    }}
+                  >
+                    <option value="">Tất cả</option>
+                    {(vbplData?.documentTypes ?? []).map((type) => <option key={type}>{type}</option>)}
+                  </select>
+                </label>
+                <button className="primary-button" type="submit">Tìm kiếm →</button>
+                {(vbplKeyword || vbplType) && (
+                  <button
+                    className="secondary-button"
+                    type="button"
+                    onClick={() => {
+                      setVbplSearchInput("");
+                      setVbplKeyword("");
+                      setVbplType("");
+                      setVbplPage(1);
+                    }}
+                  >
+                    Xóa bộ lọc
+                  </button>
+                )}
+              </form>
+              <div className="vbpl-result-summary">
+                {vbplLoading
+                  ? "Đang tải dữ liệu VBPL..."
+                  : `Tìm thấy ${vbplData?.summary.matchedDocuments ?? 0} văn bản${vbplKeyword ? ` cho “${vbplKeyword}”` : ""}.`}
+              </div>
+            </section>
+
+            {vbplError && <div className="notice error-notice">{vbplError}</div>}
+
+            <div className="vbpl-document-list" aria-live="polite">
+              {vbplLoading && !vbplData ? (
+                <div className="panel-card empty-hint"><span className="button-spinner" /> Đang tải thư viện...</div>
+              ) : vbplData?.documents.length ? (
+                vbplData.documents.map((document) => (
+                  <article className="panel-card vbpl-document-card" key={document.id}>
+                    <div className="vbpl-document-heading">
+                      <div>
+                        <div className="policy-meta">
+                          <span>{document.documentType || "Văn bản"}</span>
+                          <span className="badge success">{document.status || "Còn hiệu lực"}</span>
+                        </div>
+                        <h3>{document.title}</h3>
+                      </div>
+                      <span className="vbpl-file-count">{document.attachments.length} tệp</span>
+                    </div>
+                    <div className="vbpl-facts">
+                      <span><strong>Số hiệu</strong>{document.number || "Chưa có"}</span>
+                      <span><strong>Cơ quan</strong>{document.issuer || "Chưa xác định"}</span>
+                      <span><strong>Ban hành</strong>{formatVbplDate(document.issuedAt)}</span>
+                      <span><strong>Hiệu lực</strong>{formatVbplDate(document.effectiveAt)}</span>
+                    </div>
+                    <div className="vbpl-document-actions">
+                      <a href={document.detailUrl} target="_blank" rel="noopener noreferrer">Xem trên VBPL ↗</a>
+                      <details>
+                        <summary>Xem và tải {document.attachments.length} tệp/phụ lục</summary>
+                        <div className="vbpl-attachment-list">
+                          {document.attachments.map((attachment) => (
+                            <a
+                              href={attachment.sourceUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              key={`${document.id}-${attachment.category}-${attachment.fileName}`}
+                            >
+                              <span className="source-icon">↓</span>
+                              <span>
+                                <strong>{attachment.fileName}</strong>
+                                <small>
+                                  {attachment.categoryLabel} · {formatFileSize(attachment.size)}
+                                  {attachment.duplicateOf ? " · trùng nội dung đã xác định" : ""}
+                                </small>
+                              </span>
+                              <b>↗</b>
+                            </a>
+                          ))}
+                        </div>
+                      </details>
+                    </div>
+                  </article>
+                ))
+              ) : (
+                <div className="panel-card empty-results">
+                  <h3>Không tìm thấy văn bản phù hợp</h3>
+                  <p>Thử rút gọn từ khóa hoặc chọn lại loại văn bản.</p>
+                </div>
+              )}
+            </div>
+
+            {vbplData && vbplData.summary.matchedDocuments > vbplData.query.limit && (
+              <div className="vbpl-pagination">
+                <button
+                  className="secondary-button"
+                  disabled={vbplPage <= 1 || vbplLoading}
+                  onClick={() => setVbplPage((current) => Math.max(1, current - 1))}
+                >
+                  ← Trang trước
+                </button>
+                <span>
+                  Trang {vbplPage}/{Math.ceil(vbplData.summary.matchedDocuments / vbplData.query.limit)}
+                </span>
+                <button
+                  className="secondary-button"
+                  disabled={vbplPage >= Math.ceil(vbplData.summary.matchedDocuments / vbplData.query.limit) || vbplLoading}
+                  onClick={() => setVbplPage((current) => current + 1)}
+                >
+                  Trang sau →
+                </button>
+              </div>
+            )}
+
+            <p className="vbpl-source-note">
+              Nguồn: <a href="https://vbpl.vn" target="_blank" rel="noopener noreferrer">vbpl.vn</a>. GrantPilot lưu metadata, content hash
+              và liên kết nguồn; các file nhị phân được phục vụ trực tiếp từ hệ thống VBPL.
+            </p>
           </section>
         )}
       </main>

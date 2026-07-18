@@ -5,8 +5,9 @@ import { GoogleGenAI } from "@google/genai";
 import corpusData from "@/data/corpus.json";
 import embeddingsData from "@/data/corpus_embeddings.json";
 import { normalizeText, type CorpusChunk } from "@/lib/grantpilot";
+import { vbplCorpusChunks } from "@/lib/vbpl";
 
-const corpus = corpusData as CorpusChunk[];
+const corpus = [...(corpusData as CorpusChunk[]), ...vbplCorpusChunks] as CorpusChunk[];
 const embeddings = embeddingsData as { model: string; dimensions: number; chunks: { id: string; embedding: number[] }[] };
 const embeddingById = new Map(embeddings.chunks.map((item) => [item.id, item.embedding]));
 

@@ -108,6 +108,15 @@ export async function POST(request: Request) {
   const config = resolveLlmConfig(llm);
   if (!config) {
     console.error("Chưa có LLM nào được cấu hình (thiếu key server lẫn key người dùng) — dùng câu trả lời soạn sẵn (fallback).");
+    const vbplMatches = chunks.filter((chunk) => chunk.id.startsWith("vbpl-"));
+    if (vbplMatches.length > 0) {
+      const titles = vbplMatches.slice(0, 3).map((chunk) => `${chunk.title} (${chunk.status})`);
+      return NextResponse.json({
+        text: `Tìm thấy ${vbplMatches.length} văn bản VBPL phù hợp nhất trong kết quả truy hồi: ${titles.join("; ")}. Đây mới là thông tin metadata; hãy mở nguồn VBPL trong phần trích dẫn để đọc toàn văn và tải phụ lục trước khi kết luận điều kiện áp dụng.`,
+        citations,
+        confidence: "Có căn cứ"
+      } satisfies Answer);
+    }
     return NextResponse.json(answerQuestion(question, profile));
   }
 
