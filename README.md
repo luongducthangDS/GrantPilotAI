@@ -52,9 +52,13 @@ Xem `lib/llmProviders.ts` để biết chi tiết cách gọi từng nhà cung c
 
 Ở modal chi tiết một chính sách (sau khi bấm "Xem chi tiết"), nút **"✦ Phân tích sâu hơn bằng AI"** gọi `app/api/recommend/route.ts`: lấy kết quả `matchPolicies()` (điểm số/lý do/khoảng thiếu — vẫn rule-based, không đổi) rồi nhờ LLM viết một đoạn giải thích ngắn, chỉ dựa trên dữ kiện đã có (không tự thêm căn cứ pháp lý mới). Gọi on-demand, không tự động chạy khi phân tích hồ sơ, để không tốn quota cho thao tác lọc/sắp xếp chính.
 
-### OCR ảnh ĐKKD/KQKD (thật, không mock)
+### Tra cứu hồ sơ bằng mã số thuế
 
-Ô upload hồ sơ nhận cả file `.txt` (parse trực tiếp) lẫn ảnh JPG/PNG/WebP (chụp/scan Giấy chứng nhận đăng ký doanh nghiệp hoặc báo cáo KQKD). Với ảnh, `app/api/ocr/route.ts` gọi vision LLM (theo nhà cung cấp bạn chọn ở trên, mặc định Gemini) để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được — luôn kiểm tra lại kết quả trước khi dùng, vì đây là OCR thật (có thể đọc sai với ảnh mờ/nghiêng), không phải rule cố định.
+Ô "Nhập mã số thuế" ở Bước 01 của "Tìm chính sách" gọi `app/api/tax-lookup/route.ts`, tra cứu tên + địa chỉ + tình trạng hoạt động thật qua API công khai VietQR (nguồn: Cục Thuế, không cần API key riêng). Điền tên và tỉnh/thành từ dữ liệu đăng ký thuế thật (không phải AI đoán) — các trường còn lại (lĩnh vực, lao động, doanh thu, vốn) vẫn cần nhập tay vì VietQR không cung cấp. Cùng một `profile` này cũng được dùng để cá nhân hoá câu trả lời ở "Hỏi đáp pháp lý" (xem dòng gợi ý trên ô hỏi).
+
+### OCR ảnh/PDF ĐKKD/KQKD (thật, không mock)
+
+Ô upload hồ sơ nhận file `.txt` (parse trực tiếp), ảnh JPG/PNG/WebP, hoặc PDF (chụp/scan Giấy chứng nhận đăng ký doanh nghiệp hoặc báo cáo KQKD). Với ảnh/PDF, `app/api/ocr/route.ts` gọi vision LLM để đọc và điền các trường hồ sơ, kể cả năm thành lập nếu đọc được. Với nhà cung cấp Google Gemini, route dùng structured output (`responseSchema`) thay vì tự dò JSON trong text tự do, đáng tin cậy hơn. **PDF chỉ đọc trực tiếp được qua Gemini** (OpenAI/Anthropic không nhận PDF qua content block ảnh) — nếu bạn chọn nhà cung cấp khác mà tải PDF lên, server tự chuyển sang `GEMINI_API_KEY` của máy chủ nếu có, không thì báo lỗi rõ ràng để bạn đổi sang ảnh hoặc đổi nhà cung cấp. Luôn kiểm tra lại kết quả trước khi dùng, vì đây là OCR thật (có thể đọc sai với ảnh mờ/nghiêng), không phải rule cố định.
 
 ### Document Checklist — đối chiếu hồ sơ đã có/thiếu
 

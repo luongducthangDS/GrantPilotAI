@@ -1,7 +1,41 @@
 import { NextResponse } from "next/server";
 
 import { normalizeIndustry, normalizeProvince } from "@/lib/grantpilot";
-import { DEFAULT_MODELS, DEFAULT_VISION_MODELS, generateAnswer, generateVisionAnswer, type LlmProvider } from "@/lib/llmProviders";
+import {
+  DEFAULT_MODELS,
+  DEFAULT_VISION_MODELS,
+  generateAnswer,
+  generateGoogleJson,
+  generateVisionAnswer,
+  type LlmProvider
+} from "@/lib/llmProviders";
+
+// Gemini-only: schema-constrained JSON output, so parsing never has to hunt
+// for a `{...}` blob inside freeform text. Deliberately has no `required`
+// list — every field must stay omittable when the source doesn't clearly
+// state it, matching the "don't guess" rule below.
+const PROFILE_JSON_SCHEMA = {
+  type: "OBJECT",
+  properties: {
+    name: { type: "STRING", description: "Tên doanh nghiệp đầy đủ" },
+    tax_code: { type: "STRING", description: "Mã số thuế / mã số doanh nghiệp, chỉ chữ số" },
+    province: {
+      type: "STRING",
+      description:
+        'Tỉnh/thành phố trụ sở chính. PHẢI là một trong: "Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", hoặc "Khác" nếu là tỉnh/thành khác.'
+    },
+    industry: {
+      type: "STRING",
+      description: 'PHẢI là một trong: "Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại".'
+    },
+    business_line: { type: "STRING", description: "Mô tả ngành nghề kinh doanh chính, nguyên văn hoặc tóm tắt ngắn" },
+    employees: { type: "INTEGER", description: "Số lao động" },
+    revenue_bil: { type: "NUMBER", description: "Doanh thu, đơn vị TỶ ĐỒNG (quy đổi nếu nguồn ghi đơn vị khác)" },
+    capital_bil: { type: "NUMBER", description: "Vốn điều lệ/vốn, đơn vị TỶ ĐỒNG (quy đổi nếu nguồn ghi đơn vị khác)" },
+    representative: { type: "STRING", description: "Tên người đại diện pháp luật" },
+    founded_year: { type: "INTEGER", description: "Năm thành lập / đăng ký lần đầu, 4 chữ số" }
+  }
+};
 
 const SYSTEM_INSTRUCTION = `Bạn là công cụ trích xuất dữ liệu hồ sơ doanh nghiệp cho GrantPilot. Bạn nhận MỘT trong hai dạng đầu vào: (a) ảnh chụp/scan giấy tờ doanh nghiệp Việt Nam — thường là Giấy chứng nhận đăng ký doanh nghiệp (ĐKKD) hoặc trang báo cáo kết quả kinh doanh (KQKD); hoặc (b) văn bản dạng tự do (hồ sơ năng lực, giới thiệu công ty, báo cáo thường niên, v.v. — không nhất thiết theo mẫu key:value).
 
@@ -38,7 +72,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Thiếu dữ liệu ảnh hoặc văn bản." }, { status: 400 });
   }
 
-  const config = (() => {
+  const isPdf = mimeType === "application/pdf";
+
+  let config = (() => {
     if (llm?.apiKey && llm.provider && VALID_PROVIDERS.includes(llm.provider as LlmProvider)) {
       const provider = llm.provider as LlmProvider;
       const fallbackModel = image ? DEFAULT_VISION_MODELS[provider] : DEFAULT_MODELS[provider];
@@ -50,6 +86,25 @@ export async function POST(request: Request) {
     return { provider: "google" as LlmProvider, apiKey, model: process.env.GEMINI_VISION_MODEL || fallbackModel };
   })();
 
+  // Only Gemini accepts a PDF directly (inlineData with mimeType
+  // "application/pdf") — OpenAI's image_url and Anthropic's image content
+  // block both require an actual raster image. If the caller's chosen
+  // provider can't handle it, fall back to the server's Gemini key when one
+  // exists rather than failing outright.
+  if (isPdf && config?.provider !== "google") {
+    const fallbackKey = process.env.GEMINI_API_KEY;
+    if (fallbackKey) {
+      config = { provider: "google", apiKey: fallbackKey, model: process.env.GEMINI_VISION_MODEL || DEFAULT_VISION_MODELS.google };
+    } else if (config) {
+      return NextResponse.json(
+        {
+          error: `${config.provider} không đọc trực tiếp được file PDF. Vào Cài đặt AI chọn Google Gemini, hoặc tải lên ảnh (JPG/PNG) thay vì PDF.`
+        },
+        { status: 400 }
+      );
+    }
+  }
+
   if (!config) {
     return NextResponse.json(
       { error: "Chưa cấu hình AI (server hoặc cá nhân) để đọc nội dung này. Vào Cài đặt AI để nhập API key." },
@@ -58,21 +113,37 @@ export async function POST(request: Request) {
   }
 
   try {
-    const text = image
-      ? await generateVisionAnswer(
-          config,
-          SYSTEM_INSTRUCTION,
-          "Trích xuất thông tin doanh nghiệp từ ảnh này theo đúng định dạng JSON đã quy định.",
-          { data: image, mimeType: mimeType! }
-        )
-      : await generateAnswer(
-          config,
-          SYSTEM_INSTRUCTION,
-          `Trích xuất thông tin doanh nghiệp từ văn bản sau theo đúng định dạng JSON đã quy định.\n\n---\n${rawText}\n---`
-        );
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
-    const parsed = JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+    let parsed: Record<string, unknown>;
+
+    if (config.provider === "google") {
+      const prompt = image
+        ? "Trích xuất thông tin doanh nghiệp từ tài liệu này theo đúng schema đã quy định."
+        : `Trích xuất thông tin doanh nghiệp từ văn bản sau theo đúng schema đã quy định.\n\n---\n${rawText}\n---`;
+      const jsonText = await generateGoogleJson(
+        config,
+        SYSTEM_INSTRUCTION,
+        prompt,
+        PROFILE_JSON_SCHEMA,
+        image ? { data: image, mimeType: mimeType! } : undefined
+      );
+      parsed = JSON.parse(jsonText) as Record<string, unknown>;
+    } else {
+      const text = image
+        ? await generateVisionAnswer(
+            config,
+            SYSTEM_INSTRUCTION,
+            "Trích xuất thông tin doanh nghiệp từ ảnh này theo đúng định dạng JSON đã quy định.",
+            { data: image, mimeType: mimeType! }
+          )
+        : await generateAnswer(
+            config,
+            SYSTEM_INSTRUCTION,
+            `Trích xuất thông tin doanh nghiệp từ văn bản sau theo đúng định dạng JSON đã quy định.\n\n---\n${rawText}\n---`
+          );
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) throw new Error("Không tìm thấy JSON hợp lệ trong phản hồi.");
+      parsed = JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+    }
 
     // Coerce numeric fields defensively — models occasionally return
     // "8" as a string or add stray formatting despite the schema instruction.
@@ -82,6 +153,12 @@ export async function POST(request: Request) {
         if (!Number.isNaN(num)) parsed[key] = num;
         else delete parsed[key];
       }
+    }
+
+    // A schema without `required` still doesn't stop a model from emitting
+    // "" for a field it isn't sure about — treat that the same as omitted.
+    for (const key of Object.keys(parsed)) {
+      if (parsed[key] === "") delete parsed[key];
     }
 
     // The UI's province/industry <select> only recognizes exact label strings.
@@ -104,7 +181,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error(`${config.provider} trích xuất hồ sơ thất bại:`, error);
     return NextResponse.json(
-      { error: image ? "Không đọc được ảnh. Thử ảnh rõ nét hơn." : "Không đọc được nội dung văn bản." },
+      { error: image ? "Không đọc được tài liệu. Thử ảnh/PDF rõ nét hơn." : "Không đọc được nội dung văn bản." },
       { status: 502 }
     );
   }

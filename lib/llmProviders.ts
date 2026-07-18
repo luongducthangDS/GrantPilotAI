@@ -38,7 +38,13 @@ export const DEFAULT_VISION_MODELS: Record<LlmProvider, string> = {
   xai: "grok-4"
 };
 
-async function generateGoogle(config: LlmConfig, systemInstruction: string, prompt: string, images?: ImageInput[]): Promise<string> {
+async function generateGoogle(
+  config: LlmConfig,
+  systemInstruction: string,
+  prompt: string,
+  images?: ImageInput[],
+  responseSchema?: object
+): Promise<string> {
   const ai = new GoogleGenAI({ apiKey: config.apiKey });
   const parts: Array<{ text: string } | { inlineData: { data: string; mimeType: string } }> = [{ text: prompt }];
   (images ?? []).forEach((image) => parts.unshift({ inlineData: { data: image.data, mimeType: image.mimeType } }));
@@ -46,7 +52,9 @@ async function generateGoogle(config: LlmConfig, systemInstruction: string, prom
   const response = await ai.models.generateContent({
     model: config.model,
     contents: [{ role: "user", parts }],
-    config: { systemInstruction, temperature: 0.2 }
+    config: responseSchema
+      ? { systemInstruction, temperature: 0.2, responseMimeType: "application/json", responseSchema }
+      : { systemInstruction, temperature: 0.2 }
   });
   const text = response.text?.trim();
   if (!text) throw new Error("Gemini trả về phản hồi rỗng.");
@@ -152,7 +160,10 @@ export async function generateAnswer(config: LlmConfig, systemInstruction: strin
 // Same as generateAnswer, but attaches an image to the request (vision/OCR
 // use case). All 4 providers support image input on their current
 // vision-capable models; the caller is responsible for passing a model that
-// actually supports vision (see DEFAULT_VISION_MODELS).
+// actually supports vision (see DEFAULT_VISION_MODELS). Gemini additionally
+// accepts non-image mimeTypes (e.g. "application/pdf") via the same
+// inlineData part — OpenAI/Anthropic's image content blocks do not, so
+// callers should only send a PDF when config.provider === "google".
 export async function generateVisionAnswer(
   config: LlmConfig,
   systemInstruction: string,
@@ -174,4 +185,27 @@ export async function generateVisionAnswer(
     default:
       throw new Error(`Nhà cung cấp không được hỗ trợ: ${config.provider}`);
   }
+}
+
+// Structured JSON output — Gemini-only. The SDK enforces the response is
+// valid JSON matching `schema`'s *shape*, which eliminates the "find a {...}
+// in freeform text" failure mode generateVisionAnswer/generateAnswer rely on
+// for the other providers. It does NOT enforce field-level semantics (e.g. a
+// STRING field still isn't guaranteed to be one of a specific enum unless
+// the schema itself declares one) — callers should still validate/normalize
+// values downstream. Deliberately does not mark fields `required` in the
+// schema you pass: doing so forces Gemini to invent a value for anything it
+// isn't sure about, which conflicts with this app's "leave it blank rather
+// than guess" rule for profile extraction.
+export async function generateGoogleJson(
+  config: LlmConfig,
+  systemInstruction: string,
+  prompt: string,
+  schema: object,
+  image?: ImageInput | ImageInput[]
+): Promise<string> {
+  if (!config.apiKey) throw new Error("Thiếu API key.");
+  if (config.provider !== "google") throw new Error("Structured JSON output hiện chỉ hỗ trợ Google Gemini.");
+  const images = image ? (Array.isArray(image) ? image : [image]) : undefined;
+  return generateGoogle(config, systemInstruction, prompt, images, schema);
 }

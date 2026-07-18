@@ -366,6 +366,19 @@ export function normalizeIndustry(raw: string): string | undefined {
   return INDUSTRY_ALIASES[normalizeForAliasLookup(raw)];
 }
 
+// Like normalizeProvince, but for a full address string rather than an
+// isolated province name (e.g. a registry lookup's "address" field) —
+// checks whether any known alias appears as a substring, longest first so
+// "thanh pho ho chi minh" wins over the also-present "ho chi minh".
+export function guessProvinceFromAddress(address: string): string | undefined {
+  const normalized = normalizeForAliasLookup(address);
+  const aliases = Object.keys(PROVINCE_ALIASES).sort((a, b) => b.length - a.length);
+  for (const alias of aliases) {
+    if (alias !== "khac" && normalized.includes(alias)) return PROVINCE_ALIASES[alias];
+  }
+  return undefined;
+}
+
 export function parseUploadedText(text: string): Partial<Profile> {
   const profile: Partial<Profile> = {};
   const patterns: Record<keyof Pick<Profile, "name" | "tax_code" | "province" | "industry" | "employees" | "revenue_bil" | "capital_bil">, RegExp> = {

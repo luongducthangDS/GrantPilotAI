@@ -82,6 +82,9 @@ export default function Home() {
   const [aiExplanationLoading, setAiExplanationLoading] = useState(false);
   const [ocrLoading, setOcrLoading] = useState(false);
 
+  const [taxLookupInput, setTaxLookupInput] = useState("");
+  const [taxLookupLoading, setTaxLookupLoading] = useState(false);
+
   const [checklistMatch, setChecklistMatch] = useState<{ item: string; status: string; note: string }[] | null>(null);
   const [checklistMatchLoading, setChecklistMatchLoading] = useState(false);
   const [checklistMatchError, setChecklistMatchError] = useState("");
@@ -210,10 +213,11 @@ export default function Home() {
     setMessage("");
 
     const isImage = file.type.startsWith("image/");
+    const isPdf = file.type === "application/pdf";
     const isText = file.name.toLowerCase().endsWith(".txt");
 
-    if (!isImage && !isText) {
-      setError("Vui lòng chọn tệp TXT hoặc ảnh (JPG/PNG) chụp ĐKKD/KQKD.");
+    if (!isImage && !isPdf && !isText) {
+      setError("Vui lòng chọn tệp TXT, ảnh (JPG/PNG) hoặc PDF chụp/scan ĐKKD/KQKD.");
       return;
     }
 
@@ -277,15 +281,45 @@ export default function Home() {
         body: JSON.stringify({ image: base64, mimeType: file.type, llm: llmSettings ?? undefined })
       });
       const data = (await response.json()) as { profile?: Partial<Profile>; error?: string };
-      if (!response.ok || !data.profile) throw new Error(data.error || "Không đọc được ảnh.");
+      if (!response.ok || !data.profile) throw new Error(data.error || "Không đọc được tài liệu.");
 
       setProfile((current) => ({ ...current, ...data.profile }));
       setResults([]);
-      setMessage("Đã đọc hồ sơ từ ảnh bằng AI (OCR thật). Vui lòng kiểm tra lại các trường trước khi dùng.");
+      setMessage(`Đã đọc hồ sơ từ ${isPdf ? "PDF" : "ảnh"} bằng AI (OCR thật). Vui lòng kiểm tra lại các trường trước khi dùng.`);
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "Đọc ảnh thất bại.");
+      setError(reason instanceof Error ? reason.message : "Đọc tài liệu thất bại.");
     } finally {
       setOcrLoading(false);
+    }
+  }
+
+  async function lookupByTaxCode() {
+    const taxCode = taxLookupInput.trim();
+    if (!taxCode) return;
+    setError("");
+    setMessage("");
+    setTaxLookupLoading(true);
+    try {
+      const response = await fetch(`/api/tax-lookup?taxCode=${encodeURIComponent(taxCode)}`);
+      const data = (await response.json()) as { name?: string; tax_code?: string; province?: string; address?: string; error?: string };
+      if (!response.ok || !data.name) throw new Error(data.error || "Không tra cứu được mã số thuế này.");
+
+      setProfile((current) => ({
+        ...current,
+        name: data.name!,
+        tax_code: data.tax_code ?? taxCode,
+        ...(data.province ? { province: data.province } : {})
+      }));
+      setResults([]);
+      setMessage(
+        `Đã tra cứu MST ${taxCode}: điền tên${data.province ? " & địa phương" : ""} từ dữ liệu đăng ký thuế thật${
+          data.address ? ` (địa chỉ: ${data.address})` : ""
+        }. Vui lòng bổ sung lĩnh vực/lao động/doanh thu/vốn.`
+      );
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Tra cứu mã số thuế thất bại.");
+    } finally {
+      setTaxLookupLoading(false);
     }
   }
 
@@ -579,14 +613,27 @@ export default function Home() {
                 >
                   <input
                     type="file"
-                    accept=".txt,text/plain,image/png,image/jpeg,image/webp"
+                    accept=".txt,text/plain,image/png,image/jpeg,image/webp,application/pdf"
                     disabled={ocrLoading}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])}
                   />
                   <span className="upload-icon">{ocrLoading ? <span className="button-spinner" /> : "⇧"}</span>
-                  <strong>{ocrLoading ? "Đang đọc ảnh bằng AI..." : "Thả hồ sơ TXT hoặc ảnh ĐKKD/KQKD vào đây"}</strong>
-                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Ảnh (JPG/PNG): OCR thật qua AI · tối đa 1 MB"}</p>
+                  <strong>{ocrLoading ? "Đang đọc tài liệu bằng AI..." : "Thả hồ sơ TXT, ảnh hoặc PDF ĐKKD/KQKD vào đây"}</strong>
+                  <p>{ocrLoading ? "Có thể mất vài giây" : "TXT: đọc trực tiếp, tự dùng AI nếu không đúng mẫu · Ảnh/PDF: OCR thật qua AI (PDF chỉ đọc trực tiếp qua Gemini) · tối đa 1 MB"}</p>
                 </label>
+
+                <div className="tax-lookup-row">
+                  <input
+                    value={taxLookupInput}
+                    onChange={(event) => setTaxLookupInput(event.target.value)}
+                    onKeyDown={(event) => event.key === "Enter" && !taxLookupLoading && lookupByTaxCode()}
+                    placeholder="Hoặc nhập mã số thuế để tra cứu (VD: 0300741143)"
+                    disabled={taxLookupLoading}
+                  />
+                  <button onClick={lookupByTaxCode} disabled={taxLookupLoading || !taxLookupInput.trim()}>
+                    {taxLookupLoading ? "Đang tra cứu..." : "Tra cứu"}
+                  </button>
+                </div>
 
                 <div className="sample-divider"><span>hoặc dùng hồ sơ mẫu</span></div>
                 <div className="sample-buttons">
@@ -761,6 +808,11 @@ export default function Home() {
                 </div>
                 <button className="text-button" onClick={openSettings}>Đổi AI →</button>
               </div>
+              <p className="qa-profile-hint">
+                Câu trả lời được cá nhân hoá theo hồ sơ:{" "}
+                <strong>{profile.name || "chưa có tên"}</strong>
+                {profile.province ? ` · ${profile.province}` : ""} — đổi hồ sơ (kể cả tra cứu bằng mã số thuế) ở tab &quot;Tìm chính sách&quot;.
+              </p>
               <div className="ask-bar">
                 <input
                   value={question}
