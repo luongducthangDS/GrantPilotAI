@@ -1,26 +1,6 @@
 "use client";
 
-import {
-  AlertCircle,
-  BadgeCheck,
-  Bot,
-  Building2,
-  CheckCircle2,
-  CircleHelp,
-  ClipboardCheck,
-  Download,
-  FileSearch,
-  FileText,
-  Landmark,
-  Loader2,
-  Radar,
-  RotateCcw,
-  Search,
-  Send,
-  Sparkles,
-  Upload
-} from "lucide-react";
-import { ChangeEvent, useMemo, useState } from "react";
+import { ChangeEvent, DragEvent, useEffect, useMemo, useState } from "react";
 
 import {
   Answer,
@@ -31,421 +11,687 @@ import {
   goldenQuestions,
   matchPolicies,
   parseUploadedText,
+  policies,
   policyWatch,
   sampleProfiles
 } from "@/lib/grantpilot";
 
-type TabKey = "match" | "qa" | "grant" | "watch";
+type View = "overview" | "search" | "qa" | "updates";
 
 const provinces = ["Hà Nội", "TP. Hồ Chí Minh", "Đà Nẵng", "Bình Dương", "Bắc Ninh", "Khác"];
 const industries = ["Phần mềm / AI", "Sản xuất", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo", "Thương mại", "Khác"];
 
-const tabItems: Array<{ key: TabKey; label: string; icon: React.ReactNode }> = [
-  { key: "match", label: "Hồ sơ & matching", icon: <FileSearch size={17} /> },
-  { key: "qa", label: "Q&A pháp lý", icon: <Bot size={17} /> },
-  { key: "grant", label: "Hồ sơ 844", icon: <ClipboardCheck size={17} /> },
-  { key: "watch", label: "Policy watch", icon: <Radar size={17} /> }
+const navItems: { id: View; label: string; hint: string }[] = [
+  { id: "overview", label: "Tổng quan", hint: "01" },
+  { id: "search", label: "Tìm chính sách", hint: "02" },
+  { id: "qa", label: "Hỏi đáp pháp lý", hint: "03" },
+  { id: "updates", label: "Theo dõi cập nhật", hint: "04" }
 ];
 
-function Badge({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "good" | "warn" | "bad" }) {
-  return <span className={`badge ${tone}`}>{children}</span>;
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  }).format(new Date(`${value}T00:00:00`));
 }
 
-function Field({
-  label,
-  children,
-  compact = false
-}: {
-  label: string;
-  children: React.ReactNode;
-  compact?: boolean;
-}) {
-  return (
-    <label className={compact ? "field compact" : "field"}>
-      <span>{label}</span>
-      {children}
-    </label>
-  );
+function statusClass(status: string) {
+  const value = status.toLowerCase();
+  if (value.includes("cần xác minh") || value.includes("chưa ban hành") || value.includes("đang soạn thảo")) return "warning";
+  if (value.includes("seed") || value.includes("nháp")) return "neutral";
+  return "success";
 }
 
-function CitationList({ citations }: { citations: MatchResult["citations"] }) {
+function matchTone(matchLevel: MatchResult["match_level"]) {
+  if (matchLevel === "Rất phù hợp") return "success";
+  if (matchLevel === "Cần rà soát") return "warning";
+  return "neutral";
+}
+
+function ScoreRing({ score }: { score: number }) {
   return (
-    <div className="citationList">
-      {citations.map((citation) => (
-        <a href={citation.source} key={`${citation.document}-${citation.clause}`} target="_blank" rel="noreferrer" className="citation">
-          <Badge tone={citation.status.includes("Còn hiệu lực") ? "good" : "warn"}>{citation.status}</Badge>
-          <span>{citation.document}</span>
-          <small>{citation.clause}</small>
-        </a>
-      ))}
+    <div className="score-ring" style={{ "--score": `${score * 3.6}deg` } as React.CSSProperties} aria-label={`${score}% phù hợp`}>
+      <span>{score}</span>
+      <small>%</small>
     </div>
   );
 }
 
-function PolicyCard({ policy }: { policy: MatchResult }) {
-  const tone = policy.score >= 80 ? "good" : policy.score >= 55 ? "warn" : "bad";
-  return (
-    <article className={`policyCard ${tone}`}>
-      <div className="policyTop">
-        <div>
-          <div className="badgeLine">
-            <Badge tone={tone}>{policy.score}/100</Badge>
-            <Badge>{policy.match_level}</Badge>
-            <Badge tone={policy.status.includes("Còn hiệu lực") ? "good" : "warn"}>{policy.status}</Badge>
-          </div>
-          <h3>{policy.title}</h3>
-          <p className="muted">
-            {policy.program} · {policy.scope}
-          </p>
-        </div>
-        <div className="scoreDial" aria-label={`Điểm khớp ${policy.score}`} style={{ "--score": policy.score } as React.CSSProperties}>
-          <span>{policy.score}</span>
-        </div>
-      </div>
-      <p>{policy.summary}</p>
-      <div className="twoCol tight">
-        <div>
-          <h4>Điểm khớp</h4>
-          <ul>
-            {(policy.reasons.length ? policy.reasons : ["Cần bổ sung dữ liệu để giải thích điểm khớp."]).map((reason) => (
-              <li key={reason}>{reason}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4>Cần rà soát</h4>
-          <ul>
-            {(policy.gaps.length ? policy.gaps : ["Chưa phát hiện khoảng trống lớn trong hồ sơ demo."]).map((gap) => (
-              <li key={gap}>{gap}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <CitationList citations={policy.citations} />
-    </article>
-  );
-}
-
 export default function Home() {
+  const [view, setView] = useState<View>("overview");
   const [profile, setProfile] = useState<Profile>(sampleProfiles[0]);
-  const [activeTab, setActiveTab] = useState<TabKey>("match");
-  const [question, setQuestion] = useState(goldenQuestions[0]);
-  const [answer, setAnswer] = useState<Answer | null>(answerQuestion(goldenQuestions[0], sampleProfiles[0]));
+  const [results, setResults] = useState<MatchResult[]>([]);
+  const [selectedPolicy, setSelectedPolicy] = useState<MatchResult | null>(null);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
   const [docxLoading, setDocxLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const [question, setQuestion] = useState(goldenQuestions[0]);
+  const [answer, setAnswer] = useState<Answer | null>(null);
 
   const sme = useMemo(() => classifySme(profile), [profile]);
-  const matches = useMemo(() => matchPolicies(profile), [profile]);
-  const topMatch = matches[0];
-  const dean844 = matches.find((match) => match.id === "p_dean844") ?? matches[0];
+  const verifiedPolicyCount = useMemo(() => policies.filter((policy) => policy.status.includes("Còn hiệu lực")).length, []);
+
+  useEffect(() => {
+    if (!selectedPolicy) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedPolicy(null);
+    };
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, [selectedPolicy]);
 
   function updateProfile<K extends keyof Profile>(key: K, value: Profile[K]) {
     setProfile((current) => ({ ...current, [key]: value }));
+    setMessage("");
   }
 
-  function loadPreset(id: string) {
-    const next = sampleProfiles.find((item) => item.id === id);
-    if (next) {
-      setProfile(next);
-      setAnswer(answerQuestion(question, next));
+  function chooseProfile(candidate: Profile) {
+    setProfile(candidate);
+    setResults([]);
+    setMessage(`Đã chọn hồ sơ mẫu ${candidate.name}.`);
+    setError("");
+  }
+
+  async function handleFile(file?: File) {
+    if (!file) return;
+    setError("");
+    setMessage("");
+    if (!file.name.toLowerCase().endsWith(".txt")) {
+      setError("Vui lòng chọn tệp TXT.");
+      return;
+    }
+    try {
+      const text = await file.text();
+      const parsed = parseUploadedText(text);
+      setProfile((current) => ({ ...current, ...parsed }));
+      setResults([]);
+      setMessage("Đã đọc hồ sơ (OCR mock). Bạn có thể kiểm tra và bổ sung thông tin.");
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Không thể đọc tệp.");
     }
   }
 
-  async function onUpload(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    const text = await file.text();
-    setProfile((current) => ({ ...current, ...parseUploadedText(text) }));
+  async function analyze() {
+    if (!profile.name || !profile.tax_code) {
+      setError("Vui lòng hoàn thiện tên doanh nghiệp và mã số thuế.");
+      return;
+    }
+    setError("");
+    setMessage("");
+    setAnalyzing(true);
+    const recommendations = matchPolicies(profile);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    setResults(recommendations);
+    setMessage(`Đã đối chiếu ${policies.length} chính sách cho hồ sơ này.`);
+    setAnalyzing(false);
   }
 
-  function ask() {
-    setAnswer(answerQuestion(question, profile));
+  function ask(nextQuestion: string) {
+    setQuestion(nextQuestion);
+    setAnswer(answerQuestion(nextQuestion, profile));
   }
 
-  async function downloadDocx() {
+  async function downloadDocx(policy: MatchResult) {
     setDocxLoading(true);
     try {
       const response = await fetch("/api/grant-docx", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ profile, policy: dean844 })
+        body: JSON.stringify({ profile, policy })
       });
+      if (!response.ok) throw new Error("Không thể tạo file DOCX.");
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "grantpilot-de-an-844.docx";
+      anchor.download = `grantpilot-${policy.id}.docx`;
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();
       URL.revokeObjectURL(url);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Xuất DOCX thất bại.");
     } finally {
       setDocxLoading(false);
     }
   }
 
+  function navigate(next: View) {
+    setView(next);
+    setError("");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
-    <main className="shell">
-      <section className="heroPanel">
-        <div className="brandBlock">
-          <div className="brandMark">
-            <Landmark size={26} />
-          </div>
-          <div>
-            <h1>GrantPilot AI</h1>
-            <p>Policy & Grant Navigator cho DNNVV và startup đổi mới sáng tạo</p>
-          </div>
-        </div>
-        <div className="statusStrip">
-          <div>
-            <span>Phân loại</span>
-            <strong>{sme.size}</strong>
-          </div>
-          <div>
-            <span>Top match</span>
-            <strong>{topMatch.score}/100</strong>
-          </div>
-          <div>
-            <span>Citation top 3</span>
-            <strong>{matches.slice(0, 3).reduce((total, item) => total + item.citations.length, 0)}</strong>
-          </div>
-          <div>
-            <span>Demo mode</span>
-            <strong>Offline</strong>
-          </div>
-        </div>
-      </section>
+    <div className="app-shell">
+      <aside className="sidebar" aria-label="Điều hướng chính">
+        <button className="brand" onClick={() => navigate("overview")}>
+          <span className="brand-mark">G</span>
+          <span>
+            <strong>GrantPilot AI</strong>
+            <small>Policy &amp; Grant Navigator</small>
+          </span>
+        </button>
 
-      <section className="workbench">
-        <aside className="profilePanel">
-          <div className="panelHeader">
-            <div>
-              <span className="eyebrow">Company profile</span>
-              <h2>Hồ sơ doanh nghiệp</h2>
-            </div>
-            <Building2 size={22} />
-          </div>
-
-          <div className="toolbar">
-            <select aria-label="Chọn hồ sơ mẫu" onChange={(event) => loadPreset(event.target.value)} value={profile.id ?? ""}>
-              {sampleProfiles.map((item) => (
-                <option key={item.id} value={item.id}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-            <label className="iconButton" title="OCR mock từ TXT">
-              <Upload size={17} />
-              <input type="file" accept=".txt" onChange={onUpload} />
-            </label>
-            <button className="iconButton" title="Reset NovaMind" onClick={() => loadPreset("tech_hanoi")}>
-              <RotateCcw size={17} />
+        <div className="sidebar-label">Không gian làm việc</div>
+        <nav>
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={view === item.id ? "nav-item active" : "nav-item"}
+              onClick={() => navigate(item.id)}
+              aria-current={view === item.id ? "page" : undefined}
+            >
+              <span>{item.hint}</span>
+              {item.label}
             </button>
-          </div>
+          ))}
+        </nav>
 
-          <Field label="Tên doanh nghiệp">
-            <input value={profile.name} onChange={(event) => updateProfile("name", event.target.value)} />
-          </Field>
-          <div className="twoCol">
-            <Field label="Mã số thuế" compact>
-              <input value={profile.tax_code} onChange={(event) => updateProfile("tax_code", event.target.value)} />
-            </Field>
-            <Field label="Tỉnh/thành" compact>
-              <select value={profile.province} onChange={(event) => updateProfile("province", event.target.value)}>
-                {provinces.map((item) => (
-                  <option key={item}>{item}</option>
-                ))}
-              </select>
-            </Field>
+        <div className="sidebar-card">
+          <span className="status-dot" />
+          <div>
+            <strong>Dữ liệu demo an toàn</strong>
+            <p>Hồ sơ được xử lý ngay trên thiết bị.</p>
           </div>
-          <Field label="Lĩnh vực">
-            <select value={profile.industry} onChange={(event) => updateProfile("industry", event.target.value)}>
-              {industries.map((item) => (
-                <option key={item}>{item}</option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Mô tả ngành nghề">
-            <textarea value={profile.business_line ?? ""} onChange={(event) => updateProfile("business_line", event.target.value)} rows={3} />
-          </Field>
+        </div>
+        <div className="sidebar-footer">Vietnam AI Innovation Challenge 2026</div>
+      </aside>
 
-          <div className="threeCol">
-            <Field label="Lao động" compact>
-              <input type="number" value={profile.employees} onChange={(event) => updateProfile("employees", Number(event.target.value))} />
-            </Field>
-            <Field label="DT tỷ" compact>
-              <input type="number" value={profile.revenue_bil} onChange={(event) => updateProfile("revenue_bil", Number(event.target.value))} />
-            </Field>
-            <Field label="Vốn tỷ" compact>
-              <input type="number" value={profile.capital_bil} onChange={(event) => updateProfile("capital_bil", Number(event.target.value))} />
-            </Field>
+      <main className="main-panel">
+        <header className="topbar">
+          <div>
+            <span className="eyebrow">GRANTPILOT WORKSPACE</span>
+            <h1>{navItems.find((item) => item.id === view)?.label}</h1>
           </div>
-
-          <label className="toggleRow">
-            <input type="checkbox" checked={profile.startup_innovation} onChange={(event) => updateProfile("startup_innovation", event.target.checked)} />
-            <span>Startup đổi mới sáng tạo</span>
-          </label>
-
-          <div className="twoCol">
-            <Field label="Người đại diện" compact>
-              <input value={profile.representative ?? ""} onChange={(event) => updateProfile("representative", event.target.value)} />
-            </Field>
-            <Field label="Giai đoạn" compact>
-              <input value={profile.stage ?? ""} onChange={(event) => updateProfile("stage", event.target.value)} />
-            </Field>
-          </div>
-          <div className="twoCol">
-            <Field label="Email" compact>
-              <input value={profile.email ?? ""} onChange={(event) => updateProfile("email", event.target.value)} />
-            </Field>
-            <Field label="Điện thoại" compact>
-              <input value={profile.phone ?? ""} onChange={(event) => updateProfile("phone", event.target.value)} />
-            </Field>
-          </div>
-
-          <div className="smeBox">
-            <BadgeCheck size={20} />
-            <div>
-              <strong>{sme.size}</strong>
-              <p>{sme.basis}</p>
+          <div className="topbar-actions">
+            <div className="data-health">
+              <span /> {policies.length} chính sách đã kết nối
             </div>
+            <div className="avatar" aria-label="Hồ sơ người dùng">GP</div>
           </div>
-        </aside>
+        </header>
 
-        <section className="mainPanel">
-          <nav className="tabs" aria-label="Demo tabs">
-            {tabItems.map((item) => (
-              <button key={item.key} className={activeTab === item.key ? "active" : ""} onClick={() => setActiveTab(item.key)}>
-                {item.icon}
-                {item.label}
-              </button>
-            ))}
-          </nav>
+        {error && <div className="notice error-notice">{error}</div>}
+        {message && <div className="notice success-notice">{message}</div>}
 
-          {activeTab === "match" && (
-            <div className="tabBody">
-              <div className="sectionHeader">
-                <div>
-                  <span className="eyebrow">Matching engine</span>
-                  <h2>Kết quả chính sách phù hợp</h2>
+        {view === "overview" && (
+          <section className="view-stack">
+            <div className="hero-card">
+              <div className="hero-copy">
+                <span className="hero-kicker">POLICY INTELLIGENCE FOR BUSINESS</span>
+                <h2>
+                  Tìm đúng chính sách.
+                  <br />
+                  <em>Chuẩn bị đúng hồ sơ.</em>
+                </h2>
+                <p>
+                  GrantPilot AI giúp doanh nghiệp đối chiếu nhu cầu với chính sách, giải thích điều kiện, trả lời câu hỏi pháp lý có căn
+                  cứ và tạo checklist hành động có nguồn dẫn.
+                </p>
+                <div className="hero-actions">
+                  <button className="primary-button" onClick={() => navigate("search")}>
+                    Bắt đầu phân tích <span>→</span>
+                  </button>
+                  <button className="secondary-button" onClick={() => navigate("updates")}>
+                    Xem cập nhật mới
+                  </button>
                 </div>
-                <Badge tone="good">{matches.filter((match) => match.score >= 55).length} chính sách khả thi</Badge>
               </div>
-              <div className="policyList">
-                {matches.map((match) => (
-                  <PolicyCard policy={match} key={match.id} />
-                ))}
+              <div className="hero-visual" aria-hidden="true">
+                <div className="visual-glow" />
+                <div className="document-card card-back">
+                  <span>POLICY</span>
+                  <i />
+                  <i />
+                  <i />
+                </div>
+                <div className="document-card card-front">
+                  <div className="document-check">✓</div>
+                  <strong>Hồ sơ phù hợp</strong>
+                  <span>Đã đối chiếu điều kiện</span>
+                  <div className="match-bar"><b /></div>
+                  <small>92% tương thích</small>
+                </div>
+                <div className="route-line" />
               </div>
             </div>
-          )}
 
-          {activeTab === "qa" && (
-            <div className="tabBody">
-              <div className="sectionHeader">
-                <div>
-                  <span className="eyebrow">RAG demo</span>
-                  <h2>Q&A có căn cứ</h2>
+            <div className="metrics-grid">
+              <article className="metric-card">
+                <span className="metric-index">01</span>
+                <strong>{policies.length}</strong>
+                <p>Chính sách mẫu</p>
+                <small>Từ {new Set(policies.map((item) => item.source)).size} nguồn</small>
+              </article>
+              <article className="metric-card">
+                <span className="metric-index">02</span>
+                <strong>{verifiedPolicyCount}</strong>
+                <p>Đang còn hiệu lực</p>
+                <small>Có citation và nguồn gốc</small>
+              </article>
+              <article className="metric-card accent-metric">
+                <span className="metric-index">03</span>
+                <strong>{sampleProfiles.length}</strong>
+                <p>Hồ sơ doanh nghiệp mẫu</p>
+                <small>Sẵn sàng cho luồng demo</small>
+              </article>
+            </div>
+
+            <div className="overview-grid">
+              <section className="panel-card quick-start">
+                <div className="section-heading">
+                  <div>
+                    <span className="eyebrow">BẮT ĐẦU NHANH</span>
+                    <h3>Chọn một hồ sơ mẫu</h3>
+                  </div>
+                  <button className="text-button" onClick={() => navigate("search")}>Mở biểu mẫu →</button>
                 </div>
-                <Badge>{goldenQuestions.length}/10 câu hỏi vàng</Badge>
-              </div>
-              <div className="qaGrid">
-                <div className="questionBank">
-                  {goldenQuestions.map((item) => (
+                <div className="profile-list">
+                  {sampleProfiles.map((candidate, index) => (
                     <button
-                      key={item}
-                      className={question === item ? "selected" : ""}
+                      key={candidate.id ?? candidate.tax_code}
                       onClick={() => {
-                        setQuestion(item);
-                        setAnswer(answerQuestion(item, profile));
+                        chooseProfile(candidate);
+                        navigate("search");
                       }}
                     >
-                      <CircleHelp size={16} />
-                      {item}
+                      <span className="company-avatar">{index === 0 ? "N" : "A"}</span>
+                      <span>
+                        <strong>{candidate.name}</strong>
+                        <small>{candidate.industry} · {candidate.province}</small>
+                      </span>
+                      <b>→</b>
                     </button>
                   ))}
                 </div>
-                <div className="answerPanel">
-                  <div className="askBar">
-                    <Search size={18} />
-                    <input value={question} onChange={(event) => setQuestion(event.target.value)} onKeyDown={(event) => event.key === "Enter" && ask()} />
-                    <button onClick={ask}>
-                      <Send size={17} />
-                      Hỏi
-                    </button>
-                  </div>
-                  {answer && (
-                    <div className="answerBox">
-                      <Badge tone={answer.confidence === "Có căn cứ trong corpus" ? "good" : "bad"}>{answer.confidence}</Badge>
-                      <p>{answer.text}</p>
-                      {answer.citations.length > 0 ? <CitationList citations={answer.citations} /> : <div className="emptyHint">Không có citation vì câu hỏi ngoài phạm vi corpus demo.</div>}
-                      <div className="disclaimer">
-                        <AlertCircle size={17} />
-                        Thông tin MVP chỉ phục vụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ quan có thẩm quyền.
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
+              </section>
 
-          {activeTab === "grant" && (
-            <div className="tabBody">
-              <div className="sectionHeader">
-                <div>
-                  <span className="eyebrow">Grant assist</span>
-                  <h2>Checklist & đơn Đề án 844</h2>
+              <section className="panel-card watch-preview">
+                <div className="section-heading">
+                  <div>
+                    <span className="eyebrow">POLICY WATCH</span>
+                    <h3>Cập nhật gần đây</h3>
+                  </div>
                 </div>
-                <button className="primaryButton" onClick={downloadDocx} disabled={docxLoading}>
-                  {docxLoading ? <Loader2 className="spin" size={17} /> : <Download size={17} />}
-                  Xuất DOCX
-                </button>
-              </div>
-              <PolicyCard policy={dean844} />
-              <div className="checklist">
-                {dean844.checklist.map((item, index) => (
-                  <label key={item}>
-                    <input type="checkbox" defaultChecked={index < 3} />
-                    <CheckCircle2 size={18} />
-                    <span>{item}</span>
+                {policyWatch.slice(0, 3).map((item) => (
+                  <div className="watch-row" key={`${item.date}-${item.title}`}>
+                    <span className={`status-marker ${statusClass(item.status)}`} />
+                    <div>
+                      <strong>{item.title}</strong>
+                      <small>{formatDate(item.date)} · {item.status}</small>
+                    </div>
+                  </div>
+                ))}
+              </section>
+            </div>
+          </section>
+        )}
+
+        {view === "search" && (
+          <section className="search-layout">
+            <div className="profile-column">
+              <section className="panel-card upload-panel">
+                <div className="section-heading compact">
+                  <div>
+                    <span className="eyebrow">BƯỚC 01</span>
+                    <h3>Nhập hồ sơ doanh nghiệp</h3>
+                  </div>
+                  <span className="privacy-badge">Xử lý cục bộ</span>
+                </div>
+
+                <label
+                  className={dragActive ? "dropzone active" : "dropzone"}
+                  onDragEnter={(event: DragEvent) => {
+                    event.preventDefault();
+                    setDragActive(true);
+                  }}
+                  onDragOver={(event: DragEvent) => event.preventDefault()}
+                  onDragLeave={() => setDragActive(false)}
+                  onDrop={(event: DragEvent) => {
+                    event.preventDefault();
+                    setDragActive(false);
+                    handleFile(event.dataTransfer.files[0]);
+                  }}
+                >
+                  <input type="file" accept=".txt,text/plain" onChange={(event: ChangeEvent<HTMLInputElement>) => handleFile(event.target.files?.[0])} />
+                  <span className="upload-icon">⇧</span>
+                  <strong>Thả hồ sơ TXT vào đây (OCR mock)</strong>
+                  <p>hoặc bấm để chọn tệp · tối đa 1 MB</p>
+                </label>
+
+                <div className="sample-divider"><span>hoặc dùng hồ sơ mẫu</span></div>
+                <div className="sample-buttons">
+                  {sampleProfiles.map((candidate, index) => (
+                    <button
+                      key={candidate.id ?? candidate.tax_code}
+                      className={profile.tax_code === candidate.tax_code ? "selected" : ""}
+                      onClick={() => chooseProfile(candidate)}
+                    >
+                      <span>{index === 0 ? "N" : "A"}</span>
+                      <div>
+                        <strong>{candidate.name}</strong>
+                        <small>{candidate.province}</small>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </section>
+
+              <section className="panel-card form-panel">
+                <div className="section-heading compact">
+                  <div>
+                    <span className="eyebrow">BƯỚC 02</span>
+                    <h3>Kiểm tra thông tin</h3>
+                  </div>
+                  <span className="demo-badge">{sme.size}</span>
+                </div>
+
+                <div className="form-grid">
+                  <label className="wide-field">
+                    Tên doanh nghiệp
+                    <input value={profile.name} onChange={(e) => updateProfile("name", e.target.value)} />
                   </label>
+                  <label>
+                    Mã số thuế
+                    <input value={profile.tax_code} onChange={(e) => updateProfile("tax_code", e.target.value)} />
+                  </label>
+                  <label>
+                    Địa phương
+                    <select value={profile.province} onChange={(e) => updateProfile("province", e.target.value)}>
+                      {provinces.map((item) => (
+                        <option key={item}>{item}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <label>
+                    Lĩnh vực
+                    <select value={profile.industry} onChange={(e) => updateProfile("industry", e.target.value)}>
+                      {industries.map((item) => (
+                        <option key={item}>{item}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="wide-field">
+                    Ngành nghề / mô tả
+                    <textarea value={profile.business_line ?? ""} onChange={(e) => updateProfile("business_line", e.target.value)} rows={3} />
+                  </label>
+                  <label>
+                    Lao động
+                    <input type="number" min="0" value={profile.employees} onChange={(e) => updateProfile("employees", Number(e.target.value))} />
+                  </label>
+                  <label>
+                    Doanh thu (tỷ VNĐ)
+                    <input type="number" min="0" value={profile.revenue_bil} onChange={(e) => updateProfile("revenue_bil", Number(e.target.value))} />
+                  </label>
+                  <label>
+                    Vốn (tỷ VNĐ)
+                    <input type="number" min="0" value={profile.capital_bil} onChange={(e) => updateProfile("capital_bil", Number(e.target.value))} />
+                  </label>
+                  <label className="toggle-field">
+                    <span>
+                      <strong>Startup đổi mới sáng tạo</strong>
+                      <small>Dùng để đối chiếu điều kiện chương trình</small>
+                    </span>
+                    <input type="checkbox" checked={profile.startup_innovation} onChange={(e) => updateProfile("startup_innovation", e.target.checked)} />
+                  </label>
+                </div>
+
+                <button className="analyze-button" onClick={analyze} disabled={analyzing}>
+                  {analyzing ? <><span className="button-spinner" /> Đang đối chiếu chính sách...</> : <>Phân tích và tìm chính sách <span>→</span></>}
+                </button>
+              </section>
+            </div>
+
+            <div className="result-column">
+              <section className="result-header">
+                <div>
+                  <span className="eyebrow">BƯỚC 03</span>
+                  <h2>Kết quả đề xuất</h2>
+                </div>
+                {results.length > 0 && <span>{results.length} chính sách</span>}
+              </section>
+
+              {results.length === 0 ? (
+                <div className="empty-results">
+                  <div className="compass-shape"><span>✦</span></div>
+                  <h3>Sẵn sàng tìm lộ trình phù hợp</h3>
+                  <p>Hoàn thiện hồ sơ bên trái và bắt đầu phân tích. Kết quả sẽ được xếp hạng theo mức độ phù hợp.</p>
+                  <div className="empty-steps">
+                    <span>01 · Đối chiếu lĩnh vực</span>
+                    <span>02 · Kiểm tra phạm vi</span>
+                    <span>03 · Xác định điều kiện</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="results-list">
+                  {results.map((policy, index) => (
+                    <article className="policy-card" key={policy.id}>
+                      <div className="policy-rank">{String(index + 1).padStart(2, "0")}</div>
+                      <ScoreRing score={policy.score} />
+                      <div className="policy-body">
+                        <div className="policy-meta">
+                          <span>{policy.program}</span>
+                          <span className={`badge ${matchTone(policy.match_level)}`}>{policy.match_level}</span>
+                        </div>
+                        <h3>{policy.title}</h3>
+                        <p>{policy.summary}</p>
+                        <div className="reason-row">
+                          {policy.reasons.slice(0, 2).map((reason) => <span key={reason}>✓ {reason}</span>)}
+                        </div>
+                        <div className="policy-footer">
+                          <span>{policy.scope}</span>
+                          <span>{policy.citations.length} nguồn dẫn</span>
+                          <span>{policy.checklist.length} mục hồ sơ</span>
+                          <button onClick={() => setSelectedPolicy(policy)}>Xem chi tiết →</button>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {view === "qa" && (
+          <section className="qa-layout">
+            <div className="panel-card">
+              <div className="section-heading compact">
+                <div>
+                  <span className="eyebrow">RAG DEMO</span>
+                  <h3>Câu hỏi vàng</h3>
+                </div>
+                <span className="privacy-badge">{goldenQuestions.length}/10</span>
+              </div>
+              <div className="question-bank">
+                {goldenQuestions.map((item) => (
+                  <button key={item} className={question === item ? "selected" : ""} onClick={() => ask(item)}>
+                    {item}
+                  </button>
                 ))}
               </div>
             </div>
-          )}
 
-          {activeTab === "watch" && (
-            <div className="tabBody">
-              <div className="sectionHeader">
+            <section className="panel-card">
+              <div className="section-heading compact">
                 <div>
-                  <span className="eyebrow">Mock monitor</span>
-                  <h2>Policy watch</h2>
+                  <span className="eyebrow">BƯỚC 01</span>
+                  <h3>Đặt câu hỏi</h3>
                 </div>
-                <Badge tone="warn">Seed demo</Badge>
               </div>
-              <div className="watchList">
-                {policyWatch.map((item) => (
-                  <article key={`${item.date}-${item.title}`} className="watchItem">
-                    <div className="watchIcon">
-                      <FileText size={20} />
+              <div className="ask-bar">
+                <input
+                  value={question}
+                  onChange={(event) => setQuestion(event.target.value)}
+                  onKeyDown={(event) => event.key === "Enter" && ask(question)}
+                  placeholder="Hỏi về DNNVV, Đề án 844, SMEDF, ưu đãi đầu tư..."
+                />
+                <button onClick={() => ask(question)}>Hỏi →</button>
+              </div>
+
+              {answer ? (
+                <div className="answer-box">
+                  <span className={`badge ${answer.confidence === "Có căn cứ trong corpus" ? "success" : "warning"}`}>
+                    {answer.confidence}
+                  </span>
+                  <p>{answer.text}</p>
+                  {answer.citations.length > 0 ? (
+                    <div className="detail-section citation-section">
+                      <h3>Nguồn pháp lý</h3>
+                      {answer.citations.map((citation) => (
+                        <a href={citation.source} target="_blank" rel="noopener noreferrer" key={`${citation.document}-${citation.clause}`}>
+                          <span className="source-icon">§</span>
+                          <span><strong>{citation.document}</strong><small>{citation.clause} · {citation.status}</small></span>
+                          <b>↗</b>
+                        </a>
+                      ))}
                     </div>
-                    <div>
-                      <div className="badgeLine">
-                        <Badge>{item.date}</Badge>
-                        <Badge tone={item.status === "Theo dõi" ? "good" : "warn"}>{item.status}</Badge>
+                  ) : (
+                    <div className="empty-hint">Không có citation vì câu hỏi ngoài phạm vi corpus demo.</div>
+                  )}
+                  <div className="legal-note">
+                    <strong>Lưu ý:</strong> Thông tin MVP chỉ phục vụ sàng lọc ban đầu, không thay thế tư vấn pháp lý hoặc xác nhận của cơ
+                    quan có thẩm quyền.
+                  </div>
+                </div>
+              ) : (
+                <div className="empty-hint">Chọn một câu hỏi vàng bên trái hoặc tự nhập câu hỏi rồi bấm &quot;Hỏi&quot;.</div>
+              )}
+            </section>
+          </section>
+        )}
+
+        {view === "updates" && (
+          <section className="view-stack">
+            <div className="updates-hero">
+              <div>
+                <span className="eyebrow">POLICY WATCH</span>
+                <h2>Theo dõi thay đổi,<br /><em>chủ động chuẩn bị.</em></h2>
+                <p>Các tín hiệu chính sách dưới đây được tổng hợp từ nguồn chính thống nhưng vẫn cần được xác minh lại tại nguồn gốc trước khi nộp hồ sơ thật.</p>
+              </div>
+              <div className="update-counter">
+                <strong>{policyWatch.length}</strong>
+                <span>tín hiệu đang theo dõi</span>
+              </div>
+            </div>
+
+            <section className="panel-card timeline-panel">
+              <div className="section-heading">
+                <div>
+                  <span className="eyebrow">DÒNG THỜI GIAN</span>
+                  <h3>Cập nhật chính sách gần đây</h3>
+                </div>
+              </div>
+              <div className="timeline">
+                {policyWatch.map((item) => (
+                  <article key={`${item.date}-${item.title}`}>
+                    <div className="timeline-date">
+                      <strong>{item.date.slice(8, 10)}</strong>
+                      <span>THÁNG {item.date.slice(5, 7)}</span>
+                    </div>
+                    <div className={`timeline-dot ${statusClass(item.status)}`} />
+                    <div className="timeline-content">
+                      <div>
+                        <span className={`badge ${statusClass(item.status)}`}>{item.status}</span>
+                        <small>{formatDate(item.date)}</small>
                       </div>
                       <h3>{item.title}</h3>
                       <p>{item.impact}</p>
-                      <a href={item.source} target="_blank" rel="noreferrer">
-                        nguồn theo dõi
-                      </a>
+                      <a href={item.source} target="_blank" rel="noopener noreferrer">Kiểm tra nguồn chính thức →</a>
                     </div>
                   </article>
                 ))}
               </div>
+            </section>
+          </section>
+        )}
+      </main>
+
+      {selectedPolicy && (
+        <div className="modal-backdrop" onMouseDown={(event) => {
+          if (event.currentTarget === event.target) setSelectedPolicy(null);
+        }}>
+          <section className="policy-modal" role="dialog" aria-modal="true" aria-labelledby="policy-title">
+            <button className="modal-close" onClick={() => setSelectedPolicy(null)} aria-label="Đóng chi tiết">×</button>
+            <div className="modal-topline">
+              <ScoreRing score={selectedPolicy.score} />
+              <div>
+                <span className="eyebrow">{selectedPolicy.program}</span>
+                <h2 id="policy-title">{selectedPolicy.title}</h2>
+                <div className="modal-badges">
+                  <span className={`badge ${matchTone(selectedPolicy.match_level)}`}>{selectedPolicy.match_level}</span>
+                  <span className="badge neutral">{selectedPolicy.scope}</span>
+                  <span className="badge neutral">{selectedPolicy.status}</span>
+                </div>
+              </div>
             </div>
-          )}
-        </section>
-      </section>
-    </main>
+
+            <p className="modal-summary">{selectedPolicy.summary}</p>
+
+            <div className="modal-actions">
+              <button className="modal-download-button" onClick={() => downloadDocx(selectedPolicy)} disabled={docxLoading}>
+                {docxLoading ? "Đang tạo file..." : "⇩ Xuất đơn .docx"}
+              </button>
+            </div>
+
+            <div className="modal-grid">
+              <div>
+                <h3>Lý do phù hợp</h3>
+                <ul className="check-list positive">
+                  {(selectedPolicy.reasons.length ? selectedPolicy.reasons : ["Chưa có lý do nổi bật trong dữ liệu demo."]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>Điểm cần xác minh</h3>
+                <ul className="check-list caution">
+                  {(selectedPolicy.gaps.length ? selectedPolicy.gaps : ["Không có cảnh báo bổ sung trong dữ liệu demo."]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="detail-section">
+              <h3>Lợi ích có thể nhận</h3>
+              <div className="benefit-grid">
+                {selectedPolicy.benefits.map((item, index) => (
+                  <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></div>
+                ))}
+              </div>
+            </div>
+
+            <div className="detail-section">
+              <h3>Checklist hồ sơ</h3>
+              <ol className="document-list">
+                {selectedPolicy.checklist.map((item) => <li key={item}><span>□</span>{item}</li>)}
+              </ol>
+            </div>
+
+            <div className="detail-section citation-section">
+              <h3>Nguồn pháp lý</h3>
+              {selectedPolicy.citations.map((citation) => (
+                <a href={citation.source} target="_blank" rel="noopener noreferrer" key={`${citation.document}-${citation.clause}`}>
+                  <span className="source-icon">§</span>
+                  <span><strong>{citation.document}</strong><small>{citation.clause} · {citation.status}</small></span>
+                  <b>↗</b>
+                </a>
+              ))}
+            </div>
+
+            <div className="legal-note">
+              <strong>Lưu ý:</strong> Kết quả được tạo từ tập dữ liệu demo, không thay thế tư vấn pháp lý. Vui lòng kiểm tra văn bản gốc
+              trước khi chuẩn bị hồ sơ thật.
+            </div>
+          </section>
+        </div>
+      )}
+    </div>
   );
 }

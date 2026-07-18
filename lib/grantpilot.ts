@@ -297,7 +297,7 @@ export function answerQuestion(question: string, profile?: Profile): Answer {
       "Sản xuất phần mềm, sản phẩm công nghệ thông tin, nội dung số, R&D và một số hoạt động công nghệ cao có thể thuộc nhóm ngành nghề ưu đãi đầu tư. Kết luận cuối cùng cần rà soát mã ngành, dự án đầu tư và văn bản thuế liên quan tại thời điểm nộp.";
   } else if (q.includes("ha noi")) {
     text =
-      "Với doanh nghiệp startup tại Hà Nội, có thể theo dõi các chương trình địa phương về đào tạo, cố vấn, kết nối đầu tư và sự kiện hệ sinh thái. Nguồn này trong MVP đang là seed demo, cần xác minh thông báo chính thức trước khi nộp hồ sơ thật.";
+      "Hà Nội có Nghị quyết HĐND quy định ưu đãi, hỗ trợ đầu tư theo Điều 26 Luật Thủ đô 2026 (hiệu lực từ 01/07/2026), áp dụng trực tiếp cho doanh nghiệp khởi nghiệp sáng tạo lĩnh vực khoa học công nghệ, gồm ưu đãi đất đai, thuế và hỗ trợ ngân sách sau đầu tư. Ngoài ra còn các chương trình địa phương về đào tạo, cố vấn, kết nối đầu tư và sự kiện hệ sinh thái. Nên đối chiếu nguồn gốc trước khi nộp hồ sơ thật.";
   } else {
     text = `Tóm tắt từ corpus demo: ${chunks
       .slice(0, 2)

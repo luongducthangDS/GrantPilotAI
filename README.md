@@ -31,11 +31,12 @@ Trên Render, tạo Blueprint hoặc Web Service từ GitHub repo này. Sau khi 
 
 ## Luồng demo nhanh
 
-1. Chọn hồ sơ mẫu `NovaMind AI`, chạy matching.
-2. Mở `Q&A pháp lý`, thử 10 câu hỏi vàng.
-3. Mở `Hồ sơ 844`, tải đơn `.docx`.
+1. Ở `Tìm chính sách`, chọn hồ sơ mẫu `NovaMind AI`, bấm "Phân tích và tìm chính sách".
+2. Bấm "Xem chi tiết" một chính sách để thấy citation, checklist và nút "Xuất đơn .docx" (dùng được cho mọi chính sách có checklist, không chỉ Đề án 844).
+3. Mở `Hỏi đáp pháp lý`, thử 10 câu hỏi vàng.
 4. Chuyển hồ sơ mẫu sang `Cơ khí An Phát` để thấy kết quả ưu tiên SMEDF và chuỗi giá trị.
-5. Thử upload `data/synthetic_dkkd_novamind.txt` hoặc `data/synthetic_dkkd_anphat.txt` ở ô OCR mock.
+5. Thử upload `data/synthetic_dkkd_novamind.txt` hoặc `data/synthetic_dkkd_anphat.txt` vào ô "Thả hồ sơ TXT" (OCR mock).
+6. Mở `Theo dõi cập nhật` để xem policy watch (nay có 10 tín hiệu, gồm cả các văn bản mới phát hiện qua crawl vbpl.vn/chinhphu.vn).
 
 ## Dữ liệu seed
 

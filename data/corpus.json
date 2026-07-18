@@ -54,13 +54,58 @@
     "text": "Kinh phí thực hiện nhiệm vụ thuộc Đề án 844 được lập dự toán, quản lý, sử dụng và quyết toán theo quy định ngân sách nhà nước; hồ sơ nhiệm vụ cần thuyết minh mục tiêu, nội dung, sản phẩm, dự toán và năng lực thực hiện."
   },
   {
-    "id": "smedf-dieu_kien",
-    "title": "Quỹ Phát triển doanh nghiệp nhỏ và vừa",
-    "clause": "Điều kiện vay vốn chương trình trực tiếp/gián tiếp",
-    "status": "Còn hiệu lực",
+    "id": "smedf-quyche-dieu1",
+    "title": "Quy chế cho vay gián tiếp - Quỹ Phát triển DNNVV (SMEDF)",
+    "clause": "Điều 1 - Phạm vi áp dụng",
+    "status": "Còn hiệu lực (từ 04/04/2025)",
     "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
-    "tags": ["smedf", "vay_von", "dnnvv"],
-    "text": "Quỹ Phát triển doanh nghiệp nhỏ và vừa ưu tiên doanh nghiệp nhỏ và vừa có dự án, phương án sản xuất kinh doanh khả thi, minh bạch tài chính, đáp ứng tiêu chí DNNVV và thuộc nhóm ưu tiên như khởi nghiệp sáng tạo, tham gia cụm liên kết ngành hoặc chuỗi giá trị."
+    "tags": ["smedf", "vay_von", "dnnvv", "pham_vi_ap_dung"],
+    "text": "Quỹ, ngân hàng thương mại, DNNVV đáp ứng tiêu chí theo Luật Hỗ trợ DNNVV và Nghị định 80/2021/NĐ-CP."
+  },
+  {
+    "id": "smedf-quyche-dieu2",
+    "title": "Quy chế cho vay gián tiếp - Quỹ Phát triển DNNVV (SMEDF)",
+    "clause": "Điều 2 - Nội dung chính",
+    "status": "Còn hiệu lực (từ 04/04/2025)",
+    "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
+    "tags": ["smedf", "vay_von", "dnnvv", "dieu_kien_vay", "lai_suat"],
+    "text": "Nguyên tắc cho vay: Quỹ giao vốn qua ngân hàng, ngân hàng thẩm định và chịu trách nhiệm rủi ro, DNNVV trả nợ đúng hạn. Điều kiện vay: DNNVV phải có vốn chủ sở hữu tối thiểu 20%, dự án khả thi, đáp ứng quy định bảo đảm tiền vay. Mức vay: Tối đa 80% vốn đầu tư dự án, không vượt 15% vốn điều lệ Quỹ. Thời hạn vay: Tối đa 7 năm, ân hạn tùy thỏa thuận. Lãi suất: Do Hội đồng thành viên công bố, tối đa 20%/năm (quá hạn: 150% lãi trong hạn). Phí cho vay: Không quá 50% lãi thu được, thỏa thuận giữa Quỹ và ngân hàng. Phương thức nhận vốn: Trực tiếp hoặc bồi hoàn."
+  },
+  {
+    "id": "smedf-quyche-dieu3",
+    "title": "Quy chế cho vay gián tiếp - Quỹ Phát triển DNNVV (SMEDF)",
+    "clause": "Điều 3 - Hồ sơ, thủ tục",
+    "status": "Còn hiệu lực (từ 04/04/2025)",
+    "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
+    "tags": ["smedf", "vay_von", "dnnvv", "ho_so", "thu_tuc"],
+    "text": "DNNVV nộp hồ sơ qua ngân hàng (giấy đề nghị, hồ sơ dự án, chứng từ pháp lý). Ngân hàng thẩm định, gửi hồ sơ đề nghị nhận vốn cho Quỹ. Quỹ phê duyệt, ký hợp đồng với ngân hàng, giải ngân trong 5 ngày làm việc."
+  },
+  {
+    "id": "smedf-quyche-dieu4",
+    "title": "Quy chế cho vay gián tiếp - Quỹ Phát triển DNNVV (SMEDF)",
+    "clause": "Điều 4 - Giám sát, xử lý rủi ro",
+    "status": "Còn hiệu lực (từ 04/04/2025)",
+    "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
+    "tags": ["smedf", "vay_von", "giam_sat", "rui_ro"],
+    "text": "Quỹ giám sát, ngân hàng báo cáo định kỳ, xử lý nợ quá hạn theo thỏa thuận."
+  },
+  {
+    "id": "smedf-quyche-dieu5",
+    "title": "Quy chế cho vay gián tiếp - Quỹ Phát triển DNNVV (SMEDF)",
+    "clause": "Điều 5 - Hiệu lực",
+    "status": "Còn hiệu lực (từ 04/04/2025)",
+    "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
+    "tags": ["smedf", "hieu_luc"],
+    "text": "Quyết định có hiệu lực từ ngày ký (04/04/2025), thay thế Quyết định số 07/QĐ-HĐTV (2019) và 03/QĐ-HĐTV (2020)."
+  },
+  {
+    "id": "smedf-quyche-dieu6",
+    "title": "Quy chế cho vay gián tiếp - Quỹ Phát triển DNNVV (SMEDF)",
+    "clause": "Điều 6 - Trách nhiệm",
+    "status": "Còn hiệu lực (từ 04/04/2025)",
+    "source": "https://smedf.gov.vn/chuong-trinh-vay-von/",
+    "tags": ["smedf", "trach_nhiem"],
+    "text": "Hội đồng thành viên, Giám đốc Quỹ, ngân hàng, DNNVV chịu trách nhiệm thực hiện."
   },
   {
     "id": "law-investment-2020-dieu15",
@@ -81,13 +126,49 @@
     "text": "Danh mục ngành, nghề ưu đãi đầu tư bao gồm sản xuất sản phẩm công nghệ thông tin, phần mềm, nội dung số và một số hoạt động công nghệ cao, nghiên cứu phát triển, đổi mới sáng tạo."
   },
   {
-    "id": "hanoi-startup",
-    "title": "Chương trình hỗ trợ khởi nghiệp đổi mới sáng tạo Hà Nội",
-    "clause": "Nhóm nhiệm vụ hỗ trợ hệ sinh thái",
-    "status": "Đã seed demo - cần xác minh văn bản gốc khi triển khai thật",
+    "id": "hanoi-chinh-sach",
+    "title": "Thực tiễn hệ sinh thái khởi nghiệp đổi mới sáng tạo Hà Nội",
+    "clause": "Mục 1 - Chủ trương, chính sách của Thành phố",
+    "status": "Bài nghiên cứu - trao đổi, đăng 11/06/2024 - dùng làm bối cảnh, cần xác minh thông báo chính thức khi nộp hồ sơ thật",
     "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
-    "tags": ["ha_noi", "startup", "dia_phuong"],
-    "text": "Hà Nội có các hoạt động hỗ trợ hệ sinh thái khởi nghiệp như truyền thông, đào tạo, cố vấn, kết nối đầu tư, không gian thử nghiệm và kết nối với mạng lưới hỗ trợ đổi mới sáng tạo địa phương."
+    "tags": ["ha_noi", "startup", "dia_phuong", "chinh_sach"],
+    "text": "Nghị quyết số 05/2019/NQ-HĐND, ngày 08/7/2019 của HĐND thành phố Hà Nội về việc thông qua chủ trương ban hành Đề án hỗ trợ khởi nghiệp sáng tạo trên địa bàn thành phố Hà Nội giai đoạn 2019 - 2025; Quyết định số 4889/QĐ-UBND, ngày 09/9/2019 của UBND Thành phố về phê duyệt Đề án \"Hỗ trợ khởi nghiệp sáng tạo trên địa bàn thành phố Hà Nội giai đoạn 2019 - 2025\"; Chương trình số 07-CTr/TU, ngày 17/3/2021 của Thành uỷ về \"Đẩy mạnh phát triển KHCN và ĐMST trên địa bàn thành phố Hà Nội giai đoạn 2021 - 2025\"."
+  },
+  {
+    "id": "hanoi-ket-qua",
+    "title": "Thực tiễn hệ sinh thái khởi nghiệp đổi mới sáng tạo Hà Nội",
+    "clause": "Mục 2.1 - Một số kết quả",
+    "status": "Bài nghiên cứu - trao đổi, đăng 11/06/2024 - dùng làm bối cảnh, cần xác minh thông báo chính thức khi nộp hồ sơ thật",
+    "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
+    "tags": ["ha_noi", "startup", "dia_phuong", "ket_qua"],
+    "text": "Hà Nội hiện có khoảng 1.000 doanh nghiệp khởi nghiệp ĐMST trên tổng số 3.800 doanh nghiệp khởi nghiệp ĐMST của cả nước (chiếm 26,32%). Đến nay, Thành phố đã có 32 vườn ươm doanh nghiệp hoạt động đa ngành, đa lĩnh vực (chiếm 38,1% tổng số vườn ươm của cả nước); 14 tổ chức cung cấp chương trình thúc đẩy kinh doanh (chiếm 40% cả nước). Từ năm 2016 đến nay, các doanh nghiệp khởi nghiệp ĐMST trên địa bàn Thành phố đã huy động được 1 tỷ USD với 100 thương vụ gọi vốn thành công."
+  },
+  {
+    "id": "hanoi-kho-khan",
+    "title": "Thực tiễn hệ sinh thái khởi nghiệp đổi mới sáng tạo Hà Nội",
+    "clause": "Mục 2.2 - Khó khăn, thách thức",
+    "status": "Bài nghiên cứu - trao đổi, đăng 11/06/2024 - dùng làm bối cảnh, cần xác minh thông báo chính thức khi nộp hồ sơ thật",
+    "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html",
+    "tags": ["ha_noi", "startup", "dia_phuong", "kho_khan"],
+    "text": "Số doanh nghiệp khởi nghiệp ĐMST của Hà Nội gọi được vốn từ các quỹ đầu tư rất ít; phần lớn chỉ là doanh nghiệp nhỏ cung cấp sản phẩm, dịch vụ kỹ thuật số, mà chưa phát triển dựa trên nền tảng ĐMST đúng nghĩa. Ngoài ra, chưa có sự kết nối giữa cơ sở nghiên cứu - start up - nhà đầu tư - doanh nghiệp - tổ chức hỗ trợ khởi nghiệp ĐMST để thiết lập một mạng lưới tương trợ lẫn nhau."
+  },
+  {
+    "id": "hanoi-nq-uudai-doituong",
+    "title": "Nghị quyết HĐND TP Hà Nội - Ưu đãi, hỗ trợ đầu tư theo Luật Thủ đô 2026",
+    "clause": "Đối tượng và điều kiện áp dụng",
+    "status": "Còn hiệu lực (từ 01/07/2026)",
+    "source": "https://xaydungchinhsach.chinhphu.vn/tieu-chi-dieu-kien-ho-so-trinh-tu-thu-tuc-thuc-hien-uu-dai-ho-tro-dau-tu-tren-dia-ban-ha-noi-119260617090600476.htm",
+    "tags": ["ha_noi", "startup", "doi_moi_sang_tao", "uu_dai_dau_tu", "dia_phuong"],
+    "text": "HĐND TP Hà Nội thông qua Nghị quyết quy định tiêu chí, điều kiện, hồ sơ, trình tự, thủ tục thực hiện ưu đãi, hỗ trợ đầu tư trên địa bàn theo Điều 26 Luật Thủ đô năm 2026, hiệu lực từ 01/07/2026. Đối tượng áp dụng gồm doanh nghiệp, tổ chức, cá nhân thực hiện dự án thuộc diện ưu đãi; nhà đầu tư chiến lược; doanh nghiệp khởi nghiệp sáng tạo; tổ chức khoa học và công nghệ; trung tâm đổi mới sáng tạo; tổ chức trung gian hỗ trợ khởi nghiệp đổi mới sáng tạo. Với doanh nghiệp khởi nghiệp sáng tạo lĩnh vực khoa học và công nghệ, ngoài tiêu chí khởi nghiệp sáng tạo chung, phải có sản phẩm/dịch vụ/mô hình kinh doanh đổi mới sáng tạo, có hoạt động nghiên cứu - phát triển hoặc cải tiến công nghệ, và tham gia chương trình ươm tạo/tăng tốc khởi nghiệp hoặc hệ sinh thái khởi nghiệp đổi mới sáng tạo."
+  },
+  {
+    "id": "hanoi-nq-uudai-thutuc",
+    "title": "Nghị quyết HĐND TP Hà Nội - Ưu đãi, hỗ trợ đầu tư theo Luật Thủ đô 2026",
+    "clause": "Nội dung ưu đãi và thủ tục thực hiện",
+    "status": "Còn hiệu lực (từ 01/07/2026)",
+    "source": "https://xaydungchinhsach.chinhphu.vn/tieu-chi-dieu-kien-ho-so-trinh-tu-thu-tuc-thuc-hien-uu-dai-ho-tro-dau-tu-tren-dia-ban-ha-noi-119260617090600476.htm",
+    "tags": ["ha_noi", "uu_dai_dau_tu", "thue", "dat_dai", "ho_so", "thu_tuc"],
+    "text": "Nghị quyết quy định ưu đãi về đất đai, thuế, lựa chọn nhà thầu và hỗ trợ từ ngân sách thành phố; khoản hỗ trợ ngân sách thực hiện theo hình thức hỗ trợ sau đầu tư, trên cơ sở khả năng cân đối ngân sách và dự toán HĐND Thành phố quyết định hằng năm. Doanh nghiệp, tổ chức, cá nhân đề nghị hưởng ưu đãi nộp hồ sơ trực tuyến tại Trung tâm Phục vụ hành chính công Thành phố; cơ quan chuyên môn thẩm định, lấy ý kiến liên quan rồi ban hành văn bản xác nhận đối tượng đủ điều kiện hưởng ưu đãi, hỗ trợ."
   },
   {
     "id": "qd188-2021",
@@ -124,5 +205,41 @@
     "source": "https://thuvienphapluat.vn/van-ban/Dau-tu/Luat-Dau-tu-2025-so-143-2025-QH15-681550.aspx",
     "tags": ["uu_dai_dau_tu", "sua_doi", "thay_the", "dau_tu"],
     "text": "Luật Đầu tư số 143/2025/QH15 được Quốc hội thông qua ngày 11/12/2025, thay thế Luật Đầu tư số 61/2020/QH14, có hiệu lực từ 01/03/2026. Giấy chứng nhận đăng ký đầu tư, chấp thuận chủ trương đầu tư đã cấp theo Luật Đầu tư 2020 tiếp tục có hiệu lực theo quy định chuyển tiếp. Danh mục ngành, nghề đầu tư kinh doanh có điều kiện áp dụng từ 01/07/2026."
+  },
+  {
+    "id": "nd268-2025-dieu35",
+    "title": "Nghị định 268/2025/NĐ-CP",
+    "clause": "Điều 35 - Tiêu chí xác định cá nhân, nhóm cá nhân, doanh nghiệp khởi nghiệp sáng tạo",
+    "status": "Còn hiệu lực (từ 14/10/2025)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
+    "tags": ["startup", "doi_moi_sang_tao", "tieu_chi", "cong_nhan"],
+    "text": "Nghị định hướng dẫn Luật Khoa học, công nghệ và đổi mới sáng tạo quy định tiêu chí xác định cá nhân, nhóm cá nhân, doanh nghiệp khởi nghiệp sáng tạo: (1) là công dân Việt Nam có năng lực hành vi dân sự đầy đủ, thường trú tại Việt Nam (người nước ngoài cần giấy xác nhận cư trú hợp pháp); nếu là doanh nghiệp phải thành lập theo Luật Doanh nghiệp; (2) có dự án khởi nghiệp sáng tạo đã được đầu tư hoặc cam kết đầu tư bởi quỹ đầu tư khởi nghiệp sáng tạo, quỹ đầu tư mạo hiểm, nhà đầu tư cá nhân khởi nghiệp sáng tạo, hoặc được hỗ trợ/cam kết hỗ trợ bởi trung tâm đổi mới sáng tạo, trung tâm hỗ trợ khởi nghiệp sáng tạo; (3) khả năng tăng trưởng doanh thu tối thiểu 20% trong 2 năm liên tiếp."
+  },
+  {
+    "id": "nd268-2025-dieu56",
+    "title": "Nghị định 268/2025/NĐ-CP",
+    "clause": "Điều 56 - Chính sách ưu tiên, ưu đãi, hỗ trợ cho doanh nghiệp khoa học và công nghệ",
+    "status": "Còn hiệu lực (từ 14/10/2025)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
+    "tags": ["doanh_nghiep_khoa_hoc_cong_nghe", "uu_dai", "thue", "dau_tu"],
+    "text": "Doanh nghiệp được cấp Giấy chứng nhận doanh nghiệp khoa học và công nghệ được hưởng chính sách ưu tiên, ưu đãi, hỗ trợ theo pháp luật về đầu tư, đấu thầu, thuế, tín dụng, đất đai, khoa học, công nghệ và đổi mới sáng tạo. Khi có sản phẩm mới được cấp bổ sung vào Giấy chứng nhận, doanh nghiệp tiếp tục hưởng ưu đãi như lần đầu, tính từ ngày bổ sung."
+  },
+  {
+    "id": "nd268-2025-dieu63",
+    "title": "Nghị định 268/2025/NĐ-CP",
+    "clause": "Điều 63 - Hạ tầng, mạng lưới, hệ sinh thái hỗ trợ khởi nghiệp sáng tạo",
+    "status": "Còn hiệu lực (từ 14/10/2025)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
+    "tags": ["he_sinh_thai", "startup", "ha_tang", "trung_tam_doi_moi_sang_tao"],
+    "text": "Hạ tầng hỗ trợ khởi nghiệp sáng tạo gồm cơ sở vật chất, khu làm việc chung, phòng thí nghiệm dùng chung, cơ sở thử nghiệm công nghệ, hạ tầng công nghệ thông tin, cơ sở dữ liệu khởi nghiệp sáng tạo. Mạng lưới hỗ trợ gồm cá nhân/doanh nghiệp khởi nghiệp sáng tạo, nhà nghiên cứu, chuyên gia, cơ sở giáo dục/nghiên cứu, cơ sở ươm tạo, quỹ đầu tư, tổ chức tài chính, tổ chức hỗ trợ khởi nghiệp trong và ngoài nước. Hệ sinh thái là tập hợp hạ tầng, mạng lưới, cơ chế, chính sách, dịch vụ và tổ chức hỗ trợ nhằm nâng cao năng lực khởi nghiệp sáng tạo và thương mại hóa sản phẩm."
+  },
+  {
+    "id": "nd210-2025-dieu5",
+    "title": "Nghị định 210/2025/NĐ-CP",
+    "clause": "Điều 5 (sửa đổi NĐ 38/2018/NĐ-CP) - Quỹ đầu tư khởi nghiệp sáng tạo",
+    "status": "Còn hiệu lực (từ 15/09/2025)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-210-2025-nd-cp-sua-doi-bo-sung-mot-so-dieu-cua-nghi-dinh-so-38-2018-nd-cp-ngay-11-thang-3-nam-2018-cua-chinh-phu-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--179899",
+    "tags": ["quy_dau_tu", "startup", "dau_tu", "von"],
+    "text": "Quỹ đầu tư khởi nghiệp sáng tạo không có tư cách pháp nhân, có từ 02 đến tối đa 30 nhà đầu tư góp vốn theo Điều lệ quỹ; không được góp vốn vào quỹ đầu tư khởi nghiệp sáng tạo khác. Tài sản góp vốn có thể là tiền, quyền sử dụng đất, quyền sở hữu trí tuệ, công nghệ, bí quyết kỹ thuật. Quỹ đầu tư vào DNNVV khởi nghiệp sáng tạo với tổng mức đầu tư không quá 50% vốn điều lệ của doanh nghiệp sau khi nhận đầu tư."
   }
 ]

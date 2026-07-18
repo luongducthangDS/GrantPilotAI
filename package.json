@@ -12,6 +12,8 @@
     "data:refresh": "python scripts/crawl_verified_sources.py && python scripts/build_database.py"
   },
   "dependencies": {
+    "@fontsource/be-vietnam-pro": "^5.2.8",
+    "@fontsource/lora": "^5.2.8",
     "docx": "^9.5.1",
     "lucide-react": "^0.468.0",
     "next": "^15.1.0",
