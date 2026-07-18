@@ -190,5 +190,67 @@
       }
     ],
     "checklist": ["Tài liệu chứng minh DNNVV", "Mô tả chuỗi giá trị/cụm liên kết", "Nhu cầu đào tạo hoặc tư vấn", "Báo cáo năng lực sản xuất"]
+  },
+  {
+    "id": "p_nd268_recognition",
+    "title": "Công nhận khởi nghiệp sáng tạo & tiếp cận hệ sinh thái hỗ trợ",
+    "program": "Nghị định 268/2025/NĐ-CP",
+    "scope": "Toàn quốc",
+    "status": "Còn hiệu lực (từ 14/10/2025)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411",
+    "summary": "Nghị định hướng dẫn Luật Khoa học, công nghệ và đổi mới sáng tạo quy định tiêu chí công nhận cá nhân/nhóm cá nhân/doanh nghiệp khởi nghiệp sáng tạo, và hạ tầng, mạng lưới, hệ sinh thái hỗ trợ đi kèm (khu làm việc chung, phòng thí nghiệm dùng chung, cơ sở thử nghiệm công nghệ, mạng lưới nhà đầu tư và trung tâm đổi mới sáng tạo). Đây là khung pháp lý mới nhất và trực tiếp nhất cho khởi nghiệp sáng tạo, ban hành sau khi Đề án 844 chỉ còn hiệu lực phê duyệt đến năm 2025. Lưu ý: nếu doanh nghiệp đã có Giấy chứng nhận doanh nghiệp khoa học và công nghệ (một chứng nhận riêng, không tự động cấp cùng công nhận khởi nghiệp sáng tạo này), còn được hưởng thêm ưu đãi thuế/tín dụng/đất đai theo Điều 56 nghị định này.",
+    "benefits": ["Được công nhận chính thức là dự án/doanh nghiệp khởi nghiệp sáng tạo", "Tiếp cận hạ tầng dùng chung: khu làm việc, phòng thí nghiệm, cơ sở thử nghiệm công nghệ", "Kết nối mạng lưới nhà đầu tư, chuyên gia, trung tâm đổi mới sáng tạo"],
+    "eligibility": {
+      "requires_sme": false,
+      "requires_startup_innovation": true,
+      "industries": ["Phần mềm / AI", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo"],
+      "provinces": ["Tất cả"]
+    },
+    "citations": [
+      {
+        "document": "Nghị định 268/2025/NĐ-CP",
+        "clause": "Điều 35 - Tiêu chí xác định cá nhân, nhóm cá nhân, doanh nghiệp khởi nghiệp sáng tạo",
+        "status": "Còn hiệu lực (từ 14/10/2025)",
+        "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411"
+      },
+      {
+        "document": "Nghị định 268/2025/NĐ-CP",
+        "clause": "Điều 63 - Hạ tầng, mạng lưới, hệ sinh thái hỗ trợ khởi nghiệp sáng tạo",
+        "status": "Còn hiệu lực (từ 14/10/2025)",
+        "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-268-2025-nd-cp-quy-dinh-chi-tiet-va-huong-dan-mot-so-dieu-cua-luat-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-ve-doi-moi-sang-tao-khuyen-khich-hoat-dong-khoa-hoc-cong-nghe-va-doi-moi-sang-tao-trong-doanh-nghiep-cong-nhan-trung-tam-doi-moi-sang-tao-ho-tro-khoi-nghiep-sang-tao-cong-nhan-ca-nhan-doanh-nghiep-khoi-nghiep-sang-tao-ha-tang-mang-luoi-va-he-sinh-thai-khoi-nghiep-sang-tao--183411"
+      }
+    ],
+    "checklist": ["Hồ sơ mô tả dự án/sản phẩm khởi nghiệp sáng tạo và mô hình kinh doanh", "Cam kết hoặc hợp đồng đầu tư từ quỹ đầu tư khởi nghiệp sáng tạo/quỹ đầu tư mạo hiểm/nhà đầu tư cá nhân, hoặc văn bản cam kết hỗ trợ từ trung tâm đổi mới sáng tạo/trung tâm hỗ trợ khởi nghiệp sáng tạo", "Số liệu hoặc kế hoạch kinh doanh thể hiện khả năng tăng trưởng doanh thu tối thiểu 20%/năm trong 2 năm liên tiếp", "Hồ sơ đăng ký doanh nghiệp theo Luật Doanh nghiệp (hoặc giấy tờ cư trú hợp lệ nếu đăng ký với tư cách cá nhân/nhóm cá nhân)"]
+  },
+  {
+    "id": "p_nd38_investment_fund",
+    "title": "Điều kiện nhận vốn từ Quỹ đầu tư khởi nghiệp sáng tạo",
+    "program": "Nghị định 38/2018/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 210/2025/NĐ-CP)",
+    "scope": "Toàn quốc",
+    "status": "Còn hiệu lực (NĐ 210/2025 sửa đổi từ 15/09/2025)",
+    "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-210-2025-nd-cp-sua-doi-bo-sung-mot-so-dieu-cua-nghi-dinh-so-38-2018-nd-cp-ngay-11-thang-3-nam-2018-cua-chinh-phu-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--179899",
+    "summary": "Doanh nghiệp nhỏ và vừa khởi nghiệp sáng tạo có thể nhận đầu tư từ quỹ đầu tư khởi nghiệp sáng tạo — quỹ không có tư cách pháp nhân, tối đa 30 nhà đầu tư góp vốn, đầu tư không quá 50% vốn điều lệ doanh nghiệp sau khi nhận đầu tư. Để đủ điều kiện pháp lý nhận đầu tư dạng này, doanh nghiệp cần đăng ký bổ sung ngành, nghề đầu tư khởi nghiệp sáng tạo trong hồ sơ đăng ký doanh nghiệp.",
+    "benefits": ["Tiếp cận vốn từ quỹ đầu tư tư nhân đăng ký đúng khung pháp lý khởi nghiệp sáng tạo", "Tài sản góp vốn linh hoạt cho nhà đầu tư (tiền, quyền sở hữu trí tuệ, công nghệ, bí quyết kỹ thuật) — dễ thu hút đầu tư hơn", "Khung pháp lý rõ ràng, giới hạn tỷ lệ pha loãng tối đa 50% vốn điều lệ"],
+    "eligibility": {
+      "requires_sme": true,
+      "requires_startup_innovation": true,
+      "industries": ["Phần mềm / AI", "Công nghệ cao", "Dịch vụ đổi mới sáng tạo"],
+      "provinces": ["Tất cả"]
+    },
+    "citations": [
+      {
+        "document": "Nghị định 210/2025/NĐ-CP",
+        "clause": "Điều 5 (sửa đổi NĐ 38/2018/NĐ-CP) - Quỹ đầu tư khởi nghiệp sáng tạo",
+        "status": "Còn hiệu lực (từ 15/09/2025)",
+        "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-210-2025-nd-cp-sua-doi-bo-sung-mot-so-dieu-cua-nghi-dinh-so-38-2018-nd-cp-ngay-11-thang-3-nam-2018-cua-chinh-phu-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--179899"
+      },
+      {
+        "document": "Nghị định 38/2018/NĐ-CP",
+        "clause": "Điều 4 - Doanh nghiệp thực hiện hoạt động đầu tư khởi nghiệp sáng tạo",
+        "status": "Còn hiệu lực - đã được sửa đổi, bổ sung bởi Nghị định 210/2025/NĐ-CP",
+        "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-38-2018-nd-cp-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--130717"
+      }
+    ],
+    "checklist": ["Đăng ký bổ sung ngành, nghề đầu tư khởi nghiệp sáng tạo trong hồ sơ đăng ký doanh nghiệp", "Thoả thuận/cam kết góp vốn với quỹ đầu tư hoặc nhà đầu tư (đầu tư không quá 50% vốn điều lệ sau đầu tư)", "Hồ sơ mô tả dự án khởi nghiệp sáng tạo để quỹ thẩm định trước khi giải ngân"]
   }
 ]

@@ -1,14 +1,14 @@
 # Data Coverage Report
 
-Generated at: 2026-07-18T10:43:52.963322+00:00
+Generated at: 2026-07-18T11:37:33.452209+00:00
 
 ## Counts
 
 - sources: 23
 - source_checks_ok: 22
 - corpus_chunks: 35
-- policies: 6
-- policy_citations: 13
+- policies: 8
+- policy_citations: 17
 - sample_profiles: 2
 - policy_watch: 23
 

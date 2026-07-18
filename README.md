@@ -97,7 +97,7 @@ Lưu ý: `render.yaml` hiện dùng gói free — có rủi ro cold-start đã g
 ## Dữ liệu seed
 
 - `data/sample_profiles.json`: 2 hồ sơ demo.
-- `data/policies.json`: rule matching, citation, checklist.
+- `data/policies.json`: rule matching, citation, checklist (8 chương trình — bao gồm 2 chương trình mới nhất cho khởi nghiệp sáng tạo: NĐ 268/2025 công nhận + hệ sinh thái, NĐ 38/2018 sửa đổi bởi NĐ 210/2025 về quỹ đầu tư khởi nghiệp sáng tạo).
 - `data/corpus.json`: corpus Q&A theo điều/khoản (35 chunk).
 - `data/corpus_embeddings.json`: embedding từng chunk (`gemini-embedding-001`), dùng cho dense retrieval — build lại bằng `npm run data:embed` sau khi sửa corpus.
 - `data/policy_watch.json`: policy watch (23 mục — mock ban đầu, văn bản crawl thủ công, và tin phát hiện qua Monitoring Pipeline).
