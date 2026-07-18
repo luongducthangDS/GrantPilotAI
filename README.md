@@ -172,3 +172,9 @@ Crawler tự dò giao diện tải hiện hành của VBPL, có retry/timeout, t
 trong `data/raw/vbpl/files/` (không đưa vào Git); inventory thô và manifest đã xử lý
 được lưu lần lượt trong `data/raw/vbpl/attachment_inventory.json` và
 `data/processed/vbpl_ho_tro_doanh_nghiep_manifest.json`.
+
+Ứng dụng Next.js đọc manifest qua `GET /api/vbpl` để cung cấp tab **Thư viện
+VBPL**. Tab này cho phép tìm theo tiêu đề/số hiệu, lọc loại văn bản và tải đủ các
+tệp/phụ lục trực tiếp từ máy chủ VBPL. Metadata của 47 văn bản cũng được bổ sung
+vào BM25 của phần hỏi đáp pháp lý; nội dung toàn văn vẫn phải được kiểm tra tại
+nguồn chính thức trước khi kết luận điều kiện áp dụng.
