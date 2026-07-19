@@ -115,8 +115,7 @@ export async function POST(request: Request) {
   // fold that in too, without changing what's shown as "the question" to
   // the model/UI.
   const lastUserTurn = [...history].reverse().find((turn) => turn.role === "user")?.text;
-  const lastAssistantTurn = [...history].reverse().find((turn) => turn.role === "assistant")?.text;
-  const retrievalQuery = [lastAssistantTurn, lastUserTurn === question ? undefined : lastUserTurn, question]
+  const retrievalQuery = [lastUserTurn === question ? undefined : lastUserTurn, question]
     .filter((part): part is string => Boolean(part))
     .join(" ");
 

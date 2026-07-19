@@ -82,7 +82,11 @@ function bm25Rank(query: string): Map<string, number> {
 async function embedQuery(query: string, apiKey: string): Promise<number[] | null> {
   const response = await fetch(`${FPT_AI_BASE_URL}/embeddings`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
     body: JSON.stringify({ model: EMBEDDING_MODEL, input: query })
   });
   if (!response.ok) throw new Error(`Embeddings API trả về lỗi ${response.status}: ${(await response.text()).slice(0, 300)}`);
@@ -130,7 +134,11 @@ async function rerank(query: string, candidates: CorpusChunk[], apiKey: string):
   if (candidates.length <= 1) return candidates;
   const response = await fetch(`${FPT_AI_BASE_URL}/rerank`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
     body: JSON.stringify({ model: RERANK_MODEL, query, documents: candidates.map((chunk) => chunkHaystack(chunk)) })
   });
   if (!response.ok) throw new Error(`Rerank API trả về lỗi ${response.status}: ${(await response.text()).slice(0, 300)}`);
