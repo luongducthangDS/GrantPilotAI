@@ -1,6 +1,8 @@
 "use client";
 
 import { ChangeEvent, DragEvent, useEffect, useMemo, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import {
   Answer,
@@ -17,6 +19,17 @@ import {
 } from "@/lib/grantpilot";
 
 type View = "overview" | "search" | "qa" | "updates";
+
+// LLM answers come back as GFM markdown (##, tables, blockquotes) — render
+// them properly instead of dumping raw text into a <p>, which both shows
+// the markdown syntax literally and collapses the \n newlines.
+function MarkdownText({ text, className }: { text: string; className?: string }) {
+  return (
+    <div className={className ? `markdown-body ${className}` : "markdown-body"}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
+    </div>
+  );
+}
 
 type ChatMessage =
   | { id: string; role: "user"; text: string }
@@ -964,9 +977,10 @@ export default function Home() {
                           {policy.reasons.slice(0, 2).map((reason) => <span key={reason}>✓ {reason}</span>)}
                         </div>
                         {aiExplanations[policy.id] ? (
-                          <p className="policy-ai-note">
-                            <span className="badge success">AI</span> {aiExplanations[policy.id]}
-                          </p>
+                          <div className="policy-ai-note">
+                            <span className="badge success">AI</span>
+                            <MarkdownText text={aiExplanations[policy.id]} />
+                          </div>
                         ) : aiExplanationLoading ? (
                           <p className="policy-ai-note policy-ai-note-loading">
                             <span className="button-spinner ai-loading-spinner" /> Đang phân tích bằng AI...
@@ -1041,7 +1055,7 @@ export default function Home() {
                   ) : (
                     <div className="chat-bubble chat-bubble-assistant" key={message.id}>
                       <span className={`badge ${message.confidence === "Có căn cứ" ? "success" : "warning"}`}>{message.confidence}</span>
-                      <p>{message.text}</p>
+                      <MarkdownText text={message.text} />
                       {message.citations.length > 0 ? (
                         <div className="detail-section citation-section">
                           <h3>Nguồn pháp lý</h3>
@@ -1179,7 +1193,7 @@ export default function Home() {
             {aiExplanations[selectedPolicy.id] && (
               <div className="ai-explanation">
                 <span className="badge success">PHÂN TÍCH AI</span>
-                <p>{aiExplanations[selectedPolicy.id]}</p>
+                <MarkdownText text={aiExplanations[selectedPolicy.id]} />
               </div>
             )}
 
