@@ -31,7 +31,11 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
@@ -145,15 +149,25 @@ def main() -> None:
             skipped_already_covered.append(f"{doc_id} ({so_ky_hieu})")
             continue
 
-        best_file = best_file_by_doc.get(doc_id)
-        if not best_file:
-            skipped_no_clean_text.append(f"{doc_id} ({so_ky_hieu})")
-            continue
+        # Check if FPT.AI processed file exists (_fpt_ocr.txt or _restored.txt)
+        doc_extracted_dir = VBPL_DIR / "extracted" / doc_id
+        fpt_file = None
+        if doc_extracted_dir.exists():
+            fpt_candidates = list(doc_extracted_dir.glob("*_fpt_ocr.txt")) + list(doc_extracted_dir.glob("*_restored.txt"))
+            if fpt_candidates:
+                fpt_file = fpt_candidates[0]
 
-        text_path = ROOT / best_file["output_path"]
-        if not text_path.exists():
-            skipped_no_clean_text.append(f"{doc_id} ({so_ky_hieu}) — output file missing")
-            continue
+        if fpt_file and fpt_file.exists():
+            text_path = fpt_file
+        else:
+            best_file = best_file_by_doc.get(doc_id)
+            if not best_file:
+                skipped_no_clean_text.append(f"{doc_id} ({so_ky_hieu})")
+                continue
+            text_path = ROOT / best_file["output_path"]
+            if not text_path.exists():
+                skipped_no_clean_text.append(f"{doc_id} ({so_ky_hieu}) — output file missing")
+                continue
 
         text = text_path.read_text(encoding="utf-8", errors="ignore")
         chunks = split_into_chunks(text)

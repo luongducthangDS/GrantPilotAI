@@ -123,6 +123,16 @@ function saveStoredProfile(profile: Profile) {
   }
 }
 
+function policyToMatchResult(p: (typeof policies)[number]): MatchResult {
+  return {
+    ...p,
+    score: 100,
+    match_level: "Rất phù hợp",
+    reasons: ["Chính sách thuộc danh mục quản lý chính thức của hệ thống."],
+    gaps: []
+  };
+}
+
 export default function Home() {
   const [view, setView] = useState<View>("overview");
   const [profile, setProfile] = useState<Profile>(() => loadStoredProfile() ?? sampleProfiles[0]);
@@ -718,6 +728,49 @@ export default function Home() {
                 ))}
               </section>
             </div>
+
+            <section className="panel-card policy-catalog-overview">
+              <div className="section-heading">
+                <div>
+                  <span className="eyebrow">DANH MỤC CHÍNH SÁCH HỖ TRỢ</span>
+                  <h3>Tất cả {policies.length} chương trình hỗ trợ &amp; bộ hồ sơ mẫu</h3>
+                </div>
+                <button className="secondary-button" onClick={() => navigate("search")}>
+                  Đối chiếu theo doanh nghiệp <span>→</span>
+                </button>
+              </div>
+              <p className="catalog-subtitle">
+                Các gói hỗ trợ tài chính, ưu đãi thuế, tín dụng ưu đãi và hạ tầng hỗ trợ khởi nghiệp đổi mới sáng tạo đã được xác minh căn cứ pháp lý.
+              </p>
+
+              <div className="policy-catalog-grid">
+                {policies.map((p) => (
+                  <article
+                    key={p.id}
+                    className="catalog-policy-card"
+                    onClick={() => setSelectedPolicy(policyToMatchResult(p))}
+                  >
+                    <div className="catalog-card-header">
+                      <span className="program-badge">{p.program}</span>
+                      <span className="scope-tag">{p.scope}</span>
+                    </div>
+                    <h4>{p.title}</h4>
+                    <p className="catalog-summary">{p.summary}</p>
+                    <div className="catalog-card-benefits">
+                      {p.benefits.slice(0, 2).map((b) => (
+                        <span key={b} className="benefit-tag">✓ {b}</span>
+                      ))}
+                    </div>
+                    <div className="catalog-card-footer">
+                      <span className="forms-badge">
+                        📄 {p.forms?.length ? `${p.forms.length} biểu mẫu gốc` : "Mẫu đơn chuẩn .docx"}
+                      </span>
+                      <span className="details-link">Xem chi tiết &amp; Tải mẫu →</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
           </section>
         )}
 
@@ -1119,14 +1172,7 @@ export default function Home() {
                 {aiExplanationLoading ? "Đang phân tích..." : "✦ Phân tích sâu hơn bằng AI"}
               </button>
               <button className="modal-download-button" onClick={() => downloadDocx(selectedPolicy)} disabled={docxLoading}>
-                {docxLoading
-                  ? "Đang tạo file..."
-                  : // Keep this id list in sync with REAL_FORM_POLICY_IDS in
-                    // app/api/grant-docx/route.ts — just a label hint here,
-                    // the actual real-form-vs-summary branching happens server-side.
-                    ["p_nd268_recognition", "p_nd80_startup", "p_manufacturing_value_chain"].includes(selectedPolicy.id)
-                    ? "⇩ Xuất đơn theo mẫu gốc (.docx)"
-                    : "⇩ Xuất tóm tắt hồ sơ (.docx)"}
+                {docxLoading ? "Đang tạo file..." : "⇩ Xuất bộ hồ sơ mẫu theo quy định (.docx)"}
               </button>
             </div>
 

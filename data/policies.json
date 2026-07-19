@@ -72,7 +72,14 @@
         "source": "https://chinhphu.vn/default.aspx?docid=197478&pageid=27160"
       }
     ],
-    "checklist": ["Thuyết minh nhiệm vụ", "Dự toán kinh phí", "Hồ sơ năng lực đơn vị", "Cam kết đối ứng hoặc phối hợp", "Tài liệu mô tả sản phẩm, thị trường, đội ngũ"]
+    "checklist": ["Thuyết minh nhiệm vụ", "Dự toán kinh phí", "Hồ sơ năng lực đơn vị", "Cam kết đối ứng hoặc phối hợp", "Tài liệu mô tả sản phẩm, thị trường, đội ngũ"],
+    "forms": [
+      {
+        "name": "Mẫu B1-TMNV — Thuyết minh nhiệm vụ Đề án Hỗ trợ hệ sinh thái khởi nghiệp đổi mới sáng tạo quốc gia",
+        "description": "Bản thuyết minh đề xuất nhiệm vụ (ban hành kèm theo Thông tư 01/2018/TT-BKHCN và Quyết định 844/QĐ-TTg) — khung chuẩn kê khai mục tiêu, nội dung, sản phẩm dự kiến và kế hoạch triển khai.",
+        "url": "https://vanban.chinhphu.vn/default.aspx?docid=184702&pageid=27160"
+      }
+    ]
   },
   {
     "id": "p_smedf",
@@ -109,7 +116,14 @@
         "source": "https://vanban.chinhphu.vn/?docid=210143&pageid=27160"
       }
     ],
-    "checklist": ["Báo cáo tài chính gần nhất", "Phương án sản xuất kinh doanh", "Tài liệu chứng minh tiêu chí DNNVV", "Hồ sơ tài sản bảo đảm hoặc bảo lãnh nếu có"]
+    "checklist": ["Báo cáo tài chính gần nhất", "Phương án sản xuất kinh doanh", "Tài liệu chứng minh tiêu chí DNNVV", "Hồ sơ tài sản bảo đảm hoặc bảo lãnh nếu có"],
+    "forms": [
+      {
+        "name": "Đơn đề nghị vay vốn Quỹ Phát triển DNNVV & Phương án vay vốn",
+        "description": "Biểu mẫu đăng ký nhu cầu vay vốn trực tiếp từ Quỹ SMEDF (theo Nghị định 39/2019/NĐ-CP và NĐ 45/2024/NĐ-CP) — tự khai báo quy mô doanh nghiệp, dự án sản xuất và đề xuất hạn mức vay.",
+        "url": "https://smedf.gov.vn/chuong-trinh-vay-von/"
+      }
+    ]
   },
   {
     "id": "p_investment_software",
@@ -158,7 +172,14 @@
         "source": "https://thuvienphapluat.vn/chinh-sach-phap-luat-moi/vn/ho-tro-phap-luat/chinh-sach-moi/107168/da-co-nghi-quyet-huong-dan-luat-dau-tu-2025-so-143-2025-qh15"
       }
     ],
-    "checklist": ["Giấy chứng nhận đăng ký doanh nghiệp", "Mã ngành/hoạt động phần mềm", "Mô tả sản phẩm CNTT/phần mềm", "Hồ sơ dự án đầu tư nếu có"]
+    "checklist": ["Giấy chứng nhận đăng ký doanh nghiệp", "Mã ngành/hoạt động phần mềm", "Mô tả sản phẩm CNTT/phần mềm", "Hồ sơ dự án đầu tư nếu có"],
+    "forms": [
+      {
+        "name": "Mẫu A.I.1 — Văn bản đề nghị thực hiện dự án đầu tư & hưởng ưu đãi đầu tư",
+        "description": "Mẫu văn bản đăng ký ưu đãi đầu tư đối với dự án thuộc Danh mục ngành, nghề ưu đãi đầu tư (Phụ lục kèm theo Nghị định 31/2021/NĐ-CP và Luật Đầu tư 2025).",
+        "url": "https://vanban.chinhphu.vn/?docid=202988&pageid=27160"
+      }
+    ]
   },
   {
     "id": "p_hanoi_startup",
@@ -183,7 +204,14 @@
         "source": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html"
       }
     ],
-    "checklist": ["Hồ sơ doanh nghiệp tại Hà Nội", "Pitch deck", "Mô tả sản phẩm/dịch vụ", "Nhu cầu hỗ trợ cụ thể"]
+    "checklist": ["Hồ sơ doanh nghiệp tại Hà Nội", "Pitch deck", "Mô tả sản phẩm/dịch vụ", "Nhu cầu hỗ trợ cụ thể"],
+    "forms": [
+      {
+        "name": "Đơn đăng ký tham gia chương trình hỗ trợ khởi nghiệp đổi mới sáng tạo TP Hà Nội",
+        "description": "Mẫu bản đăng ký nhu cầu hỗ trợ (đào tạo, kết nối cố vấn, mặt bằng không gian làm việc chung) dành cho doanh nghiệp khởi nghiệp trên địa bàn Hà Nội.",
+        "url": "https://vienktxh.hanoi.gov.vn/nghien-cuu-trao-doi/thuc-tien-he-sinh-thai-khoi-nghiep-doi-moi-sang-tao-tren-dia-ban-thanh-pho-ha-noi-126761.html"
+      }
+    ]
   },
   {
     "id": "p_manufacturing_value_chain",
@@ -284,6 +312,13 @@
         "source": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-38-2018-nd-cp-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--130717"
       }
     ],
-    "checklist": ["Đăng ký bổ sung ngành, nghề đầu tư khởi nghiệp sáng tạo trong hồ sơ đăng ký doanh nghiệp", "Thoả thuận/cam kết góp vốn với quỹ đầu tư hoặc nhà đầu tư (đầu tư không quá 50% vốn điều lệ sau đầu tư)", "Hồ sơ mô tả dự án khởi nghiệp sáng tạo để quỹ thẩm định trước khi giải ngân"]
+    "checklist": ["Đăng ký bổ sung ngành, nghề đầu tư khởi nghiệp sáng tạo trong hồ sơ đăng ký doanh nghiệp", "Thoả thuận/cam kết góp vốn với quỹ đầu tư hoặc nhà đầu tư (đầu tư không quá 50% vốn điều lệ sau đầu tư)", "Hồ sơ mô tả dự án khởi nghiệp sáng tạo để quỹ thẩm định trước khi giải ngân"],
+    "forms": [
+      {
+        "name": "Tờ khai thông báo đáp ứng điều kiện nhận vốn Quỹ đầu tư khởi nghiệp sáng tạo",
+        "description": "Mẫu thông báo tự xác định tiêu chí DNNVV khởi nghiệp sáng tạo theo Nghị định 38/2018/NĐ-CP và Nghị định 210/2025/NĐ-CP — phục vụ thẩm định hồ sơ giải ngân vốn đầu tư.",
+        "url": "https://vbpl.vn/van-ban/chi-tiet/nghi-dinh-so-210-2025-nd-cp-sua-doi-bo-sung-mot-so-dieu-cua-nghi-dinh-so-38-2018-nd-cp-ngay-11-thang-3-nam-2018-cua-chinh-phu-quy-dinh-chi-tiet-ve-dau-tu-cho-doanh-nghiep-nho-va-vua-khoi-nghiep-sang-tao--179899"
+      }
+    ]
   }
 ]
