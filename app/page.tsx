@@ -1258,6 +1258,23 @@ export default function Home() {
               </ol>
             </div>
 
+            {selectedPolicy.appendices && selectedPolicy.appendices.length > 0 && (
+              <div className="detail-section">
+                <h3>Danh mục Phụ lục Biểu mẫu theo Quy định</h3>
+                <div className="appendices-grid">
+                  {selectedPolicy.appendices.map((appx) => (
+                    <div key={appx.code} className="appendix-card">
+                      <span className="appendix-badge">{appx.code}</span>
+                      <div className="appendix-content">
+                        <strong>{appx.title}</strong>
+                        <p>{appx.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {selectedPolicy.forms && selectedPolicy.forms.length > 0 && (
               <div className="detail-section">
                 <h3>Biểu mẫu gốc</h3>
