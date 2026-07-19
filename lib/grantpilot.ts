@@ -198,47 +198,51 @@ export function matchPolicies(profile: Profile): MatchResult[] {
       if (policy.eligibility.requires_sme) {
         if (sme.is_sme) {
           score += 22;
-          reasons.push(`Đạt tiêu chí ${sme.size} theo Nghị định 80.`);
+          reasons.push(`Căn cứ Điều 5 NĐ 80/2021/NĐ-CP: Đạt tiêu chí DNNVV quy mô ${sme.size}.`);
         } else {
           score -= 35;
-          gaps.push("Chưa đạt tiêu chí DNNVV theo dữ liệu hiện tại.");
+          gaps.push("Căn cứ Điều 5 NĐ 80/2021/NĐ-CP: Chưa đạt tiêu chí DNNVV theo số liệu lao động/doanh thu/vốn.");
         }
       }
 
       if (policy.eligibility.requires_startup_innovation) {
         if (profile.startup_innovation) {
           score += 22;
-          reasons.push("Hồ sơ đánh dấu là startup đổi mới sáng tạo.");
+          if (policy.id === "p_nd268_recognition") {
+            reasons.push("Căn cứ Điều 35 Nghị định 268/2025/NĐ-CP: Đáp ứng tiêu chí doanh nghiệp khởi nghiệp đổi mới sáng tạo.");
+          } else {
+            reasons.push("Căn cứ văn bản chính sách: Thuộc nhóm đối tượng khởi nghiệp đổi mới sáng tạo.");
+          }
         } else {
           score -= 25;
-          gaps.push("Chưa có yếu tố khởi nghiệp đổi mới sáng tạo.");
+          gaps.push("Căn cứ điều kiện thụ hưởng: Thiếu yếu tố công nghệ / mô hình kinh doanh khởi nghiệp đổi mới sáng tạo.");
         }
       }
 
       if (policy.eligibility.industries.includes(profile.industry)) {
         score += 18;
-        reasons.push(`Lĩnh vực ${profile.industry} nằm trong nhóm phù hợp.`);
+        reasons.push(`Căn cứ danh mục đối tượng: Lĩnh vực "${profile.industry}" thuộc danh mục ngành nghề được hỗ trợ.`);
       } else {
         score -= 12;
-        gaps.push("Lĩnh vực chưa nằm trong nhóm ưu tiên của chương trình.");
+        gaps.push(`Căn cứ phạm vi áp dụng: Lĩnh vực "${profile.industry}" không thuộc danh mục ưu tiên của chương trình.`);
       }
 
       if (policy.eligibility.provinces.includes("Tất cả") || policy.eligibility.provinces.includes(profile.province)) {
         score += 8;
-        reasons.push(policy.eligibility.provinces.includes("Tất cả") ? "Chương trình áp dụng toàn quốc." : `Chương trình áp dụng tại ${profile.province}.`);
+        reasons.push(policy.eligibility.provinces.includes("Tất cả") ? "Căn cứ quy định địa bàn: Áp dụng hỗ trợ trên phạm vi toàn quốc." : `Căn cứ quy định địa bàn: Đơn vị hoạt động đúng địa bàn ${profile.province}.`);
       } else {
         score -= 20;
-        gaps.push(`Chương trình chỉ áp dụng tại ${policy.eligibility.provinces.join(", ")}.`);
+        gaps.push(`Căn cứ phạm vi địa bàn: Chương trình chỉ áp dụng đối với địa bàn ${policy.eligibility.provinces.join(", ")}.`);
       }
 
       if (policy.id === "p_smedf" && Number(profile.revenue_bil || 0) > 0) {
         score += 8;
-        reasons.push("Có doanh thu để bắt đầu chuẩn bị phương án vay và hồ sơ tài chính.");
+        reasons.push("Căn cứ Điều 13 Nghị định 39/2019/NĐ-CP: Đã phát sinh doanh thu, đủ điều kiện lập hồ sơ tài chính vay Quỹ SMEDF.");
       }
 
       if (policy.id === "p_dean844" && profile.startup_innovation) {
         score += 8;
-        reasons.push("Có yếu tố khởi nghiệp đổi mới sáng tạo, khớp trọng tâm của Đề án 844.");
+        reasons.push("Căn cứ Quyết định 844/QĐ-TTg & Thông tư 45/2019/TT-BTC: Khớp trọng tâm hỗ trợ hệ sinh thái ĐMST.");
       }
 
       score = Math.max(0, Math.min(100, score));

@@ -9,20 +9,16 @@ import { DEFAULT_MODELS, generateJsonAnswer, type LlmConfig } from "@/lib/llmPro
 // during testing. Numbered, explicit anti-hallucination rules on purpose:
 // a vaguer "don't make things up" instruction is exactly what earlier,
 // looser prompts in this app relied on before being tightened.
-const SYSTEM_INSTRUCTION = `Bạn là trợ lý phân tích chính sách của GrantPilot, hoạt động như một lớp phân tích bổ sung phía TRÊN một công cụ chấm điểm rule-based đã chạy trước — công cụ đó, không phải bạn, quyết định điểm số/score.
+const SYSTEM_INSTRUCTION = `Bạn là trợ lý phân tích chính sách và pháp lý của GrantPilot, hoạt động dựa trên các Văn bản Quy phạm Pháp luật chính thức.
 
-Bạn nhận được: (1) hồ sơ doanh nghiệp, (2) kết quả chấm điểm rule-based cho từng chính sách (score/lý do/điểm cần rà soát).
+Nhiệm vụ: Dựa trên hồ sơ doanh nghiệp và kết quả đối chiếu tiêu chí pháp lý, đưa ra lời giải thích chuyên môn (2-4 câu) cho từng chính sách.
 
-Nhiệm vụ: với MỖI chính sách được cung cấp, viết đúng một đoạn phân tích ngắn (2-4 câu) bổ sung góc nhìn mà rule-based không diễn đạt được — ví dụ: hồ sơ ở sát ngưỡng phân loại (cần xác nhận lại số liệu), gợi ý thứ tự ưu tiên nếu nhiều chính sách cùng phù hợp, hoặc cảnh báo giả định còn thiếu dữ kiện.
-
-QUY TẮC BẮT BUỘC — vi phạm bất kỳ điều nào dưới đây đều không chấp nhận được:
-1. CHỈ được dùng dữ kiện có trong hồ sơ và kết quả chấm điểm đã cho. TUYỆT ĐỐI KHÔNG tự suy diễn, bịa thêm, hoặc dùng kiến thức chung của bạn để "biết trước" bất kỳ điều luật, điều khoản, số liệu, hạn mức hay điều kiện nào không có trong dữ liệu được cung cấp bên dưới — kể cả khi bạn tin điều đó là đúng.
-2. KHÔNG tự kết luận doanh nghiệp "chắc chắn đủ điều kiện" hay "chắc chắn không đủ điều kiện" nếu rule-based không kết luận rõ như vậy (match_level "Cần rà soát" nghĩa là chưa chắc chắn — phải giữ nguyên sắc thái đó, không tự tin quá mức).
-3. Nếu không có gì đáng bổ sung ngoài những gì rule-based đã nêu trong reasons/gaps, phải nói ngắn gọn là dữ liệu hiện tại đã đủ rõ — KHÔNG lặp lại nguyên văn reasons/gaps chỉ để "cho có nội dung".
-4. Nếu hồ sơ có dữ kiện ở ranh giới/mơ hồ (ví dụ năm thành lập gần ngưỡng ưu tiên, doanh thu sát mức phân loại DNNVV), phải nêu đây là điểm người dùng cần tự xác minh — không tự phán đoán thay người dùng.
-5. Không thay thế tư vấn pháp lý; nếu phân tích mang tính kết luận, nhắc người dùng đối chiếu văn bản gốc trước khi nộp hồ sơ thật.
-6. Văn phong: tiếng Việt, ngắn gọn, chuyên nghiệp, không markdown, không lặp lại nguyên văn tiêu đề chính sách.
-7. CHỈ trả về JSON hợp lệ đúng định dạng đã quy định, không kèm giải thích, không markdown. Định dạng:
+QUY TẮC BẮT BUỘC:
+1. MỌI ĐÁNH GIÁ VÀ CẢNH BÁO PHẢI CĂN CỨ TRỰC TIẾP VÀO ĐIỀU KHOẢN VĂN BẢN PHÁP LUẬT VÀ CHÍNH SÁCH CHÍNH THỨC (Nghị định 80/2021/NĐ-CP, Nghị định 268/2025/NĐ-CP, Nghị định 39/2019/NĐ-CP, Quyết định 844/QĐ-TTg, Nghị quyết 15/2023/NQ-HĐND Hà Nội, Thông tư 21/2016/TT-BTC...).
+2. BẮT BUỘC ghi rõ căn cứ pháp lý (ví dụ: "Căn cứ Điều 5 Nghị định 80/2021/NĐ-CP...", "Căn cứ Điều 35 Nghị định 268/2025/NĐ-CP..."). TUYỆT ĐỐI KHÔNG đưa ra nhận định chung chung hoặc dùng quy tắc cảm tính ngoài văn bản luật.
+3. Không tự khẳng định 100% doanh nghiệp đủ/không đủ điều kiện; chỉ rõ điều khoản văn bản gốc mà doanh nghiệp cần đối chiếu trực tiếp trước khi nộp hồ sơ.
+4. Văn phong: tiếng Việt, ngắn gọn, chuẩn xác thuật ngữ pháp lý.
+5. CHỈ trả về JSON hợp lệ đúng định dạng:
 [{"policy_id": "...", "explanation": "..."}, ...]`;
 
 function buildPrompt(profile: Profile, matches: MatchResult[]) {
